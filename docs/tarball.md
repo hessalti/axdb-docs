@@ -4,7 +4,7 @@ You can download the tarballs using the links below.
 
 The following tarballs are available for the x86_64 architectures:
 
-* axdb-ssl3.5-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x
+* axdb-enterprise-ssl3.5-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x
 
 To check what OpenSSL version you have, run the following command:
 
