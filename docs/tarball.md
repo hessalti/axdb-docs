@@ -1,21 +1,10 @@
-# Install Percona Distribution for PostgreSQL from binary tarballs
+# Install AXDB from binary tarballs
 
 You can download the tarballs using the links below.
 
-!!! note
+The following tarballs are available for the x86_64 architectures:
 
-    Unlike package managers, a tarball installation does **not** provide mechanisms to ensure that all dependencies are resolved to the correct library versions. There is no built-in method to verify that required libraries are present or to prevent them from being removed. As a result, unresolved or broken dependencies may lead to errors, crashes, or even data corruption.
-    
-    For this reason, tarball installations are **not recommended** for environments where safety, security, reliability, or mission-critical stability are required.
-
-The following tarballs are available for the x86_64 and ARM64 architectures:
-
-* [percona-postgresql-{{dockertag}}-ssl1.1-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-18/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl1.1-linux-aarch64.tar.gz)  - for operating systems on ARM64 architecture that run OpenSSL version 1.x
-* [percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-18/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz)  - for operating systems on x86_64 architecture that run OpenSSL version 1.x
-* [percona-postgresql-{{dockertag}}-ssl3-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-18/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-aarch64.tar.gz) - for operating systems on ARM64 architecture that run OpenSSL version 3.1.x
-* [percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-18/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz) - for operating systems on x86_64 architecture that run OpenSSL version 3.1.x
-* [percona-postgresql-{{dockertag}}-ssl3.5-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-18/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3.5-linux-aarch64.tar.gz) - for operating systems on ARM64 architecture that run OpenSSL version 3.5.x
-* [percona-postgresql-{{dockertag}}-ssl3.5-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-18/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3.5-linux-x86_64.tar.gz) - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x
+* axdb-ssl3.5-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x
 
 To check what OpenSSL version you have, run the following command:
 
@@ -29,7 +18,7 @@ The tarballs include the following components:
 
 | Component | Description |
 |-----------|-------------|
-| percona-postgresql{{pgversion}}| The latest version of PostgreSQL server and the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> - `postGIS` <br> -  the set of [contrib extensions](contrib.md)|
+| axdb{{pgversion}}| The latest version of PostgreSQL server and the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> - `postGIS` <br> -  the set of [contrib extensions](contrib.md)|
 | percona-haproxy | A high-availability solution and load-balancing solution |
 | percona-patroni | A high-availability solution for PostgreSQL |
 | percona-pgbackrest| A backup and restore tool |
@@ -96,28 +85,22 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
 
 1. Create the directory where you will store the binaries. For example, `/opt/pgdistro`
 
-2. Grant access to this directory for the `mypguser` user.
+2. Fetch the binary tarball.
 
     ```{.bash data-prompt="$"}
-    $ sudo chown mypguser:mypguser /opt/pgdistro/
+    $ wget https://downloads.altibase.com/downloads/postgresql-distribution-{{pgversion}}/{{dockertag}}/binary/tarball/axdb-{{dockertag}}-ssl3-linux-x86_64.tar.gz
     ```
 
-3. Fetch the binary tarball.
+3. Extract the tarball to the directory for binaries that you created on step 1.
 
     ```{.bash data-prompt="$"}
-    $ wget https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz
+    $ sudo tar -xvf axdb-{{dockertag}}-ssl3-linux-x86_64.tar.gz -C /opt/pgdistro/
     ```
 
-4. Extract the tarball to the directory for binaries that you created on step 1.
+5. Copy `percona-python3`, `percona-tcl` and `percona-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules.
 
     ```{.bash data-prompt="$"}
-    $ sudo tar -xvf percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz -C /opt/pgdistro/
-    ```
-
-5. If you extracted the tarball in a directory other than `/opt`, copy `percona-python3`, `percona-tcl` and `percona-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules.
-
-    ```{.bash data-prompt="$"}
-    $ sudo cp <path_to>/percona-perl <path_to>/percona-python3 <path_to>/percona-tcl /opt/
+    $ sudo cp -r /opt/percona-perl /opt/percona-python3 /opt/percona-tcl /opt/
     ```
 
 6. Add the location of the binaries to the PATH variable:
@@ -127,9 +110,13 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
     ```
 
 6. Create the data directory for PostgreSQL server. For example, `/usr/local/pgsql/data`.
-7. Grant access to this directory for the `mypguser` user.
+7. Grant access to these directory for the `mypguser` user.
 
     ```{.bash data-prompt="$"}
+    $ sudo chown -R mypguser:mypguser /opt/axdb/
+    $ sudo chown -R mypguser:mypguser /opt/axdb-perl/
+    $ sudo chown -R mypguser:mypguser /opt/axdb-python3/
+    $ sudo chown -R mypguser:mypguser /opt/axdb-tcl/
     $ sudo chown mypguser:mypguser /usr/local/pgsql/data
     ```
 
@@ -142,7 +129,7 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
 9. Initiate the PostgreSQL data directory:
 
     ```{.bash data-prompt="$"}
-    $ /opt/pgdistro/percona-postgresql{{pgversion}}/bin/initdb -D /usr/local/pgsql/data
+    $ /opt/pgdistro/axdb{{pgversion}}/bin/initdb -D /usr/local/pgsql/data
     ```
 
     ??? example "Sample output"
@@ -150,13 +137,13 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
         ```{.text .no-copy}
         Success. You can now start the database server using:
 
-        /opt/pgdistro/percona-postgresql{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+        /opt/pgdistro/axdb{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
         ```
 
 10. Start the PostgreSQL server:
 
     ```{.bash data-prompt="$"}
-    $ /opt/pgdistro/percona-postgresql{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+    $ /opt/pgdistro/axdb{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
     ```
 
     ??? example "Sample output"
@@ -169,13 +156,13 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
 9. Connect to `psql`
 
     ```{.bash data-prompt="$"}
-    $ /opt/pgdistro/percona-postgresql{{pgversion}}/bin/psql -d postgres
+    $ /opt/pgdistro/axdb{{pgversion}}/bin/psql -d postgres
     ```
 
     ??? example "Sample output"
 
         ```{.text .no-copy}
-        psql ({{pspgversion}} (Percona Server for PostgreSQL), server {{pspgversion}} (Percona Server for PostgreSQL))
+        psql ({{pspgversion}} (AXDB), server {{pspgversion}} (AXDB))
         Type "help" for help.
 
         postgres=#
@@ -188,7 +175,7 @@ After you unpacked the tarball and added the location of the components' binarie
 For example, to check HAProxy version, type:
 
 ```{.bash data-prompt="$"}
-$ haproxy version
+$ haproxy -v
 ```
 
 Some components require additional setup. Check the [Enabling extensions](enable-extensions.md) page for details.
