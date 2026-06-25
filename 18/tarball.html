@@ -129,7 +129,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-percona-distribution-for-postgresql-from-binary-tarballs" class="md-skip">
+        <a href="#install-axdb-from-binary-tarballs" class="md-skip">
           Skip to content
         </a>
       
@@ -3337,21 +3337,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="install-percona-distribution-for-postgresql-from-binary-tarballs">Install Percona Distribution for PostgreSQL from binary tarballs<a class="headerlink" href="#install-percona-distribution-for-postgresql-from-binary-tarballs" title="Permanent link">&para;</a></h1>
+<h1 id="install-axdb-from-binary-tarballs">Install AXDB from binary tarballs<a class="headerlink" href="#install-axdb-from-binary-tarballs" title="Permanent link">&para;</a></h1>
 <p>You can download the tarballs using the links below.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Unlike package managers, a tarball installation does <strong>not</strong> provide mechanisms to ensure that all dependencies are resolved to the correct library versions. There is no built-in method to verify that required libraries are present or to prevent them from being removed. As a result, unresolved or broken dependencies may lead to errors, crashes, or even data corruption.</p>
-<p>For this reason, tarball installations are <strong>not recommended</strong> for environments where safety, security, reliability, or mission-critical stability are required.</p>
-</div>
-<p>The following tarballs are available for the x86_64 and ARM64 architectures:</p>
+<p>The following tarballs are available for the x86_64 architectures:</p>
 <ul>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/percona-postgresql-18.4-ssl1.1-linux-aarch64.tar.gz">percona-postgresql-18.4-ssl1.1-linux-aarch64.tar.gz</a>  - for operating systems on ARM64 architecture that run OpenSSL version 1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/percona-postgresql-18.4-ssl1.1-linux-x86_64.tar.gz">percona-postgresql-18.4-ssl1.1-linux-x86_64.tar.gz</a>  - for operating systems on x86_64 architecture that run OpenSSL version 1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/percona-postgresql-18.4-ssl3-linux-aarch64.tar.gz">percona-postgresql-18.4-ssl3-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/percona-postgresql-18.4-ssl3-linux-x86_64.tar.gz">percona-postgresql-18.4-ssl3-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/percona-postgresql-18.4-ssl3.5-linux-aarch64.tar.gz">percona-postgresql-18.4-ssl3.5-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.5.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/percona-postgresql-18.4-ssl3.5-linux-x86_64.tar.gz">percona-postgresql-18.4-ssl3.5-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x</li>
+<li>axdb-ssl3.5-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x</li>
 </ul>
 <p>To check what OpenSSL version you have, run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
@@ -3367,7 +3357,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </thead>
 <tbody>
 <tr>
-<td>percona-postgresql18</td>
+<td>axdb18</td>
 <td>The latest version of PostgreSQL server and the following extensions: <br> - <code>pgaudit</code> <br> - <code>pgAudit_set_user</code> <br> - <code>pg_repack</code> <br> - <code>pg_stat_monitor</code> <br> - <code>pg_gather</code> <br> - <code>wal2json</code> <br> - <code>postGIS</code> <br> -  the set of <a href="contrib.html">contrib extensions</a></td>
 </tr>
 <tr>
@@ -3456,23 +3446,18 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Create the directory where you will store the binaries. For example, <code>/opt/pgdistro</code></p>
 </li>
 <li>
-<p>Grant access to this directory for the <code>mypguser</code> user.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mypguser:mypguser<span class="w"> </span>/opt/pgdistro/
-</code></pre></div>
-</li>
-<li>
 <p>Fetch the binary tarball.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/percona-postgresql-18.4-ssl3-linux-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.altibase.com/downloads/postgresql-distribution-18/18.4/binary/tarball/axdb-18.4-ssl3-linux-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarball to the directory for binaries that you created on step 1.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>percona-postgresql-18.4-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>axdb-18.4-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
 </code></pre></div>
 </li>
 <li>
-<p>If you extracted the tarball in a directory other than <code>/opt</code>, copy <code>percona-python3</code>, <code>percona-tcl</code> and <code>percona-perl</code> to the <code>/opt</code> directory. This is required for the correct run of libraries that require those modules.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>&lt;path_to&gt;/percona-perl<span class="w"> </span>&lt;path_to&gt;/percona-python3<span class="w"> </span>&lt;path_to&gt;/percona-tcl<span class="w"> </span>/opt/
+<p>Copy <code>percona-python3</code>, <code>percona-tcl</code> and <code>percona-perl</code> to the <code>/opt</code> directory. This is required for the correct run of libraries that require those modules.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/opt/percona-perl<span class="w"> </span>/opt/percona-python3<span class="w"> </span>/opt/percona-tcl<span class="w"> </span>/opt/
 </code></pre></div>
 </li>
 <li>
@@ -3484,8 +3469,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Create the data directory for PostgreSQL server. For example, <code>/usr/local/pgsql/data</code>.</p>
 </li>
 <li>
-<p>Grant access to this directory for the <code>mypguser</code> user.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mypguser:mypguser<span class="w"> </span>/usr/local/pgsql/data
+<p>Grant access to these directory for the <code>mypguser</code> user.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mypguser:mypguser<span class="w"> </span>/opt/axdb/
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mypguser:mypguser<span class="w"> </span>/opt/axdb-perl/
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mypguser:mypguser<span class="w"> </span>/opt/axdb-python3/
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mypguser:mypguser<span class="w"> </span>/opt/axdb-tcl/
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mypguser:mypguser<span class="w"> </span>/usr/local/pgsql/data
 </code></pre></div>
 </li>
 <li>
@@ -3495,19 +3484,19 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Initiate the PostgreSQL data directory:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql18/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/axdb18/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Success. You can now start the database server using:
 
-/opt/pgdistro/percona-postgresql18/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+/opt/pgdistro/axdb18/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
 </code></pre></div>
 </details>
 </li>
 <li>
 <p>Start the PostgreSQL server:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql18/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/axdb18/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -3518,11 +3507,11 @@ server started
 </li>
 <li>
 <p>Connect to <code>psql</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql18/bin/psql<span class="w"> </span>-d<span class="w"> </span>postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/axdb18/bin/psql<span class="w"> </span>-d<span class="w"> </span>postgres
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (18.4.1 (Percona Server for PostgreSQL), server 18.4.1 (Percona Server for PostgreSQL))
+<div class="no-copy highlight"><pre><span></span><code>psql (18.4.1 (AXDB), server 18.4.1 (AXDB))
 Type &quot;help&quot; for help.
 
 postgres=#
@@ -3533,7 +3522,7 @@ postgres=#
 <h3 id="start-the-components">Start the components<a class="headerlink" href="#start-the-components" title="Permanent link">&para;</a></h3>
 <p>After you unpacked the tarball and added the location of the components&rsquo; binaries to the <code>$PATH</code> variable, the components are available for use. You can invoke a component by running its command-line tool.</p>
 <p>For example, to check HAProxy version, type:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>haproxy<span class="w"> </span>version
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>haproxy<span class="w"> </span>-v
 </code></pre></div>
 <p>Some components require additional setup. Check the <a href="enable-extensions.html">Enabling extensions</a> page for details.</p>
 
@@ -3558,7 +3547,7 @@ postgres=#
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 27, 2025 21:51:24 UTC">November 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 25, 2026 04:12:54 UTC">June 25, 2026</span>
   </span>
 
     
