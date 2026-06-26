@@ -1,6 +1,6 @@
 # Patroni setup
 
-## Install Percona Distribution for PostgreSQL and Patroni
+## Install AXDB and Patroni
 
 Run the following commands as root or with `sudo` privileges on `node1`, `node2` and `node3`.
 
@@ -8,7 +8,7 @@ Run the following commands as root or with `sudo` privileges on `node1`, `node2`
 
     1. Disable the upstream `postgresql-{{pgversion}}` package.
 
-    2. Install Percona Distribution for PostgreSQL package
+    2. Install AXDB package
 
         ```{.bash data-prompt="$"}
         $ sudo apt install percona-postgresql-{{pgversion}}
@@ -42,7 +42,7 @@ Run the following commands as root or with `sudo` privileges on `node1`, `node2`
 
 === ":material-redhat: On RHEL and derivatives"
 
-    1. Install Percona Distribution for PostgreSQL package
+    1. Install AXDB package
 
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-postgresql{{pgversion}}-server

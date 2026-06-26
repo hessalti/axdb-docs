@@ -1,6 +1,6 @@
 # Documentation contributing guide
 
-This guide explains how to contribute to the Percona Distribution for PostgreSQL documentation.
+This guide explains how to contribute to the AXDB documentation.
 
 We welcome contributors from all users and the community. By contributing, you agree to the [Percona Community code of conduct](https://github.com/percona/community/blob/main/content/contribute/coc.md).
 

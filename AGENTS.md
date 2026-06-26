@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository contains the source for Percona Distribution for PostgreSQL documentation. The main content lives in `docs/` as Markdown files, with nested topic groups such as `docs/docker/`, `docs/solutions/`, and `docs/release-notes/`. Reusable Markdown fragments are stored in `snippets/`. MkDocs configuration is split across `mkdocs.yml`, `mkdocs-base.yml`, and `mkdocs-pdf.yml`. Theme overrides and PDF-specific templates live in `_resource/` and `_resourcepdf/`; CSS, JavaScript, fonts, and PDF templates are under `docs/css/`, `docs/js/`, `docs/fonts/`, and `docs/templates/`.
+This repository contains the source for AXDB documentation. The main content lives in `docs/` as Markdown files, with nested topic groups such as `docs/docker/`, `docs/solutions/`, and `docs/release-notes/`. Reusable Markdown fragments are stored in `snippets/`. MkDocs configuration is split across `mkdocs.yml`, `mkdocs-base.yml`, and `mkdocs-pdf.yml`. Theme overrides and PDF-specific templates live in `_resource/` and `_resourcepdf/`; CSS, JavaScript, fonts, and PDF templates are under `docs/css/`, `docs/js/`, `docs/fonts/`, and `docs/templates/`.
 
 ## Build, Test, and Development Commands
 

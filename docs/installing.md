@@ -1,8 +1,8 @@
 # Installation overview
 
-Percona Distribution for PostgreSQL packages PostgreSQL together with a curated set of open source extensions and tools that are tested to work together reliably.
+AXDB packages PostgreSQL together with a curated set of open source extensions and tools that are tested to work together reliably.
 
-This section explains how to install Percona Distribution for PostgreSQL on supported platforms.
+This section explains how to install AXDB on supported platforms.
 
 Choose the installation method that best fits your environment:
 
@@ -24,7 +24,7 @@ Choose the installation method that best fits your environment:
 
 === ":simple-docker: Docker"
 
-    Run Percona Distribution for PostgreSQL in a Docker container for quick evaluation or development.
+    Run AXDB in a Docker container for quick evaluation or development.
 
     Check below to get access to a detailed step-by-step guide.
     

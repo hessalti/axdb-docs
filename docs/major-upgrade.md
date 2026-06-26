@@ -1,6 +1,6 @@
-# Upgrading Percona Distribution for PostgreSQL from 17 to 18
+# Upgrading AXDB from 17 to 18
 
-This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the `pg_upgrade` tool.
+This document describes the in-place upgrade of AXDB using the `pg_upgrade` tool.
 
 To ensure a smooth upgrade path, follow these steps:
 
@@ -10,7 +10,7 @@ To ensure a smooth upgrade path, follow these steps:
 !!! note
     When running a major upgrade on **RHEL 8 and compatible derivatives**, consider the following:
 
-    Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.
+    AXDB 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.
 
 !!! warning
     When doing a major version upgrade, if your cluster uses `pg_tde`, you **must** use [`pg_tde_upgrade` :octicons-link-external-16:](https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html) instead of `pg_upgrade`. Using `pg_upgrade` on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.
@@ -21,21 +21,21 @@ The in-place upgrade means installing a new version without removing the old ver
 
     [`pg_upgrade` Documentation :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/pgupgrade.html)
 
-Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.
+Similar to installing, we recommend you to upgrade AXDB from Percona repositories.
 
 !!! important
 
     A major upgrade is a risky process because of many changes between versions and issues that might occur during or after the upgrade. Therefore, make sure to back up your data first. The backup tools are out of scope of this document. Use the backup tool of your choice.
 
-The general in-place upgrade flow for Percona Distribution for PostgreSQL is the following:
+The general in-place upgrade flow for AXDB is the following:
 
-1. Install new version of Percona Distribution for PostgreSQL packages.
+1. Install new version of AXDB packages.
 
 2. Stop the PostgreSQL service.
 
 3. Check the upgrade without modifying the data.
 
-4. Upgrade Percona Distribution for PostgreSQL.
+4. Upgrade AXDB.
 
 5. Start PostgreSQL service.
 
@@ -56,7 +56,7 @@ The exact steps may differ depending on the package manager of your operating sy
 Run **all** commands as root or via **sudo**:
 {.power-number}
 
-1. Install Percona Distribution for PostgreSQL 18 packages.
+1. Install AXDB 18 packages.
 
     !!! note
         When installing version 18, if prompted via a pop-up to upgrade to the latest available version, select **No**.
@@ -69,7 +69,7 @@ Run **all** commands as root or via **sudo**:
       $ sudo percona-release setup ppg-18
       ```
 
-    * Install Percona Distribution for PostgreSQL 18 package
+    * Install AXDB 18 package
 
       ```{.bash data-prompt="$"}
       $ sudo apt install percona-postgresql-18
@@ -81,7 +81,7 @@ Run **all** commands as root or via **sudo**:
     $ sudo systemctl stop postgresql.service
     ```
 
-    This stops both Percona Distribution for PostgreSQL 17 and 18.
+    This stops both AXDB 17 and 18.
 
 3. Run the database upgrade.
 
@@ -91,7 +91,7 @@ Run **all** commands as root or via **sudo**:
     $ sudo su postgres
     ```
 
-    * Check if you can upgrade Percona Distribution for PostgreSQL from 17 to 18
+    * Check if you can upgrade AXDB from 17 to 18
 
     ```{.bash data-prompt="$"}
     $ pg_upgradecluster 17 main --check
@@ -100,7 +100,7 @@ Run **all** commands as root or via **sudo**:
 
     The `--check` flag here instructs `pg_upgrade` to only check the upgrade without changing any data.
 
-    * Upgrade the Percona Distribution for PostgreSQL
+    * Upgrade the AXDB
 
     ```{.bash data-prompt="$"}
     $ pg_upgradecluster 17 main
@@ -225,7 +225,7 @@ Run **all** commands as root or via **sudo**:
 Run **all** commands as root or via **sudo**:
 {.power-number}
 
-1. Install Percona Distribution for PostgreSQL 18 packages
+1. Install AXDB 18 packages
 
     * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
 
@@ -235,13 +235,13 @@ Run **all** commands as root or via **sudo**:
        $ sudo percona-release setup ppg-{{pgversion}}
        ```
 
-    * Install Percona Distribution for PostgreSQL {{pgversion}}:
+    * Install AXDB {{pgversion}}:
 
        ```{.bash data-prompt="$"}
        $ sudo yum install percona-postgresql{{pgversion}}-server
        ```
 
-2. Set up Percona Distribution for PostgreSQL {{pgversion}} cluster
+2. Set up AXDB {{pgversion}} cluster
 
    * Log is as the postgres user
 
@@ -276,7 +276,7 @@ Run **all** commands as root or via **sudo**:
        $ sudo su postgres
        ```
 
-    * Check the ability to upgrade Percona Distribution for PostgreSQL from 17 to 18:
+    * Check the ability to upgrade AXDB from 17 to 18:
 
        ```{.bash data-prompt="$"}
        $ /usr/pgsql-{{pgversion}}/bin/pg_upgrade \
@@ -309,7 +309,7 @@ Run **all** commands as root or via **sudo**:
        *Clusters are compatible*
        ```
 
-    * Upgrade the Percona Distribution for PostgreSQL
+    * Upgrade the AXDB
 
        ```{.bash data-prompt="$"}
        $ /usr/pgsql-{{pgversion}}/bin/pg_upgrade \
@@ -349,7 +349,7 @@ Run **all** commands as root or via **sudo**:
        $ /usr/pgsql-{{pgversion}}/bin/vacuumdb --all --analyze-in-stages
        ```
 
-8. Delete Percona Distribution for PostgreSQL 17 configuration files
+8. Delete AXDB 17 configuration files
 
     ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh

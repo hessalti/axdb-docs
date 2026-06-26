@@ -65,7 +65,6 @@ extra_css:
   - css/landing.css
   - css/postgresql.css
   - css/rating.css
-  # Removed css/percona.css as requested
 
 extra_javascript:
   - js/version-select.js

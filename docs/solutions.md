@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL solutions
+# AXDB solutions
 
 Find the right solution to help you achieve your organization's goals, such as high availability, backup and disaster recovery, spatial data handling, authentication, and [data-at-rest encryption :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html).
 

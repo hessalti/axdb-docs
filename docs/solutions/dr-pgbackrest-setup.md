@@ -1,6 +1,6 @@
-# Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+# Deploying backup and disaster recovery solution in AXDB
 
-This document provides instructions of how to set up and test the backup and disaster recovery solution in Percona Distribution for PostgreSQL with `pgBackRest`. For technical overview and architecture description of this solution, refer to [Backup and disaster recovery in Percona Distribution for PostgreSQL](backup-recovery.md).
+This document provides instructions of how to set up and test the backup and disaster recovery solution in AXDB with `pgBackRest`. For technical overview and architecture description of this solution, refer to [Backup and disaster recovery in AXDB](backup-recovery.md).
 
 ## Deployment 
 
@@ -133,9 +133,9 @@ Before setting up passwordless SSH, ensure that the _postgres_ user in all three
 7. Repeat the SSH connection from `pg-repo` to `pg-primary` to ensure that passwordless SSH is working. 
 8. Set up bidirectional passwordless SSH between `pg-repo` and `pg-secondary` using the same method. This will allow `pg-repo` to recover the backups to `pg-secondary`. 
 
-### Install Percona Distribution for PostgreSQL
+### Install AXDB
 
-Install Percona Distribution for PostgreSQL in the primary and the secondary nodes from Percona repository. 
+Install AXDB in the primary and the secondary nodes from Percona repository. 
 
 1. [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
 2. Enable the repository:
@@ -144,7 +144,7 @@ Install Percona Distribution for PostgreSQL in the primary and the secondary nod
     $ sudo percona-release setup ppg{{pgversion}}
     ```
 
-3. Install Percona Distribution for PostgreSQL packages
+3. Install AXDB packages
 
     === ":material-debian: On Debian and Ubuntu"
 

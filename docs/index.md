@@ -1,16 +1,16 @@
-# Percona Distribution for PostgreSQL 18 Documentation
+# AXDB 18 Documentation
 
-Percona Distribution for PostgreSQL is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL.
+AXDB is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL.
 
-Percona Distribution for PostgreSQL includes [Percona Server for PostgreSQL](postgresql-server.md) packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster's peak performance.
+AXDB includes [Percona Server for PostgreSQL](postgresql-server.md) packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster's peak performance.
 
 Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestrate the cluster reliably and repeatably in Kubernetes.
 
-[What's included in Percona Distribution for PostgreSQL? :material-arrow-right:](extensions.md){.md-button}
+[What's included in AXDB? :material-arrow-right:](extensions.md){.md-button}
 
 ## What’s in it for you?
 
-- No vendor lock in - all components of Percona Distribution for PostgreSQL are fully open source
+- No vendor lock in - all components of AXDB are fully open source
 - No guesswork on finding the right version of a component – they all undergo thorough testing to ensure compatibility
 - Freely available reference architectures for solutions like high-availability, backups and disaster recovery
 - Spatial data handling support via PostGIS

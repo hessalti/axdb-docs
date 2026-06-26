@@ -1,6 +1,6 @@
-# Enable Percona Distribution for PostgreSQL components
+# Enable AXDB components
 
-Some components require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per component.
+Some components require additional configuration before using them with AXDB. This sections provides configuration instructions per component.
 
 ## Patroni
 
@@ -10,7 +10,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 - Patroni installed on every ``postresql`` node. 
 
-- Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though [etcd](https://etcd.io/) is the most popular one. It is available within Percona Distribution for PostgreSQL for all supported operating systems. 
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though [etcd](https://etcd.io/) is the most popular one. It is available within AXDB for all supported operating systems. 
   
 - [HAProxy :octicons-link-external-16:](http://www.haproxy.org/).
 

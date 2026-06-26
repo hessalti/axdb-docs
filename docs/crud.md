@@ -105,7 +105,7 @@ To delete the whole database, use the DROP DATABASE command:
 DROP DATABASE test;
 ```
 
-Congratulations! You have used basic create, read, update and delete (CRUD) operations to manipulate data in Percona Distribution for PostgreSQL. To deepen your knowledge, see the [data manipulation :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/dml.html) section in PostgreSQL documentation.
+Congratulations! You have used basic create, read, update and delete (CRUD) operations to manipulate data in AXDB. To deepen your knowledge, see the [data manipulation :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/dml.html) section in PostgreSQL documentation.
 
 ## Next steps
 

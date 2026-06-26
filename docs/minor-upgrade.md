@@ -1,20 +1,20 @@
-# Minor Upgrade of Percona Distribution for PostgreSQL
+# Minor Upgrade of AXDB
 
-Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your Percona Distribution for PostgreSQL updated to the latest minor version.
+Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your AXDB updated to the latest minor version.
 
 Though minor upgrades do not change the behavior, we recommend you to back up your data first, in order to be on the safe side.
 
 !!! note
 
-    These steps apply if you installed Percona Distribution for PostgreSQL from the Major Release repository. In this case, you are always upgraded to the latest available release.
+    These steps apply if you installed AXDB from the Major Release repository. In this case, you are always upgraded to the latest available release.
 
-    If you installed Percona Distribution for PostgreSQL from the Minor Release repository, you will need to enable a new version repository to upgrade.
+    If you installed AXDB from the Minor Release repository, you will need to enable a new version repository to upgrade.
 
-    For more information about Percona repositories, refer to [Installing Percona Distribution for PostgreSQL](installing.md).
+    For more information about Percona repositories, refer to [Installing AXDB](installing.md).
 
 ## Before you start
 
-1. [Update the `percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/updating.html) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL.
+1. [Update the `percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/updating.html) utility to the latest version. This is required to install the new version packages of AXDB.
 
 2. Starting with version 17.2.1, `pg_tde` is part of the Percona Server for PostgreSQL package. If you installed `pg_tde` from its dedicated package, do the following to avoid conflicts during the upgrade:
 
@@ -49,7 +49,7 @@ Run **all** commands as root or via **sudo**:
 
 2. [Update `percona-release` to the latest version](https://docs.percona.com/percona-software-repositories/updating.html).
 
-3. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md).
+3. Install new version packages. See [Installing AXDB](installing.md).
 
 4. Restart the `postgresql` service:
 
@@ -85,4 +85,4 @@ Run **all** commands as root or via **sudo**:
 
     To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
 
-If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 17 to 18](major-upgrade.md).
+If you wish to upgrade AXDB to the major version, refer to [Upgrading AXDB from 17 to 18](major-upgrade.md).

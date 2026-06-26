@@ -2,7 +2,7 @@
 
 Centralized authentication allows you to manage database access using external identity systems instead of local PostgreSQL users.
 
-Percona Distribution for PostgreSQL supports multiple authentication mechanisms that integrate with enterprise identity infrastructure.
+AXDB supports multiple authentication mechanisms that integrate with enterprise identity infrastructure.
 
 ## Available authentication methods
 

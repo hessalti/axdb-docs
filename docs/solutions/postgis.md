@@ -7,7 +7,7 @@ Organizations dealing with spatial data need to store it somewhere and manipulat
 
 To operate with spatial data inside SQL queries, PostGIS supports [spatial functions :octicons-link-external-16:](https://postgis.net/docs/reference.html#SRS_Functions) like distance, area, union, intersection. It uses the spatial indexes like [R-Tree :octicons-link-external-16:](https://en.wikipedia.org/wiki/R-tree) and [Quadtree :octicons-link-external-16:](https://en.wikipedia.org/wiki/Quadtree) for efficient processing of database operations. Read more about supported spatial functions and indexes in [PostGIS documentation :octicons-link-external-16:](https://postgis.net/workshops/postgis-intro/introduction.html). 
 
-By deploying PostGIS with Percona Distribution for PostgreSQL, you receive the open-source spatial database that you can use in various areas without vendor lock-in. 
+By deploying PostGIS with AXDB, you receive the open-source spatial database that you can use in various areas without vendor lock-in. 
 
 ## When to use PostGIS
 

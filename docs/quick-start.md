@@ -1,6 +1,6 @@
 # Quickstart guide
 
-This guide shows how to install and start Percona Distribution for PostgreSQL on Debian- and RHEL-based Linux systems. After completing this guide, you will have:
+This guide shows how to install and start AXDB on Debian- and RHEL-based Linux systems. After completing this guide, you will have:
 
 - PostgreSQL running locally
 - A database named `test`
@@ -74,15 +74,15 @@ For a step-by-step explanation, continue below.
      \q
      ```
 
-Congratulations! Percona Distribution for PostgreSQL is now running and you have created your first database.
+Congratulations! AXDB is now running and you have created your first database.
 
-For detailed installation steps and further instructions on Debian and Ubuntu, see the [Install Percona Distribution for PostgreSQL on Debian and Ubuntu](apt.md).
+For detailed installation steps and further instructions on Debian and Ubuntu, see the [Install AXDB on Debian and Ubuntu](apt.md).
 
-For detailed installation steps and further instructions on Red Hat Enterprise Linux and derivatives, see the [Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives](yum.md).
+For detailed installation steps and further instructions on Red Hat Enterprise Linux and derivatives, see the [Install AXDB on Red Hat Enterprise Linux and derivatives](yum.md).
 
 ## What's next
 
-Now that your PostgreSQL server is running, you can explore additional capabilities of Percona Distribution for PostgreSQL.
+Now that your PostgreSQL server is running, you can explore additional capabilities of AXDB.
 
 <div data-grid markdown><div data-banner markdown>
 
@@ -96,7 +96,7 @@ Connect with `psql` and run SQL commands, manage users, roles, and configure aut
 
 ### Enable extensions { .title }
 
-Percona Distribution for PostgreSQL includes tested open source extensions, such as `pg_stat_monitor` for query performance monitoring, `pg_tde` for protecting data at rest and more.
+AXDB includes tested open source extensions, such as `pg_stat_monitor` for query performance monitoring, `pg_tde` for protecting data at rest and more.
 
 [See Extensions :material-arrow-right:](extensions.md){ .md-button }
 

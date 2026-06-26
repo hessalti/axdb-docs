@@ -2,7 +2,7 @@
 
 INHERIT: mkdocs-base.yml
 
-site_url: "https://docs.percona.com/postgresql/"
+site_url: "https://hessalti.github.io/axdb-docs"
 
 theme:
   name: material
@@ -15,7 +15,7 @@ extra:
 
 nav:
   - 'Home': 'index.md'
-  - 'Percona Server for PostgreSQL': postgresql-server.md
+  - 'AXDB': postgresql-server.md
   - get-help.md
   - Quickstart guide: quick-start.md
   - Get started: 
@@ -37,7 +37,6 @@ nav:
   - Extensions:
       - 'Extensions': extensions.md
       - contrib.md
-      - Percona-authored extensions: percona-ext.md
       - third-party.md
   - Solutions:
       - Overview: solutions.md

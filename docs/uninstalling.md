@@ -1,20 +1,20 @@
-# Uninstalling Percona Distribution for PostgreSQL
+# Uninstalling AXDB
 
-To uninstall Percona Distribution for PostgreSQL, remove all the installed packages and data / configuration files.
+To uninstall AXDB, remove all the installed packages and data / configuration files.
 
 !!! note
-     Should you need the data files later, back up your data before uninstalling Percona Distribution for PostgreSQL.
+     Should you need the data files later, back up your data before uninstalling AXDB.
 
 === ":material-debian: On Debian and Ubuntu using `apt`"
 
-     To uninstall Percona Distribution for PostgreSQL on platforms that use **apt** package manager such as Debian
+     To uninstall AXDB on platforms that use **apt** package manager such as Debian
      or Ubuntu, complete the following steps.
 
      Run all commands as root or via **sudo**.
      {.power-number}
 
 
-     1. Stop the Percona Distribution for PostgreSQL service.
+     1. Stop the AXDB service.
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
@@ -35,14 +35,14 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
 
 === ":material-redhat: On Red Hat Enterprise Linux and derivatives using `yum`"
 
-     To uninstall Percona Distribution for PostgreSQL on platforms that use **yum** package manager such as
+     To uninstall AXDB on platforms that use **yum** package manager such as
      Red Hat Enterprise Linux or CentOS, complete the following steps.
 
      Run all commands as root or via **sudo**.
      {.power-number}
 
 
-     1. Stop the Percona Distribution for PostgreSQL service.
+     1. Stop the AXDB service.
         
          ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql-{{pgversion}}
@@ -64,7 +64,7 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
 
 ## Uninstall from tarballs
 
-If you [installed Percona Distribution for PostgreSQL from binary tarballs](tarball.md), stop the PostgreSQL server and remove the folder with the binary tarballs.
+If you [installed AXDB from binary tarballs](tarball.md), stop the PostgreSQL server and remove the folder with the binary tarballs.
 
 1. Stop the `postgres` server:
 

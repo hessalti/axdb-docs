@@ -1,6 +1,6 @@
 # PostgreSQL contrib modules and utilities
 
-This list mirrors PostgreSQL contrib modules shipped with Percona Distribution for PostgreSQL.
+This list mirrors PostgreSQL contrib modules shipped with AXDB.
 
 | Name | Superuser required | Description |
 | --------- | -------------------- | ------------- |

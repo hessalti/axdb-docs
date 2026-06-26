@@ -1,6 +1,6 @@
 # Enable `pg_tde` for securing data at rest
 
-Percona Distribution for PostgreSQL Docker image includes the `pg_tde` extension to provide data encryption.
+AXDB Docker image includes the `pg_tde` extension to provide data encryption.
 
 For more information, see the [pg_tde documentation :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html).
 

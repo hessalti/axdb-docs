@@ -1,10 +1,10 @@
-# Percona Distribution for PostgreSQL documentation
+# AXDB documentation
 
-Welcome to Percona Distribution for PostgreSQL documentation!
+Welcome to AXDB documentation!
 
 ## Overview
 
-Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL database system. It includes Percona Server for PostgreSQL and a selection of extensions that enable solving essential practical tasks efficiently.
+AXDB is a collection of tools to assist you in managing your PostgreSQL database system. It includes Percona Server for PostgreSQL and a selection of extensions that enable solving essential practical tasks efficiently.
 
 Percona Server for PostgreSQL is an open source binary-compatible drop-in replacement for PostgreSQL Community. Percona Server for PostgreSQL introduces additional features to the upstream server, including:
 
@@ -13,7 +13,7 @@ Percona Server for PostgreSQL is an open source binary-compatible drop-in replac
 
 Percona Server and upstream PostgreSQL function identically enabling you to migrate from one to another. 
 
-This repository contains the source files for [Percona Distribution for PostgreSQL documentation](https://www.percona.com/doc/postgresql/18/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/) markup language and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/).
+This repository contains the source files for [AXDB documentation](https://www.percona.com/doc/postgresql/18/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/) markup language and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/).
 
 ## Contributing
 
@@ -23,4 +23,4 @@ For how to contribute to documentation, read the [Contributing guide ](https://g
 
 ## License
 
-Percona Distribution for PostgreSQL documentation is licensed under the [PostgreSQL license ](https://opensource.org/licenses/postgresql).
+AXDB documentation is licensed under the [PostgreSQL license ](https://opensource.org/licenses/postgresql).

@@ -1,4 +1,4 @@
-# Backup and disaster recovery in Percona Distribution for PostgreSQL
+# Backup and disaster recovery in AXDB
 
 !!! summary
 
@@ -11,7 +11,7 @@
 
 A Disaster Recovery (DR) solution ensures that a system can be quickly restored to a normal operational state if something unexpected happens. When operating a database, you would back up the data as frequently as possible and have a mechanism to restore that data when needed. Disaster Recovery is often mistaken for high availability (HA), but they are two different concepts altogether:
 
-- High availability ensures guaranteed service levels at all times. This solution involves configuring one or more standby systems to an active database, and the ability to switch seamlessly to that standby when the primary database becomes unavailable, for example, during a power outage or a server crash. To learn more about high-availability solutions with Percona Distribution for PostgreSQL, refer to [High Availability in PostgreSQL with Patroni](high-availability.md).
+- High availability ensures guaranteed service levels at all times. This solution involves configuring one or more standby systems to an active database, and the ability to switch seamlessly to that standby when the primary database becomes unavailable, for example, during a power outage or a server crash. To learn more about high-availability solutions with AXDB, refer to [High Availability in PostgreSQL with Patroni](high-availability.md).
 - Disaster Recovery protects the database instance against accidental or malicious data loss or data corruption. Disaster recovery can be achieved by using either the options provided by PostgreSQL, or external extensions.
 
 <br>
@@ -46,9 +46,9 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
     | 1. Supports backups when the database is running.<br>2. Supports point-in-time recovery | 1. No incremental backups.<br>2. No backup of individual databases or tables.|    
 <br>
 
-To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. Percona Distribution for PostgreSQL is supplied with [pgBackRest](#pgbackrest): a reliable, open-source backup and recovery solution for PostgreSQL.
+To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. AXDB is supplied with [pgBackRest](#pgbackrest): a reliable, open-source backup and recovery solution for PostgreSQL.
 
-This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](dr-pgbackrest-setup.md) tutorial provides guidelines of how to set up and test this solution.
+This document focuses on the Disaster recovery solution in AXDB. The [Deploying backup and disaster recovery solution in AXDB](dr-pgbackrest-setup.md) tutorial provides guidelines of how to set up and test this solution.
 
 ### pgBackRest
 
@@ -68,7 +68,7 @@ Finally, `pgBackRest` also supports restoring PostgreSQL databases to a differen
 
 ## Setup overview
 
-This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](dr-pgbackrest-setup.md).
+This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the [Deploying backup and disaster recovery solution in AXDB](dr-pgbackrest-setup.md).
 
 ### System architecture
 
@@ -96,4 +96,4 @@ The architecture consists of three server instances:
 
 ### Deployment
 
-Refer to the [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](dr-pgbackrest-setup.md) tutorial.  
+Refer to the [Deploying backup and disaster recovery solution in AXDB](dr-pgbackrest-setup.md) tutorial.  

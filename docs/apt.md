@@ -1,4 +1,4 @@
-# Install Percona Distribution for PostgreSQL on Debian and Ubuntu
+# Install AXDB on Debian and Ubuntu
 
 This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. [Read more about Percona repositories](repo-overview.md).
 
@@ -6,9 +6,9 @@ This document describes how to install Percona Server for PostgreSQL from Percon
 
 Debian and other systems that use the `apt` package manager include the upstream PostgreSQL server package `postgresql-{{pgversion}}` by default.
 
-The components of Percona Distribution for PostgreSQL {{pgversion}} can only be installed together with Percona Server for PostgreSQL (`percona-postgresql-{{pgversion}}`).
+The components of AXDB {{pgversion}} can only be installed together with Percona Server for PostgreSQL (`percona-postgresql-{{pgversion}}`).
 
-If you wish to use Percona Distribution for PostgreSQL, uninstall the `postgresql-{{pgversion}}` package provided by your distribution and then install the chosen components from Percona Distribution for PostgreSQL.
+If you wish to use AXDB, uninstall the `postgresql-{{pgversion}}` package provided by your distribution and then install the chosen components from AXDB.
 
 ## Procedure
 
@@ -38,7 +38,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 2. Enable the repository
 
-   Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
+   Percona provides [two repositories](repo-overview.md) for AXDB. We recommend enabling the Major release repository to timely receive the latest updates. 
 
    ```{.bash data-prompt="$"}
    $ sudo percona-release setup ppg-{{pgversion}}
@@ -137,7 +137,7 @@ To install the packages individually, run the following commands:
     $ sudo apt install percona-postgresql-{{pgversion}}-pgvector
     ```
 
-    Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
+    Some extensions require additional setup in order to use them with AXDB. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
 
@@ -147,7 +147,7 @@ The installation process automatically initializes and starts the default databa
 $ sudo systemctl status postgresql.service
 ```
 
-Check the Percona Distribution for PostgreSQL version:
+Check the AXDB version:
 
 ```{.bash data-prompt="$"}
 $ psql --version
@@ -159,7 +159,7 @@ $ psql --version
     psql (PostgreSQL) {{pspgversion}} (Percona Server for PostgreSQL) {{pspgversion}}
     ```
 
-Congratulations! Your Percona Distribution for PostgreSQL is up and running.
+Congratulations! Your AXDB is up and running.
 
 ## Next steps
 

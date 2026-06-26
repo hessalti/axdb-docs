@@ -14,7 +14,7 @@ The following document provides guidelines how to install PostGIS and how to run
 
     1. Enable Percona repository
 
-        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
+        As other components of AXDB, PostGIS is available from Percona repositories. Use the [`percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
         ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg{{pgversion}}
@@ -47,7 +47,7 @@ The following document provides guidelines how to install PostGIS and how to run
 
     2. Enable Percona repository    
 
-        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository.     
+        As other components of AXDB, PostGIS is available from Percona repositories. Use the [`percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository.     
 
         ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg{{pgversion}}

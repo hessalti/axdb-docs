@@ -1,6 +1,6 @@
-# Run Percona Distribution for PostgreSQL in a Docker container
+# Run AXDB in a Docker container
 
-Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/).
+Docker images of AXDB are hosted publicly on [Docker Hub :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/).
 
 For more information about using Docker, see the [Docker Docs :octicons-link-external-16:](https://docs.docker.com/).
 
@@ -12,7 +12,7 @@ For more information about using Docker, see the [Docker Docs :octicons-link-ext
 
 ## 1. Start the container { #start-container .power-number }
 
-Start a Percona Distribution for PostgreSQL container as follows:
+Start a AXDB container as follows:
 
 ```{.bash data-prompt="$"}
 docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql:{{dockertag}}
@@ -87,7 +87,7 @@ docker pull percona/percona-distribution-postgresql:{{pgversion}}
 
 ## 4. Docker image contents
 
-The Docker image of Percona Distribution for PostgreSQL includes the following components:
+The Docker image of AXDB includes the following components:
 
 | Component name                | Description                          |
 |-------------------------------|--------------------------------------|  
@@ -105,9 +105,9 @@ The Docker image of Percona Distribution for PostgreSQL includes the following c
 | `percona-pgvector`              |  A vector similarity search for PostgreSQL|
 | `percona-pg_tde`              |  An extension to provides data-at-rest encryption for PostgreSQL|
 
-## Connect to Percona Distribution for PostgreSQL from an application in another Docker container
+## Connect to AXDB from an application in another Docker container
 
-This image exposes the standard PostgreSQL port (`5432`), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:
+This image exposes the standard PostgreSQL port (`5432`), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the AXDB container:
 
 ```{.bash data-prompt="$"}
 docker run --name app-container-name --network container:container-name -d app-that-uses-postgresql 
@@ -116,10 +116,10 @@ docker run --name app-container-name --network container:container-name -d app-t
 where:
 
 * `app-container-name` is the name of the container where your application is running,
-* `container name` is the name of your Percona Distribution for PostgreSQL container, and
+* `container name` is the name of your AXDB container, and
 * `app-that-uses-postgresql` is the name of your PostgreSQL client.
 
-## Connect to Percona Distribution for PostgreSQL from the `psql` command line client
+## Connect to AXDB from the `psql` command line client
 
 The following command starts another container instance and runs the `psql` command line client against your original container, allowing you to execute SQL statements against your database:
 
@@ -136,7 +136,7 @@ where:
 
 ## Run the PostgreSQL with PostGIS image
 
-The `postgres-gis` image includes everything in the standard Percona Distribution for PostgreSQL image plus the [PostGIS :octicons-link-external-16:](https://postgis.net/) extension for storing and manipulating spatial data.
+The `postgres-gis` image includes everything in the standard AXDB image plus the [PostGIS :octicons-link-external-16:](https://postgis.net/) extension for storing and manipulating spatial data.
 
 !!! note
     PostGIS is licensed under [GNU GPLv2 :octicons-link-external-16:](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html). Review the license terms before using this image in your environment.
@@ -192,11 +192,11 @@ Where:
 * `pgbackrest.conf` is your pgBackRest configuration file, mounted into the container. It defines the connection to your PostgreSQL instance and your backup repository settings.
 * The image tag specifies the pgBackRest version. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-pgbackrest/tags/).
 
-For more information on configuring pgBackRest with Percona Distribution for PostgreSQL, see [Backup and disaster recovery](../solutions/backup-recovery.md).
+For more information on configuring pgBackRest with AXDB, see [Backup and disaster recovery](../solutions/backup-recovery.md).
 
 ## Run the UBI8-based image
 
-The UBI8 image is a variant of the standard Percona Distribution for PostgreSQL image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.
+The UBI8 image is a variant of the standard AXDB image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.
 
 UBI8 images use the same PostgreSQL version and components as the standard image and can be identified by the `-ubi8` suffix in their tags.
 

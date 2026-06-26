@@ -1,11 +1,11 @@
-# Migrate from PostgreSQL to Percona Distribution for PostgreSQL 
+# Migrate from PostgreSQL to AXDB 
 
 
-Percona Distribution for PostgreSQL includes the PostgreSQL database and additional extensions that have been selected to cover the needs of the enterprise and are guaranteed to work together. Percona Distribution for PostgreSQL is available as a software collection that is easy to deploy.
+AXDB includes the PostgreSQL database and additional extensions that have been selected to cover the needs of the enterprise and are guaranteed to work together. AXDB is available as a software collection that is easy to deploy.
 
-We encourage users to migrate from their PostgreSQL deployments based on community binaries to Percona Distribution for PostgreSQL. This document provides the migration instructions. 
+We encourage users to migrate from their PostgreSQL deployments based on community binaries to AXDB. This document provides the migration instructions. 
 
-Depending on your business requirements, you may migrate to Percona Distribution for PostgreSQL either [on the same server](#migrate-on-the-same-server) or [onto a different server](#migrate-on-a-different-server). 
+Depending on your business requirements, you may migrate to AXDB either [on the same server](#migrate-on-the-same-server) or [onto a different server](#migrate-on-a-different-server). 
 
 ## Migrate on the same server
 
@@ -35,7 +35,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
            $ sudo percona-release setup ppg{{pgversion}}
            ```
 
-      5. [Install Percona Distribution for PostgreSQL packages](apt.md)
+      5. [Install AXDB packages](apt.md)
       6. (Optional) Restore the data from the backup.
       7. Start the `postgresql` service. The installation process starts and initializes the default cluster automatically. You can check its status with: 
 
@@ -76,7 +76,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
            $ sudo percona-release setup ppg{{pgversion}}
            ```
 
-      5. [Install Percona Distribution for PostgreSQL packages](yum.md)
+      5. [Install AXDB packages](yum.md)
       6. (Optional) Restore the data from the backup.
       7. Start the `postgresql` service
 
@@ -87,9 +87,9 @@ Depending on your business requirements, you may migrate to Percona Distribution
 
 ## Migrate on a different server
 
-In this scenario, we will refer to the server with PostgreSQL Community as the "source" and to the server with Percona Distribution for PostgreSQL as the "target".
+In this scenario, we will refer to the server with PostgreSQL Community as the "source" and to the server with AXDB as the "target".
 
-To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a different server, do the following:
+To migrate from PostgreSQL Community to AXDB on a different server, do the following:
 
 **On the source server**:
 {.power-number}
@@ -121,7 +121,7 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
     $ sudo percona-release setup ppg{{pgversion}}
     ```
 
-3. [Install Percona Distribution for PostgreSQL packages](installing.md) on the target server.
+3. [Install AXDB packages](installing.md) on the target server.
 4. Restore the data from the backup
 5. Start `postgresql` service
 

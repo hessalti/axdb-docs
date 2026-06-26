@@ -1,15 +1,15 @@
-# Percona Distribution for PostgreSQL 18.3.1 ({{date.18_3_1}})
+# AXDB 18.3.1 ({{date.18_3_1}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.3](https://www.postgresql.org/docs/18/release-18-3.html).
+This release of AXDB is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.3](https://www.postgresql.org/docs/18/release-18-3.html).
 
 ## Release Highlights
 
 This release continues to deliver Percona’s open source value-add components for enterprise use cases, including `pg_stat_monitor` 2.3.2 for advanced query-level observability, `pg_tde` 2.1.2 for Transparent Data Encryption and more. See the full component list below for details.
 
 !!! note
-    To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
+    To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in [Upgrading AXDB](../major-upgrade.md).
 
 ### Tarball updates
 
@@ -30,7 +30,7 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - pg_oidc_validator: 1.0
 - ydiff: 1.4.2
 
-See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+See [Install AXDB from binary tarballs](../tarball.md) for the download links.
 
 ### Addressed CVEs
 
@@ -58,7 +58,7 @@ The md5 password authentication is deprecated now and will be removed in a futur
 
 Review each extension’s release notes for What’s new, improvements, or bug fixes.
 
-The following is the list of extensions available in Percona Distribution for PostgreSQL.
+The following is the list of extensions available in AXDB.
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
@@ -82,6 +82,6 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde)          | v2.1.2       | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest                                                                    |
 | [pg_oidc_validator](https://github.com/Percona-Lab/pg_oidc_validator) | 1.0 | OAuth validator library for PostgreSQL 18. |
 
-For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
+For Red Hat Enterprise Linux 8 and compatible derivatives, AXDB also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
-Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/18/libpq.html) library. It contains "a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries."
+AXDB is also shipped with the [libpq](https://www.postgresql.org/docs/18/libpq.html) library. It contains "a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries."

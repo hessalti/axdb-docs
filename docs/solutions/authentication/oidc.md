@@ -2,7 +2,7 @@
 
 [OpenID Connect :octicons-link-external-16:](https://openid.net/developers/how-connect-works/) (or OIDC) authentication allows you to authenticate using tokens issued by an external identity provider. Instead of managing database passwords, you can delegate authentication to centralized identity services.
 
-Percona Distribution for PostgreSQL integrates OIDC authentication using the `pg_oidc_validator` library, which validates OIDC tokens during client authentication.
+AXDB integrates OIDC authentication using the `pg_oidc_validator` library, which validates OIDC tokens during client authentication.
 
 The library is compatible with any identity provider that implements the OIDC standard.
 
