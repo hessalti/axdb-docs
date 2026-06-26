@@ -9,13 +9,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. Read more about Percona repositories.">
+        <meta name="description" content="This document describes how to install AXDB from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. Read more about Percona repositories.">
       
       
         <meta name="author" content="Altibase Corp.">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/yum.html">
+        <link rel="canonical" href="https://hessalti.github.io/axdb-docs/18/yum.html">
       
       
         <link rel="prev" href="apt.html">
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives" class="md-skip">
+        <a href="#install-axdb-on-red-hat-enterprise-linux-and-derivatives" class="md-skip">
           Skip to content
         </a>
       
@@ -435,7 +435,7 @@
   <span class="md-ellipsis">
     
   
-    Percona Server for PostgreSQL
+    AXDB
   
 
     
@@ -737,10 +737,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#for-percona-distribution-for-postgresql-packages" class="md-nav__link">
+  <a href="#for-axdb-packages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For Percona Distribution for PostgreSQL packages
+        For AXDB packages
       
     </span>
   </a>
@@ -1047,7 +1047,7 @@
   <span class="md-ellipsis">
     
   
-    Enable Percona Distribution for PostgreSQL components
+    Enable AXDB components
   
 
     
@@ -1306,34 +1306,6 @@
     
   
     PostgreSQL contrib modules and utilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="percona-ext.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Percona-authored extensions
   
 
     
@@ -2103,7 +2075,7 @@
   <span class="md-ellipsis">
     
   
-    Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+    Deploying backup and disaster recovery solution in AXDB
   
 
     
@@ -2527,7 +2499,7 @@
   <span class="md-ellipsis">
     
   
-    Minor Upgrade of Percona Distribution for PostgreSQL
+    Minor Upgrade of AXDB
   
 
     
@@ -2555,7 +2527,7 @@
   <span class="md-ellipsis">
     
   
-    Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+    Migrate from PostgreSQL to AXDB
   
 
     
@@ -3027,227 +2999,6 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <!-- Feedback Widget -->
-<div class="rating-widget" style="
-  background: var(--md-default-bg-color);
-  border: 0.05rem solid var(--md-default-fg-color--lightest);
-  padding: 10px 15px;
-  border-radius: 0.2rem;
-  margin-bottom: 16px;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-  font-size: 16px;
-  text-align: center;
-  transition: all 0.2s ease-out;
-">
-
-  <div class="rating-title" style="
-    margin-bottom: 4px;
-    font-size: 15px;
-    font-weight: bold;
-    /* Removed inline color to use CSS */
-  ">
-    Rate this page
-  </div>
-
-  <div class="rating-stars" style="display: inline-block;">
-    
-      <span class="star" data-rating="1" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="2" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="3" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="4" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="5" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-  </div>
-
-  <div id="feedback-notification" style="
-    display: none;
-    margin-top: 10px;
-    color: var(--md-typeset-a-color);
-    font-weight: 500;
-    font-size: 14px;
-  ">Thanks for your feedback</div>
-
-<div id="feedback-submit-notification" style="
-display: none;
-margin-top: 10px;
-color: var(--md-typeset-a-color);
-font-weight: 500;
-font-size: 14px;
-">Thank you! The feedback has been submitted.</div>
-
-  <div id="feedback-form" style="
-    display: none;
-    margin-top: 12px;
-    text-align: left;
-    position: relative;
-    border: 0.05rem solid var(--md-default-fg-color--lightest);
-    padding: 12px;
-    border-radius: 6px;
-    background: var(--md-default-bg-color);
-    width: 100%;
-    box-sizing: border-box;
-    transition: all 0.2s ease-out;
-  ">
-<button id="close-feedback" title="Close" style="
-position: absolute;
-top: -10px;
-right: -10px;
-background: var(--md-default-bg-color);
-border: 0.05rem solid var(--md-default-fg-color--lightest);
-border-radius: 50%;
-width: 24px;
-height: 24px;
-font-size: 18px;
-font-weight: bold;
-cursor: pointer;
-color: var(--md-default-fg-color--light);
-line-height: 1;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-">
-×
-</button>
-
-    <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      resize: vertical;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    "></textarea>
-
-    <label for="feedback-email" style="
-      display: block;
-      font-size: 15px;
-      margin-bottom: 4px;
-    ">
-      Email <span style="color: var(--md-default-fg-color--light);">(optional)</span>
-    </label>
-
-    <input type="email" id="feedback-email" placeholder="you@example.com" style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    " />
-
-<button id="submit-feedback" style="
-  padding: 5px 10px;
-  font-size: 14px;
-  background-color: var(--md-typeset-a-color);
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-">
-  Send
-</button>
-
-    <div id="feedback-status" style="
-      margin-top: 8px;
-      font-size: 13px;
-    "></div>
-  </div>
-</div>
-
-<style>
-  /* Hover shadow like data-banner */
-  .rating-widget:hover,
-  #feedback-form:hover {
-    box-shadow:
-      0px 1px 10px 0px rgba(0, 0, 0, 0.12),
-      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-      0px 2px 4px -1px rgba(0, 0, 0, 0.20);
-  }
-
-  /* Default star colors */
-  .rating-stars .star {
-    color: var(--md-default-fg-color);
-    transition: color 0.2s ease-out;
-  }
-
-  /* Active/hovered stars */
-  .rating-stars .star.active,
-  .rating-stars .star.hovered {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Rate this page text color matches stars in light mode */
-  .rating-widget .rating-title {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Dark mode */
-  @media (prefers-color-scheme: dark) {
-    /* Rate this page text */
-    .rating-widget .rating-title {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-    /* Stars active and hovered fill color */
-    .rating-stars .star.active,
-    .rating-stars .star.hovered {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-
-    /* Feedback form text */
-    #feedback-form,
-    #feedback-form textarea,
-    #feedback-form input,
-    #feedback-form label,
-    #feedback-form button,
-    #feedback-form div {
-      color: var(--md-typeset-a-color, #93C7FF);
-      border-color: #666;
-      background: var(--md-default-bg-color);
-    }
-
-    /* Close button color */
-    #close-feedback {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-  }
-</style>
-                  </div>
-                  <div class="md-sidebar__inner">
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
@@ -3271,10 +3022,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       Contributing guide
     </a>
   </div>
-</div>
-                  </div>
-                  <div class="md-sidebar__inner">
-                    <div data-banner="data-banner">
 </div>
                   </div>
                   <div class="md-sidebar__inner">
@@ -3308,10 +3055,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#for-percona-distribution-for-postgresql-packages" class="md-nav__link">
+  <a href="#for-axdb-packages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For Percona Distribution for PostgreSQL packages
+        For AXDB packages
       
     </span>
   </a>
@@ -3458,11 +3205,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives">Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives<a class="headerlink" href="#install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. <a href="repo-overview.html">Read more about Percona repositories</a>.</p>
+<h1 id="install-axdb-on-red-hat-enterprise-linux-and-derivatives">Install AXDB on Red Hat Enterprise Linux and derivatives<a class="headerlink" href="#install-axdb-on-red-hat-enterprise-linux-and-derivatives" title="Permanent link">&para;</a></h1>
+<p>This document describes how to install AXDB from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. <a href="repo-overview.html">Read more about Percona repositories</a>.</p>
 <h2 id="platform-specific-notes">Platform specific notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h2>
-<p>Depending on what operating system you are using, you may need to enable or disable specific modules to install Percona Distribution for PostgreSQL packages and to resolve dependencies conflicts for its specific components.</p>
-<h3 id="for-percona-distribution-for-postgresql-packages">For Percona Distribution for PostgreSQL packages<a class="headerlink" href="#for-percona-distribution-for-postgresql-packages" title="Permanent link">&para;</a></h3>
+<p>Depending on what operating system you are using, you may need to enable or disable specific modules to install AXDB packages and to resolve dependencies conflicts for its specific components.</p>
+<h3 id="for-axdb-packages">For AXDB packages<a class="headerlink" href="#for-axdb-packages" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">CentOS 7</label><label for="__tabbed_1_2">RHEL8/Oracle Linux 8/Rocky Linux 8</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3767,7 +3514,7 @@ enabled=1
 <p>Enable the repository</p>
 </li>
 </ol>
-<p>Percona provides <a href="repo-overview.html">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
+<p>Percona provides <a href="repo-overview.html">two repositories</a> for AXDB. We recommend enabling the Major release repository to timely receive the latest updates. </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg18
 </code></pre></div>
 <h3 id="install-packages-individually">Install packages individually<a class="headerlink" href="#install-packages-individually" title="Permanent link">&para;</a></h3>
@@ -3824,17 +3571,17 @@ enabled=1
 <p>Install <code>pgvector</code> package suite:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgvector_18<span class="w"> </span>percona-pgvector_18-debuginfo<span class="w"> </span>percona-pgvector_18-debugsource<span class="w"> </span>percona-pgvector_18-llvmjit
 </code></pre></div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
+<p>Some extensions require additional setup in order to use them with AXDB. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
 </li>
 </ol>
 <h3 id="start-the-service">Start the service<a class="headerlink" href="#start-the-service" title="Permanent link">&para;</a></h3>
-<p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
+<p>After the installation, the default database storage is not automatically initialized. To complete the installation and start AXDB, initialize the database using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/postgresql-18-setup<span class="w"> </span>initdb
 </code></pre></div>
 <p>Start the PostgreSQL service:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-18
 </code></pre></div>
-<p>Check the Percona Distribution for PostgreSQL version:</p>
+<p>Check the AXDB version:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>--version
 </code></pre></div>
 <details class="example">
@@ -3842,7 +3589,7 @@ enabled=1
 <div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 18.4.1 (Percona Server for PostgreSQL) 18.4.1
 </code></pre></div>
 </details>
-<p>Congratulations! Your Percona Distribution for PostgreSQL is up and running.</p>
+<p>Congratulations! Your AXDB is up and running.</p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="enable-extensions.html">Enable extensions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 <p><a class="md-button" href="connect.html">Connect to PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
@@ -3868,7 +3615,7 @@ enabled=1
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 3, 2026 06:58:24 UTC">June 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2026 07:23:00 UTC">June 26, 2026</span>
   </span>
 
     
@@ -3896,6 +3643,11 @@ enabled=1
     
     <nav>
       
+        <a href="https://github.com/hessalti" class="md-author" title="@hessalti">
+          
+          <img src="https://avatars.githubusercontent.com/u/28387543?v=4&size=72" alt="hessalti">
+        </a>
+      
         <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
           
           <img src="https://avatars.githubusercontent.com/u/9531841?v=4&size=72" alt="Andriciuc">
@@ -3911,12 +3663,13 @@ enabled=1
           <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
         </a>
       
-        <a href="https://github.com/AlekSi" class="md-author" title="@AlekSi">
-          
-          <img src="https://avatars.githubusercontent.com/u/11512?v=4&size=72" alt="AlekSi">
-        </a>
       
       
+        
+          <a href="https://github.com/hessalti/axdb-docs/blob/18/docs/yum.md" class="md-author md-author--more">
+            +1
+          </a>
+        
       
     </nav>
   </span>

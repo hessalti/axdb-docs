@@ -9,13 +9,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the pg_upgrade tool.">
+        <meta name="description" content="This document describes the in-place upgrade of AXDB using the pg_upgrade tool.">
       
       
         <meta name="author" content="Altibase Corp.">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/major-upgrade.html">
+        <link rel="canonical" href="https://hessalti.github.io/axdb-docs/18/major-upgrade.html">
       
       
         <link rel="prev" href="solutions/authentication/ldap.html">
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-percona-distribution-for-postgresql-from-17-to-18" class="md-skip">
+        <a href="#upgrading-axdb-from-17-to-18" class="md-skip">
           Skip to content
         </a>
       
@@ -435,7 +435,7 @@
   <span class="md-ellipsis">
     
   
-    Percona Server for PostgreSQL
+    AXDB
   
 
     
@@ -861,7 +861,7 @@
   <span class="md-ellipsis">
     
   
-    Enable Percona Distribution for PostgreSQL components
+    Enable AXDB components
   
 
     
@@ -1120,34 +1120,6 @@
     
   
     PostgreSQL contrib modules and utilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="percona-ext.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Percona-authored extensions
   
 
     
@@ -1917,7 +1889,7 @@
   <span class="md-ellipsis">
     
   
-    Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+    Deploying backup and disaster recovery solution in AXDB
   
 
     
@@ -2414,7 +2386,7 @@
   <span class="md-ellipsis">
     
   
-    Minor Upgrade of Percona Distribution for PostgreSQL
+    Minor Upgrade of AXDB
   
 
     
@@ -2442,7 +2414,7 @@
   <span class="md-ellipsis">
     
   
-    Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+    Migrate from PostgreSQL to AXDB
   
 
     
@@ -2914,227 +2886,6 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <!-- Feedback Widget -->
-<div class="rating-widget" style="
-  background: var(--md-default-bg-color);
-  border: 0.05rem solid var(--md-default-fg-color--lightest);
-  padding: 10px 15px;
-  border-radius: 0.2rem;
-  margin-bottom: 16px;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-  font-size: 16px;
-  text-align: center;
-  transition: all 0.2s ease-out;
-">
-
-  <div class="rating-title" style="
-    margin-bottom: 4px;
-    font-size: 15px;
-    font-weight: bold;
-    /* Removed inline color to use CSS */
-  ">
-    Rate this page
-  </div>
-
-  <div class="rating-stars" style="display: inline-block;">
-    
-      <span class="star" data-rating="1" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="2" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="3" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="4" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="5" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-  </div>
-
-  <div id="feedback-notification" style="
-    display: none;
-    margin-top: 10px;
-    color: var(--md-typeset-a-color);
-    font-weight: 500;
-    font-size: 14px;
-  ">Thanks for your feedback</div>
-
-<div id="feedback-submit-notification" style="
-display: none;
-margin-top: 10px;
-color: var(--md-typeset-a-color);
-font-weight: 500;
-font-size: 14px;
-">Thank you! The feedback has been submitted.</div>
-
-  <div id="feedback-form" style="
-    display: none;
-    margin-top: 12px;
-    text-align: left;
-    position: relative;
-    border: 0.05rem solid var(--md-default-fg-color--lightest);
-    padding: 12px;
-    border-radius: 6px;
-    background: var(--md-default-bg-color);
-    width: 100%;
-    box-sizing: border-box;
-    transition: all 0.2s ease-out;
-  ">
-<button id="close-feedback" title="Close" style="
-position: absolute;
-top: -10px;
-right: -10px;
-background: var(--md-default-bg-color);
-border: 0.05rem solid var(--md-default-fg-color--lightest);
-border-radius: 50%;
-width: 24px;
-height: 24px;
-font-size: 18px;
-font-weight: bold;
-cursor: pointer;
-color: var(--md-default-fg-color--light);
-line-height: 1;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-">
-×
-</button>
-
-    <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      resize: vertical;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    "></textarea>
-
-    <label for="feedback-email" style="
-      display: block;
-      font-size: 15px;
-      margin-bottom: 4px;
-    ">
-      Email <span style="color: var(--md-default-fg-color--light);">(optional)</span>
-    </label>
-
-    <input type="email" id="feedback-email" placeholder="you@example.com" style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    " />
-
-<button id="submit-feedback" style="
-  padding: 5px 10px;
-  font-size: 14px;
-  background-color: var(--md-typeset-a-color);
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-">
-  Send
-</button>
-
-    <div id="feedback-status" style="
-      margin-top: 8px;
-      font-size: 13px;
-    "></div>
-  </div>
-</div>
-
-<style>
-  /* Hover shadow like data-banner */
-  .rating-widget:hover,
-  #feedback-form:hover {
-    box-shadow:
-      0px 1px 10px 0px rgba(0, 0, 0, 0.12),
-      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-      0px 2px 4px -1px rgba(0, 0, 0, 0.20);
-  }
-
-  /* Default star colors */
-  .rating-stars .star {
-    color: var(--md-default-fg-color);
-    transition: color 0.2s ease-out;
-  }
-
-  /* Active/hovered stars */
-  .rating-stars .star.active,
-  .rating-stars .star.hovered {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Rate this page text color matches stars in light mode */
-  .rating-widget .rating-title {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Dark mode */
-  @media (prefers-color-scheme: dark) {
-    /* Rate this page text */
-    .rating-widget .rating-title {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-    /* Stars active and hovered fill color */
-    .rating-stars .star.active,
-    .rating-stars .star.hovered {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-
-    /* Feedback form text */
-    #feedback-form,
-    #feedback-form textarea,
-    #feedback-form input,
-    #feedback-form label,
-    #feedback-form button,
-    #feedback-form div {
-      color: var(--md-typeset-a-color, #93C7FF);
-      border-color: #666;
-      background: var(--md-default-bg-color);
-    }
-
-    /* Close button color */
-    #close-feedback {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-  }
-</style>
-                  </div>
-                  <div class="md-sidebar__inner">
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
@@ -3158,10 +2909,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       Contributing guide
     </a>
   </div>
-</div>
-                  </div>
-                  <div class="md-sidebar__inner">
-                    <div data-banner="data-banner">
 </div>
                   </div>
                   <div class="md-sidebar__inner">
@@ -3234,8 +2981,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="upgrading-percona-distribution-for-postgresql-from-17-to-18">Upgrading Percona Distribution for PostgreSQL from 17 to 18<a class="headerlink" href="#upgrading-percona-distribution-for-postgresql-from-17-to-18" title="Permanent link">&para;</a></h1>
-<p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code> tool.</p>
+<h1 id="upgrading-axdb-from-17-to-18">Upgrading AXDB from 17 to 18<a class="headerlink" href="#upgrading-axdb-from-17-to-18" title="Permanent link">&para;</a></h1>
+<p>This document describes the in-place upgrade of AXDB using the <code>pg_upgrade</code> tool.</p>
 <p>To ensure a smooth upgrade path, follow these steps:</p>
 <ul>
 <li>Upgrade to the latest minor version within your current major version (e.g., from 17.4 to 17.5).</li>
@@ -3244,7 +2991,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When running a major upgrade on <strong>RHEL 8 and compatible derivatives</strong>, consider the following:</p>
-<p>Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include <code>llvm</code> packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include <code>llvm</code> 12.0.1. Since <code>llvm</code> libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.</p>
+<p>AXDB 16.3, 15.7, 14.12, 13.15 and 12.18 include <code>llvm</code> packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include <code>llvm</code> 12.0.1. Since <code>llvm</code> libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3255,15 +3002,15 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p class="admonition-title">See also</p>
 <p><a href="https://www.postgresql.org/docs/18/pgupgrade.html"><code>pg_upgrade</code> Documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>
-<p>Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.</p>
+<p>Similar to installing, we recommend you to upgrade AXDB from Percona repositories.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>A major upgrade is a risky process because of many changes between versions and issues that might occur during or after the upgrade. Therefore, make sure to back up your data first. The backup tools are out of scope of this document. Use the backup tool of your choice.</p>
 </div>
-<p>The general in-place upgrade flow for Percona Distribution for PostgreSQL is the following:</p>
+<p>The general in-place upgrade flow for AXDB is the following:</p>
 <ol>
 <li>
-<p>Install new version of Percona Distribution for PostgreSQL packages.</p>
+<p>Install new version of AXDB packages.</p>
 </li>
 <li>
 <p>Stop the PostgreSQL service.</p>
@@ -3272,7 +3019,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Check the upgrade without modifying the data.</p>
 </li>
 <li>
-<p>Upgrade Percona Distribution for PostgreSQL.</p>
+<p>Upgrade AXDB.</p>
 </li>
 <li>
 <p>Start PostgreSQL service.</p>
@@ -3295,7 +3042,7 @@ so the system is usable.</p>
 <p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
 <ol>
 <li>
-<p>Install Percona Distribution for PostgreSQL 18 packages.</p>
+<p>Install AXDB 18 packages.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When installing version 18, if prompted via a pop-up to upgrade to the latest available version, select <strong>No</strong>.</p>
@@ -3311,7 +3058,7 @@ so the system is usable.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
 </code></pre></div>
 <ul>
-<li>Install Percona Distribution for PostgreSQL 18 package</li>
+<li>Install AXDB 18 package</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18
 </code></pre></div>
@@ -3320,7 +3067,7 @@ so the system is usable.</p>
 <p>Stop the <code>postgresql</code> service.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
 </code></pre></div>
-<p>This stops both Percona Distribution for PostgreSQL 17 and 18.</p>
+<p>This stops both AXDB 17 and 18.</p>
 </li>
 <li>
 <p>Run the database upgrade.</p>
@@ -3330,14 +3077,14 @@ so the system is usable.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
-<li>Check if you can upgrade Percona Distribution for PostgreSQL from 17 to 18</li>
+<li>Check if you can upgrade AXDB from 17 to 18</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pg_upgradecluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main<span class="w"> </span>--check
 <span class="c1"># Sample output: pg_upgradecluster pre-upgrade checks ok</span>
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
 <ul>
-<li>Upgrade the Percona Distribution for PostgreSQL</li>
+<li>Upgrade the AXDB</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pg_upgradecluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main
 </code></pre></div>
@@ -3457,7 +3204,7 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 <p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
 <ol>
 <li>
-<p>Install Percona Distribution for PostgreSQL 18 packages</p>
+<p>Install AXDB 18 packages</p>
 <ul>
 <li>
 <p><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
@@ -3469,13 +3216,13 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
 </code></pre></div>
 <ul>
-<li>Install Percona Distribution for PostgreSQL 18:</li>
+<li>Install AXDB 18:</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql18-server
 </code></pre></div>
 </li>
 <li>
-<p>Set up Percona Distribution for PostgreSQL 18 cluster</p>
+<p>Set up AXDB 18 cluster</p>
 </li>
 <li>
 <p>Log is as the postgres user</p>
@@ -3506,7 +3253,7 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
-<li>Check the ability to upgrade Percona Distribution for PostgreSQL from 17 to 18:</li>
+<li>Check the ability to upgrade AXDB from 17 to 18:</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
 --old-bindir<span class="w"> </span>/usr/pgsql-17/bin<span class="w"> </span><span class="se">\</span>
@@ -3534,7 +3281,7 @@ Checking for prepared transactions                          ok
 *Clusters are compatible*
 </code></pre></div>
 <ul>
-<li>Upgrade the Percona Distribution for PostgreSQL</li>
+<li>Upgrade the AXDB</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
 --old-bindir<span class="w"> </span>/usr/pgsql-17/bin<span class="w"> </span><span class="se">\</span>
@@ -3570,7 +3317,7 @@ Checking for prepared transactions                          ok
 </code></pre></div>
 </li>
 <li>
-<p>Delete Percona Distribution for PostgreSQL 17 configuration files</p>
+<p>Delete AXDB 17 configuration files</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
 </code></pre></div>
 </li>
@@ -3611,7 +3358,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 20, 2026 13:46:18 UTC">May 20, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2026 07:23:00 UTC">June 26, 2026</span>
   </span>
 
     
@@ -3639,6 +3386,11 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
     
     <nav>
       
+        <a href="https://github.com/hessalti" class="md-author" title="@hessalti">
+          
+          <img src="https://avatars.githubusercontent.com/u/28387543?v=4&size=72" alt="hessalti">
+        </a>
+      
         <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
           
           <img src="https://avatars.githubusercontent.com/u/9531841?v=4&size=72" alt="Andriciuc">
@@ -3654,16 +3406,11 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
           <img src="https://avatars.githubusercontent.com/u/42943?v=4&size=72" alt="philip">
         </a>
       
-        <a href="https://github.com/GhaziTriki" class="md-author" title="@GhaziTriki">
-          
-          <img src="https://avatars.githubusercontent.com/u/4991088?v=4&size=72" alt="GhaziTriki">
-        </a>
-      
       
       
         
           <a href="https://github.com/hessalti/axdb-docs/blob/18/docs/major-upgrade.md" class="md-author md-author--more">
-            +1
+            +2
           </a>
         
       

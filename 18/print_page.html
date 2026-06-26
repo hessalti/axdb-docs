@@ -15,7 +15,7 @@
         <meta name="author" content="Altibase Corp.">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/print_page.html">
+        <link rel="canonical" href="https://hessalti.github.io/axdb-docs/18/print_page.html">
       
       
       
@@ -74,7 +74,7 @@
     
       <link rel="stylesheet" href="css/rating.css">
     
-    <script>__md_scope=new URL("/postgresql/18",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("/axdb-docs/18",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -443,7 +443,7 @@
   <span class="md-ellipsis">
     
   
-    Percona Server for PostgreSQL
+    AXDB
   
 
     
@@ -869,7 +869,7 @@
   <span class="md-ellipsis">
     
   
-    Enable Percona Distribution for PostgreSQL components
+    Enable AXDB components
   
 
     
@@ -1128,34 +1128,6 @@
     
   
     PostgreSQL contrib modules and utilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="percona-ext.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Percona-authored extensions
   
 
     
@@ -1925,7 +1897,7 @@
   <span class="md-ellipsis">
     
   
-    Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+    Deploying backup and disaster recovery solution in AXDB
   
 
     
@@ -2349,7 +2321,7 @@
   <span class="md-ellipsis">
     
   
-    Minor Upgrade of Percona Distribution for PostgreSQL
+    Minor Upgrade of AXDB
   
 
     
@@ -2377,7 +2349,7 @@
   <span class="md-ellipsis">
     
   
-    Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+    Migrate from PostgreSQL to AXDB
   
 
     
@@ -2849,227 +2821,6 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <!-- Feedback Widget -->
-<div class="rating-widget" style="
-  background: var(--md-default-bg-color);
-  border: 0.05rem solid var(--md-default-fg-color--lightest);
-  padding: 10px 15px;
-  border-radius: 0.2rem;
-  margin-bottom: 16px;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-  font-size: 16px;
-  text-align: center;
-  transition: all 0.2s ease-out;
-">
-
-  <div class="rating-title" style="
-    margin-bottom: 4px;
-    font-size: 15px;
-    font-weight: bold;
-    /* Removed inline color to use CSS */
-  ">
-    Rate this page
-  </div>
-
-  <div class="rating-stars" style="display: inline-block;">
-    
-      <span class="star" data-rating="1" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="2" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="3" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="4" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="5" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-  </div>
-
-  <div id="feedback-notification" style="
-    display: none;
-    margin-top: 10px;
-    color: var(--md-typeset-a-color);
-    font-weight: 500;
-    font-size: 14px;
-  ">Thanks for your feedback</div>
-
-<div id="feedback-submit-notification" style="
-display: none;
-margin-top: 10px;
-color: var(--md-typeset-a-color);
-font-weight: 500;
-font-size: 14px;
-">Thank you! The feedback has been submitted.</div>
-
-  <div id="feedback-form" style="
-    display: none;
-    margin-top: 12px;
-    text-align: left;
-    position: relative;
-    border: 0.05rem solid var(--md-default-fg-color--lightest);
-    padding: 12px;
-    border-radius: 6px;
-    background: var(--md-default-bg-color);
-    width: 100%;
-    box-sizing: border-box;
-    transition: all 0.2s ease-out;
-  ">
-<button id="close-feedback" title="Close" style="
-position: absolute;
-top: -10px;
-right: -10px;
-background: var(--md-default-bg-color);
-border: 0.05rem solid var(--md-default-fg-color--lightest);
-border-radius: 50%;
-width: 24px;
-height: 24px;
-font-size: 18px;
-font-weight: bold;
-cursor: pointer;
-color: var(--md-default-fg-color--light);
-line-height: 1;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-">
-×
-</button>
-
-    <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      resize: vertical;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    "></textarea>
-
-    <label for="feedback-email" style="
-      display: block;
-      font-size: 15px;
-      margin-bottom: 4px;
-    ">
-      Email <span style="color: var(--md-default-fg-color--light);">(optional)</span>
-    </label>
-
-    <input type="email" id="feedback-email" placeholder="you@example.com" style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    " />
-
-<button id="submit-feedback" style="
-  padding: 5px 10px;
-  font-size: 14px;
-  background-color: var(--md-typeset-a-color);
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-">
-  Send
-</button>
-
-    <div id="feedback-status" style="
-      margin-top: 8px;
-      font-size: 13px;
-    "></div>
-  </div>
-</div>
-
-<style>
-  /* Hover shadow like data-banner */
-  .rating-widget:hover,
-  #feedback-form:hover {
-    box-shadow:
-      0px 1px 10px 0px rgba(0, 0, 0, 0.12),
-      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-      0px 2px 4px -1px rgba(0, 0, 0, 0.20);
-  }
-
-  /* Default star colors */
-  .rating-stars .star {
-    color: var(--md-default-fg-color);
-    transition: color 0.2s ease-out;
-  }
-
-  /* Active/hovered stars */
-  .rating-stars .star.active,
-  .rating-stars .star.hovered {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Rate this page text color matches stars in light mode */
-  .rating-widget .rating-title {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Dark mode */
-  @media (prefers-color-scheme: dark) {
-    /* Rate this page text */
-    .rating-widget .rating-title {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-    /* Stars active and hovered fill color */
-    .rating-stars .star.active,
-    .rating-stars .star.hovered {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-
-    /* Feedback form text */
-    #feedback-form,
-    #feedback-form textarea,
-    #feedback-form input,
-    #feedback-form label,
-    #feedback-form button,
-    #feedback-form div {
-      color: var(--md-typeset-a-color, #93C7FF);
-      border-color: #666;
-      background: var(--md-default-bg-color);
-    }
-
-    /* Close button color */
-    #close-feedback {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-  }
-</style>
-                  </div>
-                  <div class="md-sidebar__inner">
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
@@ -3093,10 +2844,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       Contributing guide
     </a>
   </div>
-</div>
-                  </div>
-                  <div class="md-sidebar__inner">
-                    <div data-banner="data-banner">
 </div>
                   </div>
                   <div class="md-sidebar__inner">
@@ -3130,7 +2877,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   <a href="#postgresql-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Percona Server for PostgreSQL
+        AXDB
       
     </span>
   </a>
@@ -3281,7 +3028,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   <a href="#enable-extensions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enable Percona Distribution for PostgreSQL components
+        Enable AXDB components
       
     </span>
   </a>
@@ -3381,17 +3128,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-ellipsis">
       
         PostgreSQL contrib modules and utilities
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#percona-ext" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Percona-authored extensions
       
     </span>
   </a>
@@ -3669,7 +3405,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   <a href="#solutions-dr-pgbackrest-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+        Deploying backup and disaster recovery solution in AXDB
       
     </span>
   </a>
@@ -3824,7 +3560,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   <a href="#minor-upgrade" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Minor Upgrade of Percona Distribution for PostgreSQL
+        Minor Upgrade of AXDB
       
     </span>
   </a>
@@ -3835,7 +3571,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   <a href="#migration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+        Migrate from PostgreSQL to AXDB
       
     </span>
   </a>
@@ -4047,14 +3783,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                 </nav>
             </div>
         </section>
-        <section class="print-page" id="index" heading-number="1"><h1 id="index-percona-distribution-for-postgresql-18-documentation">Percona Distribution for PostgreSQL 18 Documentation<a class="headerlink" href="#index-percona-distribution-for-postgresql-18-documentation" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL.</p>
-<p>Percona Distribution for PostgreSQL includes <a href="#postgresql-server">Percona Server for PostgreSQL</a> packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster&rsquo;s peak performance.</p>
+        <section class="print-page" id="index" heading-number="1"><h1 id="index-axdb-18-documentation">AXDB 18 Documentation<a class="headerlink" href="#index-axdb-18-documentation" title="Permanent link">&para;</a></h1>
+<p>AXDB is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL.</p>
+<p>AXDB includes <a href="#postgresql-server">Percona Server for PostgreSQL</a> packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster&rsquo;s peak performance.</p>
 <p>Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestrate the cluster reliably and repeatably in Kubernetes.</p>
-<p><a class="md-button" href="#extensions">What&rsquo;s included in Percona Distribution for PostgreSQL? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+<p><a class="md-button" href="#extensions">What&rsquo;s included in AXDB? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 <h2 id="index-whats-in-it-for-you">What’s in it for you?<a class="headerlink" href="#index-whats-in-it-for-you" title="Permanent link">&para;</a></h2>
 <ul>
-<li>No vendor lock in - all components of Percona Distribution for PostgreSQL are fully open source</li>
+<li>No vendor lock in - all components of AXDB are fully open source</li>
 <li>No guesswork on finding the right version of a component – they all undergo thorough testing to ensure compatibility</li>
 <li>Freely available reference architectures for solutions like high-availability, backups and disaster recovery</li>
 <li>Spatial data handling support via PostGIS</li>
@@ -4087,7 +3823,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>AXDB is a binary-compatible, open source drop-in replacement for PostgreSQL 18. It functions identically to upstream PostgreSQL, allowing you to <a href="#migration">migrate</a> seamlessly between the two.</p>
 <p>In addition to upstream functionality, AXDB includes enhancements that enable advanced extension capabilities.</p>
 <p>For a broader overview of integrated tooling and deployment guidance, start with the <a href="#quick-start">AXDB Quickstart guide</a>.</p></section><section class="print-page" id="get-help" heading-number="3"><h1 id="get-help-get-help-from-axdb">Get help from AXDB<a class="headerlink" href="#get-help-get-help-from-axdb" title="Permanent link">&para;</a></h1>
-<p>Our documentation guides are packed with information, but they can’t cover everything you need to know about Percona Distribution for PostgreSQL. They also won’t cover every scenario you might come across. Don’t be afraid to try things out and ask questions when you get stuck.</p>
+<p>Our documentation guides are packed with information, but they can’t cover everything you need to know about AXDB. They also won’t cover every scenario you might come across. Don’t be afraid to try things out and ask questions when you get stuck.</p>
 <h2 id="get-help-perconas-community-forum">Percona&rsquo;s Community Forum<a class="headerlink" href="#get-help-perconas-community-forum" title="Permanent link">&para;</a></h2>
 <p>Be a part of a space where you can tap into a wealth of knowledge from other database enthusiasts and experts who work with Percona’s software every day. While our service is entirely free, keep in mind that response times can vary depending on the complexity of the question. You are engaging with people who genuinely love solving database challenges.</p>
 <p>We recommend visiting our <a href="https://forums.percona.com/" target="_blank">Community Forum</a>. It’s an excellent place for discussions, technical insights, and support around Percona database software. If you’re new and feeling a bit unsure, our <a href="https://forums.percona.com/faq" target="_blank">FAQ</a> and <a href="https://forums.percona.com/t/faq-guide-for-new-users/8562" target="_blank">Guide for New Users</a> ease you in.</p>
@@ -4124,7 +3860,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tbody>
 </table>
 <p>We&rsquo;re here to help you every step of the way. Whether you need a quick fix or a long-term partnership, we&rsquo;re ready to provide our expertise and support.</p></section><section class="print-page" id="quick-start" heading-number="4"><h1 id="quick-start-quickstart-guide">Quickstart guide<a class="headerlink" href="#quick-start-quickstart-guide" title="Permanent link">&para;</a></h1>
-<p>This guide shows how to install and start Percona Distribution for PostgreSQL on Debian- and RHEL-based Linux systems. After completing this guide, you will have:</p>
+<p>This guide shows how to install and start AXDB on Debian- and RHEL-based Linux systems. After completing this guide, you will have:</p>
 <ul>
 <li>PostgreSQL running locally</li>
 <li>A database named <code>test</code></li>
@@ -4187,11 +3923,11 @@ psql
 </code></pre></div>
 </li>
 </ol>
-<p>Congratulations! Percona Distribution for PostgreSQL is now running and you have created your first database.</p>
-<p>For detailed installation steps and further instructions on Debian and Ubuntu, see the <a href="#apt">Install Percona Distribution for PostgreSQL on Debian and Ubuntu</a>.</p>
-<p>For detailed installation steps and further instructions on Red Hat Enterprise Linux and derivatives, see the <a href="#yum">Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives</a>.</p>
+<p>Congratulations! AXDB is now running and you have created your first database.</p>
+<p>For detailed installation steps and further instructions on Debian and Ubuntu, see the <a href="#apt">Install AXDB on Debian and Ubuntu</a>.</p>
+<p>For detailed installation steps and further instructions on Red Hat Enterprise Linux and derivatives, see the <a href="#yum">Install AXDB on Red Hat Enterprise Linux and derivatives</a>.</p>
 <h2 id="quick-start-whats-next">What&rsquo;s next<a class="headerlink" href="#quick-start-whats-next" title="Permanent link">&para;</a></h2>
-<p>Now that your PostgreSQL server is running, you can explore additional capabilities of Percona Distribution for PostgreSQL.</p>
+<p>Now that your PostgreSQL server is running, you can explore additional capabilities of AXDB.</p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
 <h3 class="title" id="quick-start-learn-postgresql-basics">Learn PostgreSQL basics<a class="headerlink" href="#quick-start-learn-postgresql-basics" title="Permanent link">&para;</a></h3>
@@ -4200,7 +3936,7 @@ psql
 </div>
 <div data-banner="data-banner">
 <h3 class="title" id="quick-start-enable-extensions">Enable extensions<a class="headerlink" href="#quick-start-enable-extensions" title="Permanent link">&para;</a></h3>
-<p>Percona Distribution for PostgreSQL includes tested open source extensions, such as <code>pg_stat_monitor</code> for query performance monitoring, <code>pg_tde</code> for protecting data at rest and more.</p>
+<p>AXDB includes tested open source extensions, such as <code>pg_stat_monitor</code> for query performance monitoring, <code>pg_tde</code> for protecting data at rest and more.</p>
 <p><a class="md-button" href="#extensions">See Extensions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
 <div data-banner="data-banner">
@@ -4222,8 +3958,8 @@ psql
                         <h1>1. Install<a class='headerlink' href='#section-5-1' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="installing" heading-number="5.1.1"><h1 id="installing-installation-overview">Installation overview<a class="headerlink" href="#installing-installation-overview" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL packages PostgreSQL together with a curated set of open source extensions and tools that are tested to work together reliably.</p>
-<p>This section explains how to install Percona Distribution for PostgreSQL on supported platforms.</p>
+<p>AXDB packages PostgreSQL together with a curated set of open source extensions and tools that are tested to work together reliably.</p>
+<p>This section explains how to install AXDB on supported platforms.</p>
 <p>Choose the installation method that best fits your environment:</p>
 <ul>
 <li>Package manager, <strong>recommended</strong> for most Linux systems  </li>
@@ -4241,7 +3977,7 @@ psql
 <a class="md-button" href="#yum">Install via yum <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
 <div class="tabbed-block">
-<p>Run Percona Distribution for PostgreSQL in a Docker container for quick evaluation or development.</p>
+<p>Run AXDB in a Docker container for quick evaluation or development.</p>
 <p>Check below to get access to a detailed step-by-step guide.</p>
 <p><a class="md-button" href="#docker-docker">Run in Docker <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
@@ -4260,12 +3996,12 @@ psql
 <p><a class="md-button" href="#tarball">Install from tarballs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
 </div>
-</div></section><section class="print-page" id="apt" heading-number="5.1.2"><h1 id="apt-install-percona-distribution-for-postgresql-on-debian-and-ubuntu">Install Percona Distribution for PostgreSQL on Debian and Ubuntu<a class="headerlink" href="#apt-install-percona-distribution-for-postgresql-on-debian-and-ubuntu" title="Permanent link">&para;</a></h1>
+</div></section><section class="print-page" id="apt" heading-number="5.1.2"><h1 id="apt-install-axdb-on-debian-and-ubuntu">Install AXDB on Debian and Ubuntu<a class="headerlink" href="#apt-install-axdb-on-debian-and-ubuntu" title="Permanent link">&para;</a></h1>
 <p>This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. <a href="#repo-overview">Read more about Percona repositories</a>.</p>
 <h2 id="apt-preconditions">Preconditions<a class="headerlink" href="#apt-preconditions" title="Permanent link">&para;</a></h2>
 <p>Debian and other systems that use the <code>apt</code> package manager include the upstream PostgreSQL server package <code>postgresql-18</code> by default.</p>
-<p>The components of Percona Distribution for PostgreSQL 18 can only be installed together with Percona Server for PostgreSQL (<code>percona-postgresql-18</code>).</p>
-<p>If you wish to use Percona Distribution for PostgreSQL, uninstall the <code>postgresql-18</code> package provided by your distribution and then install the chosen components from Percona Distribution for PostgreSQL.</p>
+<p>The components of AXDB 18 can only be installed together with Percona Server for PostgreSQL (<code>percona-postgresql-18</code>).</p>
+<p>If you wish to use AXDB, uninstall the <code>postgresql-18</code> package provided by your distribution and then install the chosen components from AXDB.</p>
 <h2 id="apt-procedure">Procedure<a class="headerlink" href="#apt-procedure" title="Permanent link">&para;</a></h2>
 <p>Run all the commands in the following sections as root or using the <code>sudo</code> command:</p>
 <h3 class="power-number" id="apt-configure-percona-repository">Configure Percona repository<a class="headerlink" href="#apt-configure-percona-repository" title="Permanent link">&para;</a></h3>
@@ -4294,7 +4030,7 @@ psql
 <p>Enable the repository</p>
 </li>
 </ol>
-<p>Percona provides <a href="#repo-overview">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
+<p>Percona provides <a href="#repo-overview">two repositories</a> for AXDB. We recommend enabling the Major release repository to timely receive the latest updates. </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
 </code></pre></div>
 <h3 id="apt-install-packages-individually">Install packages individually<a class="headerlink" href="#apt-install-packages-individually" title="Permanent link">&para;</a></h3>
@@ -4347,14 +4083,14 @@ psql
 <p>Install <code>pgvector</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18-pgvector
 </code></pre></div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enable-extensions">Enabling extensions</a>.</p>
+<p>Some extensions require additional setup in order to use them with AXDB. For more information, refer to <a href="#enable-extensions">Enabling extensions</a>.</p>
 </li>
 </ol>
 <h3 id="apt-start-the-service">Start the service<a class="headerlink" href="#apt-start-the-service" title="Permanent link">&para;</a></h3>
 <p>The installation process automatically initializes and starts the default database. You can check the database status using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql.service
 </code></pre></div>
-<p>Check the Percona Distribution for PostgreSQL version:</p>
+<p>Check the AXDB version:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>--version
 </code></pre></div>
 <details class="example">
@@ -4362,14 +4098,14 @@ psql
 <div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 18.4.1 (Percona Server for PostgreSQL) 18.4.1
 </code></pre></div>
 </details>
-<p>Congratulations! Your Percona Distribution for PostgreSQL is up and running.</p>
+<p>Congratulations! Your AXDB is up and running.</p>
 <h2 id="apt-next-steps">Next steps<a class="headerlink" href="#apt-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#enable-extensions">Enable extensions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-<p><a class="md-button" href="#connect">Connect to PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="yum" heading-number="5.1.3"><h1 id="yum-install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives">Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives<a class="headerlink" href="#yum-install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. <a href="#repo-overview">Read more about Percona repositories</a>.</p>
+<p><a class="md-button" href="#connect">Connect to PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="yum" heading-number="5.1.3"><h1 id="yum-install-axdb-on-red-hat-enterprise-linux-and-derivatives">Install AXDB on Red Hat Enterprise Linux and derivatives<a class="headerlink" href="#yum-install-axdb-on-red-hat-enterprise-linux-and-derivatives" title="Permanent link">&para;</a></h1>
+<p>This document describes how to install AXDB from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. <a href="#repo-overview">Read more about Percona repositories</a>.</p>
 <h2 id="yum-platform-specific-notes">Platform specific notes<a class="headerlink" href="#yum-platform-specific-notes" title="Permanent link">&para;</a></h2>
-<p>Depending on what operating system you are using, you may need to enable or disable specific modules to install Percona Distribution for PostgreSQL packages and to resolve dependencies conflicts for its specific components.</p>
-<h3 id="yum-for-percona-distribution-for-postgresql-packages">For Percona Distribution for PostgreSQL packages<a class="headerlink" href="#yum-for-percona-distribution-for-postgresql-packages" title="Permanent link">&para;</a></h3>
+<p>Depending on what operating system you are using, you may need to enable or disable specific modules to install AXDB packages and to resolve dependencies conflicts for its specific components.</p>
+<h3 id="yum-for-axdb-packages">For AXDB packages<a class="headerlink" href="#yum-for-axdb-packages" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="yum-__tabbed_1_1" name="yum-__tabbed_1" type="radio" /><input id="yum-__tabbed_1_2" name="yum-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="yum-__tabbed_1_1">CentOS 7</label><label for="yum-__tabbed_1_2">RHEL8/Oracle Linux 8/Rocky Linux 8</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4674,7 +4410,7 @@ enabled=1
 <p>Enable the repository</p>
 </li>
 </ol>
-<p>Percona provides <a href="#repo-overview">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
+<p>Percona provides <a href="#repo-overview">two repositories</a> for AXDB. We recommend enabling the Major release repository to timely receive the latest updates. </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg18
 </code></pre></div>
 <h3 id="yum-install-packages-individually">Install packages individually<a class="headerlink" href="#yum-install-packages-individually" title="Permanent link">&para;</a></h3>
@@ -4731,17 +4467,17 @@ enabled=1
 <p>Install <code>pgvector</code> package suite:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgvector_18<span class="w"> </span>percona-pgvector_18-debuginfo<span class="w"> </span>percona-pgvector_18-debugsource<span class="w"> </span>percona-pgvector_18-llvmjit
 </code></pre></div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enable-extensions">Enabling extensions</a>.</p>
+<p>Some extensions require additional setup in order to use them with AXDB. For more information, refer to <a href="#enable-extensions">Enabling extensions</a>.</p>
 </li>
 </ol>
 <h3 id="yum-start-the-service">Start the service<a class="headerlink" href="#yum-start-the-service" title="Permanent link">&para;</a></h3>
-<p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
+<p>After the installation, the default database storage is not automatically initialized. To complete the installation and start AXDB, initialize the database using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/postgresql-18-setup<span class="w"> </span>initdb
 </code></pre></div>
 <p>Start the PostgreSQL service:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-18
 </code></pre></div>
-<p>Check the Percona Distribution for PostgreSQL version:</p>
+<p>Check the AXDB version:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>--version
 </code></pre></div>
 <details class="example">
@@ -4749,7 +4485,7 @@ enabled=1
 <div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 18.4.1 (Percona Server for PostgreSQL) 18.4.1
 </code></pre></div>
 </details>
-<p>Congratulations! Your Percona Distribution for PostgreSQL is up and running.</p>
+<p>Congratulations! Your AXDB is up and running.</p>
 <h2 id="yum-next-steps">Next steps<a class="headerlink" href="#yum-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#enable-extensions">Enable extensions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 <p><a class="md-button" href="#connect">Connect to PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="tarball" heading-number="5.1.4"><h1 id="tarball-install-axdb-from-binary-tarballs">Install AXDB from binary tarballs<a class="headerlink" href="#tarball-install-axdb-from-binary-tarballs" title="Permanent link">&para;</a></h1>
@@ -4943,8 +4679,8 @@ postgres=#
                     <section class='print-page md-section' id='section-5-1-5' heading-number='5.1.5'>
                         <h1>Run in Docker<a class='headerlink' href='#section-5-1-5' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="docker-docker" heading-number="5.1.5.1"><h1 id="docker-docker-run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a class="headerlink" href="#docker-docker-run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
-<p>Docker images of Percona Distribution for PostgreSQL are hosted publicly on <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/">Docker Hub <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+                    <section class="print-page" id="docker-docker" heading-number="5.1.5.1"><h1 id="docker-docker-run-axdb-in-a-docker-container">Run AXDB in a Docker container<a class="headerlink" href="#docker-docker-run-axdb-in-a-docker-container" title="Permanent link">&para;</a></h1>
+<p>Docker images of AXDB are hosted publicly on <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/">Docker Hub <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <p>For more information about using Docker, see the <a href="https://docs.docker.com/">Docker Docs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4952,7 +4688,7 @@ postgres=#
 <p>By default, Docker pulls the image from Docker Hub if it is not available locally.</p>
 </div>
 <h2 class="power-number" id="docker-docker-start-container">1. Start the container<a class="headerlink" href="#docker-docker-start-container" title="Permanent link">&para;</a></h2>
-<p>Start a Percona Distribution for PostgreSQL container as follows:</p>
+<p>Start a AXDB container as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4
 </code></pre></div>
 <p>Where:</p>
@@ -5014,7 +4750,7 @@ postgres=#
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18
 </code></pre></div>
 <h2 id="docker-docker-4-docker-image-contents">4. Docker image contents<a class="headerlink" href="#docker-docker-4-docker-image-contents" title="Permanent link">&para;</a></h2>
-<p>The Docker image of Percona Distribution for PostgreSQL includes the following components:</p>
+<p>The Docker image of AXDB includes the following components:</p>
 <table>
 <thead>
 <tr>
@@ -5077,17 +4813,17 @@ postgres=#
 </tr>
 </tbody>
 </table>
-<h2 id="docker-docker-connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a class="headerlink" href="#docker-docker-connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
-<p>This image exposes the standard PostgreSQL port (<code>5432</code>), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:</p>
+<h2 id="docker-docker-connect-to-axdb-from-an-application-in-another-docker-container">Connect to AXDB from an application in another Docker container<a class="headerlink" href="#docker-docker-connect-to-axdb-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
+<p>This image exposes the standard PostgreSQL port (<code>5432</code>), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the AXDB container:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>app-container-name<span class="w"> </span>--network<span class="w"> </span>container:container-name<span class="w"> </span>-d<span class="w"> </span>app-that-uses-postgresql<span class="w"> </span>
 </code></pre></div>
 <p>where:</p>
 <ul>
 <li><code>app-container-name</code> is the name of the container where your application is running,</li>
-<li><code>container name</code> is the name of your Percona Distribution for PostgreSQL container, and</li>
+<li><code>container name</code> is the name of your AXDB container, and</li>
 <li><code>app-that-uses-postgresql</code> is the name of your PostgreSQL client.</li>
 </ul>
-<h2 id="docker-docker-connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#docker-docker-connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
+<h2 id="docker-docker-connect-to-axdb-from-the-psql-command-line-client">Connect to AXDB from the <code>psql</code> command line client<a class="headerlink" href="#docker-docker-connect-to-axdb-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
 <p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:18.4<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
@@ -5099,7 +4835,7 @@ postgres=#
 <li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.</li>
 </ul>
 <h2 id="docker-docker-run-the-postgresql-with-postgis-image">Run the PostgreSQL with PostGIS image<a class="headerlink" href="#docker-docker-run-the-postgresql-with-postgis-image" title="Permanent link">&para;</a></h2>
-<p>The <code>postgres-gis</code> image includes everything in the standard Percona Distribution for PostgreSQL image plus the <a href="https://postgis.net/">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> extension for storing and manipulating spatial data.</p>
+<p>The <code>postgres-gis</code> image includes everything in the standard AXDB image plus the <a href="https://postgis.net/">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> extension for storing and manipulating spatial data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>PostGIS is licensed under <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GNU GPLv2 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. Review the license terms before using this image in your environment.</p>
@@ -5151,9 +4887,9 @@ postgres=#
 <li><code>pgbackrest.conf</code> is your pgBackRest configuration file, mounted into the container. It defines the connection to your PostgreSQL instance and your backup repository settings.</li>
 <li>The image tag specifies the pgBackRest version. See the <a href="https://hub.docker.com/r/percona/percona-pgbackrest/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
 </ul>
-<p>For more information on configuring pgBackRest with Percona Distribution for PostgreSQL, see <a href="#solutions-backup-recovery">Backup and disaster recovery</a>.</p>
+<p>For more information on configuring pgBackRest with AXDB, see <a href="#solutions-backup-recovery">Backup and disaster recovery</a>.</p>
 <h2 id="docker-docker-run-the-ubi8-based-image">Run the UBI8-based image<a class="headerlink" href="#docker-docker-run-the-ubi8-based-image" title="Permanent link">&para;</a></h2>
-<p>The UBI8 image is a variant of the standard Percona Distribution for PostgreSQL image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.</p>
+<p>The UBI8 image is a variant of the standard AXDB image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.</p>
 <p>UBI8 images use the same PostgreSQL version and components as the standard image and can be identified by the <code>-ubi8</code> suffix in their tags.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4-ubi8
 </code></pre></div>
@@ -5163,7 +4899,7 @@ postgres=#
 <li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
 </ul>
 <p>See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and filter for <code>ubi8</code>.</p></section><section class="print-page" id="docker-docker-enable-pg-tde" heading-number="5.1.5.2"><h1 id="docker-docker-enable-pg-tde-enable-pg_tde-for-securing-data-at-rest">Enable <code>pg_tde</code> for securing data at rest<a class="headerlink" href="#docker-docker-enable-pg-tde-enable-pg_tde-for-securing-data-at-rest" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL Docker image includes the <code>pg_tde</code> extension to provide data encryption.</p>
+<p>AXDB Docker image includes the <code>pg_tde</code> extension to provide data encryption.</p>
 <p>For more information, see the <a href="https://docs.percona.com/pg-tde/index.html">pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <h2 class="power-number" id="docker-docker-enable-pg-tde-enable-pg_tde">Enable pg_tde<a class="headerlink" href="#docker-docker-enable-pg-tde-enable-pg_tde" title="Permanent link">&para;</a></h2>
 <ol>
@@ -5328,8 +5064,8 @@ wait_event_type     | text                     |           |          |
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>pg_stat_monitor</code> view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.</p>
-</div></section></section><section class="print-page" id="enable-extensions" heading-number="5.1.6"><h1 id="enable-extensions-enable-percona-distribution-for-postgresql-components">Enable Percona Distribution for PostgreSQL components<a class="headerlink" href="#enable-extensions-enable-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h1>
-<p>Some components require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per component.</p>
+</div></section></section><section class="print-page" id="enable-extensions" heading-number="5.1.6"><h1 id="enable-extensions-enable-axdb-components">Enable AXDB components<a class="headerlink" href="#enable-extensions-enable-axdb-components" title="Permanent link">&para;</a></h1>
+<p>Some components require additional configuration before using them with AXDB. This sections provides configuration instructions per component.</p>
 <h2 id="enable-extensions-patroni">Patroni<a class="headerlink" href="#enable-extensions-patroni" title="Permanent link">&para;</a></h2>
 <p>Patroni is the high availability solution for PostgreSQL. The <a href="#solutions-high-availability">High Availability in PostgreSQL with Patroni</a> chapter provides details about the solution overview and architecture deployment. </p>
 <p>While setting up a high availability PostgreSQL cluster with Patroni, you will need the following components:</p>
@@ -5338,7 +5074,7 @@ wait_event_type     | text                     |           |          |
 <p>Patroni installed on every <code>postresql</code> node. </p>
 </li>
 <li>
-<p>Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though <a href="https://etcd.io/">etcd</a> is the most popular one. It is available within Percona Distribution for PostgreSQL for all supported operating systems. </p>
+<p>Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though <a href="https://etcd.io/">etcd</a> is the most popular one. It is available within AXDB for all supported operating systems. </p>
 </li>
 <li>
 <p><a href="http://www.haproxy.org/">HAProxy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
@@ -5424,7 +5160,7 @@ log_error_verbosity = default
 </code></pre></div>
 <h2 id="enable-extensions-next-steps">Next steps<a class="headerlink" href="#enable-extensions-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#connect">Connect to PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="repo-overview" heading-number="5.1.7"><h1 id="repo-overview-repositories-overview">Repositories overview<a class="headerlink" href="#repo-overview-repositories-overview" title="Permanent link">&para;</a></h1>
-<p>Percona provides two repositories for Percona Distribution for PostgreSQL. </p>
+<p>Percona provides two repositories for AXDB. </p>
 <table>
 <thead>
 <tr>
@@ -5434,8 +5170,8 @@ log_error_verbosity = default
 </thead>
 <tbody>
 <tr>
-<td><em>Major Release repository</em> (<code>ppg-18</code>) it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona. <br><br> We recommend installing Percona Distribution for PostgreSQL from the <em>Major Release repository</em></td>
-<td><em>Minor Release repository</em> includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. <code>ppg-18.4</code>). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories. <br> <br> The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.</td>
+<td><em>Major Release repository</em> (<code>ppg-18</code>) it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona. <br><br> We recommend installing AXDB from the <em>Major Release repository</em></td>
+<td><em>Minor Release repository</em> includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. <code>ppg-18.4</code>). You may choose to install AXDB from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories. <br> <br> The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.</td>
 </tr>
 </tbody>
 </table></section><section class="print-page" id="sboms" heading-number="5.1.8"><h1 id="sboms-software-bill-of-materials-sboms">Software Bill of Materials (SBOMs)<a class="headerlink" href="#sboms-software-bill-of-materials-sboms" title="Permanent link">&para;</a></h1>
@@ -5603,7 +5339,7 @@ log_error_verbosity = default
 <p>To delete the whole database, use the DROP DATABASE command:</p>
 <div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
 </code></pre></div>
-<p>Congratulations! You have used basic create, read, update and delete (CRUD) operations to manipulate data in Percona Distribution for PostgreSQL. To deepen your knowledge, see the <a href="https://www.postgresql.org/docs/18/dml.html">data manipulation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> section in PostgreSQL documentation.</p>
+<p>Congratulations! You have used basic create, read, update and delete (CRUD) operations to manipulate data in AXDB. To deepen your knowledge, see the <a href="https://www.postgresql.org/docs/18/dml.html">data manipulation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> section in PostgreSQL documentation.</p>
 <h2 id="crud-next-steps">Next steps<a class="headerlink" href="#crud-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#whats-next">What&rsquo;s next?</a></p></section><section class="print-page" id="whats-next" heading-number="5.4"><h1 id="whats-next-whats-next">What&rsquo;s next?<a class="headerlink" href="#whats-next-whats-next" title="Permanent link">&para;</a></h1>
 <p>You&rsquo;ve just had your first hands-on experience with PostgreSQL! That&rsquo;s a great start.</p>
@@ -5636,7 +5372,7 @@ log_error_verbosity = default
 <h2 id="extensions-install-an-extension">Install an extension<a class="headerlink" href="#extensions-install-an-extension" title="Permanent link">&para;</a></h2>
 <p>To use an extension, install it. Run the <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html"><code>CREATE EXTENSION</code></a> command on the PostgreSQL node where you want the extension to be available. </p>
 <p>The user should be a superuser or have the <code>CREATE</code> privilege on the current database to be able to run the <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html"><code>CREATE EXTENSION</code></a> command. Some extensions may require additional privileges depending on their functionality. To learn more, check the documentation for the desired extension.</p></section><section class="print-page" id="contrib" heading-number="6.2"><h1 id="contrib-postgresql-contrib-modules-and-utilities">PostgreSQL contrib modules and utilities<a class="headerlink" href="#contrib-postgresql-contrib-modules-and-utilities" title="Permanent link">&para;</a></h1>
-<p>This list mirrors PostgreSQL contrib modules shipped with Percona Distribution for PostgreSQL.</p>
+<p>This list mirrors PostgreSQL contrib modules shipped with AXDB.</p>
 <table>
 <thead>
 <tr>
@@ -5882,26 +5618,7 @@ log_error_verbosity = default
 <td>Provides functions to generate universally unique identifiers (UUIDs) using one of several standard algorithms</td>
 </tr>
 </tbody>
-</table></section><section class="print-page" id="percona-ext" heading-number="6.3"><h1 id="percona-ext-percona-authored-extensions">Percona-authored extensions<a class="headerlink" href="#percona-ext-percona-authored-extensions" title="Permanent link">&para;</a></h1>
-<p>Percona-authored extensions provide additional capabilities that go beyond upstream PostgreSQL, enabling advanced observability and data-at-rest encryption. These extensions are developed and maintained by Percona and are designed to integrate seamlessly with Percona Server for PostgreSQL and Percona Distribution for PostgreSQL.</p>
-<p>This page provides a high-level overview of the available Percona-authored extensions and the problems they are intended to solve. For detailed configuration and usage instructions, follow the documentation links provided for each extension below.</p>
-<div data-grid="data-grid">
-<div data-banner="data-banner">
-<h2 id="percona-ext-pg_stat_monitor"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0m14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042"/></svg></span> pg_stat_monitor<a class="headerlink" href="#percona-ext-pg_stat_monitor" title="Permanent link">&para;</a></h2>
-<p>An open-source query performance monitoring tool for PostgreSQL that brings more insight and details around query performance, planning statistics and metadata. It improves observability, enabling users to debug and tune query performance with precision.</p>
-<p><a class="md-button" href="https://docs.percona.com/pg-stat-monitor/index.html">See the pg_stat_monitor documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
-</div>
-<div data-banner="data-banner">
-<h2 id="percona-ext-pg_tde"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_tde<a class="headerlink" href="#percona-ext-pg_tde" title="Permanent link">&para;</a></h2>
-<p>An open-source extension designed to enhance PostgreSQL security by encrypting data files on disk. <code>pg_tde</code> protects data at rest by ensuring that database files cannot be read without the appropriate encryption keys. Encryption is transparent to applications and users at the SQL level, while key management is configured separately.</p>
-<p><a class="md-button" href="https://docs.percona.com/pg-tde/index.html">See the pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
-</div>
-<div data-banner="data-banner">
-<h2 id="percona-ext-pg_oidc_validator"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_oidc_validator<a class="headerlink" href="#percona-ext-pg_oidc_validator" title="Permanent link">&para;</a></h2>
-<p>An OAuth validator library for PostgreSQL 18 that validates OpenID Connect (OIDC) JWT access tokens. It integrates with PostgreSQL’s OAuth framework to verify tokens issued by compliant OIDC providers.</p>
-<p><a class="md-button" href="https://github.com/Percona-Lab/pg_oidc_validator">Check the pg_oidc_validator GitHub repository <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
-</div>
-</div></section><section class="print-page" id="third-party" heading-number="6.4"><h1 id="third-party-third-party-components">Third-party components<a class="headerlink" href="#third-party-third-party-components" title="Permanent link">&para;</a></h1>
+</table></section><section class="print-page" id="third-party" heading-number="6.3"><h1 id="third-party-third-party-components">Third-party components<a class="headerlink" href="#third-party-third-party-components" title="Permanent link">&para;</a></h1>
 <p>AXDB is supplied with the set of third-party open source components and tools that provide additional functionality such as high-availability or disaster recovery, without the need of modifying PostgreSQL core code. These components are included in the AXDB and are tested to work together.</p>
 <table>
 <thead>
@@ -6002,7 +5719,7 @@ log_error_verbosity = default
                     <section class='print-page md-section' id='section-7' heading-number='7'>
                         <h1>Solutions<a class='headerlink' href='#section-7' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="solutions" heading-number="7.1"><h1 id="solutions-percona-distribution-for-postgresql-solutions">Percona Distribution for PostgreSQL solutions<a class="headerlink" href="#solutions-percona-distribution-for-postgresql-solutions" title="Permanent link">&para;</a></h1>
+                    <section class="print-page" id="solutions" heading-number="7.1"><h1 id="solutions-axdb-solutions">AXDB solutions<a class="headerlink" href="#solutions-axdb-solutions" title="Permanent link">&para;</a></h1>
 <p>Find the right solution to help you achieve your organization&rsquo;s goals, such as high availability, backup and disaster recovery, spatial data handling, authentication, and <a href="https://docs.percona.com/pg-tde/index.html">data-at-rest encryption <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <p>Explore the available solutions below:</p>
 <div data-grid="data-grid">
@@ -6875,7 +6592,7 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 </ol>
 <h2 id="solutions-ha-etcd-config-next-steps">Next steps<a class="headerlink" href="#solutions-ha-etcd-config-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#solutions-ha-patroni">Patroni setup <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="solutions-ha-patroni" heading-number="7.2.6.3"><h1 id="solutions-ha-patroni-patroni-setup">Patroni setup<a class="headerlink" href="#solutions-ha-patroni-patroni-setup" title="Permanent link">&para;</a></h1>
-<h2 id="solutions-ha-patroni-install-percona-distribution-for-postgresql-and-patroni">Install Percona Distribution for PostgreSQL and Patroni<a class="headerlink" href="#solutions-ha-patroni-install-percona-distribution-for-postgresql-and-patroni" title="Permanent link">&para;</a></h2>
+<h2 id="solutions-ha-patroni-install-axdb-and-patroni">Install AXDB and Patroni<a class="headerlink" href="#solutions-ha-patroni-install-axdb-and-patroni" title="Permanent link">&para;</a></h2>
 <p>Run the following commands as root or with <code>sudo</code> privileges on <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="solutions-ha-patroni-__tabbed_1_1" name="solutions-ha-patroni-__tabbed_1" type="radio" /><input id="solutions-ha-patroni-__tabbed_1_2" name="solutions-ha-patroni-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="solutions-ha-patroni-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian / Ubuntu</label><label for="solutions-ha-patroni-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL and derivatives</label></div>
 <div class="tabbed-content">
@@ -6885,7 +6602,7 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 <p>Disable the upstream <code>postgresql-18</code> package.</p>
 </li>
 <li>
-<p>Install Percona Distribution for PostgreSQL package</p>
+<p>Install AXDB package</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18
 </code></pre></div>
 </li>
@@ -6916,7 +6633,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
 <div class="tabbed-block">
 <ol>
 <li>
-<p>Install Percona Distribution for PostgreSQL package</p>
+<p>Install AXDB package</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql18-server
 </code></pre></div>
 </li>
@@ -8140,7 +7857,7 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
                     <section class='print-page md-section' id='section-7-3' heading-number='7.3'>
                         <h1>Backup and disaster recovery<a class='headerlink' href='#section-7-3' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="solutions-backup-recovery" heading-number="7.3.1"><h1 id="solutions-backup-recovery-backup-and-disaster-recovery-in-percona-distribution-for-postgresql">Backup and disaster recovery in Percona Distribution for PostgreSQL<a class="headerlink" href="#solutions-backup-recovery-backup-and-disaster-recovery-in-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+                    <section class="print-page" id="solutions-backup-recovery" heading-number="7.3.1"><h1 id="solutions-backup-recovery-backup-and-disaster-recovery-in-axdb">Backup and disaster recovery in AXDB<a class="headerlink" href="#solutions-backup-recovery-backup-and-disaster-recovery-in-axdb" title="Permanent link">&para;</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">Summary</p>
 <ul>
@@ -8153,7 +7870,7 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
 <h2 id="solutions-backup-recovery-overview">Overview<a class="headerlink" href="#solutions-backup-recovery-overview" title="Permanent link">&para;</a></h2>
 <p>A Disaster Recovery (DR) solution ensures that a system can be quickly restored to a normal operational state if something unexpected happens. When operating a database, you would back up the data as frequently as possible and have a mechanism to restore that data when needed. Disaster Recovery is often mistaken for high availability (HA), but they are two different concepts altogether:</p>
 <ul>
-<li>High availability ensures guaranteed service levels at all times. This solution involves configuring one or more standby systems to an active database, and the ability to switch seamlessly to that standby when the primary database becomes unavailable, for example, during a power outage or a server crash. To learn more about high-availability solutions with Percona Distribution for PostgreSQL, refer to <a href="#solutions-high-availability">High Availability in PostgreSQL with Patroni</a>.</li>
+<li>High availability ensures guaranteed service levels at all times. This solution involves configuring one or more standby systems to an active database, and the ability to switch seamlessly to that standby when the primary database becomes unavailable, for example, during a power outage or a server crash. To learn more about high-availability solutions with AXDB, refer to <a href="#solutions-high-availability">High Availability in PostgreSQL with Patroni</a>.</li>
 <li>Disaster Recovery protects the database instance against accidental or malicious data loss or data corruption. Disaster recovery can be achieved by using either the options provided by PostgreSQL, or external extensions.</li>
 </ul>
 <p><br></p>
@@ -8217,8 +7934,8 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 </table>
 </details>
 <p><br></p>
-<p>To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. Percona Distribution for PostgreSQL is supplied with <a href="#solutions-backup-recovery-pgbackrest">pgBackRest</a>: a reliable, open-source backup and recovery solution for PostgreSQL.</p>
-<p>This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The <a href="#solutions-dr-pgbackrest-setup">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial provides guidelines of how to set up and test this solution.</p>
+<p>To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. AXDB is supplied with <a href="#solutions-backup-recovery-pgbackrest">pgBackRest</a>: a reliable, open-source backup and recovery solution for PostgreSQL.</p>
+<p>This document focuses on the Disaster recovery solution in AXDB. The <a href="#solutions-dr-pgbackrest-setup">Deploying backup and disaster recovery solution in AXDB</a> tutorial provides guidelines of how to set up and test this solution.</p>
 <h3 id="solutions-backup-recovery-pgbackrest">pgBackRest<a class="headerlink" href="#solutions-backup-recovery-pgbackrest" title="Permanent link">&para;</a></h3>
 <p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. <code>pgBackRest</code> supports the following backup types:</p>
 <ul>
@@ -8231,7 +7948,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <p><code>pgBackRest</code> can restore a database to a specific point in time in the past. This is the case where a database is not inaccessible but perhaps contains corrupted data. Using the point-in-time recovery, a database administrator can restore the database to the last known good state.  </p>
 <p>Finally, <code>pgBackRest</code> also supports restoring PostgreSQL databases to a different PostgreSQL instance or a separate data directory.</p>
 <h2 id="solutions-backup-recovery-setup-overview">Setup overview<a class="headerlink" href="#solutions-backup-recovery-setup-overview" title="Permanent link">&para;</a></h2>
-<p>This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the <a href="#solutions-dr-pgbackrest-setup">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a>.</p>
+<p>This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the <a href="#solutions-dr-pgbackrest-setup">Deploying backup and disaster recovery solution in AXDB</a>.</p>
 <h3 id="solutions-backup-recovery-system-architecture">System architecture<a class="headerlink" href="#solutions-backup-recovery-system-architecture" title="Permanent link">&para;</a></h3>
 <p>As the configuration example, we will use a three server architecture where <code>pgBackRest</code> resides on a dedicated remote host. The servers communicate with each other via passwordless SSH.</p>
 <div class="admonition important">
@@ -8252,8 +7969,8 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <p>For simplicity, we use a single-node PostgreSQL instance as the primary database server. In a production scenario, you will use some form of high-availability solution to protect the primary instance. When you are using a high-availability setup, we recommend configuring <code>pgBackRest</code> to back up the hot standby server so the primary node is not unnecessarily loaded.</p>
 </div>
 <h3 id="solutions-backup-recovery-deployment">Deployment<a class="headerlink" href="#solutions-backup-recovery-deployment" title="Permanent link">&para;</a></h3>
-<p>Refer to the <a href="#solutions-dr-pgbackrest-setup">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial.  </p></section><section class="print-page" id="solutions-dr-pgbackrest-setup" heading-number="7.3.2"><h1 id="solutions-dr-pgbackrest-setup-deploying-backup-and-disaster-recovery-solution-in-percona-distribution-for-postgresql">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL<a class="headerlink" href="#solutions-dr-pgbackrest-setup-deploying-backup-and-disaster-recovery-solution-in-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
-<p>This document provides instructions of how to set up and test the backup and disaster recovery solution in Percona Distribution for PostgreSQL with <code>pgBackRest</code>. For technical overview and architecture description of this solution, refer to <a href="#solutions-backup-recovery">Backup and disaster recovery in Percona Distribution for PostgreSQL</a>.</p>
+<p>Refer to the <a href="#solutions-dr-pgbackrest-setup">Deploying backup and disaster recovery solution in AXDB</a> tutorial.  </p></section><section class="print-page" id="solutions-dr-pgbackrest-setup" heading-number="7.3.2"><h1 id="solutions-dr-pgbackrest-setup-deploying-backup-and-disaster-recovery-solution-in-axdb">Deploying backup and disaster recovery solution in AXDB<a class="headerlink" href="#solutions-dr-pgbackrest-setup-deploying-backup-and-disaster-recovery-solution-in-axdb" title="Permanent link">&para;</a></h1>
+<p>This document provides instructions of how to set up and test the backup and disaster recovery solution in AXDB with <code>pgBackRest</code>. For technical overview and architecture description of this solution, refer to <a href="#solutions-backup-recovery">Backup and disaster recovery in AXDB</a>.</p>
 <h2 id="solutions-dr-pgbackrest-setup-deployment">Deployment<a class="headerlink" href="#solutions-dr-pgbackrest-setup-deployment" title="Permanent link">&para;</a></h2>
 <p>As the example configuration, we will use the nodes with the following IP addresses:</p>
 <table>
@@ -8389,8 +8106,8 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 </li>
 <li>Set up bidirectional passwordless SSH between <code>pg-repo</code> and <code>pg-secondary</code> using the same method. This will allow <code>pg-repo</code> to recover the backups to <code>pg-secondary</code>. </li>
 </ol>
-<h3 id="solutions-dr-pgbackrest-setup-install-percona-distribution-for-postgresql">Install Percona Distribution for PostgreSQL<a class="headerlink" href="#solutions-dr-pgbackrest-setup-install-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h3>
-<p>Install Percona Distribution for PostgreSQL in the primary and the secondary nodes from Percona repository. </p>
+<h3 id="solutions-dr-pgbackrest-setup-install-axdb">Install AXDB<a class="headerlink" href="#solutions-dr-pgbackrest-setup-install-axdb" title="Permanent link">&para;</a></h3>
+<p>Install AXDB in the primary and the secondary nodes from Percona repository. </p>
 <ol>
 <li><a href="https://www.percona.com/doc/percona-repo-config/installing.html">Install <code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
 <li>
@@ -8399,7 +8116,7 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 </code></pre></div>
 </li>
 <li>
-<p>Install Percona Distribution for PostgreSQL packages</p>
+<p>Install AXDB packages</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="solutions-dr-pgbackrest-setup-__tabbed_1_1" name="solutions-dr-pgbackrest-setup-__tabbed_1" type="radio" /><input id="solutions-dr-pgbackrest-setup-__tabbed_1_2" name="solutions-dr-pgbackrest-setup-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="solutions-dr-pgbackrest-setup-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian and Ubuntu</label><label for="solutions-dr-pgbackrest-setup-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RedHat Enterprise Linux and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -8665,7 +8382,7 @@ pg1-path=/var/lib/postgresql/14/main
 <li>Geometrical data. This is also points, lines and polygons but they apply to a 2D surface.</li>
 </ul>
 <p>To operate with spatial data inside SQL queries, PostGIS supports <a href="https://postgis.net/docs/reference.html#SRS_Functions">spatial functions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> like distance, area, union, intersection. It uses the spatial indexes like <a href="https://en.wikipedia.org/wiki/R-tree">R-Tree <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and <a href="https://en.wikipedia.org/wiki/Quadtree">Quadtree <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for efficient processing of database operations. Read more about supported spatial functions and indexes in <a href="https://postgis.net/workshops/postgis-intro/introduction.html">PostGIS documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. </p>
-<p>By deploying PostGIS with Percona Distribution for PostgreSQL, you receive the open-source spatial database that you can use in various areas without vendor lock-in. </p>
+<p>By deploying PostGIS with AXDB, you receive the open-source spatial database that you can use in various areas without vendor lock-in. </p>
 <h2 id="solutions-postgis-when-to-use-postgis">When to use PostGIS<a class="headerlink" href="#solutions-postgis-when-to-use-postgis" title="Permanent link">&para;</a></h2>
 <p>You can use PostGIS in the following cases:</p>
 <ul>
@@ -8697,7 +8414,7 @@ pg1-path=/var/lib/postgresql/14/main
 <ol>
 <li>
 <p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> repository management tool to enable the repository. </p>
+<p>As other components of AXDB, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> repository management tool to enable the repository. </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg18
 </code></pre></div>
 </li>
@@ -8727,7 +8444,7 @@ pg1-path=/var/lib/postgresql/14/main
 </li>
 <li>
 <p>Enable Percona repository    </p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> repository management tool to enable the repository.     </p>
+<p>As other components of AXDB, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> repository management tool to enable the repository.     </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg18
 </code></pre></div>
 </li>
@@ -8898,7 +8615,7 @@ pg1-path=/var/lib/postgresql/14/main
                         </h1>
                     <section class="print-page" id="solutions-authentication-overview" heading-number="7.5.1"><h1 id="solutions-authentication-overview-authentication">Authentication<a class="headerlink" href="#solutions-authentication-overview-authentication" title="Permanent link">&para;</a></h1>
 <p>Centralized authentication allows you to manage database access using external identity systems instead of local PostgreSQL users.</p>
-<p>Percona Distribution for PostgreSQL supports multiple authentication mechanisms that integrate with enterprise identity infrastructure.</p>
+<p>AXDB supports multiple authentication mechanisms that integrate with enterprise identity infrastructure.</p>
 <h2 id="solutions-authentication-overview-available-authentication-methods">Available authentication methods<a class="headerlink" href="#solutions-authentication-overview-available-authentication-methods" title="Permanent link">&para;</a></h2>
 <h3 id="solutions-authentication-overview-oidc-authentication">OIDC authentication<a class="headerlink" href="#solutions-authentication-overview-oidc-authentication" title="Permanent link">&para;</a></h3>
 <p>Authenticate users using OpenID Connect identity providers.</p>
@@ -8907,7 +8624,7 @@ pg1-path=/var/lib/postgresql/14/main
 <p>Use LDAP directories such as OpenLDAP or Active Directory to centrally manage database users.</p>
 <p><a class="md-button" href="#solutions-authentication-ldap">LDAP authentication <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="solutions-authentication-oidc" heading-number="7.5.2"><h1 id="solutions-authentication-oidc-oidc-authentication">OIDC authentication<a class="headerlink" href="#solutions-authentication-oidc-oidc-authentication" title="Permanent link">&para;</a></h1>
 <p><a href="https://openid.net/developers/how-connect-works/">OpenID Connect <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> (or OIDC) authentication allows you to authenticate using tokens issued by an external identity provider. Instead of managing database passwords, you can delegate authentication to centralized identity services.</p>
-<p>Percona Distribution for PostgreSQL integrates OIDC authentication using the <code>pg_oidc_validator</code> library, which validates OIDC tokens during client authentication.</p>
+<p>AXDB integrates OIDC authentication using the <code>pg_oidc_validator</code> library, which validates OIDC tokens during client authentication.</p>
 <p>The library is compatible with any identity provider that implements the OIDC standard.</p>
 <p>For configuration details and source code, see the <a href="https://github.com/Percona-Lab/pg_oidc_validator">pg_oidc_validator project <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <div class="admonition important">
@@ -9019,8 +8736,8 @@ pg1-path=/var/lib/postgresql/14/main
                     <section class='print-page md-section' id='section-8' heading-number='8'>
                         <h1>Upgrade<a class='headerlink' href='#section-8' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="major-upgrade" heading-number="8.1"><h1 id="major-upgrade-upgrading-percona-distribution-for-postgresql-from-17-to-18">Upgrading Percona Distribution for PostgreSQL from 17 to 18<a class="headerlink" href="#major-upgrade-upgrading-percona-distribution-for-postgresql-from-17-to-18" title="Permanent link">&para;</a></h1>
-<p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code> tool.</p>
+                    <section class="print-page" id="major-upgrade" heading-number="8.1"><h1 id="major-upgrade-upgrading-axdb-from-17-to-18">Upgrading AXDB from 17 to 18<a class="headerlink" href="#major-upgrade-upgrading-axdb-from-17-to-18" title="Permanent link">&para;</a></h1>
+<p>This document describes the in-place upgrade of AXDB using the <code>pg_upgrade</code> tool.</p>
 <p>To ensure a smooth upgrade path, follow these steps:</p>
 <ul>
 <li>Upgrade to the latest minor version within your current major version (e.g., from 17.4 to 17.5).</li>
@@ -9029,7 +8746,7 @@ pg1-path=/var/lib/postgresql/14/main
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When running a major upgrade on <strong>RHEL 8 and compatible derivatives</strong>, consider the following:</p>
-<p>Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include <code>llvm</code> packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include <code>llvm</code> 12.0.1. Since <code>llvm</code> libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.</p>
+<p>AXDB 16.3, 15.7, 14.12, 13.15 and 12.18 include <code>llvm</code> packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include <code>llvm</code> 12.0.1. Since <code>llvm</code> libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -9040,15 +8757,15 @@ pg1-path=/var/lib/postgresql/14/main
 <p class="admonition-title">See also</p>
 <p><a href="https://www.postgresql.org/docs/18/pgupgrade.html"><code>pg_upgrade</code> Documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>
-<p>Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.</p>
+<p>Similar to installing, we recommend you to upgrade AXDB from Percona repositories.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>A major upgrade is a risky process because of many changes between versions and issues that might occur during or after the upgrade. Therefore, make sure to back up your data first. The backup tools are out of scope of this document. Use the backup tool of your choice.</p>
 </div>
-<p>The general in-place upgrade flow for Percona Distribution for PostgreSQL is the following:</p>
+<p>The general in-place upgrade flow for AXDB is the following:</p>
 <ol>
 <li>
-<p>Install new version of Percona Distribution for PostgreSQL packages.</p>
+<p>Install new version of AXDB packages.</p>
 </li>
 <li>
 <p>Stop the PostgreSQL service.</p>
@@ -9057,7 +8774,7 @@ pg1-path=/var/lib/postgresql/14/main
 <p>Check the upgrade without modifying the data.</p>
 </li>
 <li>
-<p>Upgrade Percona Distribution for PostgreSQL.</p>
+<p>Upgrade AXDB.</p>
 </li>
 <li>
 <p>Start PostgreSQL service.</p>
@@ -9080,7 +8797,7 @@ so the system is usable.</p>
 <p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
 <ol>
 <li>
-<p>Install Percona Distribution for PostgreSQL 18 packages.</p>
+<p>Install AXDB 18 packages.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When installing version 18, if prompted via a pop-up to upgrade to the latest available version, select <strong>No</strong>.</p>
@@ -9096,7 +8813,7 @@ so the system is usable.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
 </code></pre></div>
 <ul>
-<li>Install Percona Distribution for PostgreSQL 18 package</li>
+<li>Install AXDB 18 package</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18
 </code></pre></div>
@@ -9105,7 +8822,7 @@ so the system is usable.</p>
 <p>Stop the <code>postgresql</code> service.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
 </code></pre></div>
-<p>This stops both Percona Distribution for PostgreSQL 17 and 18.</p>
+<p>This stops both AXDB 17 and 18.</p>
 </li>
 <li>
 <p>Run the database upgrade.</p>
@@ -9115,14 +8832,14 @@ so the system is usable.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
-<li>Check if you can upgrade Percona Distribution for PostgreSQL from 17 to 18</li>
+<li>Check if you can upgrade AXDB from 17 to 18</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pg_upgradecluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main<span class="w"> </span>--check
 <span class="c1"># Sample output: pg_upgradecluster pre-upgrade checks ok</span>
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
 <ul>
-<li>Upgrade the Percona Distribution for PostgreSQL</li>
+<li>Upgrade the AXDB</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pg_upgradecluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main
 </code></pre></div>
@@ -9242,7 +8959,7 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 <p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
 <ol>
 <li>
-<p>Install Percona Distribution for PostgreSQL 18 packages</p>
+<p>Install AXDB 18 packages</p>
 <ul>
 <li>
 <p><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
@@ -9254,13 +8971,13 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
 </code></pre></div>
 <ul>
-<li>Install Percona Distribution for PostgreSQL 18:</li>
+<li>Install AXDB 18:</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql18-server
 </code></pre></div>
 </li>
 <li>
-<p>Set up Percona Distribution for PostgreSQL 18 cluster</p>
+<p>Set up AXDB 18 cluster</p>
 </li>
 <li>
 <p>Log is as the postgres user</p>
@@ -9291,7 +9008,7 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
-<li>Check the ability to upgrade Percona Distribution for PostgreSQL from 17 to 18:</li>
+<li>Check the ability to upgrade AXDB from 17 to 18:</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
 --old-bindir<span class="w"> </span>/usr/pgsql-17/bin<span class="w"> </span><span class="se">\</span>
@@ -9319,7 +9036,7 @@ Checking for prepared transactions                          ok
 *Clusters are compatible*
 </code></pre></div>
 <ul>
-<li>Upgrade the Percona Distribution for PostgreSQL</li>
+<li>Upgrade the AXDB</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
 --old-bindir<span class="w"> </span>/usr/pgsql-17/bin<span class="w"> </span><span class="se">\</span>
@@ -9355,7 +9072,7 @@ Checking for prepared transactions                          ok
 </code></pre></div>
 </li>
 <li>
-<p>Delete Percona Distribution for PostgreSQL 17 configuration files</p>
+<p>Delete AXDB 17 configuration files</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
 </code></pre></div>
 </li>
@@ -9373,19 +9090,19 @@ file /usr/share/postgresql-common/server/postgresql.mk from install of percona-p
 file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-</div></section><section class="print-page" id="minor-upgrade" heading-number="8.2"><h1 id="minor-upgrade-minor-upgrade-of-percona-distribution-for-postgresql">Minor Upgrade of Percona Distribution for PostgreSQL<a class="headerlink" href="#minor-upgrade-minor-upgrade-of-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
-<p>Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your Percona Distribution for PostgreSQL updated to the latest minor version.</p>
+</div></section><section class="print-page" id="minor-upgrade" heading-number="8.2"><h1 id="minor-upgrade-minor-upgrade-of-axdb">Minor Upgrade of AXDB<a class="headerlink" href="#minor-upgrade-minor-upgrade-of-axdb" title="Permanent link">&para;</a></h1>
+<p>Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your AXDB updated to the latest minor version.</p>
 <p>Though minor upgrades do not change the behavior, we recommend you to back up your data first, in order to be on the safe side.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>These steps apply if you installed Percona Distribution for PostgreSQL from the Major Release repository. In this case, you are always upgraded to the latest available release.</p>
-<p>If you installed Percona Distribution for PostgreSQL from the Minor Release repository, you will need to enable a new version repository to upgrade.</p>
-<p>For more information about Percona repositories, refer to <a href="#installing">Installing Percona Distribution for PostgreSQL</a>.</p>
+<p>These steps apply if you installed AXDB from the Major Release repository. In this case, you are always upgraded to the latest available release.</p>
+<p>If you installed AXDB from the Minor Release repository, you will need to enable a new version repository to upgrade.</p>
+<p>For more information about Percona repositories, refer to <a href="#installing">Installing AXDB</a>.</p>
 </div>
 <h2 id="minor-upgrade-before-you-start">Before you start<a class="headerlink" href="#minor-upgrade-before-you-start" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p><a href="https://docs.percona.com/percona-software-repositories/updating.html">Update the <code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL.</p>
+<p><a href="https://docs.percona.com/percona-software-repositories/updating.html">Update the <code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> utility to the latest version. This is required to install the new version packages of AXDB.</p>
 </li>
 <li>
 <p>Starting with version 17.2.1, <code>pg_tde</code> is part of the Percona Server for PostgreSQL package. If you installed <code>pg_tde</code> from its dedicated package, do the following to avoid conflicts during the upgrade:</p>
@@ -9422,7 +9139,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 <p><a href="https://docs.percona.com/percona-software-repositories/updating.html">Update <code>percona-release</code> to the latest version</a>.</p>
 </li>
 <li>
-<p>Install new version packages. See <a href="#installing">Installing Percona Distribution for PostgreSQL</a>.</p>
+<p>Install new version packages. See <a href="#installing">Installing AXDB</a>.</p>
 </li>
 <li>
 <p>Restart the <code>postgresql</code> service:</p>
@@ -9455,10 +9172,10 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
 </div>
-<p>If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL from 17 to 18</a>.</p></section><section class="print-page" id="migration" heading-number="8.3"><h1 id="migration-migrate-from-postgresql-to-percona-distribution-for-postgresql">Migrate from PostgreSQL to Percona Distribution for PostgreSQL<a class="headerlink" href="#migration-migrate-from-postgresql-to-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL includes the PostgreSQL database and additional extensions that have been selected to cover the needs of the enterprise and are guaranteed to work together. Percona Distribution for PostgreSQL is available as a software collection that is easy to deploy.</p>
-<p>We encourage users to migrate from their PostgreSQL deployments based on community binaries to Percona Distribution for PostgreSQL. This document provides the migration instructions. </p>
-<p>Depending on your business requirements, you may migrate to Percona Distribution for PostgreSQL either <a href="#migration-migrate-on-the-same-server">on the same server</a> or <a href="#migration-migrate-on-a-different-server">onto a different server</a>. </p>
+<p>If you wish to upgrade AXDB to the major version, refer to <a href="#major-upgrade">Upgrading AXDB from 17 to 18</a>.</p></section><section class="print-page" id="migration" heading-number="8.3"><h1 id="migration-migrate-from-postgresql-to-axdb">Migrate from PostgreSQL to AXDB<a class="headerlink" href="#migration-migrate-from-postgresql-to-axdb" title="Permanent link">&para;</a></h1>
+<p>AXDB includes the PostgreSQL database and additional extensions that have been selected to cover the needs of the enterprise and are guaranteed to work together. AXDB is available as a software collection that is easy to deploy.</p>
+<p>We encourage users to migrate from their PostgreSQL deployments based on community binaries to AXDB. This document provides the migration instructions. </p>
+<p>Depending on your business requirements, you may migrate to AXDB either <a href="#migration-migrate-on-the-same-server">on the same server</a> or <a href="#migration-migrate-on-a-different-server">onto a different server</a>. </p>
 <h2 id="migration-migrate-on-the-same-server">Migrate on the same server<a class="headerlink" href="#migration-migrate-on-the-same-server" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="migration-__tabbed_1_1" name="migration-__tabbed_1" type="radio" /><input id="migration-__tabbed_1_2" name="migration-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="migration-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian and Ubuntu Linux</label><label for="migration-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL and derivatives</label></div>
 <div class="tabbed-content">
@@ -9487,7 +9204,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </code></pre></div>
 </li>
 <li>
-<p><a href="#apt">Install Percona Distribution for PostgreSQL packages</a></p>
+<p><a href="#apt">Install AXDB packages</a></p>
 </li>
 <li>(Optional) Restore the data from the backup.</li>
 <li>
@@ -9525,7 +9242,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </code></pre></div>
 </li>
 <li>
-<p><a href="#yum">Install Percona Distribution for PostgreSQL packages</a></p>
+<p><a href="#yum">Install AXDB packages</a></p>
 </li>
 <li>(Optional) Restore the data from the backup.</li>
 <li>
@@ -9538,8 +9255,8 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </div>
 </div>
 <h2 id="migration-migrate-on-a-different-server">Migrate on a different server<a class="headerlink" href="#migration-migrate-on-a-different-server" title="Permanent link">&para;</a></h2>
-<p>In this scenario, we will refer to the server with PostgreSQL Community as the &ldquo;source&rdquo; and to the server with Percona Distribution for PostgreSQL as the &ldquo;target&rdquo;.</p>
-<p>To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a different server, do the following:</p>
+<p>In this scenario, we will refer to the server with PostgreSQL Community as the &ldquo;source&rdquo; and to the server with AXDB as the &ldquo;target&rdquo;.</p>
+<p>To migrate from PostgreSQL Community to AXDB on a different server, do the following:</p>
 <p class="power-number"><strong>On the source server</strong>:</p>
 <ol>
 <li>Back up your data and all configuration files (such as <code>pg_hba.conf</code>, <code>postgresql.conf</code>, <code>postgresql.auto.conf</code>) using the tool of your choice.</li>
@@ -9571,7 +9288,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </code></pre></div>
 </li>
 <li>
-<p><a href="#installing">Install Percona Distribution for PostgreSQL packages</a> on the target server.</p>
+<p><a href="#installing">Install AXDB packages</a> on the target server.</p>
 </li>
 <li>Restore the data from the backup</li>
 <li>
@@ -9613,21 +9330,21 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 <p>To ensure all tables end up in your newly created schema, use the following statement ot set the schema:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SET</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">demo</span><span class="p">;</span>
 </code></pre></div>
-<p>Replace the <code>demo</code> name with your value.</p></section><section class="print-page" id="uninstalling" heading-number="11"><h1 id="uninstalling-uninstalling-percona-distribution-for-postgresql">Uninstalling Percona Distribution for PostgreSQL<a class="headerlink" href="#uninstalling-uninstalling-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
-<p>To uninstall Percona Distribution for PostgreSQL, remove all the installed packages and data / configuration files.</p>
+<p>Replace the <code>demo</code> name with your value.</p></section><section class="print-page" id="uninstalling" heading-number="11"><h1 id="uninstalling-uninstalling-axdb">Uninstalling AXDB<a class="headerlink" href="#uninstalling-uninstalling-axdb" title="Permanent link">&para;</a></h1>
+<p>To uninstall AXDB, remove all the installed packages and data / configuration files.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Should you need the data files later, back up your data before uninstalling Percona Distribution for PostgreSQL.</p>
+<p>Should you need the data files later, back up your data before uninstalling AXDB.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="uninstalling-__tabbed_1_1" name="uninstalling-__tabbed_1" type="radio" /><input id="uninstalling-__tabbed_1_2" name="uninstalling-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="uninstalling-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian and Ubuntu using <code>apt</code></label><label for="uninstalling-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On Red Hat Enterprise Linux and derivatives using <code>yum</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>To uninstall Percona Distribution for PostgreSQL on platforms that use <strong>apt</strong> package manager such as Debian
+<p>To uninstall AXDB on platforms that use <strong>apt</strong> package manager such as Debian
  or Ubuntu, complete the following steps.</p>
 <p class="power-number">Run all commands as root or via <strong>sudo</strong>.</p>
 <ol>
 <li>
-<p>Stop the Percona Distribution for PostgreSQL service.</p>
+<p>Stop the AXDB service.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
 </code></pre></div>
 </li>
@@ -9644,12 +9361,12 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </ol>
 </div>
 <div class="tabbed-block">
-<p>To uninstall Percona Distribution for PostgreSQL on platforms that use <strong>yum</strong> package manager such as
+<p>To uninstall AXDB on platforms that use <strong>yum</strong> package manager such as
  Red Hat Enterprise Linux or CentOS, complete the following steps.</p>
 <p class="power-number">Run all commands as root or via <strong>sudo</strong>.</p>
 <ol>
 <li>
-<p>Stop the Percona Distribution for PostgreSQL service.</p>
+<p>Stop the AXDB service.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql-18
 </code></pre></div>
 </li>
@@ -9668,7 +9385,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </div>
 </div>
 <h2 id="uninstalling-uninstall-from-tarballs">Uninstall from tarballs<a class="headerlink" href="#uninstalling-uninstall-from-tarballs" title="Permanent link">&para;</a></h2>
-<p>If you <a href="#tarball">installed Percona Distribution for PostgreSQL from binary tarballs</a>, stop the PostgreSQL server and remove the folder with the binary tarballs.</p>
+<p>If you <a href="#tarball">installed AXDB from binary tarballs</a>, stop the PostgreSQL server and remove the folder with the binary tarballs.</p>
 <ol>
 <li>
 <p>Stop the <code>postgres</code> server:</p>
@@ -9700,25 +9417,25 @@ server stopped
 <h2 id="release-notes-release-notes-2025">2025<a class="headerlink" href="#release-notes-release-notes-2025" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#release-notes-release-notes-v18.1.1">18.1.1</a> (2025-11-28)</li>
-</ul></section><section class="print-page" id="release-notes-release-notes-v18.4.1" heading-number="12.2"><h1 id="release-notes-release-notes-v18.4.1-percona-distribution-for-postgresql-1841-2026-05-20">Percona Distribution for PostgreSQL 18.4.1 (2026-05-20)<a class="headerlink" href="#release-notes-release-notes-v18.4.1-percona-distribution-for-postgresql-1841-2026-05-20" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
-<p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.4.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-4.html">PostgreSQL Community 18.4</a>.</p>
+</ul></section><section class="print-page" id="release-notes-release-notes-v18.4.1" heading-number="12.2"><h1 id="release-notes-release-notes-v18.4.1-axdb-1841-2026-05-20">AXDB 18.4.1 (2026-05-20)<a class="headerlink" href="#release-notes-release-notes-v18.4.1-axdb-1841-2026-05-20" title="Permanent link">&para;</a></h1>
+<p>AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
+<p>The aim of AXDB is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
+<p>This release of AXDB is based on Percona Server for PostgreSQL 18.4.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-4.html">PostgreSQL Community 18.4</a>.</p>
 <h2 id="release-notes-release-notes-v18.4.1-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-release-notes-v18.4.1-release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, <code>pg_tde</code> 2.2.0 for Transparent Data Encryption and more. See the full component list below for details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>pg_tde</code> 2.2.0 requires Percona Distribution for PostgreSQL 18.4 at minimum. Earlier versions of PPG are not supported with this release of <code>pg_tde</code>.</p>
+<p><code>pg_tde</code> 2.2.0 requires AXDB 18.4 at minimum. Earlier versions of PPG are not supported with this release of <code>pg_tde</code>.</p>
 </div>
-<p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL</a>.</p>
+<p>To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in <a href="#major-upgrade">Upgrading AXDB</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Starting with this release, <code>shared_preload_libraries</code> is empty by default. Extensions such as <code>pg_tde</code> must be added manually.</p>
 </div>
 <h3 id="release-notes-release-notes-v18.4.1-ubuntu-2604-lts-support-added">Ubuntu 26.04 LTS support added<a class="headerlink" href="#release-notes-release-notes-v18.4.1-ubuntu-2604-lts-support-added" title="Permanent link">&para;</a></h3>
-<p>Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat&rsquo;s successor). Packages are provided for AMD64 and ARM64 architectures.</p>
+<p>AXDB is available on Ubuntu 26.04 LTS (Noble Numbat&rsquo;s successor). Packages are provided for AMD64 and ARM64 architectures.</p>
 <h3 id="release-notes-release-notes-v18.4.1-added-quick-start-guide">Added Quick Start guide<a class="headerlink" href="#release-notes-release-notes-v18.4.1-added-quick-start-guide" title="Permanent link">&para;</a></h3>
-<p>Added a Quick Start Guide walking users through setting up Percona Distribution for PostgreSQL with minimal steps and linking to more advanced topics.</p>
+<p>Added a Quick Start Guide walking users through setting up AXDB with minimal steps and linking to more advanced topics.</p>
 <h3 id="release-notes-release-notes-v18.4.1-tarball-updates">Tarball updates<a class="headerlink" href="#release-notes-release-notes-v18.4.1-tarball-updates" title="Permanent link">&para;</a></h3>
 <p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
 <ul>
@@ -9734,7 +9451,7 @@ server stopped
 <li>pg_cron: 1.6.7</li>
 <li>pg_tde: 2.2.0</li>
 </ul>
-<p>See <a href="#tarball">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
+<p>See <a href="#tarball">Install AXDB from binary tarballs</a> for the download links.</p>
 <h3 id="release-notes-release-notes-v18.4.1-addressed-cves">Addressed CVEs<a class="headerlink" href="#release-notes-release-notes-v18.4.1-addressed-cves" title="Permanent link">&para;</a></h3>
 <p>This release includes important security measures that address the following CVEs: TBD. For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-4.html">PostgreSQL 18.4 release notes</a>.</p>
 <h2 id="release-notes-release-notes-v18.4.1-known-issues">Known Issues<a class="headerlink" href="#release-notes-release-notes-v18.4.1-known-issues" title="Permanent link">&para;</a></h2>
@@ -9749,7 +9466,7 @@ server stopped
 <p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
 <h2 id="release-notes-release-notes-v18.4.1-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-release-notes-v18.4.1-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
-<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<p>The following is the list of extensions available in AXDB.</p>
 <table>
 <thead>
 <tr>
@@ -9861,16 +9578,16 @@ server stopped
 </tr>
 </tbody>
 </table>
-<p>For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section><section class="print-page" id="release-notes-release-notes-v18.3.1" heading-number="12.3"><h1 id="release-notes-release-notes-v18.3.1-percona-distribution-for-postgresql-1831-2026-03-02">Percona Distribution for PostgreSQL 18.3.1 (2026-03-02)<a class="headerlink" href="#release-notes-release-notes-v18.3.1-percona-distribution-for-postgresql-1831-2026-03-02" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
-<p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL Community 18.3</a>.</p>
+<p>For Red Hat Enterprise Linux 8 and compatible derivatives, AXDB also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
+<p>AXDB is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section><section class="print-page" id="release-notes-release-notes-v18.3.1" heading-number="12.3"><h1 id="release-notes-release-notes-v18.3.1-axdb-1831-2026-03-02">AXDB 18.3.1 (2026-03-02)<a class="headerlink" href="#release-notes-release-notes-v18.3.1-axdb-1831-2026-03-02" title="Permanent link">&para;</a></h1>
+<p>AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
+<p>The aim of AXDB is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
+<p>This release of AXDB is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL Community 18.3</a>.</p>
 <h2 id="release-notes-release-notes-v18.3.1-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-release-notes-v18.3.1-release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, including <code>pg_stat_monitor</code> 2.3.2 for advanced query-level observability, <code>pg_tde</code> 2.1.2 for Transparent Data Encryption and more. See the full component list below for details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL</a>.</p>
+<p>To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in <a href="#major-upgrade">Upgrading AXDB</a>.</p>
 </div>
 <h3 id="release-notes-release-notes-v18.3.1-tarball-updates">Tarball updates<a class="headerlink" href="#release-notes-release-notes-v18.3.1-tarball-updates" title="Permanent link">&para;</a></h3>
 <p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
@@ -9890,7 +9607,7 @@ server stopped
 <li>pg_oidc_validator: 1.0</li>
 <li>ydiff: 1.4.2</li>
 </ul>
-<p>See <a href="#tarball">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
+<p>See <a href="#tarball">Install AXDB from binary tarballs</a> for the download links.</p>
 <h3 id="release-notes-release-notes-v18.3.1-addressed-cves">Addressed CVEs<a class="headerlink" href="#release-notes-release-notes-v18.3.1-addressed-cves" title="Permanent link">&para;</a></h3>
 <p>This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006, CVE-2026-2007. For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL 18.3 release notes</a> and the <a href="https://www.postgresql.org/docs/18/release-18-2.html">PostgreSQL 18.2 release notes</a>.</p>
 <h2 id="release-notes-release-notes-v18.3.1-known-issues">Known Issues<a class="headerlink" href="#release-notes-release-notes-v18.3.1-known-issues" title="Permanent link">&para;</a></h2>
@@ -9905,7 +9622,7 @@ server stopped
 <p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
 <h2 id="release-notes-release-notes-v18.3.1-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-release-notes-v18.3.1-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
-<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<p>The following is the list of extensions available in AXDB.</p>
 <table>
 <thead>
 <tr>
@@ -10012,18 +9729,18 @@ server stopped
 </tr>
 </tbody>
 </table>
-<p>For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section>
+<p>For Red Hat Enterprise Linux 8 and compatible derivatives, AXDB also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
+<p>AXDB is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section>
                     <section class='print-page md-section' id='section-12-4' heading-number='12.4'>
                         <h1>2025<a class='headerlink' href='#section-12-4' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="release-notes-release-notes-v18.1.1" heading-number="12.4.1"><h1 id="release-notes-release-notes-v18.1.1-percona-distribution-for-postgresql-1811-2025-11-28">Percona Distribution for PostgreSQL 18.1.1 (2025-11-28)<a class="headerlink" href="#release-notes-release-notes-v18.1.1-percona-distribution-for-postgresql-1811-2025-11-28" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
-<p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL Community 18.1</a>.</p>
+                    <section class="print-page" id="release-notes-release-notes-v18.1.1" heading-number="12.4.1"><h1 id="release-notes-release-notes-v18.1.1-axdb-1811-2025-11-28">AXDB 18.1.1 (2025-11-28)<a class="headerlink" href="#release-notes-release-notes-v18.1.1-axdb-1811-2025-11-28" title="Permanent link">&para;</a></h1>
+<p>AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
+<p>The aim of AXDB is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
+<p>This release of AXDB is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL Community 18.1</a>.</p>
 <div class="admonition important postgresql rpms rebuilt to disable debug assertions">
 <p class="admonition-title">Important</p>
-<p>The Percona Server for PostgreSQL (PSP) and Percona Distribution for PostgreSQL (PPG) RPM packages for <strong>PostgreSQL versions 13 through 18 released as part of the Q3 and Q4 quarterly release</strong> were built with debug assertions enabled (<code>--enable-cassert</code>).</p>
+<p>The Percona Server for PostgreSQL (PSP) and AXDB (PPG) RPM packages for <strong>PostgreSQL versions 13 through 18 released as part of the Q3 and Q4 quarterly release</strong> were built with debug assertions enabled (<code>--enable-cassert</code>).</p>
 <p>If you installed or updated PostgreSQL RPMs within the last four months, you may suffer performance degradation: 18.1, 17.6, 17.7, 16.10, 16.11, 15.14, 15.15, 14.19, 14.20, 13.22, 13.23.</p>
 <p>These packages have been rebuilt, and all users running RPM-based installations of the affected releases are <strong>strongly advised</strong> to update to the latest available packages.</p>
 <p>To verify, run <code>pg_config --configure</code>. If the output includes <code>--enable-cassert</code>, then your installation is affected.</p>
@@ -10043,7 +9760,7 @@ server stopped
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
-<p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL</a>.</p>
+<p>To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in <a href="#major-upgrade">Upgrading AXDB</a>.</p>
 <h3 id="release-notes-release-notes-v18.1.1-pg_tde-is-now-a-standalone-package"><code>pg_tde</code> is now a standalone package<a class="headerlink" href="#release-notes-release-notes-v18.1.1-pg_tde-is-now-a-standalone-package" title="Permanent link">&para;</a></h3>
 <p>Starting with PostgreSQL 18, <code>pg_tde</code> is no longer shipped with the server package. If your cluster relies on <code>pg_tde</code>, you must install the package manually.</p>
 <p>For more information on installing <code>pg_tde</code>, see <a href="https://docs.percona.com/pg-tde/install.html">Install pg_tde <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
@@ -10064,7 +9781,7 @@ server stopped
 <li>libxml2: 2.12.10</li>
 <li>pg_tde: 2.1.0</li>
 </ul>
-<p>See <a href="#tarball">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
+<p>See <a href="#tarball">Install AXDB from binary tarballs</a> for the download links.</p>
 <h3 id="release-notes-release-notes-v18.1.1-addressed-cves">Addressed CVEs<a class="headerlink" href="#release-notes-release-notes-v18.1.1-addressed-cves" title="Permanent link">&para;</a></h3>
 <p>This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL 18.1 release notes</a>.</p>
 <h2 id="release-notes-release-notes-v18.1.1-known-issues">Known Issues<a class="headerlink" href="#release-notes-release-notes-v18.1.1-known-issues" title="Permanent link">&para;</a></h2>
@@ -10079,7 +9796,7 @@ server stopped
 <p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
 <h2 id="release-notes-release-notes-v18.1.1-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-release-notes-v18.1.1-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
-<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<p>The following is the list of extensions available in AXDB.</p>
 <table>
 <thead>
 <tr>
@@ -10181,15 +9898,15 @@ server stopped
 </tr>
 </tbody>
 </table>
-<p>For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section></section></section>
+<p>For Red Hat Enterprise Linux 8 and compatible derivatives, AXDB also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
+<p>AXDB is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section></section></section>
                     <section class='print-page md-section' id='section-13' heading-number='13'>
                         <h1>Reference<a class='headerlink' href='#section-13' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="licensing" heading-number="13.1"><h1 id="licensing-copyright-and-licensing-information">Copyright and licensing information<a class="headerlink" href="#licensing-copyright-and-licensing-information" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is licensed under the <a href="https://opensource.org/licenses/postgresql">PostgreSQL license <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and licenses of all components included in the Distribution.</p>
+<p>AXDB is licensed under the <a href="https://opensource.org/licenses/postgresql">PostgreSQL license <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and licenses of all components included in the Distribution.</p>
 <h2 id="licensing-documentation-licensing">Documentation licensing<a class="headerlink" href="#licensing-documentation-licensing" title="Permanent link">&para;</a></h2>
-<p>Percona Distribution for PostgreSQL documentation is (C)2009-2023 Percona LLC and/or its affiliates and is distributed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p></section><section class="print-page" id="versioning" heading-number="13.2"><h1 id="versioning-version-numbering">Version Numbering<a class="headerlink" href="#versioning-version-numbering" title="Permanent link">&para;</a></h1>
+<p>AXDB documentation is (C)2009-2023 Percona LLC and/or its affiliates and is distributed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p></section><section class="print-page" id="versioning" heading-number="13.2"><h1 id="versioning-version-numbering">Version Numbering<a class="headerlink" href="#versioning-version-numbering" title="Permanent link">&para;</a></h1>
 <p>Starting with PostgreSQL 18, Percona uses the following format:</p>
 <p><code>MAJOR.MINOR.PATCH</code></p>
 <p>For example:</p>
@@ -10343,9 +10060,7 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 
 .print-site-enumerate-headings #contrib > h1:before { content: '6.2 ' }
 
-.print-site-enumerate-headings #percona-ext > h1:before { content: '6.3 ' }
-
-.print-site-enumerate-headings #third-party > h1:before { content: '6.4 ' }
+.print-site-enumerate-headings #third-party > h1:before { content: '6.3 ' }
 
 .print-site-enumerate-headings #section-7 > h1:before { content: '7 ' }
 .print-site-enumerate-headings #solutions > h1:before { content: '7.1 ' }
@@ -10528,7 +10243,7 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/postgresql/18", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy", "content.tooltips"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "/axdb-docs/18", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy", "content.tooltips"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>

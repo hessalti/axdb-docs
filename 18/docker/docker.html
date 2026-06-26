@@ -9,13 +9,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Docker images of Percona Distribution for PostgreSQL are hosted publicly on Docker Hub .">
+        <meta name="description" content="Docker images of AXDB are hosted publicly on Docker Hub .">
       
       
         <meta name="author" content="Altibase Corp.">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/docker/docker.html">
+        <link rel="canonical" href="https://hessalti.github.io/axdb-docs/18/docker/docker.html">
       
       
         <link rel="prev" href="../tarball.html">
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#run-percona-distribution-for-postgresql-in-a-docker-container" class="md-skip">
+        <a href="#run-axdb-in-a-docker-container" class="md-skip">
           Skip to content
         </a>
       
@@ -435,7 +435,7 @@
   <span class="md-ellipsis">
     
   
-    Percona Server for PostgreSQL
+    AXDB
   
 
     
@@ -874,10 +874,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" class="md-nav__link">
+  <a href="#connect-to-axdb-from-an-application-in-another-docker-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Connect to Percona Distribution for PostgreSQL from an application in another Docker container
+        Connect to AXDB from an application in another Docker container
       
     </span>
   </a>
@@ -885,10 +885,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" class="md-nav__link">
+  <a href="#connect-to-axdb-from-the-psql-command-line-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Connect to Percona Distribution for PostgreSQL from the psql command line client
+        Connect to AXDB from the psql command line client
       
     </span>
   </a>
@@ -1026,7 +1026,7 @@
   <span class="md-ellipsis">
     
   
-    Enable Percona Distribution for PostgreSQL components
+    Enable AXDB components
   
 
     
@@ -1285,34 +1285,6 @@
     
   
     PostgreSQL contrib modules and utilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../percona-ext.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Percona-authored extensions
   
 
     
@@ -2082,7 +2054,7 @@
   <span class="md-ellipsis">
     
   
-    Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+    Deploying backup and disaster recovery solution in AXDB
   
 
     
@@ -2506,7 +2478,7 @@
   <span class="md-ellipsis">
     
   
-    Minor Upgrade of Percona Distribution for PostgreSQL
+    Minor Upgrade of AXDB
   
 
     
@@ -2534,7 +2506,7 @@
   <span class="md-ellipsis">
     
   
-    Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+    Migrate from PostgreSQL to AXDB
   
 
     
@@ -3006,227 +2978,6 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <!-- Feedback Widget -->
-<div class="rating-widget" style="
-  background: var(--md-default-bg-color);
-  border: 0.05rem solid var(--md-default-fg-color--lightest);
-  padding: 10px 15px;
-  border-radius: 0.2rem;
-  margin-bottom: 16px;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-  font-size: 16px;
-  text-align: center;
-  transition: all 0.2s ease-out;
-">
-
-  <div class="rating-title" style="
-    margin-bottom: 4px;
-    font-size: 15px;
-    font-weight: bold;
-    /* Removed inline color to use CSS */
-  ">
-    Rate this page
-  </div>
-
-  <div class="rating-stars" style="display: inline-block;">
-    
-      <span class="star" data-rating="1" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="2" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="3" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="4" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="5" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-  </div>
-
-  <div id="feedback-notification" style="
-    display: none;
-    margin-top: 10px;
-    color: var(--md-typeset-a-color);
-    font-weight: 500;
-    font-size: 14px;
-  ">Thanks for your feedback</div>
-
-<div id="feedback-submit-notification" style="
-display: none;
-margin-top: 10px;
-color: var(--md-typeset-a-color);
-font-weight: 500;
-font-size: 14px;
-">Thank you! The feedback has been submitted.</div>
-
-  <div id="feedback-form" style="
-    display: none;
-    margin-top: 12px;
-    text-align: left;
-    position: relative;
-    border: 0.05rem solid var(--md-default-fg-color--lightest);
-    padding: 12px;
-    border-radius: 6px;
-    background: var(--md-default-bg-color);
-    width: 100%;
-    box-sizing: border-box;
-    transition: all 0.2s ease-out;
-  ">
-<button id="close-feedback" title="Close" style="
-position: absolute;
-top: -10px;
-right: -10px;
-background: var(--md-default-bg-color);
-border: 0.05rem solid var(--md-default-fg-color--lightest);
-border-radius: 50%;
-width: 24px;
-height: 24px;
-font-size: 18px;
-font-weight: bold;
-cursor: pointer;
-color: var(--md-default-fg-color--light);
-line-height: 1;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-">
-×
-</button>
-
-    <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      resize: vertical;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    "></textarea>
-
-    <label for="feedback-email" style="
-      display: block;
-      font-size: 15px;
-      margin-bottom: 4px;
-    ">
-      Email <span style="color: var(--md-default-fg-color--light);">(optional)</span>
-    </label>
-
-    <input type="email" id="feedback-email" placeholder="you@example.com" style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    " />
-
-<button id="submit-feedback" style="
-  padding: 5px 10px;
-  font-size: 14px;
-  background-color: var(--md-typeset-a-color);
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-">
-  Send
-</button>
-
-    <div id="feedback-status" style="
-      margin-top: 8px;
-      font-size: 13px;
-    "></div>
-  </div>
-</div>
-
-<style>
-  /* Hover shadow like data-banner */
-  .rating-widget:hover,
-  #feedback-form:hover {
-    box-shadow:
-      0px 1px 10px 0px rgba(0, 0, 0, 0.12),
-      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-      0px 2px 4px -1px rgba(0, 0, 0, 0.20);
-  }
-
-  /* Default star colors */
-  .rating-stars .star {
-    color: var(--md-default-fg-color);
-    transition: color 0.2s ease-out;
-  }
-
-  /* Active/hovered stars */
-  .rating-stars .star.active,
-  .rating-stars .star.hovered {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Rate this page text color matches stars in light mode */
-  .rating-widget .rating-title {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Dark mode */
-  @media (prefers-color-scheme: dark) {
-    /* Rate this page text */
-    .rating-widget .rating-title {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-    /* Stars active and hovered fill color */
-    .rating-stars .star.active,
-    .rating-stars .star.hovered {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-
-    /* Feedback form text */
-    #feedback-form,
-    #feedback-form textarea,
-    #feedback-form input,
-    #feedback-form label,
-    #feedback-form button,
-    #feedback-form div {
-      color: var(--md-typeset-a-color, #93C7FF);
-      border-color: #666;
-      background: var(--md-default-bg-color);
-    }
-
-    /* Close button color */
-    #close-feedback {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-  }
-</style>
-                  </div>
-                  <div class="md-sidebar__inner">
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
@@ -3250,10 +3001,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       Contributing guide
     </a>
   </div>
-</div>
-                  </div>
-                  <div class="md-sidebar__inner">
-                    <div data-banner="data-banner">
 </div>
                   </div>
                   <div class="md-sidebar__inner">
@@ -3319,10 +3066,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" class="md-nav__link">
+  <a href="#connect-to-axdb-from-an-application-in-another-docker-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Connect to Percona Distribution for PostgreSQL from an application in another Docker container
+        Connect to AXDB from an application in another Docker container
       
     </span>
   </a>
@@ -3330,10 +3077,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" class="md-nav__link">
+  <a href="#connect-to-axdb-from-the-psql-command-line-client" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Connect to Percona Distribution for PostgreSQL from the psql command line client
+        Connect to AXDB from the psql command line client
       
     </span>
   </a>
@@ -3414,8 +3161,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a class="headerlink" href="#run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
-<p>Docker images of Percona Distribution for PostgreSQL are hosted publicly on <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/">Docker Hub <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+<h1 id="run-axdb-in-a-docker-container">Run AXDB in a Docker container<a class="headerlink" href="#run-axdb-in-a-docker-container" title="Permanent link">&para;</a></h1>
+<p>Docker images of AXDB are hosted publicly on <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/">Docker Hub <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <p>For more information about using Docker, see the <a href="https://docs.docker.com/">Docker Docs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3423,7 +3170,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>By default, Docker pulls the image from Docker Hub if it is not available locally.</p>
 </div>
 <h2 class="power-number" id="start-container">1. Start the container<a class="headerlink" href="#start-container" title="Permanent link">&para;</a></h2>
-<p>Start a Percona Distribution for PostgreSQL container as follows:</p>
+<p>Start a AXDB container as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4
 </code></pre></div>
 <p>Where:</p>
@@ -3485,7 +3232,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18
 </code></pre></div>
 <h2 id="4-docker-image-contents">4. Docker image contents<a class="headerlink" href="#4-docker-image-contents" title="Permanent link">&para;</a></h2>
-<p>The Docker image of Percona Distribution for PostgreSQL includes the following components:</p>
+<p>The Docker image of AXDB includes the following components:</p>
 <table>
 <thead>
 <tr>
@@ -3548,17 +3295,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h2 id="connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
-<p>This image exposes the standard PostgreSQL port (<code>5432</code>), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:</p>
+<h2 id="connect-to-axdb-from-an-application-in-another-docker-container">Connect to AXDB from an application in another Docker container<a class="headerlink" href="#connect-to-axdb-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
+<p>This image exposes the standard PostgreSQL port (<code>5432</code>), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the AXDB container:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>app-container-name<span class="w"> </span>--network<span class="w"> </span>container:container-name<span class="w"> </span>-d<span class="w"> </span>app-that-uses-postgresql<span class="w"> </span>
 </code></pre></div>
 <p>where:</p>
 <ul>
 <li><code>app-container-name</code> is the name of the container where your application is running,</li>
-<li><code>container name</code> is the name of your Percona Distribution for PostgreSQL container, and</li>
+<li><code>container name</code> is the name of your AXDB container, and</li>
 <li><code>app-that-uses-postgresql</code> is the name of your PostgreSQL client.</li>
 </ul>
-<h2 id="connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
+<h2 id="connect-to-axdb-from-the-psql-command-line-client">Connect to AXDB from the <code>psql</code> command line client<a class="headerlink" href="#connect-to-axdb-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
 <p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:18.4<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
@@ -3570,7 +3317,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.</li>
 </ul>
 <h2 id="run-the-postgresql-with-postgis-image">Run the PostgreSQL with PostGIS image<a class="headerlink" href="#run-the-postgresql-with-postgis-image" title="Permanent link">&para;</a></h2>
-<p>The <code>postgres-gis</code> image includes everything in the standard Percona Distribution for PostgreSQL image plus the <a href="https://postgis.net/">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> extension for storing and manipulating spatial data.</p>
+<p>The <code>postgres-gis</code> image includes everything in the standard AXDB image plus the <a href="https://postgis.net/">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> extension for storing and manipulating spatial data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>PostGIS is licensed under <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GNU GPLv2 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. Review the license terms before using this image in your environment.</p>
@@ -3622,9 +3369,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><code>pgbackrest.conf</code> is your pgBackRest configuration file, mounted into the container. It defines the connection to your PostgreSQL instance and your backup repository settings.</li>
 <li>The image tag specifies the pgBackRest version. See the <a href="https://hub.docker.com/r/percona/percona-pgbackrest/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
 </ul>
-<p>For more information on configuring pgBackRest with Percona Distribution for PostgreSQL, see <a href="../solutions/backup-recovery.html">Backup and disaster recovery</a>.</p>
+<p>For more information on configuring pgBackRest with AXDB, see <a href="../solutions/backup-recovery.html">Backup and disaster recovery</a>.</p>
 <h2 id="run-the-ubi8-based-image">Run the UBI8-based image<a class="headerlink" href="#run-the-ubi8-based-image" title="Permanent link">&para;</a></h2>
-<p>The UBI8 image is a variant of the standard Percona Distribution for PostgreSQL image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.</p>
+<p>The UBI8 image is a variant of the standard AXDB image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.</p>
 <p>UBI8 images use the same PostgreSQL version and components as the standard image and can be identified by the <code>-ubi8</code> suffix in their tags.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4-ubi8
 </code></pre></div>
@@ -3656,7 +3403,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 12, 2026 14:25:30 UTC">June 12, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2026 07:23:00 UTC">June 26, 2026</span>
   </span>
 
     
@@ -3683,6 +3430,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
     
     <nav>
+      
+        <a href="https://github.com/hessalti" class="md-author" title="@hessalti">
+          
+          <img src="https://avatars.githubusercontent.com/u/28387543?v=4&size=72" alt="hessalti">
+        </a>
       
         <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
           

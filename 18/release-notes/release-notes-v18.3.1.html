@@ -9,13 +9,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL.">
+        <meta name="description" content="AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL.">
       
       
         <meta name="author" content="Altibase Corp.">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/release-notes/release-notes-v18.3.1.html">
+        <link rel="canonical" href="https://hessalti.github.io/axdb-docs/18/release-notes/release-notes-v18.3.1.html">
       
       
         <link rel="prev" href="release-notes-v18.4.1.html">
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-1831-2026-03-02" class="md-skip">
+        <a href="#axdb-1831-2026-03-02" class="md-skip">
           Skip to content
         </a>
       
@@ -435,7 +435,7 @@
   <span class="md-ellipsis">
     
   
-    Percona Server for PostgreSQL
+    AXDB
   
 
     
@@ -861,7 +861,7 @@
   <span class="md-ellipsis">
     
   
-    Enable Percona Distribution for PostgreSQL components
+    Enable AXDB components
   
 
     
@@ -1120,34 +1120,6 @@
     
   
     PostgreSQL contrib modules and utilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../percona-ext.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Percona-authored extensions
   
 
     
@@ -1917,7 +1889,7 @@
   <span class="md-ellipsis">
     
   
-    Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+    Deploying backup and disaster recovery solution in AXDB
   
 
     
@@ -2341,7 +2313,7 @@
   <span class="md-ellipsis">
     
   
-    Minor Upgrade of Percona Distribution for PostgreSQL
+    Minor Upgrade of AXDB
   
 
     
@@ -2369,7 +2341,7 @@
   <span class="md-ellipsis">
     
   
-    Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+    Migrate from PostgreSQL to AXDB
   
 
     
@@ -2981,227 +2953,6 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <!-- Feedback Widget -->
-<div class="rating-widget" style="
-  background: var(--md-default-bg-color);
-  border: 0.05rem solid var(--md-default-fg-color--lightest);
-  padding: 10px 15px;
-  border-radius: 0.2rem;
-  margin-bottom: 16px;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-  font-size: 16px;
-  text-align: center;
-  transition: all 0.2s ease-out;
-">
-
-  <div class="rating-title" style="
-    margin-bottom: 4px;
-    font-size: 15px;
-    font-weight: bold;
-    /* Removed inline color to use CSS */
-  ">
-    Rate this page
-  </div>
-
-  <div class="rating-stars" style="display: inline-block;">
-    
-      <span class="star" data-rating="1" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="2" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="3" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="4" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-      <span class="star" data-rating="5" style="
-        font-size: 24px;
-        cursor: pointer;
-        margin: 0 2px;
-        display: inline-block;
-      ">☆</span>
-    
-  </div>
-
-  <div id="feedback-notification" style="
-    display: none;
-    margin-top: 10px;
-    color: var(--md-typeset-a-color);
-    font-weight: 500;
-    font-size: 14px;
-  ">Thanks for your feedback</div>
-
-<div id="feedback-submit-notification" style="
-display: none;
-margin-top: 10px;
-color: var(--md-typeset-a-color);
-font-weight: 500;
-font-size: 14px;
-">Thank you! The feedback has been submitted.</div>
-
-  <div id="feedback-form" style="
-    display: none;
-    margin-top: 12px;
-    text-align: left;
-    position: relative;
-    border: 0.05rem solid var(--md-default-fg-color--lightest);
-    padding: 12px;
-    border-radius: 6px;
-    background: var(--md-default-bg-color);
-    width: 100%;
-    box-sizing: border-box;
-    transition: all 0.2s ease-out;
-  ">
-<button id="close-feedback" title="Close" style="
-position: absolute;
-top: -10px;
-right: -10px;
-background: var(--md-default-bg-color);
-border: 0.05rem solid var(--md-default-fg-color--lightest);
-border-radius: 50%;
-width: 24px;
-height: 24px;
-font-size: 18px;
-font-weight: bold;
-cursor: pointer;
-color: var(--md-default-fg-color--light);
-line-height: 1;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-">
-×
-</button>
-
-    <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      resize: vertical;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    "></textarea>
-
-    <label for="feedback-email" style="
-      display: block;
-      font-size: 15px;
-      margin-bottom: 4px;
-    ">
-      Email <span style="color: var(--md-default-fg-color--light);">(optional)</span>
-    </label>
-
-    <input type="email" id="feedback-email" placeholder="you@example.com" style="
-      width: 100%;
-      font-size: 14px;
-      padding: 6px;
-      margin-bottom: 12px;
-      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-      color: var(--md-default-fg-color);
-      background: var(--md-default-bg-color);
-      border: 0.05rem solid var(--md-default-fg-color--lightest);
-    " />
-
-<button id="submit-feedback" style="
-  padding: 5px 10px;
-  font-size: 14px;
-  background-color: var(--md-typeset-a-color);
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
-">
-  Send
-</button>
-
-    <div id="feedback-status" style="
-      margin-top: 8px;
-      font-size: 13px;
-    "></div>
-  </div>
-</div>
-
-<style>
-  /* Hover shadow like data-banner */
-  .rating-widget:hover,
-  #feedback-form:hover {
-    box-shadow:
-      0px 1px 10px 0px rgba(0, 0, 0, 0.12),
-      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-      0px 2px 4px -1px rgba(0, 0, 0, 0.20);
-  }
-
-  /* Default star colors */
-  .rating-stars .star {
-    color: var(--md-default-fg-color);
-    transition: color 0.2s ease-out;
-  }
-
-  /* Active/hovered stars */
-  .rating-stars .star.active,
-  .rating-stars .star.hovered {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Rate this page text color matches stars in light mode */
-  .rating-widget .rating-title {
-    color: var(--md-typeset-a-color, #0E5FB5);
-  }
-
-  /* Dark mode */
-  @media (prefers-color-scheme: dark) {
-    /* Rate this page text */
-    .rating-widget .rating-title {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-    /* Stars active and hovered fill color */
-    .rating-stars .star.active,
-    .rating-stars .star.hovered {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-
-    /* Feedback form text */
-    #feedback-form,
-    #feedback-form textarea,
-    #feedback-form input,
-    #feedback-form label,
-    #feedback-form button,
-    #feedback-form div {
-      color: var(--md-typeset-a-color, #93C7FF);
-      border-color: #666;
-      background: var(--md-default-bg-color);
-    }
-
-    /* Close button color */
-    #close-feedback {
-      color: var(--md-typeset-a-color, #93C7FF);
-    }
-  }
-</style>
-                  </div>
-                  <div class="md-sidebar__inner">
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
@@ -3225,10 +2976,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       Contributing guide
     </a>
   </div>
-</div>
-                  </div>
-                  <div class="md-sidebar__inner">
-                    <div data-banner="data-banner">
 </div>
                   </div>
                   <div class="md-sidebar__inner">
@@ -3368,15 +3115,15 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-distribution-for-postgresql-1831-2026-03-02">Percona Distribution for PostgreSQL 18.3.1 (2026-03-02)<a class="headerlink" href="#percona-distribution-for-postgresql-1831-2026-03-02" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
-<p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL Community 18.3</a>.</p>
+<h1 id="axdb-1831-2026-03-02">AXDB 18.3.1 (2026-03-02)<a class="headerlink" href="#axdb-1831-2026-03-02" title="Permanent link">&para;</a></h1>
+<p>AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
+<p>The aim of AXDB is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
+<p>This release of AXDB is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL Community 18.3</a>.</p>
 <h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, including <code>pg_stat_monitor</code> 2.3.2 for advanced query-level observability, <code>pg_tde</code> 2.1.2 for Transparent Data Encryption and more. See the full component list below for details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in <a href="../major-upgrade.html">Upgrading Percona Distribution for PostgreSQL</a>.</p>
+<p>To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in <a href="../major-upgrade.html">Upgrading AXDB</a>.</p>
 </div>
 <h3 id="tarball-updates">Tarball updates<a class="headerlink" href="#tarball-updates" title="Permanent link">&para;</a></h3>
 <p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
@@ -3396,7 +3143,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>pg_oidc_validator: 1.0</li>
 <li>ydiff: 1.4.2</li>
 </ul>
-<p>See <a href="../tarball.html">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
+<p>See <a href="../tarball.html">Install AXDB from binary tarballs</a> for the download links.</p>
 <h3 id="addressed-cves">Addressed CVEs<a class="headerlink" href="#addressed-cves" title="Permanent link">&para;</a></h3>
 <p>This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006, CVE-2026-2007. For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL 18.3 release notes</a> and the <a href="https://www.postgresql.org/docs/18/release-18-2.html">PostgreSQL 18.2 release notes</a>.</p>
 <h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
@@ -3411,7 +3158,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
 <h2 id="supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
-<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<p>The following is the list of extensions available in AXDB.</p>
 <table>
 <thead>
 <tr>
@@ -3518,8 +3265,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<p>For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p>
+<p>For Red Hat Enterprise Linux 8 and compatible derivatives, AXDB also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
+<p>AXDB is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p>
 
 
 
@@ -3542,7 +3289,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 2, 2026 15:08:34 UTC">March 2, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2026 07:23:00 UTC">June 26, 2026</span>
   </span>
 
     
@@ -3569,6 +3316,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
     
     <nav>
+      
+        <a href="https://github.com/hessalti" class="md-author" title="@hessalti">
+          
+          <img src="https://avatars.githubusercontent.com/u/28387543?v=4&size=72" alt="hessalti">
+        </a>
       
         <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
           
