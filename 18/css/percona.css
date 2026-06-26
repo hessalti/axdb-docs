@@ -1,10 +1,10 @@
-[data-md-color-scheme="percona-light"] {
-  --md-primary-fg-color:        #0d184c;
-  --md-primary-fg-color--light: #3e4875;
+[data-md-color-scheme="altibase-light"] {
+  --md-primary-fg-color:        #0b143f;
+  --md-primary-fg-color--light: #3c4670;
   --md-default-fg-color--lightest: #9096b0;
-  --md-primary-fg-color--dark:  #080e2e;
-  --md-typeset-a-color: #2cbea2;
-}
+  --md-primary-fg-color--dark:  #070d2a;
+  --md-typeset-a-color: #279f88;
+}  /* Altibase theme adjustments */
 [data-md-color-scheme="slate"] {
     --md-primary-fg-color:        #0d184c;
     /*

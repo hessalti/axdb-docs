@@ -74,7 +74,7 @@
     --md-primary-fg-color--dark: var(--night400);
 }
 :root,
-[data-md-color-scheme="percona-light"] {
+[data-md-color-scheme="altibase-light"] {
 
     /* Primitives */
     --md-hue: 220;
@@ -108,7 +108,7 @@
     /* Tables */
     --md-typeset-table-color: hsla(var(--md-hue),17%,21%,0.25)
 }
-[data-md-color-scheme="percona-dark"] {
+[data-md-color-scheme="altibase-dark"] {
 
     /* Primitives */
     --md-hue: 0;
@@ -144,13 +144,13 @@
     --md-typeset-table-color: hsla(var(--md-hue),0%,100%,0.25)
 }
 
-[data-md-color-scheme="percona-light"] img[src$="#only-dark"],
-[data-md-color-scheme="percona-light"] img[src$="#gh-dark-mode-only"] {
+[data-md-color-scheme="altibase-light"] img[src$="#only-dark"],
+[data-md-color-scheme="altibase-light"] img[src$="#gh-dark-mode-only"] {
   display: none; /* Hide dark images in light mode */
 }
 
-[data-md-color-scheme="percona-dark"] img[src$="#only-light"],
-[data-md-color-scheme="percona-dark"] img[src$="#gh-light-mode-only"] {
+[data-md-color-scheme="altibase-dark"] img[src$="#only-light"],
+[data-md-color-scheme="altibase-dark"] img[src$="#gh-light-mode-only"] {
   display: none; /* Hide light images in dark mode */
 }
 
@@ -290,7 +290,7 @@
     color: var(--md-typeset-color);
 }
 .md-button code,
-[data-md-color-scheme="percona-dark"] .md-button:not(.md-button--primary) code {
+[data-md-color-scheme="altibase-dark"] .md-button:not(.md-button--primary) code {
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
 }
