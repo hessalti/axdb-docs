@@ -1,4 +1,4 @@
-# Get help from Percona
+# Get help from AXDB
 
 Our documentation guides are packed with information, but they can’t cover everything you need to know about Percona Distribution for PostgreSQL. They also won’t cover every scenario you might come across. Don’t be afraid to try things out and ask questions when you get stuck.
 

@@ -1,4 +1,4 @@
-name: Check spelling in Percona Distribution PostgreSQL 18 docs
+name: Check spelling in AXDB 18 docs
 on:
   pull_request:
     branches: 

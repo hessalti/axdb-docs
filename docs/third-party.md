@@ -1,6 +1,6 @@
 # Third-party components
 
-Percona Distribution for PostgreSQL is supplied with the set of third-party open source components and tools that provide additional functionality such as high-availability or disaster recovery, without the need of modifying PostgreSQL core code. These components are included in the Percona Distribution for PostgreSQL repository and are tested to work together.
+AXDB is supplied with the set of third-party open source components and tools that provide additional functionality such as high-availability or disaster recovery, without the need of modifying PostgreSQL core code. These components are included in the AXDB and are tested to work together.
 
 
 | Name | Superuser privileges | Description |
@@ -20,3 +20,5 @@ Percona Distribution for PostgreSQL is supplied with the set of third-party open
 | [pgvector](https://github.com/pgvector/pgvector)| Required | A vector similarity search for PostgreSQL|
 | [PostGIS](http://postgis.net/) | Required | Allows storing and manipulating spacial data in PostgreSQL |
 |[wal2json](https://github.com/eulerto/wal2json)|Required| A PostgreSQL logical decoding JSON output plugin.|
+| [pg_tde](https://github.com/percona/pg_tde) | Required | Encrypts PostgreSQL data files at rest while keeping encryption transparent to applications. |
+| [pg_oidc_validator](https://github.com/Percona-Lab/pg_oidc_validator) | Required | Validates OpenID Connect JWT access tokens for PostgreSQL 18 using the PostgreSQL OAuth framework. |

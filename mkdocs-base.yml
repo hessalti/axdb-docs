@@ -1,12 +1,12 @@
 # MkDocs configuration for  builds with Material theme
 
-site_name: Percona Distribution for PostgreSQL
+site_name: AXDB Documentation
 site_description: Documentation
-site_author: Percona LLC
-copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2026 — <a href="#__consent">Cookie Consent</a>
+site_author: Altibase Corp.
+copyright:  <a href="https://altibase.com/en/company/about.php">Altibase Corp. © 2026 — <a href="#__consent">Cookie Consent</a>
 
-repo_name: percona/postgresql-docs
-repo_url: https://github.com/percona/postgresql-docs
+repo_name: altibase/axdb-docs
+repo_url: https://github.com/hessalti/axdb-docs
 edit_uri: edit/18/docs/
 
 use_directory_urls: false
@@ -14,8 +14,8 @@ use_directory_urls: false
 # Material theme features
 theme:
   name: material
-  logo: _images/postgresql-mark.svg
-  favicon: _images/postgresql-fav.svg
+  logo: 
+  favicon: 
   custom_dir: _resource/overrides/
   font:
     text: Roboto  
@@ -30,14 +30,14 @@ theme:
         icon: material/brightness-auto
         name: Color theme set to Automatic. Click to change
     - media: "(prefers-color-scheme: light)"
-      scheme: percona-light
+      scheme: altibase-light
       primary: custom
       accent: custom
       toggle:
         icon: material/brightness-7
         name: Color theme set to Light Mode. Click to change
     - media: "(prefers-color-scheme: dark)"
-      scheme: percona-dark
+      scheme: altibase-dark
       primary: custom
       accent: custom
       toggle:
@@ -59,13 +59,13 @@ theme:
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
-  - css/percona.css
   - css/extra.css
   - css/design.css
   - css/osano.css
   - css/landing.css
   - css/postgresql.css
   - css/rating.css
+  # Removed css/percona.css as requested
 
 extra_javascript:
   - js/version-select.js
@@ -120,7 +120,7 @@ plugins:
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
   git-committers:
     enabled: !ENV [CI, false]
-    repository: percona/postgresql-docs
+    repository: hessalti/axdb-docs
     branch: "18"
   meta-descriptions:
     export_csv: false
@@ -143,7 +143,7 @@ plugins:
 
   print-site:
     add_to_navigation: false
-    print_page_title: 'Percona Distribution for PostgreSQL 18 documentation'
+    print_page_title: 'AXDB 18 documentation'
     add_print_site_banner: false
     # Table of contents
     add_table_of_contents: true
@@ -164,12 +164,12 @@ extra:
   version:
     provider: mike
   #homepage:
-  #  https://docs.percona.com
+  #  https://docs.altibase.com
   postgresrecommended: 16
 
 nav:
   - 'Home': 'index.md'
-  - 'Percona Server for PostgreSQL': postgresql-server.md
+  - 'AXDB': postgresql-server.md
   - get-help.md
   - Get started: 
       - Quickstart guide: installing.md
@@ -187,7 +187,6 @@ nav:
   - Extensions:
       - 'Extensions': extensions.md
       - contrib.md
-      - Percona-authored extensions: percona-ext.md
       - third-party.md
   - Solutions:
       - Overview: solutions.md

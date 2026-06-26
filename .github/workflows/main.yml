@@ -1,4 +1,4 @@
-name: Build Percona Distribution PostgreSQL 18 docs
+name: AXDB 18 docs
 on:
   push:
     branches: 

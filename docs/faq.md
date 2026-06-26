@@ -15,4 +15,4 @@ The first release will always be `MAJOR.MINOR.1`.
 !!! note
     Don’t see your question here? Feel free to click the link below to get free database assistance or contact our experts for personalized support.
 
-    [**Get help from Percona**](get-help.md)
+    [**Get help from AXDB**](get-help.md)

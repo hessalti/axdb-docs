@@ -3,7 +3,7 @@
 
 INHERIT: mkdocs-base.yml
 
-copyright: Percona LLC, &#169; 2026
+copyright: Altibase Corp. &#169; 2026
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
