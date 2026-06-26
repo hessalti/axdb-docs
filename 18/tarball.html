@@ -3341,7 +3341,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>You can download the tarballs using the links below.</p>
 <p>The following tarballs are available for the x86_64 architectures:</p>
 <ul>
-<li>axdb-enterprise-ssl3.5-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x</li>
+<li>axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x</li>
 </ul>
 <p>To check what OpenSSL version you have, run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
@@ -3361,50 +3361,64 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <td>The latest version of PostgreSQL server and the following extensions: <br> - <code>pgaudit</code> <br> - <code>pgAudit_set_user</code> <br> - <code>pg_repack</code> <br> - <code>pg_stat_monitor</code> <br> - <code>pg_gather</code> <br> - <code>wal2json</code> <br> - <code>postGIS</code> <br> -  the set of <a href="contrib.html">contrib extensions</a></td>
 </tr>
 <tr>
-<td>percona-haproxy</td>
+<td>axdb-haproxy</td>
 <td>A high-availability solution and load-balancing solution</td>
 </tr>
 <tr>
-<td>percona-patroni</td>
+<td>axdb-patroni</td>
 <td>A high-availability solution for PostgreSQL</td>
 </tr>
 <tr>
-<td>percona-pgbackrest</td>
+<td>axdb-pgbackrest</td>
 <td>A backup and restore tool</td>
 </tr>
 <tr>
-<td>percona-pgbadger</td>
+<td>axdb-pgbadger</td>
 <td>PostgreSQL log analyzer with fully detailed reports and graphs</td>
 </tr>
 <tr>
-<td>percona-pgbouncer</td>
+<td>axdb-pgbouncer</td>
 <td>Lightweight connection pooler for PostgreSQL</td>
 </tr>
 <tr>
-<td>percona-pgpool-II</td>
+<td>axdb-pgpool-II</td>
 <td>A middleware between PostgreSQL server and client for high availability, connection pooling and load balancing</td>
 </tr>
 <tr>
-<td>percona-perl</td>
+<td>axdb-perl</td>
 <td>A Perl module required to create the <code>plperl</code> extension - a procedural language handler for PostgreSQL that allows writing functions in the Perl programming language</td>
 </tr>
 <tr>
-<td>percona-python3</td>
+<td>axdb-python3</td>
 <td>A Python3 module required to create <code>plpython</code> extension - a procedural language handler for PostgreSQL that allows writing functions in the Python programming language. Python is also required by Patroni</td>
 </tr>
 <tr>
-<td>percona-tcl</td>
+<td>axdb-tcl</td>
 <td>Tcl development libraries required to create the <code>pltcl</code> extension - a loadable procedural language for the PostgreSQL database system that enables the creation of functions and trigger procedures in the Tcl language</td>
 </tr>
 <tr>
-<td>percona-etcd</td>
+<td>axdb-etcd</td>
 <td>A key-value distributed store that stores the state of the PostgreSQL cluster</td>
 </tr>
 </tbody>
 </table>
 <h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian and Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">RHEL and derivatives</label><label for="__tabbed_1_2">Debian and Ubuntu</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<p>On RHEL, Rocky Linux, or Oracle Linux 10, install the <code>acl</code> package. This package is <strong>required</strong> for correct permission handling when using tarball-based installations:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>acl
+</code></pre></div>
+<p>Ensure that the <code>libreadline</code> is installed on the system, as it is <strong>required</strong> for tarballs to work correctly:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>readline-devel
+</code></pre></div>
+<p>Create the user to own the PostgreSQL process. For example, <code>mypguser</code>. Run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>mypguser<span class="w"> </span>-m<span class="w"> </span>
+</code></pre></div>
+<p>Set the password for the user:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>passwd<span class="w"> </span>mypguser
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <ol>
 <li>Uninstall the upstream PostgreSQL package.</li>
@@ -3423,46 +3437,32 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ol>
 </div>
-<div class="tabbed-block">
-<p>On RHEL, Rocky Linux, or Oracle Linux 10, install the <code>acl</code> package. This package is <strong>required</strong> for correct permission handling when using tarball-based installations:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>acl
-</code></pre></div>
-<p>Ensure that the <code>libreadline</code> is installed on the system, as it is <strong>required</strong> for tarballs to work correctly:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>readline-devel
-</code></pre></div>
-<p>Create the user to own the PostgreSQL process. For example, <code>mypguser</code>. Run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>mypguser<span class="w"> </span>-m<span class="w"> </span>
-</code></pre></div>
-<p>Set the password for the user:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>passwd<span class="w"> </span>mypguser
-</code></pre></div>
-</div>
 </div>
 </div>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<p>The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use another tarball if your operating system has OpenSSL version 1.x and / or has the ARM64 architecture.</p>
+<p>The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.</p>
 <ol>
 <li>
 <p>Create the directory where you will store the binaries. For example, <code>/opt/pgdistro</code></p>
 </li>
 <li>
-<p>Fetch the binary tarball.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.altibase.com/downloads/postgresql-distribution-18/18.4/binary/tarball/axdb-18.4-ssl3-linux-x86_64.tar.gz
+<p>Fetch the binary tarball. (!!! Under Construction !!!)</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.altibase.com/downloads/axdb-18/18.4/binary/tarball/axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarball to the directory for binaries that you created on step 1.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>axdb-18.4-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
 </code></pre></div>
 </li>
 <li>
-<p>Copy <code>percona-python3</code>, <code>percona-tcl</code> and <code>percona-perl</code> to the <code>/opt</code> directory. This is required for the correct run of libraries that require those modules.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/opt/percona-perl<span class="w"> </span>/opt/percona-python3<span class="w"> </span>/opt/percona-tcl<span class="w"> </span>/opt/
+<p>Copy <code>axdb-python3</code>, <code>axdb-tcl</code> and <code>axdb-perl</code> to the <code>/opt</code> directory. This is required for the correct run of libraries that require those modules.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/opt/axdb-perl<span class="w"> </span>/opt/axdb-python3<span class="w"> </span>/opt/axdb-tcl<span class="w"> </span>/opt/
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the PATH variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/pgdistro/percona-haproxy/sbin/:/opt/pgdistro/percona-patroni/bin/:/opt/pgdistro/percona-pgbackrest/bin/:/opt/pgdistro/percona-pgbadger/:/opt/pgdistro/percona-pgbouncer/bin/:/opt/pgdistro/percona-pgpool-II/bin/:/opt/pgdistro/percona-postgresql18/bin/:/opt/pgdistro/percona-etcd/bin/:/opt/percona-perl/bin/:/opt/percona-tcl/bin/:/opt/percona-python3/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/pgdistro/axdb-haproxy/sbin/:/opt/pgdistro/axdb-patroni/bin/:/opt/pgdistro/axdb-pgbackrest/bin/:/opt/pgdistro/axdb-pgbadger/:/opt/pgdistro/axdb-pgbouncer/bin/:/opt/pgdistro/axdb-pgpool-II/bin/:/opt/pgdistro/axdb-postgresql18/bin/:/opt/pgdistro/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -3547,7 +3547,7 @@ postgres=#
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 25, 2026 07:40:54 UTC">June 25, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2026 01:05:12 UTC">June 26, 2026</span>
   </span>
 
     
