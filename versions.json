@@ -3,40 +3,5 @@
     "version": "18",
     "title": "18 (LATEST)",
     "aliases": []
-  },
-  {
-    "version": "17",
-    "title": "17.10",
-    "aliases": []
-  },
-  {
-    "version": "16",
-    "title": "16.14",
-    "aliases": []
-  },
-  {
-    "version": "15",
-    "title": "15.18",
-    "aliases": []
-  },
-  {
-    "version": "14",
-    "title": "14.23",
-    "aliases": []
-  },
-  {
-    "version": "13",
-    "title": "13.23 (EOL)",
-    "aliases": []
-  },
-  {
-    "version": "12",
-    "title": "12.22 (EOL)",
-    "aliases": []
-  },
-  {
-    "version": "11",
-    "title": "11.22 (EOL)",
-    "aliases": []
   }
 ]
