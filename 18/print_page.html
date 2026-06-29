@@ -2554,117 +2554,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="release-notes/release-notes-v18.3.1.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    18.3.1
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_12_4" id="__nav_12_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2025
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    2025
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="release-notes/release-notes-v18.1.1.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    18.1.1
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -3650,45 +3539,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#release-notes-release-notes-v18.3.1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        18.3.1
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#section-12-4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2025
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2025">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#release-notes-release-notes-v18.1.1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        18.1.1
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3785,7 +3635,7 @@
         </section>
         <section class="print-page" id="index" heading-number="1"><h1 id="index-axdb-18-documentation">AXDB 18 Documentation<a class="headerlink" href="#index-axdb-18-documentation" title="Permanent link">&para;</a></h1>
 <p>AXDB is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL.</p>
-<p>AXDB includes <a href="#postgresql-server">Percona Server for PostgreSQL</a> packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster&rsquo;s peak performance.</p>
+<p>AXDB includes <a href="#postgresql-server">AXDB Server for PostgreSQL</a> packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster&rsquo;s peak performance.</p>
 <p>Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestrate the cluster reliably and repeatably in Kubernetes.</p>
 <p><a class="md-button" href="#extensions">What&rsquo;s included in AXDB? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 <h2 id="index-whats-in-it-for-you">What’s in it for you?<a class="headerlink" href="#index-whats-in-it-for-you" title="Permanent link">&para;</a></h2>
@@ -3997,10 +3847,10 @@ psql
 </div>
 </div>
 </div></section><section class="print-page" id="apt" heading-number="5.1.2"><h1 id="apt-install-axdb-on-debian-and-ubuntu">Install AXDB on Debian and Ubuntu<a class="headerlink" href="#apt-install-axdb-on-debian-and-ubuntu" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. <a href="#repo-overview">Read more about Percona repositories</a>.</p>
+<p>This document describes how to install AXDB Server for PostgreSQL from AXDB repositories on DEB-based distributions such as Debian and Ubuntu. <a href="#repo-overview">Read more about AXDB repositories</a>.</p>
 <h2 id="apt-preconditions">Preconditions<a class="headerlink" href="#apt-preconditions" title="Permanent link">&para;</a></h2>
 <p>Debian and other systems that use the <code>apt</code> package manager include the upstream PostgreSQL server package <code>postgresql-18</code> by default.</p>
-<p>The components of AXDB 18 can only be installed together with Percona Server for PostgreSQL (<code>percona-postgresql-18</code>).</p>
+<p>The components of AXDB 18 can only be installed together with AXDB Server for PostgreSQL (<code>percona-postgresql-18</code>).</p>
 <p>If you wish to use AXDB, uninstall the <code>postgresql-18</code> package provided by your distribution and then install the chosen components from AXDB.</p>
 <h2 id="apt-procedure">Procedure<a class="headerlink" href="#apt-procedure" title="Permanent link">&para;</a></h2>
 <p>Run all the commands in the following sections as root or using the <code>sudo</code> command:</p>
@@ -4095,7 +3945,7 @@ psql
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 18.4.1 (Percona Server for PostgreSQL) 18.4.1
+<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 18.4.1 (AXDB Server for PostgreSQL) 18.4.1
 </code></pre></div>
 </details>
 <p>Congratulations! Your AXDB is up and running.</p>
@@ -4482,7 +4332,7 @@ enabled=1
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 18.4.1 (Percona Server for PostgreSQL) 18.4.1
+<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 18.4.1 (AXDB) 18.4.1
 </code></pre></div>
 </details>
 <p>Congratulations! Your AXDB is up and running.</p>
@@ -4914,7 +4764,7 @@ postgres=#
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (18.4 - Percona Server for PostgreSQL 18.4)
+<div class="no-copy highlight"><pre><span></span><code>psql (18.4 - AXDB 18.4)
 Type &quot;help&quot; for help.
 
 postgres=#
@@ -4988,7 +4838,7 @@ CREATE EXTENSION
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (18.4 - Percona Server for PostgreSQL 18.4)
+<div class="no-copy highlight"><pre><span></span><code>psql (18.4 - AXDB 18.4)
 Type &quot;help&quot; for help.
 
 postgres=#
@@ -9097,25 +8947,11 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 <p class="admonition-title">Note</p>
 <p>These steps apply if you installed AXDB from the Major Release repository. In this case, you are always upgraded to the latest available release.</p>
 <p>If you installed AXDB from the Minor Release repository, you will need to enable a new version repository to upgrade.</p>
-<p>For more information about Percona repositories, refer to <a href="#installing">Installing AXDB</a>.</p>
+<p>For more information about AXDB repositories, refer to <a href="#installing">Installing AXDB</a>.</p>
 </div>
 <h2 id="minor-upgrade-before-you-start">Before you start<a class="headerlink" href="#minor-upgrade-before-you-start" title="Permanent link">&para;</a></h2>
 <ol>
-<li>
-<p><a href="https://docs.percona.com/percona-software-repositories/updating.html">Update the <code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> utility to the latest version. This is required to install the new version packages of AXDB.</p>
-</li>
-<li>
-<p>Starting with version 17.2.1, <code>pg_tde</code> is part of the Percona Server for PostgreSQL package. If you installed <code>pg_tde</code> from its dedicated package, do the following to avoid conflicts during the upgrade:</p>
-<ul>
-<li>Drop the extension using the <code>DROP EXTENSION</code> with <code>CASCADE</code> command.</li>
-</ul>
-<p><i warning><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2z"/></svg></span> Warning:</i> The use of the <code>CASCADE</code> parameter deletes all tables that were created in the database with <code>pg_tde</code> enabled and also all dependencies upon the encrypted table (e.g. foreign keys in a non-encrypted table used in the encrypted one).</p>
-<div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">pg_tde</span><span class="w"> </span><span class="k">CASCADE</span>
-</code></pre></div>
-<ul>
-<li>Uninstall the <code>percona-postgresql-17-pg-tde</code> package for Debian/Ubuntu or the <code>percona-pg_tde_17</code> package for RHEL and derivatives.</li>
-</ul>
-</li>
+<li><a href="https://docs.percona.com/percona-software-repositories/updating.html">Update the <code>axdb-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> utility to the latest version. This is required to install the new version packages of AXDB.</li>
 </ol>
 <h2 id="minor-upgrade-procedure">Procedure<a class="headerlink" href="#minor-upgrade-procedure" title="Permanent link">&para;</a></h2>
 <p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
@@ -9129,14 +8965,14 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql-17
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql-18
 </code></pre></div>
 </div>
 </div>
 </div>
 </li>
 <li>
-<p><a href="https://docs.percona.com/percona-software-repositories/updating.html">Update <code>percona-release</code> to the latest version</a>.</p>
+<p><a href="#updating.md">Update <code>axdb-release</code> to the latest version</a>.</p>
 </li>
 <li>
 <p>Install new version packages. See <a href="#installing">Installing AXDB</a>.</p>
@@ -9307,18 +9143,13 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </div>
 </li>
 </ol></section></section><section class="print-page" id="faq" heading-number="9"><h1 id="faq-frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#faq-frequently-asked-questions" title="Permanent link">&para;</a></h1>
-<p>This FAQ answers common questions about using Percona Server for PostgreSQL 18.</p>
+<p>This FAQ answers common questions about using AXDB 18.</p>
 <p>If you&rsquo;re looking for help with errors or runtime issues, see the <a href="#troubleshooting">Troubleshooting guide</a>.</p>
 <h2 id="faq-does-minor-cover-both-upstream-feature-and-patch-releases">Does MINOR cover both upstream feature and patch releases?<a class="headerlink" href="#faq-does-minor-cover-both-upstream-feature-and-patch-releases" title="Permanent link">&para;</a></h2>
 <p>Yes, if we ship a future minor of PG18+ this always includes the patch set from Percona as well.</p>
 <h2 id="faq-when-upstream-bumps-minor-should-patch-always-reset-to-1">When upstream bumps MINOR, should PATCH always reset to 1?<a class="headerlink" href="#faq-when-upstream-bumps-minor-should-patch-always-reset-to-1" title="Permanent link">&para;</a></h2>
-<p>The first release will always be <code>MAJOR.MINOR.1</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Don’t see your question here? Feel free to click the link below to get free database assistance or contact our experts for personalized support.</p>
-<p><a href="#get-help"><strong>Get help from AXDB</strong></a></p>
-</div></section><section class="print-page" id="troubleshooting" heading-number="10"><h1 id="troubleshooting-troubleshooting-guide">Troubleshooting guide<a class="headerlink" href="#troubleshooting-troubleshooting-guide" title="Permanent link">&para;</a></h1>
-<p>This guide helps you identify and resolve common issues when installing, configuring, or running Percona Server for PostgreSQL 18.</p>
+<p>The first release will always be <code>MAJOR.MINOR.1</code>.</p></section><section class="print-page" id="troubleshooting" heading-number="10"><h1 id="troubleshooting-troubleshooting-guide">Troubleshooting guide<a class="headerlink" href="#troubleshooting-troubleshooting-guide" title="Permanent link">&para;</a></h1>
+<p>This guide helps you identify and resolve common issues when installing, configuring, or running AXDB 18.</p>
 <p>If you&rsquo;re looking for general information or usage tips, check the <a href="#faq">FAQ</a>.</p>
 <h2 id="troubleshooting-cannot-create-a-table-permission-denied-in-schema-public">Cannot create a table. Permission denied in schema <code>public</code><a class="headerlink" href="#troubleshooting-cannot-create-a-table-permission-denied-in-schema-public" title="Permanent link">&para;</a></h2>
 <p>Every database in PostgreSQL has a default schema called <code>public</code>. A schema stores database objects like tables, views, indexes and allows organizing them into logical groups.</p>
@@ -9407,63 +9238,21 @@ server stopped
                     <section class='print-page md-section' id='section-12' heading-number='12'>
                         <h1>Release notes<a class='headerlink' href='#section-12' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="release-notes-release-notes" heading-number="12.1"><h1 id="release-notes-release-notes-percona-server-for-postgresql-release-notes">Percona Server for PostgreSQL release notes<a class="headerlink" href="#release-notes-release-notes-percona-server-for-postgresql-release-notes" title="Permanent link">&para;</a></h1>
-<p>This page lists all release notes for Percona Server for PostgreSQL 18, organized by year and version. Use it to track new features, fixes, and updates across major and minor versions.</p>
+                    <section class="print-page" id="release-notes-release-notes" heading-number="12.1"><h1 id="release-notes-release-notes-axdb-release-notes">AXDB release notes<a class="headerlink" href="#release-notes-release-notes-axdb-release-notes" title="Permanent link">&para;</a></h1>
+<p>This page lists all release notes for AXDB 18, organized by year and version. Use it to track new features, fixes, and updates across major and minor versions.</p>
 <h2 id="release-notes-release-notes-2026">2026<a class="headerlink" href="#release-notes-release-notes-2026" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#release-notes-release-notes-v18.4.1">18.4.1</a> (2026-05-20)</li>
-<li><a href="#release-notes-release-notes-v18.3.1">18.3.1</a> (2026-03-02)</li>
-</ul>
-<h2 id="release-notes-release-notes-2025">2025<a class="headerlink" href="#release-notes-release-notes-2025" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="#release-notes-release-notes-v18.1.1">18.1.1</a> (2025-11-28)</li>
 </ul></section><section class="print-page" id="release-notes-release-notes-v18.4.1" heading-number="12.2"><h1 id="release-notes-release-notes-v18.4.1-axdb-1841-2026-05-20">AXDB 18.4.1 (2026-05-20)<a class="headerlink" href="#release-notes-release-notes-v18.4.1-axdb-1841-2026-05-20" title="Permanent link">&para;</a></h1>
 <p>AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of AXDB is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of AXDB is based on Percona Server for PostgreSQL 18.4.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-4.html">PostgreSQL Community 18.4</a>.</p>
+<p>This release of AXDB is based on AXDB Server for PostgreSQL 18.4 - a binary compatible, drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-4.html">PostgreSQL Community 18.4</a>.</p>
 <h2 id="release-notes-release-notes-v18.4.1-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-release-notes-v18.4.1-release-highlights" title="Permanent link">&para;</a></h2>
-<p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, <code>pg_tde</code> 2.2.0 for Transparent Data Encryption and more. See the full component list below for details.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>pg_tde</code> 2.2.0 requires AXDB 18.4 at minimum. Earlier versions of PPG are not supported with this release of <code>pg_tde</code>.</p>
-</div>
-<p>To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in <a href="#major-upgrade">Upgrading AXDB</a>.</p>
+<p>This release includes <code>pg_tde</code> 2.2.0 for Transparent Data Encryption and more. See the full component list below for details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Starting with this release, <code>shared_preload_libraries</code> is empty by default. Extensions such as <code>pg_tde</code> must be added manually.</p>
 </div>
-<h3 id="release-notes-release-notes-v18.4.1-ubuntu-2604-lts-support-added">Ubuntu 26.04 LTS support added<a class="headerlink" href="#release-notes-release-notes-v18.4.1-ubuntu-2604-lts-support-added" title="Permanent link">&para;</a></h3>
-<p>AXDB is available on Ubuntu 26.04 LTS (Noble Numbat&rsquo;s successor). Packages are provided for AMD64 and ARM64 architectures.</p>
-<h3 id="release-notes-release-notes-v18.4.1-added-quick-start-guide">Added Quick Start guide<a class="headerlink" href="#release-notes-release-notes-v18.4.1-added-quick-start-guide" title="Permanent link">&para;</a></h3>
-<p>Added a Quick Start Guide walking users through setting up AXDB with minimal steps and linking to more advanced topics.</p>
-<h3 id="release-notes-release-notes-v18.4.1-tarball-updates">Tarball updates<a class="headerlink" href="#release-notes-release-notes-v18.4.1-tarball-updates" title="Permanent link">&para;</a></h3>
-<p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
-<ul>
-<li>postgres-common: 290</li>
-<li>pgBouncer: 1.25.2</li>
-<li>etcd: 3.5.30</li>
-<li>pysyncobj: 0.3.15</li>
-<li>haproxy: 2.8.23</li>
-<li>patroni: 4.1.3</li>
-<li>pgpool2: 4.7.1</li>
-<li>postgis: 3.5.6</li>
-<li>pg_gather: 33</li>
-<li>pg_cron: 1.6.7</li>
-<li>pg_tde: 2.2.0</li>
-</ul>
-<p>See <a href="#tarball">Install AXDB from binary tarballs</a> for the download links.</p>
-<h3 id="release-notes-release-notes-v18.4.1-addressed-cves">Addressed CVEs<a class="headerlink" href="#release-notes-release-notes-v18.4.1-addressed-cves" title="Permanent link">&para;</a></h3>
-<p>This release includes important security measures that address the following CVEs: TBD. For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-4.html">PostgreSQL 18.4 release notes</a>.</p>
-<h2 id="release-notes-release-notes-v18.4.1-known-issues">Known Issues<a class="headerlink" href="#release-notes-release-notes-v18.4.1-known-issues" title="Permanent link">&para;</a></h2>
-<h3 id="release-notes-release-notes-v18.4.1-for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#release-notes-release-notes-v18.4.1-for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
-<p>During an upgrade on RHEL, you may encounter the following error:</p>
-<div class="highlight"><pre><span></span><code>Unknown<span class="w"> </span>Error<span class="w"> </span>occurred:<span class="w"> </span>Transaction<span class="w"> </span><span class="nb">test</span><span class="w"> </span>error:
-<span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/server/postgresql.mk<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
-<span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/t/040_upgrade.t<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
-</code></pre></div>
-<p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-<h2 id="release-notes-release-notes-v18.4.1-md5-authentication-deprecated">MD5 Authentication Deprecated<a class="headerlink" href="#release-notes-release-notes-v18.4.1-md5-authentication-deprecated" title="Permanent link">&para;</a></h2>
-<p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
 <h2 id="release-notes-release-notes-v18.4.1-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-release-notes-v18.4.1-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
 <p>The following is the list of extensions available in AXDB.</p>
@@ -9579,327 +9368,7 @@ server stopped
 </tbody>
 </table>
 <p>For Red Hat Enterprise Linux 8 and compatible derivatives, AXDB also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>AXDB is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section><section class="print-page" id="release-notes-release-notes-v18.3.1" heading-number="12.3"><h1 id="release-notes-release-notes-v18.3.1-axdb-1831-2026-03-02">AXDB 18.3.1 (2026-03-02)<a class="headerlink" href="#release-notes-release-notes-v18.3.1-axdb-1831-2026-03-02" title="Permanent link">&para;</a></h1>
-<p>AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
-<p>The aim of AXDB is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of AXDB is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL Community 18.3</a>.</p>
-<h2 id="release-notes-release-notes-v18.3.1-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-release-notes-v18.3.1-release-highlights" title="Permanent link">&para;</a></h2>
-<p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, including <code>pg_stat_monitor</code> 2.3.2 for advanced query-level observability, <code>pg_tde</code> 2.1.2 for Transparent Data Encryption and more. See the full component list below for details.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in <a href="#major-upgrade">Upgrading AXDB</a>.</p>
-</div>
-<h3 id="release-notes-release-notes-v18.3.1-tarball-updates">Tarball updates<a class="headerlink" href="#release-notes-release-notes-v18.3.1-tarball-updates" title="Permanent link">&para;</a></h3>
-<p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
-<ul>
-<li>pgbouncer: 1.25.1</li>
-<li>pgvector: 0.8.2</li>
-<li>pgpool2: 4.7.0</li>
-<li>etcd: 3.5.26</li>
-<li>PostGIS: 3.5.5</li>
-<li>pgBackRest: 2.58.0</li>
-<li>postgresql-common: 289</li>
-<li>pgBadger: 13.2</li>
-<li>HAProxy: 2.8.18</li>
-<li>pg_stat_monitor: 2.3.2</li>
-<li>pg_tde: 2.1.2</li>
-<li>postgis: 3.5.5</li>
-<li>pg_oidc_validator: 1.0</li>
-<li>ydiff: 1.4.2</li>
-</ul>
-<p>See <a href="#tarball">Install AXDB from binary tarballs</a> for the download links.</p>
-<h3 id="release-notes-release-notes-v18.3.1-addressed-cves">Addressed CVEs<a class="headerlink" href="#release-notes-release-notes-v18.3.1-addressed-cves" title="Permanent link">&para;</a></h3>
-<p>This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006, CVE-2026-2007. For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL 18.3 release notes</a> and the <a href="https://www.postgresql.org/docs/18/release-18-2.html">PostgreSQL 18.2 release notes</a>.</p>
-<h2 id="release-notes-release-notes-v18.3.1-known-issues">Known Issues<a class="headerlink" href="#release-notes-release-notes-v18.3.1-known-issues" title="Permanent link">&para;</a></h2>
-<h3 id="release-notes-release-notes-v18.3.1-for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#release-notes-release-notes-v18.3.1-for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
-<p>During an upgrade on RHEL, you may encounter the following error:</p>
-<div class="highlight"><pre><span></span><code>Unknown<span class="w"> </span>Error<span class="w"> </span>occurred:<span class="w"> </span>Transaction<span class="w"> </span><span class="nb">test</span><span class="w"> </span>error:
-<span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/server/postgresql.mk<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
-<span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/t/040_upgrade.t<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
-</code></pre></div>
-<p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-<h2 id="release-notes-release-notes-v18.3.1-md5-authentication-deprecated">MD5 Authentication Deprecated<a class="headerlink" href="#release-notes-release-notes-v18.3.1-md5-authentication-deprecated" title="Permanent link">&para;</a></h2>
-<p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
-<h2 id="release-notes-release-notes-v18.3.1-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-release-notes-v18.3.1-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
-<p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
-<p>The following is the list of extensions available in AXDB.</p>
-<table>
-<thead>
-<tr>
-<th>Extension</th>
-<th>Version</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://etcd.io/">etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>3.5.26</td>
-<td>A distributed, reliable key-value store for setting up highly available Patroni clusters</td>
-</tr>
-<tr>
-<td><a href="https://python-etcd.readthedocs.io/en/latest/">python-etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>0.4.5</td>
-<td>A Python client library for interacting with etcd</td>
-</tr>
-<tr>
-<td><a href="http://www.haproxy.org/">HAProxy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.8.18</td>
-<td>A high-availability and load-balancing solution</td>
-</tr>
-<tr>
-<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.1.0</td>
-<td>A HA (High Availability) solution for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://www.pgaudit.org/">PgAudit <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>18.0</td>
-<td>A detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.2.0</td>
-<td>Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance.</td>
-</tr>
-<tr>
-<td><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.58.0</td>
-<td>A backup and restore solution for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/darold/pgbadger">pgBadger <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>13.2</td>
-<td>A fast PostgreSQL Log Analyzer</td>
-</tr>
-<tr>
-<td><a href="https://www.pgbouncer.org/">PgBouncer <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>1.25.1</td>
-<td>A lightweight connection pooler for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/jobinau/pg_gather">pg_gather <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>v32</td>
-<td>An SQL script for running the diagnostics of the health of a PostgreSQL cluster</td>
-</tr>
-<tr>
-<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.7.0</td>
-<td>A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing</td>
-</tr>
-<tr>
-<td><a href="https://github.com/reorg/pg_repack">pg_repack <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>1.5.3</td>
-<td>Rebuilds PostgreSQL database objects</td>
-</tr>
-<tr>
-<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
-<td>2.3.2</td>
-<td>Collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pgvector/pgvector">pgvector <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>v0.8.2</td>
-<td>A vector similarity search for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/postgis/postgis">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>3.5.5</td>
-<td>A spatial extension for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>289</td>
-<td>PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eulerto/wal2json">wal2json <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.6</td>
-<td>A PostgreSQL logical decoding JSON output plugin</td>
-</tr>
-<tr>
-<td><a href="https://github.com/percona/pg_tde">pg_tde <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>v2.1.2</td>
-<td>A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest</td>
-</tr>
-<tr>
-<td><a href="https://github.com/Percona-Lab/pg_oidc_validator">pg_oidc_validator</a></td>
-<td>1.0</td>
-<td>OAuth validator library for PostgreSQL 18.</td>
-</tr>
-</tbody>
-</table>
-<p>For Red Hat Enterprise Linux 8 and compatible derivatives, AXDB also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>AXDB is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section>
-                    <section class='print-page md-section' id='section-12-4' heading-number='12.4'>
-                        <h1>2025<a class='headerlink' href='#section-12-4' title='Permanent link'></a>
-                        </h1>
-                    <section class="print-page" id="release-notes-release-notes-v18.1.1" heading-number="12.4.1"><h1 id="release-notes-release-notes-v18.1.1-axdb-1811-2025-11-28">AXDB 18.1.1 (2025-11-28)<a class="headerlink" href="#release-notes-release-notes-v18.1.1-axdb-1811-2025-11-28" title="Permanent link">&para;</a></h1>
-<p>AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
-<p>The aim of AXDB is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of AXDB is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL Community 18.1</a>.</p>
-<div class="admonition important postgresql rpms rebuilt to disable debug assertions">
-<p class="admonition-title">Important</p>
-<p>The Percona Server for PostgreSQL (PSP) and AXDB (PPG) RPM packages for <strong>PostgreSQL versions 13 through 18 released as part of the Q3 and Q4 quarterly release</strong> were built with debug assertions enabled (<code>--enable-cassert</code>).</p>
-<p>If you installed or updated PostgreSQL RPMs within the last four months, you may suffer performance degradation: 18.1, 17.6, 17.7, 16.10, 16.11, 15.14, 15.15, 14.19, 14.20, 13.22, 13.23.</p>
-<p>These packages have been rebuilt, and all users running RPM-based installations of the affected releases are <strong>strongly advised</strong> to update to the latest available packages.</p>
-<p>To verify, run <code>pg_config --configure</code>. If the output includes <code>--enable-cassert</code>, then your installation is affected.</p>
-</div>
-<p>This release introduces several major enhancements, such as:</p>
-<ul>
-<li><strong>Parallel logical replication</strong> for improved throughput during initial data synchronization</li>
-<li><strong>Faster in-place upgrades</strong> via <code>pg_upgrade</code> performance improvements</li>
-<li><strong>Enhanced monitoring</strong> with new statistics views for <code>pg_stat_io</code> and background writer activity</li>
-<li><strong>Security improvements</strong>, including expanded SSL/TLS configuration options</li>
-<li><strong>Performance optimizations</strong> for query execution and index management</li>
-<li>Added support for <strong>asynchronous I/O (AIO)</strong> with PostgreSQL 18.1.1 which is now the default I/O mechanism.</li>
-</ul>
-<p>These features make PostgreSQL 18 a major step forward in scalability, observability, and operational efficiency.</p>
-<h2 id="release-notes-release-notes-v18.1.1-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-release-notes-v18.1.1-release-highlights" title="Permanent link">&para;</a></h2>
-<p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, including <code>pg_stat_monitor</code> 2.3.1 for advanced query-level observability, <code>pg_tde</code> 2.1 for Transparent Data Encryption and more. See the full component list below for details.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in <a href="#major-upgrade">Upgrading AXDB</a>.</p>
-<h3 id="release-notes-release-notes-v18.1.1-pg_tde-is-now-a-standalone-package"><code>pg_tde</code> is now a standalone package<a class="headerlink" href="#release-notes-release-notes-v18.1.1-pg_tde-is-now-a-standalone-package" title="Permanent link">&para;</a></h3>
-<p>Starting with PostgreSQL 18, <code>pg_tde</code> is no longer shipped with the server package. If your cluster relies on <code>pg_tde</code>, you must install the package manually.</p>
-<p>For more information on installing <code>pg_tde</code>, see <a href="https://docs.percona.com/pg-tde/install.html">Install pg_tde <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
-<h3 id="release-notes-release-notes-v18.1.1-tarball-updates">Tarball updates<a class="headerlink" href="#release-notes-release-notes-v18.1.1-tarball-updates" title="Permanent link">&para;</a></h3>
-<p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
-<ul>
-<li>pgbouncer: 1.25.0</li>
-<li>pgpool2: 4.6.3</li>
-<li>etcd: 3.5.24</li>
-<li>PostGIS: 3.5.4</li>
-<li>set_user: 4.2.0</li>
-<li>pg_repack: 1.5.3</li>
-<li>pg_stat_monitor: 2.3.1</li>
-<li>pgBackRest: 2.57.0</li>
-<li>Patroni: 4.1.0</li>
-<li>HAProxy: 2.8.16</li>
-<li>pgvector: 0.8.1</li>
-<li>libxml2: 2.12.10</li>
-<li>pg_tde: 2.1.0</li>
-</ul>
-<p>See <a href="#tarball">Install AXDB from binary tarballs</a> for the download links.</p>
-<h3 id="release-notes-release-notes-v18.1.1-addressed-cves">Addressed CVEs<a class="headerlink" href="#release-notes-release-notes-v18.1.1-addressed-cves" title="Permanent link">&para;</a></h3>
-<p>This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL 18.1 release notes</a>.</p>
-<h2 id="release-notes-release-notes-v18.1.1-known-issues">Known Issues<a class="headerlink" href="#release-notes-release-notes-v18.1.1-known-issues" title="Permanent link">&para;</a></h2>
-<h3 id="release-notes-release-notes-v18.1.1-for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#release-notes-release-notes-v18.1.1-for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
-<p>During an upgrade on RHEL, you may encounter the following error:</p>
-<div class="highlight"><pre><span></span><code>Unknown<span class="w"> </span>Error<span class="w"> </span>occurred:<span class="w"> </span>Transaction<span class="w"> </span><span class="nb">test</span><span class="w"> </span>error:
-<span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/server/postgresql.mk<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
-<span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/t/040_upgrade.t<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
-</code></pre></div>
-<p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-<h2 id="release-notes-release-notes-v18.1.1-md5-authentication-deprecated">MD5 Authentication Deprecated<a class="headerlink" href="#release-notes-release-notes-v18.1.1-md5-authentication-deprecated" title="Permanent link">&para;</a></h2>
-<p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
-<h2 id="release-notes-release-notes-v18.1.1-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-release-notes-v18.1.1-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
-<p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
-<p>The following is the list of extensions available in AXDB.</p>
-<table>
-<thead>
-<tr>
-<th>Extension</th>
-<th>Version</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://etcd.io/">etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>3.5.24</td>
-<td>A distributed, reliable key-value store for setting up highly available Patroni clusters</td>
-</tr>
-<tr>
-<td><a href="https://python-etcd.readthedocs.io/en/latest/">python-etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>0.4.5</td>
-<td>A Python client library for interacting with etcd</td>
-</tr>
-<tr>
-<td><a href="http://www.haproxy.org/">HAProxy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.8.16</td>
-<td>A high-availability and load-balancing solution</td>
-</tr>
-<tr>
-<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.1.0</td>
-<td>A HA (High Availability) solution for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://www.pgaudit.org/">PgAudit <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>18.0</td>
-<td>A detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.2.0</td>
-<td>Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance.</td>
-</tr>
-<tr>
-<td><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.57.0</td>
-<td>A backup and restore solution for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/darold/pgbadger">pgBadger <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>13.1</td>
-<td>A fast PostgreSQL Log Analyzer</td>
-</tr>
-<tr>
-<td><a href="https://www.pgbouncer.org/">PgBouncer <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>1.25.0</td>
-<td>A lightweight connection pooler for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/jobinau/pg_gather">pg_gather <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>v32</td>
-<td>An SQL script for running the diagnostics of the health of a PostgreSQL cluster</td>
-</tr>
-<tr>
-<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.6.3</td>
-<td>A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing</td>
-</tr>
-<tr>
-<td><a href="https://github.com/reorg/pg_repack">pg_repack <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>1.5.3</td>
-<td>Rebuilds PostgreSQL database objects</td>
-</tr>
-<tr>
-<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
-<td>2.3.1</td>
-<td>Collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pgvector/pgvector">pgvector <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>v0.8.1</td>
-<td>A vector similarity search for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/postgis/postgis">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>3.5.4</td>
-<td>A spatial extension for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>287</td>
-<td>PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eulerto/wal2json">wal2json <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.6</td>
-<td>A PostgreSQL logical decoding JSON output plugin</td>
-</tr>
-<tr>
-<td><a href="https://github.com/percona/pg_tde">pg_tde <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>v2.1.0</td>
-<td>A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest</td>
-</tr>
-</tbody>
-</table>
-<p>For Red Hat Enterprise Linux 8 and compatible derivatives, AXDB also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>AXDB is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section></section></section>
+<p>AXDB is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section></section>
                     <section class='print-page md-section' id='section-13' heading-number='13'>
                         <h1>Reference<a class='headerlink' href='#section-13' title='Permanent link'></a>
                         </h1>
@@ -10143,11 +9612,6 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 .print-site-enumerate-headings #release-notes-release-notes > h1:before { content: '12.1 ' }
 
 .print-site-enumerate-headings #release-notes-release-notes-v18.4.1 > h1:before { content: '12.2 ' }
-
-.print-site-enumerate-headings #release-notes-release-notes-v18.3.1 > h1:before { content: '12.3 ' }
-
-.print-site-enumerate-headings #section-12-4 > h1:before { content: '12.4 ' }
-.print-site-enumerate-headings #release-notes-release-notes-v18.1.1 > h1:before { content: '12.4.1 ' }
 
 .print-site-enumerate-headings #section-13 > h1:before { content: '13 ' }
 .print-site-enumerate-headings #licensing > h1:before { content: '13.1 ' }
