@@ -184,7 +184,7 @@
   <!-- Super Nav -->
   <div class="superNav">
     <div class="md-header__inner md-grid">
-      <a href="https://docs.percona.com/percona-for-postgresql/" title="Percona Documentation home page">
+      <a href="https://hessalti.github.io/axdb-docs/" title="AXDB Documentation home page">
         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
             <path d="M0 0h24v24H0z"/>
@@ -193,7 +193,7 @@
             <path d="m7.825 13 5.6 5.6L12 20l-8-8 8-8 1.425 1.4-5.6 5.6H20v2H7.825Z"/>
           </g>
         </svg>
-        <span>Percona Software for PostgreSQL Documentation</span>
+        <span>AXDB Documentation</span>
       </a>
     </div>
   </div>
@@ -2317,8 +2317,9 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../minor-upgrade.html" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -2332,8 +2333,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
@@ -2345,62 +2352,6 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../major-upgrade.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Major upgrade
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../minor-upgrade.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Minor Upgrade of AXDB
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -2792,7 +2743,7 @@
     <div class="banner-divider"></div>
 
     <!-- Contributing Guide below, smaller -->
-    <a href="https://github.com/percona/postgresql-docs/blob/18/CONTRIBUTING.md"
+    <a href="https://github.com/hessalti/axdb-docs/blob/18/CONTRIBUTING.md"
        title="Contributing guide"
        class="contrib-link"
        target="_blank"
@@ -2908,8 +2859,7 @@
 </div>
 </div>
 <h2 id="upgrade-postgresql">Upgrade PostgreSQL<a class="headerlink" href="#upgrade-postgresql" title="Permanent link">&para;</a></h2>
-<p>Upgrade PostgreSQL either to the <a href="../minor-upgrade.html">latest minor</a> or to the <a href="../major-upgrade.html">major version</a>.</p>
-<p>If you are using long deprecated views and functions and / or need the expertise in upgrading your spatial database, <a href="https://www.percona.com/services/managed-services">contact Percona Managed Services <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for an individual upgrade scenario development.</p>
+<p>Upgrade PostgreSQL to the <a href="../minor-upgrade.html">latest minor</a>.</p>
 
 
 
@@ -2932,7 +2882,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 20, 2024 08:37:03 UTC">June 20, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 29, 2026 07:09:47 UTC">June 29, 2026</span>
   </span>
 
     
@@ -3006,7 +2956,7 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
     <div class="md-copyright__highlight">
- <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2026 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
+ <a href='https://altibase.com' target='_blank'>Altibase Corp., </a> &copy; 2026 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
     </div>
   
     Made with

@@ -192,7 +192,7 @@
   <!-- Super Nav -->
   <div class="superNav">
     <div class="md-header__inner md-grid">
-      <a href="https://docs.percona.com/percona-for-postgresql/" title="Percona Documentation home page">
+      <a href="https://hessalti.github.io/axdb-docs/" title="AXDB Documentation home page">
         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
             <path d="M0 0h24v24H0z"/>
@@ -201,7 +201,7 @@
             <path d="m7.825 13 5.6 5.6L12 20l-8-8 8-8 1.425 1.4-5.6 5.6H20v2H7.825Z"/>
           </g>
         </svg>
-        <span>Percona Software for PostgreSQL Documentation</span>
+        <span>AXDB Documentation</span>
       </a>
     </div>
   </div>
@@ -2286,62 +2286,6 @@
   
   
     <li class="md-nav__item">
-      <a href="major-upgrade.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Major upgrade
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="minor-upgrade.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Minor Upgrade of AXDB
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="migration.html" class="md-nav__link">
         
   
@@ -2725,7 +2669,7 @@
     <div class="banner-divider"></div>
 
     <!-- Contributing Guide below, smaller -->
-    <a href="https://github.com/percona/postgresql-docs/blob/18/CONTRIBUTING.md"
+    <a href="https://github.com/hessalti/axdb-docs/blob/18/CONTRIBUTING.md"
        title="Contributing guide"
        class="contrib-link"
        target="_blank"
@@ -3423,6 +3367,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#minor-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#section-8" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3433,28 +3388,6 @@
   
     <nav class="md-nav" aria-label="Upgrade">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#major-upgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Major upgrade
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#minor-upgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Minor Upgrade of AXDB
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#migration" class="md-nav__link">
@@ -3640,13 +3573,9 @@
 <p><a class="md-button" href="#extensions">What&rsquo;s included in AXDB? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 <h2 id="index-whats-in-it-for-you">What’s in it for you?<a class="headerlink" href="#index-whats-in-it-for-you" title="Permanent link">&para;</a></h2>
 <ul>
-<li>No vendor lock in - all components of AXDB are fully open source</li>
 <li>No guesswork on finding the right version of a component – they all undergo thorough testing to ensure compatibility</li>
 <li>Freely available reference architectures for solutions like high-availability, backups and disaster recovery</li>
 <li>Spatial data handling support via PostGIS</li>
-<li>Monitoring of the database health, performance and infrastructure usage via open source <a href="https://docs.percona.com/percona-monitoring-and-management/3/">Percona Management and Monitoring <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> with PostgreSQL-specific dashboards</li>
-<li>Run PostgreSQL on Kubernetes using open source <a href="https://docs.percona.com/percona-operator-for-postgresql/2.0/index.html">Percona Operator for PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. It not only automates deployment and management of PostgreSQL clusters on Kubernetes, but also includes enterprise-ready features for high-availability, backup and restore, replication, logging, and more</li>
-<li>Automate PostgreSQL provisioning and management in Kubernetes, in the cloud or on-premises with <a href="https://docs.percona.com/everest/index.html#why-percona-everest">Percona Everest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> - the cloud-native database platform</li>
 </ul>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
@@ -3674,12 +3603,8 @@
 <p>In addition to upstream functionality, AXDB includes enhancements that enable advanced extension capabilities.</p>
 <p>For a broader overview of integrated tooling and deployment guidance, start with the <a href="#quick-start">AXDB Quickstart guide</a>.</p></section><section class="print-page" id="get-help" heading-number="3"><h1 id="get-help-get-help-from-axdb">Get help from AXDB<a class="headerlink" href="#get-help-get-help-from-axdb" title="Permanent link">&para;</a></h1>
 <p>Our documentation guides are packed with information, but they can’t cover everything you need to know about AXDB. They also won’t cover every scenario you might come across. Don’t be afraid to try things out and ask questions when you get stuck.</p>
-<h2 id="get-help-perconas-community-forum">Percona&rsquo;s Community Forum<a class="headerlink" href="#get-help-perconas-community-forum" title="Permanent link">&para;</a></h2>
-<p>Be a part of a space where you can tap into a wealth of knowledge from other database enthusiasts and experts who work with Percona’s software every day. While our service is entirely free, keep in mind that response times can vary depending on the complexity of the question. You are engaging with people who genuinely love solving database challenges.</p>
-<p>We recommend visiting our <a href="https://forums.percona.com/" target="_blank">Community Forum</a>. It’s an excellent place for discussions, technical insights, and support around Percona database software. If you’re new and feeling a bit unsure, our <a href="https://forums.percona.com/faq" target="_blank">FAQ</a> and <a href="https://forums.percona.com/t/faq-guide-for-new-users/8562" target="_blank">Guide for New Users</a> ease you in.</p>
-<p>If you have thoughts, feedback, or ideas, the community team would like to hear from you at <a href="https://forums.percona.com/t/any-ideas-on-how-to-make-the-forum-better/11522" target="blank">Any ideas on how to make the forum better?</a>. We’re always excited to connect and improve everyone&rsquo;s experience.</p>
-<h2 id="get-help-percona-experts">Percona experts<a class="headerlink" href="#get-help-percona-experts" title="Permanent link">&para;</a></h2>
-<p>Percona experts bring years of experience in tackling tough database performance issues and design challenges.</p>
+<h2 id="get-help-axdb-experts">AXDB experts<a class="headerlink" href="#get-help-axdb-experts" title="Permanent link">&para;</a></h2>
+<p>AXDB experts bring years of experience in tackling tough database performance issues and design challenges.</p>
 <div data-tf-live="01JKGYHB4DKYX1CC6KNF0VHP1A"></div>
 <script src="//embed.typeform.com/next/embed.js"></script>
 <p>We understand your challenges when managing complex database environments. That&rsquo;s why we offer various services to help you simplify your operations and achieve your goals.</p>
@@ -3850,23 +3775,23 @@ psql
 <p>This document describes how to install AXDB Server for PostgreSQL from AXDB repositories on DEB-based distributions such as Debian and Ubuntu. <a href="#repo-overview">Read more about AXDB repositories</a>.</p>
 <h2 id="apt-preconditions">Preconditions<a class="headerlink" href="#apt-preconditions" title="Permanent link">&para;</a></h2>
 <p>Debian and other systems that use the <code>apt</code> package manager include the upstream PostgreSQL server package <code>postgresql-18</code> by default.</p>
-<p>The components of AXDB 18 can only be installed together with AXDB Server for PostgreSQL (<code>percona-postgresql-18</code>).</p>
+<p>The components of AXDB 18 can only be installed together with AXDB Server for PostgreSQL (<code>axdb-18</code>).</p>
 <p>If you wish to use AXDB, uninstall the <code>postgresql-18</code> package provided by your distribution and then install the chosen components from AXDB.</p>
 <h2 id="apt-procedure">Procedure<a class="headerlink" href="#apt-procedure" title="Permanent link">&para;</a></h2>
 <p>Run all the commands in the following sections as root or using the <code>sudo</code> command:</p>
-<h3 class="power-number" id="apt-configure-percona-repository">Configure Percona repository<a class="headerlink" href="#apt-configure-percona-repository" title="Permanent link">&para;</a></h3>
+<h3 class="power-number" id="apt-configure-axdb-repository">Configure AXDB repository<a class="headerlink" href="#apt-configure-axdb-repository" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Install the <code>percona-release</code> repository management tool to subscribe to Percona repositories:</p>
+<p>Install the <code>axdb-release</code> repository management tool to subscribe to AXDB repositories:</p>
 <ul>
 <li>
-<p>Fetch <code>percona-release</code> packages from Percona web:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+<p>Fetch <code>axdb-release</code> packages from AXDB web:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.axdb.com/apt/axdb-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 </code></pre></div>
 </li>
 <li>
 <p>Install the downloaded package with <code>dpkg</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>axdb-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 </code></pre></div>
 </li>
 <li>
@@ -3880,58 +3805,58 @@ psql
 <p>Enable the repository</p>
 </li>
 </ol>
-<p>Percona provides <a href="#repo-overview">two repositories</a> for AXDB. We recommend enabling the Major release repository to timely receive the latest updates. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
+<p>AXDB provides <a href="#repo-overview">two repositories</a> for AXDB. We recommend enabling the Major release repository to timely receive the latest updates. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>axdb-release<span class="w"> </span>setup<span class="w"> </span>axdb-18
 </code></pre></div>
 <h3 id="apt-install-packages-individually">Install packages individually<a class="headerlink" href="#apt-install-packages-individually" title="Permanent link">&para;</a></h3>
 <p class="power-number">To install the packages individually, run the following commands:</p>
 <ol>
 <li>
 <p>Install the PostgreSQL server package:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-18
 </code></pre></div>
 </li>
 <li>
 <p>Install the components:</p>
 <p>Install <code>pg_repack</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18-repack
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-18-repack
 </code></pre></div>
 <p>Install <code>pgAudit</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18-pgaudit
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-18-pgaudit
 </code></pre></div>
 <p>Install <code>pgBackRest</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-pgbackrest
 </code></pre></div>
 <p>Install <code>Patroni</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-patroni
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-patroni
 </code></pre></div>
 <p><a href="https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1">Install <code>pg_stat_monitor</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <p>Install <code>pgBouncer</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbouncer
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-pgbouncer
 </code></pre></div>
 <p>Install <code>pgAudit-set_user</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgaudit18-set-user
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-pgaudit18-set-user
 </code></pre></div>
 <p>Install <code>pgBadger</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbadger
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-pgbadger
 </code></pre></div>
 <p>Install <code>wal2json</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18-wal2json
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-18-wal2json
 </code></pre></div>
 <p>Install <code>PostgreSQL contrib</code> extensions:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-contrib
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-contrib
 </code></pre></div>
 <p>Install <code>HAProxy</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-haproxy
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-haproxy
 </code></pre></div>
 <p>Install <code>pgpool2</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgpool2
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-pgpool2
 </code></pre></div>
 <p>Install <code>pg_gather</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pg-gather
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-pg-gather
 </code></pre></div>
 <p>Install <code>pgvector</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18-pgvector
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>axdb-18-pgvector
 </code></pre></div>
 <p>Some extensions require additional setup in order to use them with AXDB. For more information, refer to <a href="#enable-extensions">Enabling extensions</a>.</p>
 </li>
@@ -4404,22 +4329,8 @@ enabled=1
 </tbody>
 </table>
 <h2 id="tarball-preconditions">Preconditions<a class="headerlink" href="#tarball-preconditions" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="tarball-__tabbed_1_1" name="tarball-__tabbed_1" type="radio" /><input id="tarball-__tabbed_1_2" name="tarball-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="tarball-__tabbed_1_1">RHEL and derivatives</label><label for="tarball-__tabbed_1_2">Debian and Ubuntu</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="tarball-__tabbed_1_1" name="tarball-__tabbed_1" type="radio" /><input id="tarball-__tabbed_1_2" name="tarball-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="tarball-__tabbed_1_1">Debian and Ubuntu</label><label for="tarball-__tabbed_1_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
-<p>On RHEL, Rocky Linux, or Oracle Linux 10, install the <code>acl</code> package. This package is <strong>required</strong> for correct permission handling when using tarball-based installations:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>acl
-</code></pre></div>
-<p>Ensure that the <code>libreadline</code> is installed on the system, as it is <strong>required</strong> for tarballs to work correctly:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>readline-devel
-</code></pre></div>
-<p>Create the user to own the PostgreSQL process. For example, <code>mypguser</code>. Run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>mypguser<span class="w"> </span>-m<span class="w"> </span>
-</code></pre></div>
-<p>Set the password for the user:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>passwd<span class="w"> </span>mypguser
-</code></pre></div>
-</div>
 <div class="tabbed-block">
 <ol>
 <li>Uninstall the upstream PostgreSQL package.</li>
@@ -4437,6 +4348,20 @@ enabled=1
 </code></pre></div>
 </li>
 </ol>
+</div>
+<div class="tabbed-block">
+<p>On RHEL, Rocky Linux, or Oracle Linux 10, install the <code>acl</code> package. This package is <strong>required</strong> for correct permission handling when using tarball-based installations:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>acl
+</code></pre></div>
+<p>Ensure that the <code>libreadline</code> is installed on the system, as it is <strong>required</strong> for tarballs to work correctly:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>readline-devel
+</code></pre></div>
+<p>Create the user to own the PostgreSQL process. For example, <code>mypguser</code>. Run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>mypguser<span class="w"> </span>-m<span class="w"> </span>
+</code></pre></div>
+<p>Set the password for the user:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>passwd<span class="w"> </span>mypguser
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -4987,12 +4912,12 @@ log_error_verbosity = default
 </code></pre></div>
 <p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> supplied with the extension.</p>
 <h2 id="enable-extensions-pgbouncer">pgbouncer<a class="headerlink" href="#enable-extensions-pgbouncer" title="Permanent link">&para;</a></h2>
-<p><code>pgbouncer</code> requires the <code>pgbouncer.ini</code> configuration file to start. The default path is <code>/etc/pgbouncer/pgbouncer.ini</code>. When installing <code>pgbouncer</code> from a <a href="#tarball">tarball</a>, the path is <code>percona-pgbouncer/etc/pgbouncer.ini</code>.</p>
+<p><code>pgbouncer</code> requires the <code>pgbouncer.ini</code> configuration file to start. The default path is <code>/etc/pgbouncer/pgbouncer.ini</code>. When installing <code>pgbouncer</code> from a <a href="#tarball">tarball</a>, the path is <code>axdb-pgbouncer/etc/pgbouncer.ini</code>.</p>
 <p>Find detailed information about configuration file options in the <a href="https://www.pgbouncer.org/config.html"><code>pgbouncer documentation</code></a>.</p>
 <h2 id="enable-extensions-pgpool2">pgpool2<a class="headerlink" href="#enable-extensions-pgpool2" title="Permanent link">&para;</a></h2>
 <p><code>pgpool-II</code> requires the configuration file to start. When you install pgpool from a package, the configuration file is automatically created for you at the path <code>/etc/pgpool2/pgpool.conf</code> on Debian and Ubuntu and <code>/etc/pgpool-II/pgpool.conf</code> on RHEL and derivatives.</p>
-<p>When you installed pgpool from tarballs, you can use the sample configuration file <code>&lt;tarballsdir&gt;/percona-pgpool-II/etc/pgpool2/pgpool.conf.sample</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>&lt;tarballsdir&gt;/percona-pgpool-II/etc/pgpool2/pgpool.conf.sample<span class="w"> </span>&lt;config-gile-path&gt;/pgpool.conf
+<p>When you installed pgpool from tarballs, you can use the sample configuration file <code>&lt;tarballsdir&gt;/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>&lt;tarballsdir&gt;/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample<span class="w"> </span>&lt;config-gile-path&gt;/pgpool.conf
 </code></pre></div>
 <p>Specify the path to it when starting pgpool:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgpool<span class="w"> </span>-f<span class="w"> </span>&lt;config-gile-path&gt;/pgpool.conf
@@ -8458,8 +8383,7 @@ pg1-path=/var/lib/postgresql/14/main
 </div>
 </div>
 <h2 id="solutions-postgis-upgrade-upgrade-postgresql">Upgrade PostgreSQL<a class="headerlink" href="#solutions-postgis-upgrade-upgrade-postgresql" title="Permanent link">&para;</a></h2>
-<p>Upgrade PostgreSQL either to the <a href="#minor-upgrade">latest minor</a> or to the <a href="#major-upgrade">major version</a>.</p>
-<p>If you are using long deprecated views and functions and / or need the expertise in upgrading your spatial database, <a href="https://www.percona.com/services/managed-services">contact Percona Managed Services <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for an individual upgrade scenario development.</p></section></section>
+<p>Upgrade PostgreSQL to the <a href="#minor-upgrade">latest minor</a>.</p></section></section>
                     <section class='print-page md-section' id='section-7-5' heading-number='7.5'>
                         <h1>Authentication<a class='headerlink' href='#section-7-5' title='Permanent link'></a>
                         </h1>
@@ -8582,365 +8506,7 @@ pg1-path=/var/lib/postgresql/14/main
 <p>Grant appropriate permissions to these roles using <a href="https://www.postgresql.org/docs/18/sql-grant.html">standard SQL GRANT statements <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 </li>
 </ol>
-<p>By following these steps, you have successfully integrated LDAP authentication into your environment.</p></section></section></section>
-                    <section class='print-page md-section' id='section-8' heading-number='8'>
-                        <h1>Upgrade<a class='headerlink' href='#section-8' title='Permanent link'></a>
-                        </h1>
-                    <section class="print-page" id="major-upgrade" heading-number="8.1"><h1 id="major-upgrade-upgrading-axdb-from-17-to-18">Upgrading AXDB from 17 to 18<a class="headerlink" href="#major-upgrade-upgrading-axdb-from-17-to-18" title="Permanent link">&para;</a></h1>
-<p>This document describes the in-place upgrade of AXDB using the <code>pg_upgrade</code> tool.</p>
-<p>To ensure a smooth upgrade path, follow these steps:</p>
-<ul>
-<li>Upgrade to the latest minor version within your current major version (e.g., from 17.4 to 17.5).</li>
-<li>Then, perform the major upgrade to your desired version (e.g., from 17.5 to 18.1).</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When running a major upgrade on <strong>RHEL 8 and compatible derivatives</strong>, consider the following:</p>
-<p>AXDB 16.3, 15.7, 14.12, 13.15 and 12.18 include <code>llvm</code> packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include <code>llvm</code> 12.0.1. Since <code>llvm</code> libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When doing a major version upgrade, if your cluster uses <code>pg_tde</code>, you <strong>must</strong> use <a href="https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html"><code>pg_tde_upgrade</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> instead of <code>pg_upgrade</code>. Using <code>pg_upgrade</code> on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.</p>
-</div>
-<p>The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p><a href="https://www.postgresql.org/docs/18/pgupgrade.html"><code>pg_upgrade</code> Documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
-</div>
-<p>Similar to installing, we recommend you to upgrade AXDB from Percona repositories.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>A major upgrade is a risky process because of many changes between versions and issues that might occur during or after the upgrade. Therefore, make sure to back up your data first. The backup tools are out of scope of this document. Use the backup tool of your choice.</p>
-</div>
-<p>The general in-place upgrade flow for AXDB is the following:</p>
-<ol>
-<li>
-<p>Install new version of AXDB packages.</p>
-</li>
-<li>
-<p>Stop the PostgreSQL service.</p>
-</li>
-<li>
-<p>Check the upgrade without modifying the data.</p>
-</li>
-<li>
-<p>Upgrade AXDB.</p>
-</li>
-<li>
-<p>Start PostgreSQL service.</p>
-</li>
-<li>
-<p>Execute the  <strong>analyze_new_cluster.sh</strong> script to generate statistics
-so the system is usable.</p>
-</li>
-<li>
-<p>Delete old packages and configuration files.</p>
-</li>
-</ol>
-<p>The exact steps may differ depending on the package manager of your operating system.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>pg_tde</code> is <strong>not</strong> a dependency in PostgreSQL 18. If your PostgreSQL 17 cluster uses <code>pg_tde</code>, you must install the <code>pg_tde</code> package <strong>before</strong> starting the upgraded server.</p>
-<p>If the package is missing, PostgreSQL 18 will fail to start because the required <code>pg_tde</code> shared library is not available.</p>
-</div>
-<h2 id="major-upgrade-on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code><a class="headerlink" href="#major-upgrade-on-debian-and-ubuntu-using-apt" title="Permanent link">&para;</a></h2>
-<p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
-<ol>
-<li>
-<p>Install AXDB 18 packages.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When installing version 18, if prompted via a pop-up to upgrade to the latest available version, select <strong>No</strong>.</p>
-</div>
-<ul>
-<li>
-<p><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. If you have installed it before, <a href="https://docs.percona.com/percona-software-repositories/updating.html">update it to the latest version</a></p>
-</li>
-<li>
-<p>Enable Percona repository</p>
-</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
-</code></pre></div>
-<ul>
-<li>Install AXDB 18 package</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18
-</code></pre></div>
-</li>
-<li>
-<p>Stop the <code>postgresql</code> service.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
-</code></pre></div>
-<p>This stops both AXDB 17 and 18.</p>
-</li>
-<li>
-<p>Run the database upgrade.</p>
-<ul>
-<li>Log in as the <code>postgres</code> user</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<ul>
-<li>Check if you can upgrade AXDB from 17 to 18</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pg_upgradecluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main<span class="w"> </span>--check
-<span class="c1"># Sample output: pg_upgradecluster pre-upgrade checks ok</span>
-</code></pre></div>
-<p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
-<ul>
-<li>Upgrade the AXDB</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pg_upgradecluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main
-</code></pre></div>
-<p><details>
-    <summary>Sample output (click to expand)</summary>
-    <div class="highlight"><pre><span></span><code>Upgrading<span class="w"> </span>cluster<span class="w"> </span><span class="m">17</span>/main<span class="w"> </span>to<span class="w"> </span><span class="m">18</span>/main<span class="w"> </span>...
-Stopping<span class="w"> </span>old<span class="w"> </span>cluster...
-Restarting<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with<span class="w"> </span>restricted<span class="w"> </span>connections...
-...
-Success.<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>works.<span class="w"> </span>If<span class="w"> </span>it<span class="w"> </span>does,
-you<span class="w"> </span>can<span class="w"> </span>remove<span class="w"> </span>the<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with:
-<span class="w">    </span>pg_dropcluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main
-
-Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> </span>Status<span class="w"> </span>Owner<span class="w">    </span>Data<span class="w"> </span>directory<span class="w">              </span>Log<span class="w"> </span>file
-<span class="m">18</span><span class="w">  </span>main<span class="w">    </span><span class="m">5432</span><span class="w"> </span>online<span class="w"> </span>postgres<span class="w"> </span>/var/lib/postgresql/18/main<span class="w"> </span>/var/log/postgresql/postgresql-18-main.log
-
-Sample<span class="w"> </span>output:
-Upgrading<span class="w"> </span>cluster<span class="w"> </span><span class="m">17</span>/main<span class="w"> </span>to<span class="w"> </span><span class="m">18</span>/main<span class="w"> </span>...
-Stopping<span class="w"> </span>old<span class="w"> </span>cluster...
-Restarting<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with<span class="w"> </span>restricted<span class="w"> </span>connections...
-Notice:<span class="w"> </span>extra<span class="w"> </span>pg_ctl/postgres<span class="w"> </span>options<span class="w"> </span>given,<span class="w"> </span>bypassing<span class="w"> </span>systemctl<span class="w"> </span><span class="k">for</span><span class="w"> </span>start<span class="w"> </span>operation
-Creating<span class="w"> </span>new<span class="w"> </span>PostgreSQL<span class="w"> </span>cluster<span class="w"> </span><span class="m">18</span>/main<span class="w"> </span>...
-/usr/lib/postgresql/18/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/postgresql/18/main<span class="w"> </span>--auth-local<span class="w"> </span>peer<span class="w"> </span>--auth-host<span class="w"> </span>scram-sha-256<span class="w"> </span>--no-instructions<span class="w"> </span>--encoding<span class="w"> </span>UTF8<span class="w"> </span>--lc-collate<span class="w"> </span>C.UTF-8<span class="w"> </span>--lc-ctype<span class="w"> </span>C.UTF-8<span class="w"> </span>--locale-provider<span class="w"> </span>libc
-The<span class="w"> </span>files<span class="w"> </span>belonging<span class="w"> </span>to<span class="w"> </span>this<span class="w"> </span>database<span class="w"> </span>system<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>owned<span class="w"> </span>by<span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>.
-This<span class="w"> </span>user<span class="w"> </span>must<span class="w"> </span>also<span class="w"> </span>own<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>process.
-
-The<span class="w"> </span>database<span class="w"> </span>cluster<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>initialized<span class="w"> </span>with<span class="w"> </span>locale<span class="w"> </span><span class="s2">&quot;C.UTF-8&quot;</span>.
-The<span class="w"> </span>default<span class="w"> </span>text<span class="w"> </span>search<span class="w"> </span>configuration<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="s2">&quot;english&quot;</span>.
-
-Data<span class="w"> </span>page<span class="w"> </span>checksums<span class="w"> </span>are<span class="w"> </span>disabled.
-
-fixing<span class="w"> </span>permissions<span class="w"> </span>on<span class="w"> </span>existing<span class="w"> </span>directory<span class="w"> </span>/var/lib/postgresql/18/main<span class="w"> </span>...<span class="w"> </span>ok
-creating<span class="w"> </span>subdirectories<span class="w"> </span>...<span class="w"> </span>ok
-selecting<span class="w"> </span>dynamic<span class="w"> </span>shared<span class="w"> </span>memory<span class="w"> </span>implementation<span class="w"> </span>...<span class="w"> </span>posix
-selecting<span class="w"> </span>default<span class="w"> </span>max_connections<span class="w"> </span>...<span class="w"> </span><span class="m">100</span>
-selecting<span class="w"> </span>default<span class="w"> </span>shared_buffers<span class="w"> </span>...<span class="w"> </span>128MB
-selecting<span class="w"> </span>default<span class="w"> </span><span class="nb">time</span><span class="w"> </span>zone<span class="w"> </span>...<span class="w"> </span>Etc/UTC
-creating<span class="w"> </span>configuration<span class="w"> </span>files<span class="w"> </span>...<span class="w"> </span>ok
-running<span class="w"> </span>bootstrap<span class="w"> </span>script<span class="w"> </span>...<span class="w"> </span>ok
-performing<span class="w"> </span>post-bootstrap<span class="w"> </span>initialization<span class="w"> </span>...<span class="w"> </span>ok
-syncing<span class="w"> </span>data<span class="w"> </span>to<span class="w"> </span>disk<span class="w"> </span>...<span class="w"> </span>ok
-
-Copying<span class="w"> </span>old<span class="w"> </span>configuration<span class="w"> </span>files...
-Copying<span class="w"> </span>old<span class="w"> </span>start.conf...
-Copying<span class="w"> </span>old<span class="w"> </span>pg_ctl.conf...
-Starting<span class="w"> </span>new<span class="w"> </span>cluster...
-Notice:<span class="w"> </span>extra<span class="w"> </span>pg_ctl/postgres<span class="w"> </span>options<span class="w"> </span>given,<span class="w"> </span>bypassing<span class="w"> </span>systemctl<span class="w"> </span><span class="k">for</span><span class="w"> </span>start<span class="w"> </span>operation
-Running<span class="w"> </span>init<span class="w"> </span>phase<span class="w"> </span>upgrade<span class="w"> </span>hook<span class="w"> </span>scripts<span class="w"> </span>...
-
-Roles,<span class="w"> </span>databases,<span class="w"> </span>schemas,<span class="w"> </span>ACLs...
-set_config
-------------
-
-<span class="o">(</span><span class="m">1</span><span class="w"> </span>row<span class="o">)</span>
-
-set_config
-------------
-
-<span class="o">(</span><span class="m">1</span><span class="w"> </span>row<span class="o">)</span>
-
-Fixing<span class="w"> </span>hardcoded<span class="w"> </span>library<span class="w"> </span>paths<span class="w"> </span><span class="k">for</span><span class="w"> </span>stored<span class="w"> </span>procedures...
-Upgrading<span class="w"> </span>database<span class="w"> </span>template1...
-Fixing<span class="w"> </span>hardcoded<span class="w"> </span>library<span class="w"> </span>paths<span class="w"> </span><span class="k">for</span><span class="w"> </span>stored<span class="w"> </span>procedures...
-Upgrading<span class="w"> </span>database<span class="w"> </span>postgres...
-Stopping<span class="w"> </span>target<span class="w"> </span>cluster...
-Stopping<span class="w"> </span>old<span class="w"> </span>cluster...
-Disabling<span class="w"> </span>automatic<span class="w"> </span>startup<span class="w"> </span>of<span class="w"> </span>old<span class="w"> </span>cluster...
-Starting<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>on<span class="w"> </span>port<span class="w"> </span><span class="m">5432</span>...
-Running<span class="w"> </span>finish<span class="w"> </span>phase<span class="w"> </span>upgrade<span class="w"> </span>hook<span class="w"> </span>scripts<span class="w"> </span>...
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
-
-Success.<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>works.<span class="w"> </span>If<span class="w"> </span>it<span class="w"> </span>does,
-you<span class="w"> </span>can<span class="w"> </span>remove<span class="w"> </span>the<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with
-<span class="w">    </span>pg_dropcluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main
-
-Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> </span>Status<span class="w"> </span>Owner<span class="w">    </span>Data<span class="w"> </span>directory<span class="w">              </span>Log<span class="w"> </span>file
-<span class="m">17</span><span class="w">  </span>main<span class="w">    </span><span class="m">5433</span><span class="w"> </span>down<span class="w">   </span>postgres<span class="w"> </span>/var/lib/postgresql/17/main<span class="w"> </span>/var/log/postgresql/postgresql-17-main.log
-Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> </span>Status<span class="w"> </span>Owner<span class="w">    </span>Data<span class="w"> </span>directory<span class="w">              </span>Log<span class="w"> </span>file
-<span class="m">18</span><span class="w">  </span>main<span class="w">    </span><span class="m">5432</span><span class="w"> </span>online<span class="w"> </span>postgres<span class="w"> </span>/var/lib/postgresql/18/main<span class="w"> </span>/var/log/postgresql/postgresql-18-main.log
-</code></pre></div>
-  </details></p>
-</li>
-<li>
-<p>Start the <code>postgreqsl</code> service.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql.service
-</code></pre></div>
-</li>
-<li>
-<p>Check the <code>postgresql</code> version.</p>
-<ul>
-<li>Log in as a postgres user</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<ul>
-<li>Check the database version</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Delete the old cluster&rsquo;s data files.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Before deleting the old cluster, verify that the newly upgraded cluster is fully operational. Keeping the old cluster does not negatively affect the functionality or performance of your upgraded cluster.</p>
-</div>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pg_dropcluster<span class="w"> </span><span class="m">17</span><span class="w"> </span>main
-</code></pre></div>
-</li>
-</ol>
-<h2 id="major-upgrade-on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a class="headerlink" href="#major-upgrade-on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h2>
-<p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
-<ol>
-<li>
-<p>Install AXDB 18 packages</p>
-<ul>
-<li>
-<p><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
-</li>
-<li>
-<p>Enable Percona repository:</p>
-</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
-</code></pre></div>
-<ul>
-<li>Install AXDB 18:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql18-server
-</code></pre></div>
-</li>
-<li>
-<p>Set up AXDB 18 cluster</p>
-</li>
-<li>
-<p>Log is as the postgres user</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-</li>
-<li>
-<p>Set up locale settings</p>
-<div class="highlight"><pre><span></span><code><span class="na">export LC_ALL</span><span class="o">=</span><span class="s">&quot;en_US.UTF-8&quot;</span>
-<span class="na">export LC_CTYPE</span><span class="o">=</span><span class="s">&quot;en_US.UTF-8&quot;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Initialize cluster with the new data directory</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/pgsql/18/data
-</code></pre></div>
-</li>
-<li>
-<p>Stop the <code>postgresql</code> 17 service</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql-17
-</code></pre></div>
-</li>
-<li>
-<p>Run the database upgrade.</p>
-<ul>
-<li>Log in as the <code>postgres</code> user</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<ul>
-<li>Check the ability to upgrade AXDB from 17 to 18:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
---old-bindir<span class="w"> </span>/usr/pgsql-17/bin<span class="w"> </span><span class="se">\</span>
---new-bindir<span class="w"> </span>/usr/pgsql-18/bin<span class="w">  </span><span class="se">\</span>
---old-datadir<span class="w"> </span>/var/lib/pgsql/17/data<span class="w"> </span><span class="se">\</span>
---new-datadir<span class="w"> </span>/var/lib/pgsql/18/data<span class="w"> </span><span class="se">\</span>
---check
-</code></pre></div>
-<p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
-<p><strong>Sample output</strong></p>
-<div class="highlight"><pre><span></span><code>Performing Consistency Checks
------------------------------
-Checking cluster versions                                   ok
-Checking database user is the install user                  ok
-Checking database connection settings                       ok
-Checking for prepared transactions                          ok
-Checking for reg* data types in user tables                 ok
-Checking for contrib/isn with bigint-passing mismatch       ok
-Checking for tables WITH OIDS                               ok
-Checking for invalid &quot;sql_identifier&quot; user columns          ok
-Checking for presence of required libraries                 ok
-Checking database user is the install user                  ok
-Checking for prepared transactions                          ok
-
-*Clusters are compatible*
-</code></pre></div>
-<ul>
-<li>Upgrade the AXDB</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
---old-bindir<span class="w"> </span>/usr/pgsql-17/bin<span class="w"> </span><span class="se">\</span>
---new-bindir<span class="w"> </span>/usr/pgsql-18/bin<span class="w">  </span><span class="se">\</span>
---old-datadir<span class="w"> </span>/var/lib/pgsql/17/data<span class="w"> </span><span class="se">\</span>
---new-datadir<span class="w"> </span>/var/lib/pgsql/18/data<span class="w"> </span><span class="se">\</span>
---link<span class="w"> </span>
-</code></pre></div>
-<p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.
-   If you don’t wish to use the <code>--link</code> option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.</p>
-</li>
-<li>
-<p>Start the <code>postgresql</code> 18 service.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-18
-</code></pre></div>
-</li>
-<li>
-<p>Check postgresql status</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql-18
-</code></pre></div>
-</li>
-<li>
-<p>After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the <code>vaccumdb</code> command to analyze the new cluster:</p>
-<ul>
-<li>Log in as the postgres user</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<ul>
-<li>Run the script to analyze the new cluster:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-18/bin/vacuumdb<span class="w"> </span>--all<span class="w"> </span>--analyze-in-stages
-</code></pre></div>
-</li>
-<li>
-<p>Delete AXDB 17 configuration files</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
-</code></pre></div>
-</li>
-<li>
-<p>Delete Percona Distribution old data files</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/pgsql/17/data
-</code></pre></div>
-</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">For major upgrades (RHEL only)</p>
-<p>During a major upgrade on RHEL, you may encounter the following error:</p>
-<div class="highlight"><pre><span></span><code>Unknown Error occurred: Transaction test error:
-file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
-file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
-</code></pre></div>
-<p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-</div></section><section class="print-page" id="minor-upgrade" heading-number="8.2"><h1 id="minor-upgrade-minor-upgrade-of-axdb">Minor Upgrade of AXDB<a class="headerlink" href="#minor-upgrade-minor-upgrade-of-axdb" title="Permanent link">&para;</a></h1>
+<p>By following these steps, you have successfully integrated LDAP authentication into your environment.</p></section></section></section><section class="print-page" id="minor-upgrade" heading-number="8"><h1 id="minor-upgrade-minor-upgrade-of-axdb">Minor Upgrade of AXDB<a class="headerlink" href="#minor-upgrade-minor-upgrade-of-axdb" title="Permanent link">&para;</a></h1>
 <p>Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your AXDB updated to the latest minor version.</p>
 <p>Though minor upgrades do not change the behavior, we recommend you to back up your data first, in order to be on the safe side.</p>
 <div class="admonition note">
@@ -8951,7 +8517,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </div>
 <h2 id="minor-upgrade-before-you-start">Before you start<a class="headerlink" href="#minor-upgrade-before-you-start" title="Permanent link">&para;</a></h2>
 <ol>
-<li><a href="https://docs.percona.com/percona-software-repositories/updating.html">Update the <code>axdb-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> utility to the latest version. This is required to install the new version packages of AXDB.</li>
+<li><a href="https://hessalti.github.io/repo-config-docs/latest/updating.html">Update the <code>axdb-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> utility to the latest version. This is required to install the new version packages of AXDB.</li>
 </ol>
 <h2 id="minor-upgrade-procedure">Procedure<a class="headerlink" href="#minor-upgrade-procedure" title="Permanent link">&para;</a></h2>
 <p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
@@ -8972,7 +8538,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 </div>
 </li>
 <li>
-<p><a href="#updating.md">Update <code>axdb-release</code> to the latest version</a>.</p>
+<p><a href="https://hessalti.github.io/repo-config-docs/latest/updating.md">Update <code>axdb-release</code> to the latest version</a>.</p>
 </li>
 <li>
 <p>Install new version packages. See <a href="#installing">Installing AXDB</a>.</p>
@@ -9003,12 +8569,15 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 <p class="admonition-title">For minor upgrades (RHEL only)</p>
 <p>During a minor upgrade on RHEL, you may encounter the following error:</p>
 <div class="highlight"><pre><span></span><code>Unknown Error occurred: Transaction test error:
-file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
-file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+file /usr/share/postgresql-common/server/postgresql.mk from install of axdb-postgresql-common conflicts with file from package axdb-postgresql-common-dev
+file /usr/share/postgresql-common/t/040_upgrade.t from install of axdb-postgresql-common conflicts with file from package axdb-postgresql-common-dev
 </code></pre></div>
-<p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-</div>
-<p>If you wish to upgrade AXDB to the major version, refer to <a href="#major-upgrade">Upgrading AXDB from 17 to 18</a>.</p></section><section class="print-page" id="migration" heading-number="8.3"><h1 id="migration-migrate-from-postgresql-to-axdb">Migrate from PostgreSQL to AXDB<a class="headerlink" href="#migration-migrate-from-postgresql-to-axdb" title="Permanent link">&para;</a></h1>
+<p>To resolve this, remove the <code>axdb-postgresql-common-dev</code> package and reinstall it with the new intended upgraded server.</p>
+</div></section>
+                    <section class='print-page md-section' id='section-8' heading-number='8'>
+                        <h1>Upgrade<a class='headerlink' href='#section-8' title='Permanent link'></a>
+                        </h1>
+                    <section class="print-page" id="migration" heading-number="8.1"><h1 id="migration-migrate-from-postgresql-to-axdb">Migrate from PostgreSQL to AXDB<a class="headerlink" href="#migration-migrate-from-postgresql-to-axdb" title="Permanent link">&para;</a></h1>
 <p>AXDB includes the PostgreSQL database and additional extensions that have been selected to cover the needs of the enterprise and are guaranteed to work together. AXDB is available as a software collection that is easy to deploy.</p>
 <p>We encourage users to migrate from their PostgreSQL deployments based on community binaries to AXDB. This document provides the migration instructions. </p>
 <p>Depending on your business requirements, you may migrate to AXDB either <a href="#migration-migrate-on-the-same-server">on the same server</a> or <a href="#migration-migrate-on-a-different-server">onto a different server</a>. </p>
@@ -9146,7 +8715,7 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 <p>This FAQ answers common questions about using AXDB 18.</p>
 <p>If you&rsquo;re looking for help with errors or runtime issues, see the <a href="#troubleshooting">Troubleshooting guide</a>.</p>
 <h2 id="faq-does-minor-cover-both-upstream-feature-and-patch-releases">Does MINOR cover both upstream feature and patch releases?<a class="headerlink" href="#faq-does-minor-cover-both-upstream-feature-and-patch-releases" title="Permanent link">&para;</a></h2>
-<p>Yes, if we ship a future minor of PG18+ this always includes the patch set from Percona as well.</p>
+<p>Yes, if we ship a future minor of PG18+ this always includes the patch set from AXDB as well.</p>
 <h2 id="faq-when-upstream-bumps-minor-should-patch-always-reset-to-1">When upstream bumps MINOR, should PATCH always reset to 1?<a class="headerlink" href="#faq-when-upstream-bumps-minor-should-patch-always-reset-to-1" title="Permanent link">&para;</a></h2>
 <p>The first release will always be <code>MAJOR.MINOR.1</code>.</p></section><section class="print-page" id="troubleshooting" heading-number="10"><h1 id="troubleshooting-troubleshooting-guide">Troubleshooting guide<a class="headerlink" href="#troubleshooting-troubleshooting-guide" title="Permanent link">&para;</a></h1>
 <p>This guide helps you identify and resolve common issues when installing, configuring, or running AXDB 18.</p>
@@ -9375,7 +8944,7 @@ server stopped
                     <section class="print-page" id="licensing" heading-number="13.1"><h1 id="licensing-copyright-and-licensing-information">Copyright and licensing information<a class="headerlink" href="#licensing-copyright-and-licensing-information" title="Permanent link">&para;</a></h1>
 <p>AXDB is licensed under the <a href="https://opensource.org/licenses/postgresql">PostgreSQL license <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and licenses of all components included in the Distribution.</p>
 <h2 id="licensing-documentation-licensing">Documentation licensing<a class="headerlink" href="#licensing-documentation-licensing" title="Permanent link">&para;</a></h2>
-<p>AXDB documentation is (C)2009-2023 Percona LLC and/or its affiliates and is distributed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p></section><section class="print-page" id="versioning" heading-number="13.2"><h1 id="versioning-version-numbering">Version Numbering<a class="headerlink" href="#versioning-version-numbering" title="Permanent link">&para;</a></h1>
+<p>AXDB documentation is (C)2026 Altibase Corp. and/or its affiliates and is distributed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p></section><section class="print-page" id="versioning" heading-number="13.2"><h1 id="versioning-version-numbering">Version Numbering<a class="headerlink" href="#versioning-version-numbering" title="Permanent link">&para;</a></h1>
 <p>Starting with PostgreSQL 18, Percona uses the following format:</p>
 <p><code>MAJOR.MINOR.PATCH</code></p>
 <p>For example:</p>
@@ -9586,12 +9155,13 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 
 .print-site-enumerate-headings #solutions-authentication-ldap > h1:before { content: '7.5.3 ' }
 
+.print-site-enumerate-headings #minor-upgrade > h1:before { content: '8 ' }
+
+                .print-site-enumerate-headings #minor-upgrade h2:before { content: '8.' counter(counter-minor-upgrade-2) ' ' }
+                .print-site-enumerate-headings #minor-upgrade h2 {  counter-increment: counter-minor-upgrade-2 }
+            
 .print-site-enumerate-headings #section-8 > h1:before { content: '8 ' }
-.print-site-enumerate-headings #major-upgrade > h1:before { content: '8.1 ' }
-
-.print-site-enumerate-headings #minor-upgrade > h1:before { content: '8.2 ' }
-
-.print-site-enumerate-headings #migration > h1:before { content: '8.3 ' }
+.print-site-enumerate-headings #migration > h1:before { content: '8.1 ' }
 
 .print-site-enumerate-headings #faq > h1:before { content: '9 ' }
 
@@ -9684,7 +9254,7 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
     <div class="md-copyright__highlight">
- <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2026 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
+ <a href='https://altibase.com' target='_blank'>Altibase Corp., </a> &copy; 2026 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
     </div>
   
     Made with
