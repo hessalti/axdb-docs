@@ -103,7 +103,7 @@ You can fine-tune user behavior with the [custom parameters :octicons-link-exter
 
 ## pgbouncer
 
-`pgbouncer` requires the `pgbouncer.ini` configuration file to start. The default path is `/etc/pgbouncer/pgbouncer.ini`. When installing `pgbouncer` from a [tarball](tarball.md), the path is `percona-pgbouncer/etc/pgbouncer.ini`.
+`pgbouncer` requires the `pgbouncer.ini` configuration file to start. The default path is `/etc/pgbouncer/pgbouncer.ini`. When installing `pgbouncer` from a [tarball](tarball.md), the path is `axdb-pgbouncer/etc/pgbouncer.ini`.
 
 Find detailed information about configuration file options in the [`pgbouncer documentation`](https://www.pgbouncer.org/config.html).
 
@@ -111,10 +111,10 @@ Find detailed information about configuration file options in the [`pgbouncer do
 
 `pgpool-II` requires the configuration file to start. When you install pgpool from a package, the configuration file is automatically created for you at the path `/etc/pgpool2/pgpool.conf` on Debian and Ubuntu and `/etc/pgpool-II/pgpool.conf` on RHEL and derivatives.
 
-When you installed pgpool from tarballs, you can use the sample configuration file `<tarballsdir>/percona-pgpool-II/etc/pgpool2/pgpool.conf.sample`:
+When you installed pgpool from tarballs, you can use the sample configuration file `<tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample`:
 
 ```{.bash data-prompt="$"}
-$ cp <tarballsdir>/percona-pgpool-II/etc/pgpool2/pgpool.conf.sample <config-gile-path>/pgpool.conf
+$ cp <tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample <config-gile-path>/pgpool.conf
 ```
 
 Specify the path to it when starting pgpool:

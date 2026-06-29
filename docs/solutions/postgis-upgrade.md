@@ -48,6 +48,4 @@ PostGIS is enabled on the database level. This means that the upgrade is also do
 
 ## Upgrade PostgreSQL
 
-Upgrade PostgreSQL either to the [latest minor](../minor-upgrade.md) or to the [major version](../major-upgrade.md).
-
-If you are using long deprecated views and functions and / or need the expertise in upgrading your spatial database, [contact Percona Managed Services :octicons-link-external-16:](https://www.percona.com/services/managed-services) for an individual upgrade scenario development.
+Upgrade PostgreSQL to the [latest minor](../minor-upgrade.md).

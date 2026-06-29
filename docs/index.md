@@ -10,13 +10,9 @@ Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestr
 
 ## What’s in it for you?
 
-- No vendor lock in - all components of AXDB are fully open source
 - No guesswork on finding the right version of a component – they all undergo thorough testing to ensure compatibility
 - Freely available reference architectures for solutions like high-availability, backups and disaster recovery
 - Spatial data handling support via PostGIS
-- Monitoring of the database health, performance and infrastructure usage via open source [Percona Management and Monitoring :octicons-link-external-16:](https://docs.percona.com/percona-monitoring-and-management/3/) with PostgreSQL-specific dashboards
-- Run PostgreSQL on Kubernetes using open source [Percona Operator for PostgreSQL :octicons-link-external-16:](https://docs.percona.com/percona-operator-for-postgresql/2.0/index.html). It not only automates deployment and management of PostgreSQL clusters on Kubernetes, but also includes enterprise-ready features for high-availability, backup and restore, replication, logging, and more
-- Automate PostgreSQL provisioning and management in Kubernetes, in the cloud or on-premises with [Percona Everest :octicons-link-external-16:](https://docs.percona.com/everest/index.html#why-percona-everest) - the cloud-native database platform
 
 <div data-grid markdown><div data-banner markdown>
 

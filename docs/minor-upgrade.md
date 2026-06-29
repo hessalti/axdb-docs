@@ -14,7 +14,7 @@ Though minor upgrades do not change the behavior, we recommend you to back up yo
 
 ## Before you start
 
-1. [Update the `axdb-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/updating.html) utility to the latest version. This is required to install the new version packages of AXDB.
+1. [Update the `axdb-release` :octicons-link-external-16:](https://hessalti.github.io/repo-config-docs/latest/updating.html) utility to the latest version. This is required to install the new version packages of AXDB.
 
 ## Procedure
 
@@ -35,7 +35,7 @@ Run **all** commands as root or via **sudo**:
          $ sudo systemctl stop postgresql-18
          ```
 
-2. [Update `axdb-release` to the latest version](updating.md).
+2. [Update `axdb-release` to the latest version](https://hessalti.github.io/repo-config-docs/latest/updating.md).
 
 3. Install new version packages. See [Installing AXDB](installing.md).
 
@@ -67,10 +67,8 @@ Run **all** commands as root or via **sudo**:
 
     ```
     Unknown Error occurred: Transaction test error:
-    file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
-    file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+    file /usr/share/postgresql-common/server/postgresql.mk from install of axdb-postgresql-common conflicts with file from package axdb-postgresql-common-dev
+    file /usr/share/postgresql-common/t/040_upgrade.t from install of axdb-postgresql-common conflicts with file from package axdb-postgresql-common-dev
     ```
 
-    To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
-
-If you wish to upgrade AXDB to the major version, refer to [Upgrading AXDB from 17 to 18](major-upgrade.md).
+    To resolve this, remove the `axdb-postgresql-common-dev` package and reinstall it with the new intended upgraded server.

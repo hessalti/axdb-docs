@@ -217,7 +217,6 @@ nav:
       - LDAP authentication:
           - ldap.md
   - Upgrade:
-      - "Major upgrade": major-upgrade.md
       - minor-upgrade.md
       - migration.md
   - FAQ: faq.md  

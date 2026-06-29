@@ -2,22 +2,9 @@
 
 This guide explains how to contribute to the AXDB documentation.
 
-We welcome contributors from all users and the community. By contributing, you agree to the [Percona Community code of conduct](https://github.com/percona/community/blob/main/content/contribute/coc.md).
-
-If you want to contribute code, see the [Code contribution guide](https://github.com/percona/postgres/blob/PSP_REL_18_STABLE/.github/CONTRIBUTING.md).
-
 You can contribute to documentation in the following ways:
 
-1. Request documentation changes through Jira:
-
-- Open the [Jira issue tracker](https://jira.percona.com/projects/PG/issues) for the project.
-- Sign in (create a Jira account if you don’t have one).
-- Click **Create** to create an issue.
-- (Optional but recommended) Search if the issue you want to report is already reported.
-- Select **PostgreSQL PG** in the Project dropdown and the work type.
-- Describe the issue in the Summary and Description fields. Optionally, you can also fill in the Steps To Reproduce and Affects Version fields.
-
-2. [Contribute to documentation on GitHub](#contribute-directly-on-github).
+1. [Contribute to documentation on GitHub](#contribute-directly-on-github).
 
 To contribute to the documentation, basic familiarity with the following tools is useful:
 
@@ -29,9 +16,9 @@ To contribute to the documentation, basic familiarity with the following tools i
 
 There are several active versions of the documentation. Each version derives from the major version of PostgreSQL, included in the distribution.
 
-Each documentation branch is named after the PostgreSQL major version (for example: `11`(EOL), `12`(EOL), `13`(EOL), `14`, `15`, `16`, `17`, `18`).
+Each documentation branch is named after the PostgreSQL major version (for example: `18`).
 
-The source .md files are in the ``postgresql-docs/docs`` directory.
+The source .md files are in the ``axdb-docs/docs`` directory.
 
 To start contributing:
 
@@ -48,7 +35,7 @@ To start contributing:
 - Select the **Create a new branch for this commit** and name your branch
 - Click **Propose changes** to create the pull request
 
-4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page.  This allows you to make last-minute changes. When you are ready, click the **Create pull request** button.
+4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to AXDB. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page.  This allows you to make last-minute changes. When you are ready, click the **Create pull request** button.
 
 5. Your changes will be reviewed and merged into the documentation.
 
@@ -60,14 +47,14 @@ If you want to work on your computer locally, follow these steps:
 2. Clone the repository on your machine:
 
 ```sh
-git clone git@github.com:<my_name>/postgresql-docs.git
-cd postgresql-docs
+git clone git@github.com:<my_name>/axdb-docs.git
+cd axdb-docs
 ```
 
-3. Add the upstream (Percona) repository as a remote:
+3. Add the upstream (AXDB) repository as a remote:
 
 ```sh
-git remote add upstream git@github.com:percona/postgresql-docs.git
+git remote add upstream git@github.com:altibase/axdb-docs.git
 ```
 
 4. Pull the latest changes
@@ -93,7 +80,7 @@ git commit -m "PG-123-<my_fixes>"
 git push -u origin <my_branch_name>
 ```
 
-7. Open a pull request to Percona
+7. Open a pull request to AXDB
 
 ### Building the documentation using MkDocs
 
@@ -144,7 +131,7 @@ You can also view the site at <http://127.0.0.1:8000>.
 The repository includes the following directories and files:
 
 - `mkdocs-base.yml` - the base configuration file. It includes general settings and documentation structure.
-- `mkdocs.yml` - configuration file. Contains the settings for building the documentation on Percona website
+- `mkdocs.yml` - configuration file. Contains the settings for building the documentation on AXDB website
 - `docs`:
   - `*.md` - Source markdown files.
   - `_images` - Images, logos and favicons

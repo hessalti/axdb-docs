@@ -10,7 +10,7 @@ The aim of AXDB is to address the operational issues like High-Availability, Dis
 
 AXDB is an binary-compatible drop-in replacement for PostgreSQL Community. 
 
-This repository contains the source files for [AXDB documentation](https://www.percona.com/doc/postgresql/18/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/) markup language and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/).
+This repository contains the source files for [AXDB documentation](https://hessalti.github.io/axdb-docs). The documentation is written in [Markdown](https://www.markdownguide.org/) markup language and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/).
 
 ## License
 

@@ -70,7 +70,6 @@ nav:
         - OIDC authentication: solutions/authentication/oidc.md
         - LDAP authentication: solutions/authentication/ldap.md
   - Upgrade:
-      - "Major upgrade": major-upgrade.md
       - minor-upgrade.md
       - migration.md
   - FAQ: faq.md  
