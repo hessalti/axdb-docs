@@ -10,23 +10,11 @@ Though minor upgrades do not change the behavior, we recommend you to back up yo
 
     If you installed AXDB from the Minor Release repository, you will need to enable a new version repository to upgrade.
 
-    For more information about Percona repositories, refer to [Installing AXDB](installing.md).
+    For more information about AXDB repositories, refer to [Installing AXDB](installing.md).
 
 ## Before you start
 
-1. [Update the `percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/updating.html) utility to the latest version. This is required to install the new version packages of AXDB.
-
-2. Starting with version 17.2.1, `pg_tde` is part of the Percona Server for PostgreSQL package. If you installed `pg_tde` from its dedicated package, do the following to avoid conflicts during the upgrade:
-
-    * Drop the extension using the `DROP EXTENSION` with `CASCADE` command.
-
-       <i warning>:material-alert: Warning:</i> The use of the `CASCADE` parameter deletes all tables that were created in the database with `pg_tde` enabled and also all dependencies upon the encrypted table (e.g. foreign keys in a non-encrypted table used in the encrypted one).
-
-       ```sql
-       DROP EXTENSION pg_tde CASCADE
-       ```
-
-    * Uninstall the `percona-postgresql-17-pg-tde` package for Debian/Ubuntu or the `percona-pg_tde_17` package for RHEL and derivatives.
+1. [Update the `axdb-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/updating.html) utility to the latest version. This is required to install the new version packages of AXDB.
 
 ## Procedure
 
@@ -44,10 +32,10 @@ Run **all** commands as root or via **sudo**:
     === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl stop postgresql-17
+         $ sudo systemctl stop postgresql-18
          ```
 
-2. [Update `percona-release` to the latest version](https://docs.percona.com/percona-software-repositories/updating.html).
+2. [Update `axdb-release` to the latest version](updating.md).
 
 3. Install new version packages. See [Installing AXDB](installing.md).
 

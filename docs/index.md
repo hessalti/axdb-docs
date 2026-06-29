@@ -2,7 +2,7 @@
 
 AXDB is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL.
 
-AXDB includes [Percona Server for PostgreSQL](postgresql-server.md) packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster's peak performance.
+AXDB includes [AXDB Server for PostgreSQL](postgresql-server.md) packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster's peak performance.
 
 Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestrate the cluster reliably and repeatably in Kubernetes.
 

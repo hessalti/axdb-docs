@@ -21,7 +21,7 @@ For more information on this extension, see [pg_stat_monitor :octicons-link-exte
     ??? example "Sample output"
 
         ```{.text .no-copy}
-        psql ({{pgsubversion}} - Percona Server for PostgreSQL {{dockertag}})
+        psql ({{pgsubversion}} - AXDB {{dockertag}})
         Type "help" for help.
 
         postgres=#

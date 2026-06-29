@@ -4,22 +4,13 @@ Welcome to AXDB documentation!
 
 ## Overview
 
-AXDB is a collection of tools to assist you in managing your PostgreSQL database system. It includes Percona Server for PostgreSQL and a selection of extensions that enable solving essential practical tasks efficiently.
+AXDB is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. 
 
-Percona Server for PostgreSQL is an open source binary-compatible drop-in replacement for PostgreSQL Community. Percona Server for PostgreSQL introduces additional features to the upstream server, including:
+The aim of AXDB is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.
 
-* Storage Manager (SMGR) API Exposure: Allows PostgreSQL extensions to integrate custom storage managers. This change was inspired by the [patchset](https://www.postgresql.org/message-id/flat/CAJ7c6TOqqrzjYsU6LgDkcJ0yVgzdkx2juJjgAjzP2jPOpZ1qUA%40mail.gmail.com#8e68cfc57fcac14c8e24b00b41e61baf) introduced to the community.
-* WAL Read/Write API Exposure to hook into WAL read and write functions.
-
-Percona Server and upstream PostgreSQL function identically enabling you to migrate from one to another. 
+AXDB is an binary-compatible drop-in replacement for PostgreSQL Community. 
 
 This repository contains the source files for [AXDB documentation](https://www.percona.com/doc/postgresql/18/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/) markup language and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/).
-
-## Contributing
-
-We welcome all contributions and are always looking for new members that are as dedicated to serving the community as we are. You can reach out to us using our [forums](https://forums.percona.com/c/postgresql/25) and [Jira issue tracker](https://jira.percona.com/projects/DISTPG/issues/DISTPG-16?filter=allopenissues).
-
-For how to contribute to documentation, read the [Contributing guide ](https://github.com/percona/postgresql-docs/blob/18/CONTRIBUTING.md).
 
 ## License
 

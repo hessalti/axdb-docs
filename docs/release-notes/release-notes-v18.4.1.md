@@ -2,67 +2,14 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of AXDB is based on Percona Server for PostgreSQL 18.4.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.4](https://www.postgresql.org/docs/18/release-18-4.html).
+This release of AXDB is based on AXDB Server for PostgreSQL 18.4 - a binary compatible, drop in replacement of [PostgreSQL Community 18.4](https://www.postgresql.org/docs/18/release-18-4.html).
 
 ## Release Highlights
 
-This release continues to deliver Percona’s open source value-add components for enterprise use cases, `pg_tde` 2.2.0 for Transparent Data Encryption and more. See the full component list below for details.
-
-!!! note
-    `pg_tde` 2.2.0 requires AXDB 18.4 at minimum. Earlier versions of PPG are not supported with this release of `pg_tde`.
-
-To upgrade from earlier versions (e.g. AXDB 17.x), follow the steps in [Upgrading AXDB](../major-upgrade.md).
+This release includes `pg_tde` 2.2.0 for Transparent Data Encryption and more. See the full component list below for details.
 
 !!! note
     Starting with this release, `shared_preload_libraries` is empty by default. Extensions such as `pg_tde` must be added manually.
-
-### Ubuntu 26.04 LTS support added
-
-AXDB is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
-
-### Added Quick Start guide
-
-Added a Quick Start Guide walking users through setting up AXDB with minimal steps and linking to more advanced topics.
-
-### Tarball updates
-
-The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
-
-- postgres-common: 290
-- pgBouncer: 1.25.2
-- etcd: 3.5.30
-- pysyncobj: 0.3.15
-- haproxy: 2.8.23
-- patroni: 4.1.3
-- pgpool2: 4.7.1
-- postgis: 3.5.6
-- pg_gather: 33
-- pg_cron: 1.6.7
-- pg_tde: 2.2.0
-
-See [Install AXDB from binary tarballs](../tarball.md) for the download links.
-
-### Addressed CVEs
-
-This release includes important security measures that address the following CVEs: TBD. For more details, see the [PostgreSQL 18.4 release notes](https://www.postgresql.org/docs/18/release-18-4.html).
-
-## Known Issues
-
-### For minor & major upgrades (RHEL only)
-
-During an upgrade on RHEL, you may encounter the following error:
-
-```bash
-Unknown Error occurred: Transaction test error:
-  file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
-  file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
-```
-
-To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
-
-## MD5 Authentication Deprecated
-
-The md5 password authentication is deprecated now and will be removed in a future release.
 
 ## Supplied third-party extensions
 

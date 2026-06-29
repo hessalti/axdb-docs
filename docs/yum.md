@@ -499,7 +499,7 @@ $ psql --version
 ??? example "Sample output"
 
     ```{.text .no-copy}
-    psql (PostgreSQL) {{pspgversion}} (Percona Server for PostgreSQL) {{pspgversion}}
+    psql (PostgreSQL) {{pspgversion}} (AXDB) {{pspgversion}}
     ```
     
 Congratulations! Your AXDB is up and running.

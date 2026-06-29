@@ -1,12 +1,12 @@
 # Install AXDB on Debian and Ubuntu
 
-This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. [Read more about Percona repositories](repo-overview.md).
+This document describes how to install AXDB Server for PostgreSQL from AXDB repositories on DEB-based distributions such as Debian and Ubuntu. [Read more about AXDB repositories](repo-overview.md).
 
 ## Preconditions
 
 Debian and other systems that use the `apt` package manager include the upstream PostgreSQL server package `postgresql-{{pgversion}}` by default.
 
-The components of AXDB {{pgversion}} can only be installed together with Percona Server for PostgreSQL (`percona-postgresql-{{pgversion}}`).
+The components of AXDB {{pgversion}} can only be installed together with AXDB Server for PostgreSQL (`percona-postgresql-{{pgversion}}`).
 
 If you wish to use AXDB, uninstall the `postgresql-{{pgversion}}` package provided by your distribution and then install the chosen components from AXDB.
 
@@ -156,7 +156,7 @@ $ psql --version
 ??? example "Sample output"
 
     ```{.text .no-copy}
-    psql (PostgreSQL) {{pspgversion}} (Percona Server for PostgreSQL) {{pspgversion}}
+    psql (PostgreSQL) {{pspgversion}} (AXDB Server for PostgreSQL) {{pspgversion}}
     ```
 
 Congratulations! Your AXDB is up and running.

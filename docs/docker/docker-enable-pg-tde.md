@@ -21,7 +21,7 @@ For more information, see the [pg_tde documentation :octicons-link-external-16:]
     ??? example "Sample output"
 
         ```{.text .no-copy}
-        psql ({{pgsubversion}} - Percona Server for PostgreSQL {{dockertag}})
+        psql ({{pgsubversion}} - AXDB {{dockertag}})
         Type "help" for help.
 
         postgres=#
