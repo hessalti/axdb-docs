@@ -4,65 +4,11 @@
 
 Run the following commands as root or with `sudo` privileges on `node1`, `node2` and `node3`.
 
-=== ":material-debian: On Debian / Ubuntu"
-
-    1. Disable the upstream `postgresql-{{pgversion}}` package.
-
-    2. Install AXDB package
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt install percona-postgresql-{{pgversion}}
-        ```
-    
-    3. Install some Python and auxiliary packages to help with Patroni 
-    
-        ```{.bash data-prompt="$"}
-        $ sudo apt install python3-pip python3-dev binutils
-        ```
-
-    4. Install Patroni
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt install percona-patroni
-        ```
-    
-    5. Stop and disable all installed services:
-    
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl stop {patroni,postgresql}
-        $ sudo systemctl disable {patroni,postgresql}
-        ```
-    
-    6. Even though Patroni can use an existing Postgres installation, our recommendation for a **new cluster that has no data** is to remove the data directory. This forces Patroni to initialize a new Postgres cluster instance.
-
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl stop postgresql
-        $ sudo rm -rf /var/lib/postgresql/{{pgversion}}/main
-        ```
-
 === ":material-redhat: On RHEL and derivatives"
 
-    1. Install AXDB package
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-postgresql{{pgversion}}-server
-        ```
+    1. [Install AXDB package](../tarball.md)
     
-    2. Check the [platform specific notes for Patroni](../yum.md#for-percona-distribution-for-postgresql-packages)
-    
-    3. Install some Python and auxiliary packages to help with Patroni and etcd
-    
-        ```{.bash data-prompt="$"}
-        $ sudo yum install python3-pip python3-devel binutils
-        ```
-    
-    4. Install Patroni
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-patroni 
-        ```
-
-    3. Stop and disable all installed services:
+    2. Stop and disable all installed services:
     
         ```{.bash data-prompt="$"}
         $ sudo systemctl stop {patroni,postgresql-{{pgversion}}}
@@ -71,7 +17,7 @@ Run the following commands as root or with `sudo` privileges on `node1`, `node2`
     
     !!! important    
 
-        **Don't** initialize the cluster and start the `postgresql` service. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
+        **Don't** initialize the cluster and start the `postgresql`. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
 
 ## Configure Patroni
 
@@ -112,13 +58,6 @@ Environment variables simplify the config file creation:
        ```
 
 3. Create variables to store the `PATH`. Check the path to the `data` and `bin` folders on your operating system and change it for the variables accordingly:
-
-    === ":material-debian: Debian and Ubuntu"
-
-        ```bash
-        DATA_DIR="/var/lib/postgresql/{{pgversion}}/main"
-        PG_BIN_DIR="/usr/lib/postgresql/{{pgversion}}/bin"
-        ```
 
     === ":material-redhat: RHEL and derivatives"
 

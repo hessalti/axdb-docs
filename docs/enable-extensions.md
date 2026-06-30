@@ -14,13 +14,13 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
   
 - [HAProxy :octicons-link-external-16:](http://www.haproxy.org/).
 
-If you install the software fom packages, all required dependencies and service unit files are included. If you [install the software from the tarballs](tarball.md), you must first enable `etcd`. See the steps in the [etcd](#etcd) section in this document.
+If you install the software from packages, all required dependencies and service unit files are included. You must first enable `etcd`. See the steps in the [etcd](#etcd) section in this document.
 
 See the configuration guidelines for [Patroni](solutions/ha-patroni.md) and [etcd](solutions/ha-etcd-config.md). 
 
 ## etcd
 
-If you [installed etcd from binary tarballs](tarball.md), you need to create the `etcd.service` file. This file allows `systemd` to start, stop, restart, and manage the `etcd` service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. 
+You need to create the `etcd.service` file. This file allows `systemd` to start, stop, restart, and manage the `etcd` service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. 
 
 ```ini title="/etc/systemd/system/etcd.service"
 [Unit]
@@ -70,7 +70,7 @@ Start / restart the server to apply the configuration.
 
 To configure `pgaudit`, you must have the privileges of a superuser. You can specify the settings in one of these ways:
 
-*  globally (in postgresql.conf or using ALTER SYSTEM ... SET), 
+* globally (in postgresql.conf or using ALTER SYSTEM ... SET), 
 * at the database level (using ALTER DATABASE ... SET), 
 * at the role level (using ALTER ROLE ... SET). Note that settings are not inherited through normal role inheritance and SET ROLE will not alter a user's pgAudit settings. This is a limitation of the roles system and not inherent to pgAudit. 
 
@@ -103,18 +103,18 @@ You can fine-tune user behavior with the [custom parameters :octicons-link-exter
 
 ## pgbouncer
 
-`pgbouncer` requires the `pgbouncer.ini` configuration file to start. The default path is `/etc/pgbouncer/pgbouncer.ini`. When installing `pgbouncer` from a [tarball](tarball.md), the path is `axdb-pgbouncer/etc/pgbouncer.ini`.
+`pgbouncer` requires the `pgbouncer.ini` configuration file to start. The path is `axdb-pgbouncer/etc/pgbouncer.ini`.
 
 Find detailed information about configuration file options in the [`pgbouncer documentation`](https://www.pgbouncer.org/config.html).
 
 ## pgpool2
 
-`pgpool-II` requires the configuration file to start. When you install pgpool from a package, the configuration file is automatically created for you at the path `/etc/pgpool2/pgpool.conf` on Debian and Ubuntu and `/etc/pgpool-II/pgpool.conf` on RHEL and derivatives.
+`pgpool-II` requires the configuration file to start. The configuration file path is `/etc/pgpool-II/pgpool.conf` on RHEL and derivatives.
 
-When you installed pgpool from tarballs, you can use the sample configuration file `<tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample`:
+You can use the sample configuration file `<tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample`:
 
 ```{.bash data-prompt="$"}
-$ cp <tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample <config-gile-path>/pgpool.conf
+$ cp <tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample <config-file-path>/pgpool.conf
 ```
 
 Specify the path to it when starting pgpool:

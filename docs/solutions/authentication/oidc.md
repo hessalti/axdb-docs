@@ -46,16 +46,7 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
 
 1. Install the `pg_oidc_validator` package.
 
-    For more information, see the [Quickstart guide](../../installing.md).
-
-    Alternatively, you can build the extension from source:
-
-    ```bash
-    make USE_PGXS=1 install -j
-    ```
-
-    !!! note
-        A C++23 compiler and standard library is required to build `pg_oidc_validator`.
+    For more information, see the [Install guide](../../tarball.md).
 
 2. Edit `postgresql.conf` and add the validator library:
 

@@ -48,4 +48,4 @@ PostGIS is enabled on the database level. This means that the upgrade is also do
 
 ## Upgrade PostgreSQL
 
-Upgrade PostgreSQL to the [latest minor](../minor-upgrade.md).
+Upgrade PostgreSQL to the latest.

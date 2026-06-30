@@ -1,7 +1,3 @@
-# Copyright and licensing information
-
-AXDB is licensed under the [PostgreSQL license :octicons-link-external-16:](https://opensource.org/licenses/postgresql) and licenses of all components included in the Distribution.
-
 ## Documentation licensing
 
 AXDB documentation is (C)2026 Altibase Corp. and/or its affiliates and is distributed under the [Creative Commons Attribution 4.0 International License :octicons-link-external-16:](https://creativecommons.org/licenses/by/4.0/).

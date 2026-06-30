@@ -6,32 +6,9 @@ In our solutions, we use etcd distributed configuration store. [Refresh your kno
 
 Install etcd on all PostgreSQL nodes: `node1`, `node2` and `node3`.
 
-=== ":material-debian: On Debian / Ubuntu"
-
-    1. Install etcd:    
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt install etcd etcd-server etcd-client 
-        ```
-
-    3. Stop and disable etcd:
-    
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl stop etcd
-        $ sudo systemctl disable etcd
-        ```
-
 === ":material-redhat: On RHEL and derivatives"
 
-    
-    1. Install etcd. 
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install
-        etcd python3-python-etcd\
-        ```
-
-    3. Stop and disable etcd:
+    1. Stop and disable etcd:
     
         ```{.bash data-prompt="$"}
         $ sudo systemctl stop etcd
@@ -40,7 +17,7 @@ Install etcd on all PostgreSQL nodes: `node1`, `node2` and `node3`.
 
 !!! note
     
-    If you [installed etcd from tarballs](../tarball.md), you must first [enable it](../enable-extensions.md#etcd) before configuring it.
+    You must first [enable it](../enable-extensions.md#etcd) before configuring it.
 
 ## Configure etcd
 

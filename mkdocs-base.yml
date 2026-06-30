@@ -171,14 +171,9 @@ nav:
   - 'AXDB': postgresql-server.md
   - get-help.md
   - Get started: 
-      - Quickstart guide: installing.md
       - 1. Install: 
-          - Via apt: apt.md
-          - Via yum: yum.md
-          - From tarballs: tarball.md
-          - Run in Docker: docker.md
+          - tarball.md
           - enable-extensions.md
-          - repo-overview.md
           - sboms.md
       - 2. Connect to PostgreSQL: connect.md
       - 3. Manipulate data in PostgreSQL: crud.md  
@@ -216,8 +211,7 @@ nav:
         - Upgrade spatial database: solutions/postgis-upgrade.md
       - LDAP authentication:
           - ldap.md
-  - Upgrade:
-      - minor-upgrade.md
+  - Migrate:
       - migration.md
   - FAQ: faq.md  
   - Troubleshooting guide: troubleshooting.md
@@ -228,5 +222,4 @@ nav:
   - Reference:
       - Licensing: licensing.md
       - Versioning: versioning.md
-      - Trademark policy: trademark-policy.md
 

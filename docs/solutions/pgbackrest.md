@@ -12,18 +12,6 @@ Make sure to complete the [initial setup](ha-init-setup.md) steps.
 
 Install pgBackRest on all nodes: `node1`, `node2`, `node3`, and `backup`.
 
-=== ":material-debian: On Debian/Ubuntu"
-
-    ```{.bash data-prompt="$"}
-    $ sudo apt install percona-pgbackrest
-    ```
-
-=== ":material-redhat: On RHEL/derivatives"
-
-    ```{.bash data-prompt="$"}
-    $ sudo yum install percona-pgbackrest
-    ```
-
 ## Configure a backup server
 
 Do the following steps on the `backup` node.
@@ -61,88 +49,6 @@ Do the following steps on the `backup` node.
     ```
 
 4. Then use the following command to create a basic configuration file using the environment variables we created in a previous step. This example command adds the configuration file at the path `/etc/pgbackrest.conf`.  Make sure to specify the correct path for the configuration file on your system:
-
-    === ":material-debian: On Debian/Ubuntu"
-
-        ```
-        echo "
-        [global] 
-    
-        # Server repo details
-        repo1-path=/var/lib/pgbackrest 
-    
-        ### Retention ###
-        #  - repo1-retention-archive-type
-        #  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
-        repo1-retention-archive-type=full 
-    
-        # repo1-retention-archive
-        #  - Number of backups worth of continuous WAL to retain
-        #  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
-        #  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
-        # repo1-retention-archive=2 
-    
-        # repo1-retention-full
-        #  - Full backup retention count/time.
-        #  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
-        #  - When the option is not defined a warning will be issued. 
-        #  - If indefinite retention is desired then set the option to the max value. 
-        repo1-retention-full=4 
-    
-        # Server general options
-        process-max=4  # This depends on the number of CPU resources your server has. The recommended value should equal or be less than the number of CPUs. While more processes can speed up backups, they will also consume additional system resources.
-        log-level-console=info
-        #log-level-file=debug
-        log-level-file=info
-        start-fast=y
-        delta=y
-        backup-standby=y 
-    
-        ########## Server TLS options ##########
-        tls-server-address=*
-        tls-server-cert-file=${CA_PATH}/${SRV_NAME}.crt
-        tls-server-key-file=${CA_PATH}/${SRV_NAME}.key
-        tls-server-ca-file=${CA_PATH}/ca.crt 
-    
-        ### Auth entry ###
-        tls-server-auth=${NODE1_NAME}=cluster_1
-        tls-server-auth=${NODE2_NAME}=cluster_1
-        tls-server-auth=${NODE3_NAME}=cluster_1 
-    
-        ### Clusters and nodes ###
-        [cluster_1]
-        pg1-host=${NODE1_NAME}
-        pg1-host-port=8432
-        pg1-port=5432
-        pg1-path=/var/lib/postgresql/{{pgversion}}/main
-        pg1-host-type=tls
-        pg1-host-cert-file=${CA_PATH}/${NODE1_NAME}.crt
-        pg1-host-key-file=${CA_PATH}/${NODE1_NAME}.key
-        pg1-host-ca-file=${CA_PATH}/ca.crt
-        pg1-socket-path=/var/run/postgresql 
-     
-        pg2-host=${NODE2_NAME}
-        pg2-host-port=8432
-        pg2-port=5432
-        pg2-path=/var/lib/postgresql/{{pgversion}}/main
-        pg2-host-type=tls
-        pg2-host-cert-file=${CA_PATH}/${NODE2_NAME}.crt
-        pg2-host-key-file=${CA_PATH}/${NODE2_NAME}.key
-        pg2-host-ca-file=${CA_PATH}/ca.crt
-        pg2-socket-path=/var/run/postgresql 
-    
-        pg3-host=${NODE3_NAME}
-        pg3-host-port=8432
-        pg3-port=5432
-        pg3-path=/var/lib/postgresql/{{pgversion}}/main
-        pg3-host-type=tls
-        pg3-host-cert-file=${CA_PATH}/${NODE3_NAME}.crt
-        pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
-        pg3-host-ca-file=${CA_PATH}/ca.crt
-        pg3-socket-path=/var/run/postgresql
-        
-        " | sudo tee /etc/pgbackrest.conf
-        ```
 
     === ":material-redhat: On RHEL/derivatives"
 
@@ -334,18 +240,6 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
 1. Install `pgBackRest` package
 
-    === ":material-debian: On Debian/Ubuntu"
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt install percona-pgbackrest
-        ```
-
-    === ":material-redhat: On RHEL/derivatives"
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbackrest
-        ```
-
 2. Export environment variables to simplify the config file creation:
 
     ```{.bash data-prompt="$"}
@@ -375,35 +269,6 @@ Run the following commands on `node1`, `node2`, and `node3`.
     ```
 
 6. Create the configuration file. This example command adds the configuration file at the path `/etc/pgbackrest.conf`. Make sure to specify the correct path for the configuration file on your system:
-
-    === ":material-debian: On Debian/Ubuntu"
-
-        ```ini title="pgbackrest.conf"
-        echo "
-        [global]
-        repo1-host=${SRV_NAME}
-        repo1-host-user=postgres
-        repo1-host-type=tls
-        repo1-host-cert-file=${CA_PATH}/${NODE_NAME}.crt
-        repo1-host-key-file=${CA_PATH}/${NODE_NAME}.key
-        repo1-host-ca-file=${CA_PATH}/ca.crt
-    
-        # general options
-        process-max=6
-        log-level-console=info
-        log-level-file=debug
-    
-        # tls server options
-        tls-server-address=*
-        tls-server-cert-file=${CA_PATH}/${NODE_NAME}.crt
-        tls-server-key-file=${CA_PATH}/${NODE_NAME}.key
-        tls-server-ca-file=${CA_PATH}/ca.crt
-        tls-server-auth=${SRV_NAME}=cluster_1
-    
-        [cluster_1]
-        pg1-path=/var/lib/postgresql/{{pgversion}}/main
-        " | sudo tee /etc/pgbackrest.conf
-        ```
 
     === ":material-redhat: On RHEL/derivatives"
 

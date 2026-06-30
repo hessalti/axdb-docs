@@ -10,65 +10,9 @@ The following document provides guidelines how to install PostGIS and how to run
 
 ## Install PostGIS
 
-=== ":material-debian: On Debian and Ubuntu"
-
-    1. Enable Percona repository
-
-        As other components of AXDB, PostGIS is available from Percona repositories. Use the [`percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
-
-        ```{.bash data-prompt="$"}
-        $ sudo percona-release setup ppg{{pgversion}}
-        ```
-
-    2. Install PostGIS packages
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt install percona-postgis
-        ```
-
-    3. The command in the previous step installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:
-
-        ```sql
-        SELECT name, default_version,installed_version
-        FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE address%';
-        ```
-
-        !!! note
-
-            To enable the `postgis_sfcgal-3` extension on Ubuntu 18.04, you need to manually install the required dependency:
-
-            ```{.bash data-prompt="$"}
-            $ sudo apt-get install libsfcgal1
-            ```
-
-=== ":material-redhat: On RHEL and derivatives"
-
-    1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
-
-    2. Enable Percona repository    
-
-        As other components of AXDB, PostGIS is available from Percona repositories. Use the [`percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository.     
-
-        ```{.bash data-prompt="$"}
-        $ sudo percona-release setup ppg{{pgversion}}
-        ```    
-
-    3. Install the extension    
-
-        ```{.bash data-prompt="$"}                    
-        $ sudo yum install percona-postgis33_{{pgversion}} percona-postgis33_{{pgversion}}-client
-        ```       
-
-    This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:        
-
-    ```sql
-    SELECT name, default_version,installed_version
-    FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
-    ```
-
 === ":octicons-download-16: From tarballs"
 
-    PostGIS is included into binary tarball and is a part of the `percona-postgresql{{pgversion}}` binary. Use the [install from tarballs](../tarball.md) tutorial to install it. 
+    PostGIS is included into binary tarball and is a part of the `axdb{{pgversion}}` binary. Use the [install](../tarball.md) tutorial to install it. 
 
 
 ## Enable PostGIS extension

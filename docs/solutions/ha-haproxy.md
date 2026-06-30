@@ -86,12 +86,6 @@ In this setup we define the basic health check for HAProxy. You may want to use 
 
 1. Install `keepalived` on all HAProxy nodes:
 
-    === ":material-debian: On Debian and Ubuntu"
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt install keepalived
-        ```
-
     === ":material-redhat: On RHEL and derivatives"
 
         ```{.bash data-prompt="$"}

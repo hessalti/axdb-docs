@@ -17,19 +17,10 @@ nav:
   - 'Home': 'index.md'
   - 'AXDB': postgresql-server.md
   - get-help.md
-  - Quickstart guide: quick-start.md
   - Get started: 
       - 1. Install:
-          - Overview: installing.md 
-          - Via apt: apt.md
-          - Via yum: yum.md
-          - From tarballs: tarball.md
-          - Run in Docker: 
-            - Overview: docker/docker.md
-            - 'Enable pg_tde for securing data at rest': docker/docker-enable-pg-tde.md
-            - 'Enable stat-monitor for performance statistics': docker/docker-enable-pg-stat-monitor.md
+          - tarball.md
           - enable-extensions.md
-          - repo-overview.md
           - sboms.md
       - 2. Connect to PostgreSQL: connect.md
       - 3. Manipulate data in PostgreSQL: crud.md  
@@ -69,8 +60,7 @@ nav:
         - Overview: solutions/authentication/overview.md
         - OIDC authentication: solutions/authentication/oidc.md
         - LDAP authentication: solutions/authentication/ldap.md
-  - Upgrade:
-      - minor-upgrade.md
+  - Migrate:
       - migration.md
   - FAQ: faq.md  
   - Troubleshooting guide: troubleshooting.md
@@ -81,4 +71,3 @@ nav:
   - Reference:
       - Licensing: licensing.md
       - Versioning: versioning.md
-      - Trademark policy: trademark-policy.md

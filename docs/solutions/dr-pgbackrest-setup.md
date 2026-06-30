@@ -137,34 +137,11 @@ Before setting up passwordless SSH, ensure that the _postgres_ user in all three
 
 Install AXDB in the primary and the secondary nodes from Percona repository. 
 
-1. [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
-2. Enable the repository:
-
-    ```{.bash data-prompt="$"}
-    $ sudo percona-release setup ppg{{pgversion}}
-    ```
-
-3. Install AXDB packages
-
-    === ":material-debian: On Debian and Ubuntu"
-
-         ```{.bash data-prompt="$"}
-         $ sudo apt install percona-postgresql-{{pgversion}} -y
-         ```
-   
-    === ":material-redhat: On RedHat Enterprise Linux and derivatives"
-
-         ```{.bash data-prompt="$"}
-         $ sudo yum install percona-postgresql{{pgversion}}-server
-         ```
-
 ### Configure PostgreSQL on the primary node for continuous backup
 
 At this step, configure the PostgreSQL instance on the `pg-primary` node for continuous archiving of the WAL files. 
 
 !!! note
-
-       :material-debian: On Debian and Ubuntu, the path to the configuration file is `/etc/postgresql{{pgversion}}/main/postgresql.conf`.
 
        On RHEL and CentOS, the path to the configuration file is `/var/lib/pgsql/{{pgversion}}/data/`.
 
@@ -181,26 +158,6 @@ At this step, configure the PostgreSQL instance on the `pg-primary` node for con
      ```
 
 2. Once the changes are saved, restart PostgreSQL.
-
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl restart postgresql
-    ```
-
-### Install pgBackRest
-
-Install `pgBackRest` in all three instances from Percona repository. Use the following command:
-
-=== ":material-debian: On Debian / Ubuntu"
-  
-     ```{.bash data-prompt="$"}
-     $ sudo apt-get install percona-pgbackrest
-     ```
-
-=== ":material-redhat: On RHEL / derivatives"
-
-     ```{.bash data-prompt="$"}
-     $ sudo yum install percona-pgbackrest
-     ```
 
 ### Create the `pgBackRest` configuration file
 

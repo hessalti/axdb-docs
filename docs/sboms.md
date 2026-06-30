@@ -5,26 +5,6 @@ Percona provides Software Bill of Materials (SBOMs), these files can help with c
 
 SBOMs are available for:
 
-=== "Debian"
-    - [Debian 11 (Bullseye, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-bullseye-x86_64.json)
-    - [Debian 11 (Bullseye, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-bullseye-aarch64.json)
-    - [Debian 12 (Bookworm, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-bookworm-x86_64.json)
-    - [Debian 12 (Bookworm, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-bookworm-aarch64.json)
-    - [Debian 13 (Trixie, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-trixie-x86_64.json)
-    - [Debian 13 (Trixie, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-trixie-aarch64.json)
-
-=== "Ubuntu"
-    - [Ubuntu 22.04 (Jammy, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-jammy-x86_64.json)
-    - [Ubuntu 22.04 (Jammy, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-jammy-aarch64.json)
-    - [Ubuntu 24.04 (Noble, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-noble-x86_64.json)
-    - [Ubuntu 24.04 (Noble, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-noble-aarch64.json)
-    - [Ubuntu 26.04 (Resolute, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-resolute-x86_64.json)
-    - [Ubuntu 26.04 (Resolute, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-resolute-aarch64.json)
-
 === "Red Hat Enterprise Linux (RHEL) and derivatives"
-    - [RHEL 8 (x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-ol8-x86_64.json)
-    - [RHEL 8 (aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-ol8-aarch64.json)
     - [RHEL 9 (x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-ol9-x86_64.json)
-    - [RHEL 9 (aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-ol9-aarch64.json)
     - [RHEL 10 (x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-ol10-x86_64.json)
-    - [RHEL 10 (aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-ol10-aarch64.json)

@@ -54,28 +54,6 @@ Run the following commands on each node.
     10.104.0.9 backup   
     ```
 
-## Configure Percona repository
-
-To install the software from Percona, you need to subscribe to Percona repositories. To do this, you require `percona-release` - the repository management tool. 
-
-Run the following commands on each node as the root user or with `sudo` privileges.
-
-1. Install `percona-release`
-
-    === ":material-debian: On Debian and Ubuntu"
-
-        --8<-- "percona-release-apt.md"
-
-    === ":material-redhat: On RHEL and derivatives"
-
-        --8<-- "percona-release-yum.md"
-
-2. Enable the repository:
-
-    ```{.bash data-prompt="$"}
-    $ sudo percona-release setup ppg{{pgversion}} 
-    ```
-
 ## Next steps
 
 [Set up etcd :material-arrow-right:](ha-etcd-config.md){.md-button}
