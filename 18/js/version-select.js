@@ -1,5 +1,5 @@
 /*
- * Custom version of same taken from mike code for injecting version switcher into percona.com
+ * Custom version of same taken from mike code for injecting version switcher
  */
 
 window.addEventListener('DOMContentLoaded', function () {

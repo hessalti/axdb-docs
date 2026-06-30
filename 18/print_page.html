@@ -605,34 +605,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="sboms.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Software Bill of Materials (SBOMs)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2385,17 +2357,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#sboms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Software Bill of Materials (SBOMs)
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3382,19 +3343,7 @@ log_error_verbosity = default
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">vector</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="enable-extensions-next-steps">Next steps<a class="headerlink" href="#enable-extensions-next-steps" title="Permanent link">&para;</a></h2>
-<p><a class="md-button" href="#connect">Connect to PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="sboms" heading-number="4.1.2"><h1 id="sboms-software-bill-of-materials-sboms">Software Bill of Materials (SBOMs)<a class="headerlink" href="#sboms-software-bill-of-materials-sboms" title="Permanent link">&para;</a></h1>
-<p>Percona provides Software Bill of Materials (SBOMs), these files can help with compliance and security audits.</p>
-<p>SBOMs are available for:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="sboms-__tabbed_1_1" name="sboms-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="sboms-__tabbed_1_1">Red Hat Enterprise Linux (RHEL) and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ul>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/sbom-percona-postgresql-18.4-ol9-x86_64.json">RHEL 9 (x86_64)</a></li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-18/18.4/binary/tarball/sbom-percona-postgresql-18.4-ol10-x86_64.json">RHEL 10 (x86_64)</a></li>
-</ul>
-</div>
-</div>
-</div></section></section><section class="print-page" id="connect" heading-number="4.2"><h1 id="connect-connect-to-the-postgresql-server">Connect to the PostgreSQL server<a class="headerlink" href="#connect-connect-to-the-postgresql-server" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="#connect">Connect to PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section></section><section class="print-page" id="connect" heading-number="4.2"><h1 id="connect-connect-to-the-postgresql-server">Connect to the PostgreSQL server<a class="headerlink" href="#connect-connect-to-the-postgresql-server" title="Permanent link">&para;</a></h1>
 <p>With PostgreSQL server up and running, let&rsquo;s connect to it.</p>
 <p class="power-number">By default, the <code>postgres</code> user and the <code>postgres</code> database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the <code>postgres</code> user.</p>
 <ol>
@@ -4000,7 +3949,7 @@ log_error_verbosity = default
 </ul>
 <p>Optionally, you can add a monitoring tool to observe the health of your deployment, receive alerts about performance issues and timely react to them.</p>
 <h3 id="solutions-high-availability-what-tools-to-use">What tools to use?<a class="headerlink" href="#solutions-high-availability-what-tools-to-use" title="Permanent link">&para;</a></h3>
-<p>The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. </p>
+<p>The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At AXDB, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. </p>
 <p>In our <a href="#solutions-ha-architecture">reference architecture</a> section we recommend a combination of open-source tools, focusing on a minimalistic three-node PostgreSQL cluster.</p>
 <p>Note that the tools are recommended but not mandatory. You can use your own solutions and alternatives if they better meet your business needs. However, in this case, we cannot guarantee their compatibility and smooth operation.</p>
 <h3 id="solutions-high-availability-additional-reading">Additional reading<a class="headerlink" href="#solutions-high-availability-additional-reading" title="Permanent link">&para;</a></h3>
@@ -4020,7 +3969,7 @@ log_error_verbosity = default
 <li>Actual availability level of your infrastructure.</li>
 </ul>
 <h3 id="solutions-ha-measure-expected-level-of-availability">Expected level of availability<a class="headerlink" href="#solutions-ha-measure-expected-level-of-availability" title="Permanent link">&para;</a></h3>
-<p>It is measured by establishing a measurement time frame and dividing it by the time that it was available. This ratio will rarely be one, which is equal to 100% availability. At Percona, we don&rsquo;t consider a solution to be highly available if it is not at least 99% or two nines available.</p>
+<p>It is measured by establishing a measurement time frame and dividing it by the time that it was available. This ratio will rarely be one, which is equal to 100% availability. At AXDB, we don&rsquo;t consider a solution to be highly available if it is not at least 99% or two nines available.</p>
 <p>The following table shows the amount of downtime for each level of availability from two to five nines.</p>
 <table>
 <thead>
@@ -4773,7 +4722,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </li>
 <li>
 <p>Patroni information:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">NAMESPACE</span><span class="o">=</span><span class="s2">&quot;percona_lab&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">NAMESPACE</span><span class="o">=</span><span class="s2">&quot;axdb_lab&quot;</span>
 <span class="nv">SCOPE</span><span class="o">=</span><span class="s2">&quot;cluster_1&quot;</span><span class="w">       </span>
 </code></pre></div>
 </li>
@@ -4877,9 +4826,9 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <h3 id="solutions-ha-patroni-systemd-configuration">Systemd configuration<a class="headerlink" href="#solutions-ha-patroni-systemd-configuration" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Check that the systemd unit file <code>percona-patroni.service</code> is created in <code>/etc/systemd/system</code>. If it is created, skip this step. </p>
+<p>Check that the systemd unit file <code>axdb-patroni.service</code> is created in <code>/etc/systemd/system</code>. If it is created, skip this step. </p>
 <p>If it&rsquo;s <strong>not created</strong>, create it manually and specify the following contents within:</p>
-<div class="highlight"><span class="filename">/etc/systemd/system/percona-patroni.service</span><pre><span></span><code><span class="k">[Unit]</span>
+<div class="highlight"><span class="filename">/etc/systemd/system/axdb-patroni.service</span><pre><span></span><code><span class="k">[Unit]</span>
 <span class="na">Description</span><span class="o">=</span><span class="s">Runners to orchestrate a high-availability PostgreSQL</span>
 <span class="na">After</span><span class="o">=</span><span class="s">syslog.target network.target</span><span class="w"> </span>
 
@@ -4922,13 +4871,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <ol>
 <li>
 <p>Start Patroni on <code>node1</code> first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>percona-patroni
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>axdb-patroni
 </code></pre></div>
 <p>When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. </p>
 </li>
 <li>
 <p>Check the service to see if there are errors:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-fu<span class="w"> </span>percona-patroni
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-fu<span class="w"> </span>axdb-patroni
 </code></pre></div>
 <p>See <a href="#solutions-ha-patroni-troubleshooting-patroni-startup">Troubleshooting Patroni startup</a> for guidelines in case of errors. </p>
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
@@ -5326,7 +5275,7 @@ tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      
 <span class="w">  </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 <span class="nt">slots</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">percona_cluster_1</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">axdb_cluster_1</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">physical</span>
 <span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 </code></pre></div>
@@ -5378,8 +5327,6 @@ tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      
 <ol>
 <li>
 <p>Install HAProxy on the HAProxy nodes: <code>HAProxy1</code>, <code>HAProxy2</code> and <code>HAProxy3</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-haproxy
-</code></pre></div>
 </li>
 <li>
 <p>The HAProxy configuration file path is: <code>/etc/haproxy/haproxy.cfg</code>. Specify the following configuration in this file for every node.</p>
@@ -5400,7 +5347,7 @@ listen stats                # Statistics monitoring
     bind *:7000            # Port to listen to on all network interfaces
     stats enable           # Statistics reporting interface
     stats uri /stats       # URL path for the stats page
-    stats auth percona:myS3cr3tpass    # Username:password authentication
+    stats auth percona:myS3cr3tpass    # Username:password authentication ??? percona ???
 
 listen primary
     bind *:5000                        # Port for write connections
@@ -6034,7 +5981,7 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 <li>Set up bidirectional passwordless SSH between <code>pg-repo</code> and <code>pg-secondary</code> using the same method. This will allow <code>pg-repo</code> to recover the backups to <code>pg-secondary</code>. </li>
 </ol>
 <h3 id="solutions-dr-pgbackrest-setup-install-axdb">Install AXDB<a class="headerlink" href="#solutions-dr-pgbackrest-setup-install-axdb" title="Permanent link">&para;</a></h3>
-<p>Install AXDB in the primary and the secondary nodes from Percona repository. </p>
+<p>Install AXDB in the primary and the secondary nodes. </p>
 <h3 id="solutions-dr-pgbackrest-setup-configure-postgresql-on-the-primary-node-for-continuous-backup">Configure PostgreSQL on the primary node for continuous backup<a class="headerlink" href="#solutions-dr-pgbackrest-setup-configure-postgresql-on-the-primary-node-for-continuous-backup" title="Permanent link">&para;</a></h3>
 <p>At this step, configure the PostgreSQL instance on the <code>pg-primary</code> node for continuous archiving of the WAL files. </p>
 <div class="admonition note">
@@ -6535,8 +6482,8 @@ pg1-path=/var/lib/postgresql/14/main
 </ul>
 </li>
 </ol></section><section class="print-page" id="solutions-authentication-ldap" heading-number="6.5.3"><h1 id="solutions-authentication-ldap-ldap-authentication">LDAP authentication<a class="headerlink" href="#solutions-authentication-ldap-ldap-authentication" title="Permanent link">&para;</a></h1>
-<p>Percona&rsquo;s PostgreSQL allows you to use LDAP, which uses a central authentication server for storing usernames, passwords and their resource permissions.</p>
-<p>The LDAP authentication method in Percona Distribution for PortgreSQL is functionally the same as upstream PostgreSQL, check the documentation <a href="https://www.postgresql.org/docs/18/auth-ldap.html">here <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for more information.</p>
+<p>AXDB allows you to use LDAP, which uses a central authentication server for storing usernames, passwords and their resource permissions.</p>
+<p>The LDAP authentication method in AXDB is functionally the same as upstream PostgreSQL, check the documentation <a href="https://www.postgresql.org/docs/18/auth-ldap.html">here <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for more information.</p>
 <h2 id="solutions-authentication-ldap-set-up-ldap-authentication">Set up LDAP authentication<a class="headerlink" href="#solutions-authentication-ldap-set-up-ldap-authentication" title="Permanent link">&para;</a></h2>
 <p class="power-number">Follow these steps to set up LDAP authentication for your PostgreSQL database.</p>
 <ol>
@@ -6872,8 +6819,6 @@ server stopped
 
 .print-site-enumerate-headings #section-4-1 > h1:before { content: '4.1 ' }
 .print-site-enumerate-headings #enable-extensions > h1:before { content: '4.1.1 ' }
-
-.print-site-enumerate-headings #sboms > h1:before { content: '4.1.2 ' }
 
 .print-site-enumerate-headings #connect > h1:before { content: '4.2 ' }
 

@@ -42,18 +42,18 @@
     /* Colors */
     --white: #fff;
 
-    /* Percona Night */
+    /* Night */
     --night500: #0E1A53;
     --night400: #3E4875;
     --night300: #5E668C;
 
-    /* Percona Aqua */
+    /* Aqua */
     --aqua900: #14584B;
     --aqua800: #1A7362;
     --aqua700: #22947E;
     --aqua600: #2CBEA2;
 
-    /* Percona Sky */
+    /* Sky */
     --sky900: #08386B;
     --sky800: #0B4A8C;
     --sky700: #0E5FB5;
@@ -63,7 +63,7 @@
     --sky300: #62AEFF;
     --sky200: #93C7FF;
 
-    /* Percona Stone */
+    /* Stone */
     --stone900: #2C323E;
     --stone800: #3A4151;
     --stone700: #4B5468;
