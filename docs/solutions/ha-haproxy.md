@@ -16,10 +16,6 @@ If you use a cloud infrastructure, it may be easier to use the load balancer pro
 
 1. Install HAProxy on the HAProxy nodes: `HAProxy1`, `HAProxy2` and `HAProxy3`:
 
-    ```{.bash data-prompt="$"}
-    $ sudo apt install percona-haproxy
-    ```
-
 2. The HAProxy configuration file path is: `/etc/haproxy/haproxy.cfg`. Specify the following configuration in this file for every node.
 
     ```
@@ -40,7 +36,7 @@ If you use a cloud infrastructure, it may be easier to use the load balancer pro
         bind *:7000            # Port to listen to on all network interfaces
         stats enable           # Statistics reporting interface
         stats uri /stats       # URL path for the stats page
-        stats auth percona:myS3cr3tpass    # Username:password authentication
+        stats auth percona:myS3cr3tpass    # Username:password authentication ??? percona ???
 
     listen primary
         bind *:5000                        # Port for write connections

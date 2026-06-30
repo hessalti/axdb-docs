@@ -69,7 +69,7 @@ Environment variables simplify the config file creation:
 4. Patroni information:
 
     ```bash
-    NAMESPACE="percona_lab"
+    NAMESPACE="axdb_lab"
     SCOPE="cluster_1"       
     ```
 
@@ -181,11 +181,11 @@ tags:
 
 ### Systemd configuration
 
-1. Check that the systemd unit file `percona-patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
+1. Check that the systemd unit file `axdb-patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
 
     If it's **not created**, create it manually and specify the following contents within:
 
-    ```ini title="/etc/systemd/system/percona-patroni.service"
+    ```ini title="/etc/systemd/system/axdb-patroni.service"
     [Unit]
     Description=Runners to orchestrate a high-availability PostgreSQL
     After=syslog.target network.target 
@@ -230,7 +230,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 1. Start Patroni on `node1` first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now percona-patroni
+    $ sudo systemctl enable --now axdb-patroni
     ```
 
     When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
@@ -238,7 +238,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 2. Check the service to see if there are errors:
 
     ```{.bash data-prompt="$"}
-    $ sudo journalctl -fu percona-patroni
+    $ sudo journalctl -fu axdb-patroni
     ```
 
     See [Troubleshooting Patroni startup](#troubleshooting-patroni-startup) for guidelines in case of errors. 

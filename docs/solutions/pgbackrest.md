@@ -373,7 +373,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
       use_slots: true
     retry_timeout: 10
     slots:
-      percona_cluster_1:
+      axdb_cluster_1:
         type: physical
     ttl: 30
     ```

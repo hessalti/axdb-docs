@@ -21,7 +21,6 @@ nav:
       - 1. Install:
           - tarball.md
           - enable-extensions.md
-          - sboms.md
       - 2. Connect to PostgreSQL: connect.md
       - 3. Manipulate data in PostgreSQL: crud.md  
       - 4. What's next: whats-next.md 

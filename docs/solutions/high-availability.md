@@ -103,7 +103,7 @@ Optionally, you can add a monitoring tool to observe the health of your deployme
 
 ### What tools to use?
 
-The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. 
+The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At AXDB, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. 
 
 In our [reference architecture](ha-architecture.md) section we recommend a combination of open-source tools, focusing on a minimalistic three-node PostgreSQL cluster.
 

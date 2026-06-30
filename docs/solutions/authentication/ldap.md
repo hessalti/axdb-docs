@@ -1,8 +1,8 @@
 # LDAP authentication
 
-Percona's PostgreSQL allows you to use LDAP, which uses a central authentication server for storing usernames, passwords and their resource permissions.
+AXDB allows you to use LDAP, which uses a central authentication server for storing usernames, passwords and their resource permissions.
 
-The LDAP authentication method in Percona Distribution for PortgreSQL is functionally the same as upstream PostgreSQL, check the documentation [here :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/auth-ldap.html) for more information.
+The LDAP authentication method in AXDB is functionally the same as upstream PostgreSQL, check the documentation [here :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/auth-ldap.html) for more information.
 
 ## Set up LDAP authentication
 

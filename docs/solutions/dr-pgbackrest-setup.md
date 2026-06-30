@@ -135,7 +135,7 @@ Before setting up passwordless SSH, ensure that the _postgres_ user in all three
 
 ### Install AXDB
 
-Install AXDB in the primary and the secondary nodes from Percona repository. 
+Install AXDB in the primary and the secondary nodes. 
 
 ### Configure PostgreSQL on the primary node for continuous backup
 

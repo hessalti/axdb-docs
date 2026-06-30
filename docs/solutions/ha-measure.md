@@ -16,7 +16,7 @@ When you evaluate high-availability, consider these two aspects:
 
 ### Expected level of availability
 
-It is measured by establishing a measurement time frame and dividing it by the time that it was available. This ratio will rarely be one, which is equal to 100% availability. At Percona, we don't consider a solution to be highly available if it is not at least 99% or two nines available.
+It is measured by establishing a measurement time frame and dividing it by the time that it was available. This ratio will rarely be one, which is equal to 100% availability. At AXDB, we don't consider a solution to be highly available if it is not at least 99% or two nines available.
     
 The following table shows the amount of downtime for each level of availability from two to five nines.
     
