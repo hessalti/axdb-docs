@@ -18,7 +18,7 @@ The tarballs include the following components:
 
 | Component | Description |
 |-----------|-------------|
-| axdb{{pgversion}}| The latest version of PostgreSQL server and the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> - `postGIS` <br> -  the set of [contrib extensions](contrib.md)|
+| axdb-postgresql{{pgversion}}| The latest version of PostgreSQL server and the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> - `postGIS` <br> -  the set of [contrib extensions](contrib.md)|
 | axdb-haproxy | A high-availability solution and load-balancing solution |
 | axdb-patroni | A high-availability solution for PostgreSQL |
 | axdb-pgbackrest| A backup and restore tool |
@@ -108,7 +108,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 9. Initiate the PostgreSQL data directory:
 
     ```{.bash data-prompt="$"}
-    $ /opt/axdb/axdb{{pgversion}}/bin/initdb -D /usr/local/pgsql/data
+    $ /opt/axdb/axdb-postgresql{{pgversion}}/bin/initdb -D /usr/local/pgsql/data
     ```
 
     ??? example "Sample output"
@@ -116,13 +116,13 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
         ```{.text .no-copy}
         Success. You can now start the database server using:
 
-        /opt/axdb/axdb{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+        /opt/axdb/axdb-postgresql{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
         ```
 
 10. Start the PostgreSQL server:
 
     ```{.bash data-prompt="$"}
-    $ /opt/axdb/axdb{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+    $ /opt/axdb/axdb-postgresql{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
     ```
 
     ??? example "Sample output"
@@ -135,7 +135,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 11. Connect to `psql`
 
     ```{.bash data-prompt="$"}
-    $ /opt/axdb/axdb{{pgversion}}/bin/psql -d postgres
+    $ /opt/axdb/axdb-postgresql{{pgversion}}/bin/psql -d postgres
     ```
 
     ??? example "Sample output"

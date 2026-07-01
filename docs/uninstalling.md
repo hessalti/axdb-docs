@@ -12,7 +12,7 @@ Stop the PostgreSQL server and remove the folder with the binary tarballs.
 1. Stop the `postgres` server:
 
     ```{.bash data-prompt="$"}
-    $ /path/to/tarballs/axdb{{pgversion}}/bin/pg_ctl -D path/to/datadir -l logfile stop
+    $ /path/to/tarballs/axdb-postgresql{{pgversion}}/bin/pg_ctl -D path/to/datadir -l logfile stop
     ```
 
     ??? example "Sample output"
