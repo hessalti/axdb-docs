@@ -45,6 +45,7 @@ WantedBy=multi-user.target
 Enable the following options in `postgresql.conf` configuration file before starting the service:
 
 ```
+logging_collector = on
 log_min_duration_statement = 0
 log_line_prefix = '%t [%p]: '
 log_checkpoints = on

@@ -4,7 +4,7 @@ You can download the tarballs using the links below.
 
 The following tarballs are available for the x86_64 architectures:
 
-* axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x
+* [axdb-enterprise-release-{{dockertag}}-ssl3.5-linux-x86_64.tar.gz](https://drive.google.com/file/d/1CCgdR631PiTiu3XqN1GTWeqVaz1ovuZ4/view?usp=sharing) - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x
 
 To check what OpenSSL version you have, run the following command:
 
@@ -64,11 +64,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 
 1. Create the directory where you will store the binaries. For example, `/opt/axdb`
 
-2. Fetch the binary tarball. (!!! Under Construction !!!)
-
-    ```{.bash data-prompt="$"}
-    $ wget https://downloads.altibase.com/downloads/axdb-{{pgversion}}/{{dockertag}}/binary/tarball/axdb-enterprise-release-{{dockertag}}-ssl3.5-linux-x86_64.tar.gz
-    ```
+2. Get the binary tarball. [axdb-enterprise-release-{{dockertag}}-ssl3.5-linux-x86_64.tar.gz](https://drive.google.com/file/d/1CCgdR631PiTiu3XqN1GTWeqVaz1ovuZ4/view?usp=sharing)
 
 3. Extract the tarball to the directory for binaries that you created on step 1.
 
@@ -82,14 +78,8 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
     $ sudo cp -r /opt/axdb-perl /opt/axdb-python3 /opt/axdb-tcl /opt/
     ```
 
-5. Add the location of the binaries to the PATH variable:
-
-    ```{.bash data-prompt="$"}
-    $ export PATH=:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql{{pgversion}}/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:$PATH
-    ```
-
-6. Create the data directory for PostgreSQL server. For example, `/usr/local/pgsql/data`.
-7. Grant access to these directory for the `mypguser` user.
+5. Create the data directory for PostgreSQL server. For example, `/usr/local/pgsql/data`.
+6. Grant access to these directory for the `mypguser` user.
 
     ```{.bash data-prompt="$"}
     $ sudo chown -R mypguser:mypguser /opt/axdb/
@@ -99,10 +89,16 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
     $ sudo chown mypguser:mypguser /usr/local/pgsql/data
     ```
 
-8. Switch to the user that owns the Postgres process. In our example, `mypguser`:
+7. Switch to the user that owns the Postgres process. In our example, `mypguser`:
 
     ```{.bash data-prompt="$"}
     $ su - mypguser
+    ```
+
+8. Add the location of the binaries to the PATH variable:
+
+    ```{.bash data-prompt="$"}
+    $ export PATH=:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql{{pgversion}}/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:$PATH
     ```
 
 9. Initiate the PostgreSQL data directory:
@@ -141,11 +137,111 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
     ??? example "Sample output"
 
         ```{.text .no-copy}
-        psql ({{pspgversion}} (AXDB), server {{pspgversion}} (AXDB))
+        psql ({{dockertag}} AXDB Server for PostgreSQL {{pspgversion}})
         Type "help" for help.
 
-        postgres=#
-        ```
+	        postgres=#
+	        ```
+
+### Configure PostgreSQL as a systemd service
+
+Because you installed PostgreSQL from a tarball, `systemd` doesn't automatically know it exists. To register it as a system service so it starts automatically on boot and responds to `systemctl` commands, manually create a systemd service unit file.
+
+#### Prerequisites
+
+Before starting, ensure you know two paths from your tarball installation:
+
+1. The binary directory where `pg_ctl` lives. For example, `/opt/axdb/axdb-postgresql{{pgversion}}/bin/`.
+2. The data directory where your database cluster is initialized. For example, `/usr/local/pgsql/data/`.
+
+For security reasons, PostgreSQL should never run as `root`. Ensure that the system user who owns the PostgreSQL process also owns the data directory. In this procedure, the example user is `mypguser`.
+
+#### Step 1: Create the systemd service file
+
+Open a new file inside `/etc/systemd/system/` using your preferred text editor. This requires `sudo`:
+
+```{.bash data-prompt="$"}
+$ sudo nano /etc/systemd/system/postgresql.service
+```
+
+Paste the following configuration into the file. Update the paths if your tarball was extracted somewhere else:
+
+```ini
+[Unit]
+Description=PostgreSQL database server (tarball installation)
+After=network.target
+
+[Service]
+Type=forking
+User=mypguser
+Group=mypguser
+
+# Path to your database storage cluster
+Environment=PGDATA=/usr/local/pgsql/data
+
+# Start, stop, and reload PostgreSQL using pg_ctl
+ExecStart=/opt/axdb/axdb-postgresql{{pgversion}}/bin/pg_ctl start -D ${PGDATA} -s
+ExecStop=/opt/axdb/axdb-postgresql{{pgversion}}/bin/pg_ctl stop -D ${PGDATA} -s -m fast
+ExecReload=/opt/axdb/axdb-postgresql{{pgversion}}/bin/pg_ctl reload -D ${PGDATA} -s
+
+# Give the server up to 10 minutes to start up or shut down safely
+TimeoutSec=600
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Save and exit the file.
+
+#### Step 2: Reload systemd and enable the service
+
+After the file is in place, refresh the systemd manager configuration so it recognizes the new service:
+
+```{.bash data-prompt="$"}
+$ sudo systemctl daemon-reload
+```
+
+Enable the service so it starts automatically when the machine boots:
+
+```{.bash data-prompt="$"}
+$ sudo systemctl enable postgresql
+```
+
+#### Step 3: Manage the service
+
+You can now control your PostgreSQL installation with `systemctl`.
+
+To start PostgreSQL, run:
+
+```{.bash data-prompt="$"}
+$ sudo systemctl start postgresql
+```
+
+To check the service status, run:
+
+```{.bash data-prompt="$"}
+$ sudo systemctl status postgresql
+```
+
+To stop PostgreSQL, run:
+
+```{.bash data-prompt="$"}
+$ sudo systemctl stop postgresql
+```
+
+To reload the PostgreSQL configuration, run:
+
+```{.bash data-prompt="$"}
+$ sudo systemctl reload postgresql
+```
+
+!!! tip "Troubleshooting"
+
+    If `systemctl status postgresql` reports an error, check the data directory permissions. Make sure the `mypguser` user owns the `PGDATA` directory:
+
+    ```{.bash data-prompt="$"}
+    $ sudo chown -R mypguser:mypguser /usr/local/pgsql/data
+    ```
 
 ### Start the components
 
