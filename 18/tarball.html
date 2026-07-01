@@ -676,6 +676,67 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#configure-postgresql-as-a-systemd-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure PostgreSQL as a systemd service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure PostgreSQL as a systemd service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-systemd-service-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create the systemd service file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-reload-systemd-and-enable-the-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Reload systemd and enable the service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-manage-the-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Manage the service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#start-the-components" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2438,6 +2499,67 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#configure-postgresql-as-a-systemd-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure PostgreSQL as a systemd service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure PostgreSQL as a systemd service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-systemd-service-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create the systemd service file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-reload-systemd-and-enable-the-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Reload systemd and enable the service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-manage-the-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Manage the service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#start-the-components" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2487,7 +2609,7 @@
 <p>You can download the tarballs using the links below.</p>
 <p>The following tarballs are available for the x86_64 architectures:</p>
 <ul>
-<li>axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x</li>
+<li><a href="https://drive.google.com/file/d/1CCgdR631PiTiu3XqN1GTWeqVaz1ovuZ4/view?usp=sharing">axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x</li>
 </ul>
 <p>To check what OpenSSL version you have, run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
@@ -2574,9 +2696,7 @@
 <p>Create the directory where you will store the binaries. For example, <code>/opt/axdb</code></p>
 </li>
 <li>
-<p>Fetch the binary tarball. (!!! Under Construction !!!)</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.altibase.com/downloads/axdb-18/18.4/binary/tarball/axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz
-</code></pre></div>
+<p>Get the binary tarball. <a href="https://drive.google.com/file/d/1CCgdR631PiTiu3XqN1GTWeqVaz1ovuZ4/view?usp=sharing">axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz</a></p>
 </li>
 <li>
 <p>Extract the tarball to the directory for binaries that you created on step 1.</p>
@@ -2586,11 +2706,6 @@
 <li>
 <p>Copy <code>axdb-python3</code>, <code>axdb-tcl</code> and <code>axdb-perl</code> to the <code>/opt</code> directory. This is required for the correct run of libraries that require those modules.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/opt/axdb-perl<span class="w"> </span>/opt/axdb-python3<span class="w"> </span>/opt/axdb-tcl<span class="w"> </span>/opt/
-</code></pre></div>
-</li>
-<li>
-<p>Add the location of the binaries to the PATH variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql18/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -2608,6 +2723,11 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <li>
 <p>Switch to the user that owns the Postgres process. In our example, <code>mypguser</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>mypguser
+</code></pre></div>
+</li>
+<li>
+<p>Add the location of the binaries to the PATH variable:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql18/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -2639,14 +2759,80 @@ server started
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (18.4.1 (AXDB), server 18.4.1 (AXDB))
-Type &quot;help&quot; for help.
-
-postgres=#
+<p>```{.text .no-copy}
+psql (18.4 AXDB Server for PostgreSQL 18.4.1)
+Type &ldquo;help&rdquo; for help.</p>
+<div class="highlight"><pre><span></span><code>postgres=#
+```
 </code></pre></div>
 </details>
 </li>
 </ol>
+<h3 id="configure-postgresql-as-a-systemd-service">Configure PostgreSQL as a systemd service<a class="headerlink" href="#configure-postgresql-as-a-systemd-service" title="Permanent link">&para;</a></h3>
+<p>Because you installed PostgreSQL from a tarball, <code>systemd</code> doesn&rsquo;t automatically know it exists. To register it as a system service so it starts automatically on boot and responds to <code>systemctl</code> commands, manually create a systemd service unit file.</p>
+<h4 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h4>
+<p>Before starting, ensure you know two paths from your tarball installation:</p>
+<ol>
+<li>The binary directory where <code>pg_ctl</code> lives. For example, <code>/opt/axdb/axdb-postgresql18/bin/</code>.</li>
+<li>The data directory where your database cluster is initialized. For example, <code>/usr/local/pgsql/data/</code>.</li>
+</ol>
+<p>For security reasons, PostgreSQL should never run as <code>root</code>. Ensure that the system user who owns the PostgreSQL process also owns the data directory. In this procedure, the example user is <code>mypguser</code>.</p>
+<h4 id="step-1-create-the-systemd-service-file">Step 1: Create the systemd service file<a class="headerlink" href="#step-1-create-the-systemd-service-file" title="Permanent link">&para;</a></h4>
+<p>Open a new file inside <code>/etc/systemd/system/</code> using your preferred text editor. This requires <code>sudo</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/postgresql.service
+</code></pre></div>
+<p>Paste the following configuration into the file. Update the paths if your tarball was extracted somewhere else:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">PostgreSQL database server (tarball installation)</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">forking</span>
+<span class="na">User</span><span class="o">=</span><span class="s">mypguser</span>
+<span class="na">Group</span><span class="o">=</span><span class="s">mypguser</span>
+
+<span class="c1"># Path to your database storage cluster</span>
+<span class="na">Environment</span><span class="o">=</span><span class="s">PGDATA=/usr/local/pgsql/data</span>
+
+<span class="c1"># Start, stop, and reload PostgreSQL using pg_ctl</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/axdb/axdb-postgresql18/bin/pg_ctl start -D ${PGDATA} -s</span>
+<span class="na">ExecStop</span><span class="o">=</span><span class="s">/opt/axdb/axdb-postgresql18/bin/pg_ctl stop -D ${PGDATA} -s -m fast</span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/opt/axdb/axdb-postgresql18/bin/pg_ctl reload -D ${PGDATA} -s</span>
+
+<span class="c1"># Give the server up to 10 minutes to start up or shut down safely</span>
+<span class="na">TimeoutSec</span><span class="o">=</span><span class="s">600</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</code></pre></div>
+<p>Save and exit the file.</p>
+<h4 id="step-2-reload-systemd-and-enable-the-service">Step 2: Reload systemd and enable the service<a class="headerlink" href="#step-2-reload-systemd-and-enable-the-service" title="Permanent link">&para;</a></h4>
+<p>After the file is in place, refresh the systemd manager configuration so it recognizes the new service:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</code></pre></div>
+<p>Enable the service so it starts automatically when the machine boots:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>postgresql
+</code></pre></div>
+<h4 id="step-3-manage-the-service">Step 3: Manage the service<a class="headerlink" href="#step-3-manage-the-service" title="Permanent link">&para;</a></h4>
+<p>You can now control your PostgreSQL installation with <code>systemctl</code>.</p>
+<p>To start PostgreSQL, run:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql
+</code></pre></div>
+<p>To check the service status, run:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
+</code></pre></div>
+<p>To stop PostgreSQL, run:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql
+</code></pre></div>
+<p>To reload the PostgreSQL configuration, run:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>postgresql
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Troubleshooting</p>
+<p>If <code>systemctl status postgresql</code> reports an error, check the data directory permissions. Make sure the <code>mypguser</code> user owns the <code>PGDATA</code> directory:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mypguser:mypguser<span class="w"> </span>/usr/local/pgsql/data
+</code></pre></div>
+</div>
 <h3 id="start-the-components">Start the components<a class="headerlink" href="#start-the-components" title="Permanent link">&para;</a></h3>
 <p>After you unpacked the tarball and added the location of the components&rsquo; binaries to the <code>$PATH</code> variable, the components are available for use. You can invoke a component by running its command-line tool.</p>
 <p>For example, to check HAProxy version, type:</p>
@@ -2675,7 +2861,7 @@ postgres=#
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 1, 2026 01:20:15 UTC">July 1, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 1, 2026 07:31:19 UTC">July 1, 2026</span>
   </span>
 
     
