@@ -171,11 +171,11 @@ nav:
   - 'AXDB': postgresql-server.md
   - get-help.md
   - Get started: 
-      - 1. Install: 
-          - 'Install': tarball.md
+      - 1. Install:
+          - 'Install AXDB': tarball.md
           - enable-extensions.md
-      - 2. Connect to PostgreSQL: connect.md
-      - 3. Manipulate data in PostgreSQL: crud.md  
+      - 2. Connect to AXDB: connect.md
+      - 3. Manipulate data in AXDB: crud.md  
       - 4. What's next: whats-next.md 
   - Extensions:
       - 'Extensions': extensions.md

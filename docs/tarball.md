@@ -62,7 +62,7 @@ The tarballs include the following components:
 
 The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 
-1. Create the directory where you will store the binaries. For example, `/opt/pgdistro`
+1. Create the directory where you will store the binaries. For example, `/opt/axdb`
 
 2. Fetch the binary tarball. (!!! Under Construction !!!)
 
@@ -73,7 +73,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 3. Extract the tarball to the directory for binaries that you created on step 1.
 
     ```{.bash data-prompt="$"}
-    $ sudo tar -xvf axdb-enterprise-release-{{dockertag}}-ssl3.5-linux-x86_64.tar.gz -C /opt/pgdistro/
+    $ sudo tar -xvf axdb-enterprise-release-{{dockertag}}-ssl3.5-linux-x86_64.tar.gz -C /opt/axdb/
     ```
 
 4. Copy `axdb-python3`, `axdb-tcl` and `axdb-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules.
@@ -85,7 +85,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 5. Add the location of the binaries to the PATH variable:
 
     ```{.bash data-prompt="$"}
-    $ export PATH=:/opt/pgdistro/axdb-haproxy/sbin/:/opt/pgdistro/axdb-patroni/bin/:/opt/pgdistro/axdb-pgbackrest/bin/:/opt/pgdistro/axdb-pgbadger/:/opt/pgdistro/axdb-pgbouncer/bin/:/opt/pgdistro/axdb-pgpool-II/bin/:/opt/pgdistro/axdb-postgresql{{pgversion}}/bin/:/opt/pgdistro/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:$PATH
+    $ export PATH=:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql{{pgversion}}/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:$PATH
     ```
 
 6. Create the data directory for PostgreSQL server. For example, `/usr/local/pgsql/data`.
@@ -108,7 +108,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 9. Initiate the PostgreSQL data directory:
 
     ```{.bash data-prompt="$"}
-    $ /opt/pgdistro/axdb{{pgversion}}/bin/initdb -D /usr/local/pgsql/data
+    $ /opt/axdb/axdb{{pgversion}}/bin/initdb -D /usr/local/pgsql/data
     ```
 
     ??? example "Sample output"
@@ -116,13 +116,13 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
         ```{.text .no-copy}
         Success. You can now start the database server using:
 
-        /opt/pgdistro/axdb{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+        /opt/axdb/axdb{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
         ```
 
 10. Start the PostgreSQL server:
 
     ```{.bash data-prompt="$"}
-    $ /opt/pgdistro/axdb{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+    $ /opt/axdb/axdb{{pgversion}}/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
     ```
 
     ??? example "Sample output"
@@ -135,7 +135,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 11. Connect to `psql`
 
     ```{.bash data-prompt="$"}
-    $ /opt/pgdistro/axdb{{pgversion}}/bin/psql -d postgres
+    $ /opt/axdb/axdb{{pgversion}}/bin/psql -d postgres
     ```
 
     ??? example "Sample output"
