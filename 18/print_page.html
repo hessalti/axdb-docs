@@ -3127,7 +3127,7 @@
 </thead>
 <tbody>
 <tr>
-<td>axdb18</td>
+<td>axdb-postgresql18</td>
 <td>The latest version of PostgreSQL server and the following extensions: <br> - <code>pgaudit</code> <br> - <code>pgAudit_set_user</code> <br> - <code>pg_repack</code> <br> - <code>pg_stat_monitor</code> <br> - <code>pg_gather</code> <br> - <code>wal2json</code> <br> - <code>postGIS</code> <br> -  the set of <a href="#contrib">contrib extensions</a></td>
 </tr>
 <tr>
@@ -3236,19 +3236,19 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </li>
 <li>
 <p>Initiate the PostgreSQL data directory:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb18/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb-postgresql18/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Success. You can now start the database server using:
 
-/opt/axdb/axdb18/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+/opt/axdb/axdb-postgresql18/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
 </code></pre></div>
 </details>
 </li>
 <li>
 <p>Start the PostgreSQL server:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb18/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb-postgresql18/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -3259,7 +3259,7 @@ server started
 </li>
 <li>
 <p>Connect to <code>psql</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb18/bin/psql<span class="w"> </span>-d<span class="w"> </span>postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb-postgresql18/bin/psql<span class="w"> </span>-d<span class="w"> </span>postgres
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -6273,7 +6273,7 @@ pg1-path=/var/lib/postgresql/14/main
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="solutions-postgis-deploy-__tabbed_1_1" name="solutions-postgis-deploy-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="solutions-postgis-deploy-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> From tarballs</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>PostGIS is included into binary tarball and is a part of the <code>axdb18</code> binary. Use the <a href="#tarball">install</a> tutorial to install it. </p>
+<p>PostGIS is included into binary tarball and is a part of the <code>axdb-postgresql18</code> binary. Use the <a href="#tarball">install</a> tutorial to install it. </p>
 </div>
 </div>
 </div>
@@ -6628,7 +6628,7 @@ pg1-path=/var/lib/postgresql/14/main
 <ol>
 <li>
 <p>Stop the <code>postgres</code> server:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/path/to/tarballs/axdb18/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>path/to/datadir<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>stop
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/path/to/tarballs/axdb-postgresql18/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>path/to/datadir<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>stop
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
