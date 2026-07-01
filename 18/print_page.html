@@ -584,6 +584,34 @@
   
   
     <li class="md-nav__item">
+      <a href="tarball.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install AXDB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="enable-extensions.html" class="md-nav__link">
         
   
@@ -627,7 +655,7 @@
   <span class="md-ellipsis">
     
   
-    2. Connect to PostgreSQL
+    2. Connect to AXDB
   
 
     
@@ -655,7 +683,7 @@
   <span class="md-ellipsis">
     
   
-    3. Manipulate data in PostgreSQL
+    3. Manipulate data in AXDB
   
 
     
@@ -2324,17 +2352,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tarball" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Install
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#section-4-1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2345,6 +2362,17 @@
   
     <nav class="md-nav" aria-label="1. Install">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install AXDB
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#enable-extensions" class="md-nav__link">
@@ -2366,7 +2394,7 @@
   <a href="#connect" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Connect to PostgreSQL
+        2. Connect to AXDB
       
     </span>
   </a>
@@ -2377,7 +2405,7 @@
   <a href="#crud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Manipulate data in PostgreSQL
+        3. Manipulate data in AXDB
       
     </span>
   </a>
@@ -3075,7 +3103,11 @@
                     <section class='print-page md-section' id='section-4' heading-number='4'>
                         <h1>Get started<a class='headerlink' href='#section-4' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="tarball" heading-number="4.1"><h1 id="tarball-install-axdb-from-binary-tarballs">Install AXDB from binary tarballs<a class="headerlink" href="#tarball-install-axdb-from-binary-tarballs" title="Permanent link">&para;</a></h1>
+                    
+                    <section class='print-page md-section' id='section-4-1' heading-number='4.1'>
+                        <h1>1. Install<a class='headerlink' href='#section-4-1' title='Permanent link'></a>
+                        </h1>
+                    <section class="print-page" id="tarball" heading-number="4.1.1"><h1 id="tarball-install-axdb-from-binary-tarballs">Install AXDB from binary tarballs<a class="headerlink" href="#tarball-install-axdb-from-binary-tarballs" title="Permanent link">&para;</a></h1>
 <p>You can download the tarballs using the links below.</p>
 <p>The following tarballs are available for the x86_64 architectures:</p>
 <ul>
@@ -3163,7 +3195,7 @@
 <p>The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.</p>
 <ol>
 <li>
-<p>Create the directory where you will store the binaries. For example, <code>/opt/pgdistro</code></p>
+<p>Create the directory where you will store the binaries. For example, <code>/opt/axdb</code></p>
 </li>
 <li>
 <p>Fetch the binary tarball. (!!! Under Construction !!!)</p>
@@ -3172,7 +3204,7 @@
 </li>
 <li>
 <p>Extract the tarball to the directory for binaries that you created on step 1.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>axdb-enterprise-release-18.4-ssl3.5-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/axdb/
 </code></pre></div>
 </li>
 <li>
@@ -3182,7 +3214,7 @@
 </li>
 <li>
 <p>Add the location of the binaries to the PATH variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/pgdistro/axdb-haproxy/sbin/:/opt/pgdistro/axdb-patroni/bin/:/opt/pgdistro/axdb-pgbackrest/bin/:/opt/pgdistro/axdb-pgbadger/:/opt/pgdistro/axdb-pgbouncer/bin/:/opt/pgdistro/axdb-pgpool-II/bin/:/opt/pgdistro/axdb-postgresql18/bin/:/opt/pgdistro/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql18/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -3204,19 +3236,19 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </li>
 <li>
 <p>Initiate the PostgreSQL data directory:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/axdb18/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb18/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Success. You can now start the database server using:
 
-/opt/pgdistro/axdb18/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+/opt/axdb/axdb18/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
 </code></pre></div>
 </details>
 </li>
 <li>
 <p>Start the PostgreSQL server:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/axdb18/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb18/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -3227,7 +3259,7 @@ server started
 </li>
 <li>
 <p>Connect to <code>psql</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/axdb18/bin/psql<span class="w"> </span>-d<span class="w"> </span>postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/axdb/axdb18/bin/psql<span class="w"> </span>-d<span class="w"> </span>postgres
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -3244,11 +3276,7 @@ postgres=#
 <p>For example, to check HAProxy version, type:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>haproxy<span class="w"> </span>-v
 </code></pre></div>
-<p>Some components require additional setup. Check the <a href="#enable-extensions">Enabling extensions</a> page for details.</p></section>
-                    <section class='print-page md-section' id='section-4-1' heading-number='4.1'>
-                        <h1>1. Install<a class='headerlink' href='#section-4-1' title='Permanent link'></a>
-                        </h1>
-                    <section class="print-page" id="enable-extensions" heading-number="4.1.1"><h1 id="enable-extensions-enable-axdb-components">Enable AXDB components<a class="headerlink" href="#enable-extensions-enable-axdb-components" title="Permanent link">&para;</a></h1>
+<p>Some components require additional setup. Check the <a href="#enable-extensions">Enabling extensions</a> page for details.</p></section><section class="print-page" id="enable-extensions" heading-number="4.1.2"><h1 id="enable-extensions-enable-axdb-components">Enable AXDB components<a class="headerlink" href="#enable-extensions-enable-axdb-components" title="Permanent link">&para;</a></h1>
 <p>Some components require additional configuration before using them with AXDB. This sections provides configuration instructions per component.</p>
 <h2 id="enable-extensions-patroni">Patroni<a class="headerlink" href="#enable-extensions-patroni" title="Permanent link">&para;</a></h2>
 <p>Patroni is the high availability solution for PostgreSQL. The <a href="#solutions-high-availability">High Availability in PostgreSQL with Patroni</a> chapter provides details about the solution overview and architecture deployment. </p>
@@ -6815,10 +6843,10 @@ server stopped
                 .print-site-enumerate-headings #get-help h2 {  counter-increment: counter-get-help-2 }
             
 .print-site-enumerate-headings #section-4 > h1:before { content: '4 ' }
-.print-site-enumerate-headings #tarball > h1:before { content: '4.1 ' }
-
 .print-site-enumerate-headings #section-4-1 > h1:before { content: '4.1 ' }
-.print-site-enumerate-headings #enable-extensions > h1:before { content: '4.1.1 ' }
+.print-site-enumerate-headings #tarball > h1:before { content: '4.1.1 ' }
+
+.print-site-enumerate-headings #enable-extensions > h1:before { content: '4.1.2 ' }
 
 .print-site-enumerate-headings #connect > h1:before { content: '4.2 ' }
 
