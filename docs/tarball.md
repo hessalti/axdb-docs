@@ -46,16 +46,16 @@ The tarballs include the following components:
     $ sudo dnf install -y readline-devel
     ```
 
-    Create the user to own the PostgreSQL process. For example, `mypguser`. Run the following command:
+    Create the user to own the PostgreSQL process. For example, `postgres`. Run the following command:
         
     ```{.bash data-prompt="$"}
-    $ sudo useradd mypguser -m 
+    $ sudo useradd postgres -m 
     ```
 
     Set the password for the user:
 
     ```{.bash data-prompt="$"}
-    $ sudo passwd mypguser
+    $ sudo passwd postgres
     ```
 
 ## Procedure
@@ -79,20 +79,20 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
     ```
 
 5. Create the data directory for PostgreSQL server. For example, `/usr/local/pgsql/data`.
-6. Grant access to these directory for the `mypguser` user.
+6. Grant access to these directory for the `postgres` user.
 
     ```{.bash data-prompt="$"}
-    $ sudo chown -R mypguser:mypguser /opt/axdb/
-    $ sudo chown -R mypguser:mypguser /opt/axdb-perl/
-    $ sudo chown -R mypguser:mypguser /opt/axdb-python3/
-    $ sudo chown -R mypguser:mypguser /opt/axdb-tcl/
-    $ sudo chown mypguser:mypguser /usr/local/pgsql/data
+    $ sudo chown -R postgres:postgres /opt/axdb/
+    $ sudo chown -R postgres:postgres /opt/axdb-perl/
+    $ sudo chown -R postgres:postgres /opt/axdb-python3/
+    $ sudo chown -R postgres:postgres /opt/axdb-tcl/
+    $ sudo chown -R postgres:postgres /usr/local/pgsql/data
     ```
 
-7. Switch to the user that owns the Postgres process. In our example, `mypguser`:
+7. Switch to the user that owns the Postgres process. In our example, `postgres`:
 
     ```{.bash data-prompt="$"}
-    $ su - mypguser
+    $ su - postgres
     ```
 
 8. Add the location of the binaries to the PATH variable:
@@ -154,7 +154,7 @@ Before starting, ensure you know two paths from your tarball installation:
 1. The binary directory where `pg_ctl` lives. For example, `/opt/axdb/axdb-postgresql{{pgversion}}/bin/`.
 2. The data directory where your database cluster is initialized. For example, `/usr/local/pgsql/data/`.
 
-For security reasons, PostgreSQL should never run as `root`. Ensure that the system user who owns the PostgreSQL process also owns the data directory. In this procedure, the example user is `mypguser`.
+For security reasons, PostgreSQL should never run as `root`. Ensure that the system user who owns the PostgreSQL process also owns the data directory. In this procedure, the example user is `postgres`.
 
 #### Step 1: Create the systemd service file
 
@@ -173,8 +173,8 @@ After=network.target
 
 [Service]
 Type=forking
-User=mypguser
-Group=mypguser
+User=postgres
+Group=postgres
 
 # Path to your database storage cluster
 Environment=PGDATA=/usr/local/pgsql/data
@@ -211,6 +211,8 @@ $ sudo systemctl enable postgresql
 
 You can now control your PostgreSQL installation with `systemctl`.
 
+If PostgreSQL is currently running via a manual start, you must stop it manually before switching to systemctl.
+
 To start PostgreSQL, run:
 
 ```{.bash data-prompt="$"}
@@ -237,10 +239,10 @@ $ sudo systemctl reload postgresql
 
 !!! tip "Troubleshooting"
 
-    If `systemctl status postgresql` reports an error, check the data directory permissions. Make sure the `mypguser` user owns the `PGDATA` directory:
+    If `systemctl status postgresql` reports an error, check the data directory permissions. Make sure the `postgres` user owns the `PGDATA` directory:
 
     ```{.bash data-prompt="$"}
-    $ sudo chown -R mypguser:mypguser /usr/local/pgsql/data
+    $ sudo chown -R postgres:postgres /usr/local/pgsql/data
     ```
 
 ### Start the components
