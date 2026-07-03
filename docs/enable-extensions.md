@@ -83,12 +83,12 @@ To enable `pgaudit`, connect to psql and run the CREATE EXTENSION command:
 CREATE EXTENSION pgaudit;
 ```
 
-## pgaudit set-user
+## set_user
 
-Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
+Add the `set_user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
 
 ```sql
-ALTER SYSTEM SET shared_preload_libraries = 'set-user';
+ALTER SYSTEM SET shared_preload_libraries = 'set_user';
 ```
 
 Start / restart the server to apply the configuration.
