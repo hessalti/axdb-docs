@@ -3229,7 +3229,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </li>
 <li>
 <p>Add the location of the binaries to the PATH variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql18/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql18/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:<span class="nv">$PATH</span><span class="p">;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/opt/axdb/axdb-postgresql18/lib:<span class="nv">$LD_LIBRARY_PATH</span><span class="p">;</span>
 </code></pre></div>
 </li>
 <li>
@@ -3295,6 +3296,7 @@ Type &ldquo;help&rdquo; for help.</p>
 
 <span class="c1"># Path to your database storage cluster</span>
 <span class="na">Environment</span><span class="o">=</span><span class="s">PGDATA=/usr/local/pgsql/data</span>
+<span class="na">Environment</span><span class="o">=</span><span class="s">&quot;LD_LIBRARY_PATH=/opt/axdb/axdb-postgresql18/lib:$LD_LIBRARY_PATH;&quot;</span>
 
 <span class="c1"># Start, stop, and reload PostgreSQL using pg_ctl</span>
 <span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/axdb/axdb-postgresql18/bin/pg_ctl start -D ${PGDATA} -s</span>
@@ -3404,9 +3406,9 @@ log_error_verbosity = default
 <p>To enable <code>pgaudit</code>, connect to psql and run the CREATE EXTENSION command:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">pgaudit</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="enable-extensions-pgaudit-set-user">pgaudit set-user<a class="headerlink" href="#enable-extensions-pgaudit-set-user" title="Permanent link">&para;</a></h2>
-<p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/18/sql-altersystem.html">ALTER SYSTEM <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> command. <a href="#connect">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;set-user&#39;</span><span class="p">;</span>
+<h2 id="enable-extensions-set_user">set_user<a class="headerlink" href="#enable-extensions-set_user" title="Permanent link">&para;</a></h2>
+<p>Add the <code>set_user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/18/sql-altersystem.html">ALTER SYSTEM <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> command. <a href="#connect">Connect to psql</a> and use the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;set_user&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>Start / restart the server to apply the configuration.</p>
 <p>Install the extension into your database:</p>
