@@ -75,7 +75,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 4. Copy `axdb-python3`, `axdb-tcl` and `axdb-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules.
 
     ```{.bash data-prompt="$"}
-    $ sudo cp -r /opt/axdb-perl /opt/axdb-python3 /opt/axdb-tcl /opt/
+    $ sudo cp -r /opt/axdb/axdb-perl /opt/axdb/axdb-python3 /opt/axdb/axdb-tcl /opt/
     ```
 
 5. Create the data directory for PostgreSQL server. For example, `/usr/local/pgsql/data`.
@@ -98,8 +98,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
 8. Add the location of the binaries to the PATH variable:
 
     ```{.bash data-prompt="$"}
-    export PATH=:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql{{pgversion}}/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin/:$PATH;
-    export LD_LIBRARY_PATH=/opt/axdb/axdb-postgresql{{pgversion}}/lib:$LD_LIBRARY_PATH;
+    export PATH=:/opt/axdb/axdb-haproxy/sbin/:/opt/axdb/axdb-patroni/bin/:/opt/axdb/axdb-pgbackrest/bin/:/opt/axdb/axdb-pgbadger/:/opt/axdb/axdb-pgbouncer/bin/:/opt/axdb/axdb-pgpool-II/bin/:/opt/axdb/axdb-postgresql{{pgversion}}/bin/:/opt/axdb/axdb-etcd/bin/:/opt/axdb-perl/bin/:/opt/axdb-tcl/bin/:/opt/axdb-python3/bin${PATH:+:$PATH};
     ```
 
 9. Initiate the PostgreSQL data directory:
@@ -179,7 +178,6 @@ Group=postgres
 
 # Path to your database storage cluster
 Environment=PGDATA=/usr/local/pgsql/data
-Environment="LD_LIBRARY_PATH=/opt/axdb/axdb-postgresql{{pgversion}}/lib:$LD_LIBRARY_PATH;"
 
 # Start, stop, and reload PostgreSQL using pg_ctl
 ExecStart=/opt/axdb/axdb-postgresql{{pgversion}}/bin/pg_ctl start -D ${PGDATA} -s

@@ -7,4 +7,4 @@ source/__pycache__/
 .netlify
 site/
 **/.DS_Store
-
+mkdocs.log

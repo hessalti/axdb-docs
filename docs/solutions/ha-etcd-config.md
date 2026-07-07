@@ -4,20 +4,35 @@ In our solutions, we use etcd distributed configuration store. [Refresh your kno
 
 ## Install etcd
 
-Install etcd on all PostgreSQL nodes: `node1`, `node2` and `node3`.
+Use etcd under /opt/axdb/axdb-etcd/ on all PostgreSQL nodes: `node1`, `node2` and `node3`.
 
-=== ":material-redhat: On RHEL and derivatives"
+Create a dedicated system user for the `etcd` background process on every node:
 
-    1. Stop and disable etcd:
-    
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl stop etcd
-        $ systemctl disable etcd
-        ```
+```{.bash data-prompt="$"}
+$ getent group etcd >/dev/null || sudo groupadd --system etcd
+$ id -u etcd >/dev/null 2>&1 || sudo useradd --system --gid etcd --home-dir /var/lib/etcd --shell /sbin/nologin etcd
+$ sudo mkdir -p /etc/etcd /var/lib/etcd
+$ sudo chown -R etcd:etcd /etc/etcd /var/lib/etcd
+```
 
-!!! note
-    
-    You must first [enable it](../enable-extensions.md#etcd) before configuring it.
+This file allows `systemd` to start, stop, restart, and manage the `etcd` service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected.
+
+```ini title="/etc/systemd/system/etcd.service"
+[Unit]
+After=network.target
+Description=etcd - highly-available key value store
+
+[Service]
+LimitNOFILE=65536
+Restart=on-failure
+Type=notify
+ExecStart=/opt/axdb/axdb-etcd/bin/etcd --config-file /etc/etcd/etcd.conf.yaml
+User=etcd
+Group=etcd
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ## Configure etcd
 
@@ -28,11 +43,11 @@ To get started with `etcd` cluster, you need to bootstrap it. This means setting
     
 Since we know the IP addresses of the nodes, we will use the static method. For using the discovery service, please refer to the [etcd documentation :octicons-link-external-16:](https://etcd.io/docs/v3.5/op-guide/clustering/#etcd-discovery){:target="_blank"}.
 
-We will configure and start all etcd nodes in parallel. This can be done either by modifying each node's configuration or using the command line options. Use the method that you prefer more.
+We will configure and start all etcd nodes in parallel.
 
-### Method 1. Modify the configuration file
+### Modify the configuration file
 
-1. Create the etcd configuration file on every node. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.
+1. Create the etcd configuration file on every node. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes. Make sure this file is owned by `etcd` user and group.
 
     === "node1"
 
@@ -40,12 +55,12 @@ We will configure and start all etcd nodes in parallel. This can be done either 
          name: 'node1'
          initial-cluster-token: PostgreSQL_HA_Cluster_1
          initial-cluster-state: new
-         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380
+         initial-cluster: node1=http://192.168.3.201:2380,node2=http://192.168.3.202:2380,node3=http://192.168.3.203:2380
          data-dir: /var/lib/etcd
-         initial-advertise-peer-urls: http://10.104.0.1:2380 
-         listen-peer-urls: http://10.104.0.1:2380
-         advertise-client-urls: http://10.104.0.1:2379
-         listen-client-urls: http://10.104.0.1:2379
+         initial-advertise-peer-urls: http://192.168.3.201:2380 
+         listen-peer-urls: http://192.168.3.201:2380
+         advertise-client-urls: http://192.168.3.201:2379
+         listen-client-urls: http://192.168.3.201:2379
          ```
 
     === "node2"
@@ -54,12 +69,12 @@ We will configure and start all etcd nodes in parallel. This can be done either 
          name: 'node2'
          initial-cluster-token: PostgreSQL_HA_Cluster_1
          initial-cluster-state: new
-         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380
+         initial-cluster: node1=http://192.168.3.201:2380,node2=http://192.168.3.202:2380,node3=http://192.168.3.203:2380
          data-dir: /var/lib/etcd
-         initial-advertise-peer-urls: http://10.104.0.2:2380 
-         listen-peer-urls: http://10.104.0.2:2380
-         advertise-client-urls: http://10.104.0.2:2379
-         listen-client-urls: http://10.104.0.2:2379
+         initial-advertise-peer-urls: http://192.168.3.202:2380 
+         listen-peer-urls: http://192.168.3.202:2380
+         advertise-client-urls: http://192.168.3.202:2379
+         listen-client-urls: http://192.168.3.202:2379
          ```
 
     === "node3"
@@ -68,78 +83,24 @@ We will configure and start all etcd nodes in parallel. This can be done either 
          name: 'node3'
          initial-cluster-token: PostgreSQL_HA_Cluster_1
          initial-cluster-state: new
-         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380
+         initial-cluster: node1=http://192.168.3.201:2380,node2=http://192.168.3.202:2380,node3=http://192.168.3.203:2380
          data-dir: /var/lib/etcd
-         initial-advertise-peer-urls: http://10.104.0.3:2380 
-         listen-peer-urls: http://10.104.0.3:2380
-         advertise-client-urls: http://10.104.0.3:2379
-         listen-client-urls: http://10.104.0.3:2379
+         initial-advertise-peer-urls: http://192.168.3.203:2380 
+         listen-peer-urls: http://192.168.3.203:2380
+         advertise-client-urls: http://192.168.3.203:2379
+         listen-client-urls: http://192.168.3.203:2379
          ```
 
 2. Enable and start the `etcd` service on all nodes:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now etcd
+    $ sudo systemctl daemon-reload
+    $ sudo systemctl enable etcd
+    $ sudo systemctl start etcd
     $ sudo systemctl status etcd
     ```
 
     During the node start, etcd searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the etcd cluster to be created.
-
---8<-- "check-etcd.md"
-
-### Method 2. Start etcd nodes with command line options
-
-1. On each etcd node, set the environment variables for the cluster members, the cluster token and state:
-
-    ```
-    TOKEN=PostgreSQL_HA_Cluster_1
-    CLUSTER_STATE=new
-    NAME_1=node1
-    NAME_2=node2
-    NAME_3=node3
-    HOST_1=10.104.0.1
-    HOST_2=10.104.0.2
-    HOST_3=10.104.0.3
-    CLUSTER=${NAME_1}=http://${HOST_1}:2380,${NAME_2}=http://${HOST_2}:2380,${NAME_3}=http://${HOST_3}:2380
-    ```
-
-2. Start each etcd node in parallel using the following command:
-
-    === "node1"
-
-        ```{.bash data-prompt="$"}
-        THIS_NAME=${NAME_1}
-        THIS_IP=${HOST_1}
-        etcd --data-dir=data.etcd --name ${THIS_NAME} \
-        	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
-        	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
-        	--initial-cluster ${CLUSTER} \
-        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN} &
-        ```
-
-    === "node2"
-
-        ```{.bash data-prompt="$"}
-        THIS_NAME=${NAME_2}
-        THIS_IP=${HOST_2}
-        etcd --data-dir=data.etcd --name ${THIS_NAME} \
-        	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
-        	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
-        	--initial-cluster ${CLUSTER} \
-        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN} &
-        ```
-
-    === "node3"
-
-        ```{.bash data-prompt="$"}
-        THIS_NAME=${NAME_3}
-        THIS_IP=${HOST_3}
-        etcd --data-dir=data.etcd --name ${THIS_NAME} \
-        	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
-        	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
-        	--initial-cluster ${CLUSTER} \
-        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN} &
-        ```
 
 --8<-- "check-etcd.md"
 

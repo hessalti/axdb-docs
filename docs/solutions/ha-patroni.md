@@ -1,23 +1,10 @@
 # Patroni setup
 
-## Install AXDB and Patroni
+## Install Patroni
 
-Run the following commands as root or with `sudo` privileges on `node1`, `node2` and `node3`.
-
-=== ":material-redhat: On RHEL and derivatives"
-
-    1. [Install AXDB package](../tarball.md)
+Use etcd under /opt/axdb/axdb-etcd/ on all PostgreSQL nodes: `node1`, `node2` and `node3`.
     
-    2. Stop and disable all installed services:
-    
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl stop {patroni,postgresql-{{pgversion}}}
-        $ sudo systemctl disable {patroni,postgresql-{{pgversion}}}
-        ```
-    
-    !!! important    
-
-        **Don't** initialize the cluster and start the `postgresql`. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
+**Don't** initialize the cluster and start the `postgresql`. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
 
 ## Configure Patroni
 
@@ -177,7 +164,9 @@ tags:
 
     The first section provides the details of the node and its connection ports. After that, we have the `etcd` service and its port details.
 
-    Following these, there is a `bootstrap` section that contains the PostgreSQL configurations and the steps to run once 
+    Following these, there is a `bootstrap` section that contains the PostgreSQL configurations and the steps to run once.
+
+    Since these are plain-text passwords stored in a configuration file, ensure your patroni.yaml file is securely locked down so that only the postgres user can read it (e.g., chmod 600 patroni.yaml).
 
 ### Systemd configuration
 

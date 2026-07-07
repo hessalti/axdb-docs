@@ -97,7 +97,7 @@ In a proper setup, client applications won't have issues connecting to the clust
 4. Verify that you can still access the cluster through the HAProxy instance and read data:
 
     ```{.bash data-prompt="$"}
-    $ psql -U postgres -h 10.104.0.3 -p 5000 -c "SELECT * FROM CUSTOMER;"
+    $ psql -U postgres -h 192.168.3.203 -p 5000 -c "SELECT * FROM CUSTOMER;"
 
       name  | age
     --------+-----

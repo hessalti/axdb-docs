@@ -10,35 +10,17 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 - Patroni installed on every ``postresql`` node. 
 
-- Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though [etcd](https://etcd.io/) is the most popular one. It is available within AXDB for all supported operating systems. 
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though [etcd :octicons-link-external-16:](https://etcd.io/) is the most popular one. It is available within AXDB for all supported operating systems. 
   
 - [HAProxy :octicons-link-external-16:](http://www.haproxy.org/).
 
-If you install the software from packages, all required dependencies and service unit files are included. You must first enable `etcd`. See the steps in the [etcd](#etcd) section in this document.
+You must first enable `etcd`.
 
 See the configuration guidelines for [Patroni](solutions/ha-patroni.md) and [etcd](solutions/ha-etcd-config.md). 
 
 ## etcd
 
-You need to create the `etcd.service` file. This file allows `systemd` to start, stop, restart, and manage the `etcd` service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. 
-
-```ini title="/etc/systemd/system/etcd.service"
-[Unit]
-After=network.target
-Description=etcd - highly-available key value store
-
-[Service]
-LimitNOFILE=65536
-Restart=on-failure
-Type=notify
-ExecStart=/usr/bin/etcd --config-file /etc/etcd/etcd.conf.yaml
-User=etcd
-
-[Install]
-WantedBy=multi-user.target
-```
-
-  
+For etcd configuration see [etcd setup](solutions/ha-etcd-config.md).
 
 ## pgBadger
 
@@ -104,13 +86,13 @@ You can fine-tune user behavior with the [custom parameters :octicons-link-exter
 
 ## pgbouncer
 
-`pgbouncer` requires the `pgbouncer.ini` configuration file to start. The path is `axdb-pgbouncer/etc/pgbouncer.ini`.
+`pgbouncer` requires the `pgbouncer.ini` configuration file to start. The path is `<tarballsdir>/axdb-pgbouncer/etc/pgbouncer.ini`.
 
 Find detailed information about configuration file options in the [`pgbouncer documentation`](https://www.pgbouncer.org/config.html).
 
 ## pgpool2
 
-`pgpool-II` requires the configuration file to start. The configuration file path is `/etc/pgpool-II/pgpool.conf` on RHEL and derivatives.
+`pgpool-II` requires the configuration file to start. 
 
 You can use the sample configuration file `<tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample`:
 
@@ -130,13 +112,12 @@ Please refer to [`pg_stat_monitor`](https://docs.percona.com/pg-stat-monitor/set
 
 ## wal2json
 
-After the installation, enable the following option in `postgresql.conf` configuration file before starting the service:
+Enable the following option in `postgresql.conf` configuration file before creating a logical replication slot using the wal2json output plugin:
 
 ```
 wal_level = logical
 ```
-
-Start / restart the server to apply the changes.
+Start or restart the server to apply the changes.
 
 ## pgvector
 
@@ -149,4 +130,3 @@ CREATE EXTENSION vector;
 ## Next steps 
 
 [Connect to PostgreSQL :material-arrow-right:](connect.md){.md-button}
-
