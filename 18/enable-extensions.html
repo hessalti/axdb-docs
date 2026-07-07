@@ -2635,30 +2635,16 @@
 <p>Patroni installed on every <code>postresql</code> node. </p>
 </li>
 <li>
-<p>Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though <a href="https://etcd.io/">etcd</a> is the most popular one. It is available within AXDB for all supported operating systems. </p>
+<p>Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though <a href="https://etcd.io/">etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is the most popular one. It is available within AXDB for all supported operating systems. </p>
 </li>
 <li>
 <p><a href="http://www.haproxy.org/">HAProxy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 </li>
 </ul>
-<p>If you install the software from packages, all required dependencies and service unit files are included. You must first enable <code>etcd</code>. See the steps in the <a href="#etcd">etcd</a> section in this document.</p>
+<p>You must first enable <code>etcd</code>.</p>
 <p>See the configuration guidelines for <a href="solutions/ha-patroni.html">Patroni</a> and <a href="solutions/ha-etcd-config.html">etcd</a>. </p>
 <h2 id="etcd">etcd<a class="headerlink" href="#etcd" title="Permanent link">&para;</a></h2>
-<p>You need to create the <code>etcd.service</code> file. This file allows <code>systemd</code> to start, stop, restart, and manage the <code>etcd</code> service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. </p>
-<div class="highlight"><span class="filename">/etc/systemd/system/etcd.service</span><pre><span></span><code><span class="k">[Unit]</span>
-<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">etcd - highly-available key value store</span>
-
-<span class="k">[Service]</span>
-<span class="na">LimitNOFILE</span><span class="o">=</span><span class="s">65536</span>
-<span class="na">Restart</span><span class="o">=</span><span class="s">on-failure</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">notify</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/etcd --config-file /etc/etcd/etcd.conf.yaml</span>
-<span class="na">User</span><span class="o">=</span><span class="s">etcd</span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
-</code></pre></div>
+<p>For etcd configuration see <a href="solutions/ha-etcd-config.html">etcd setup</a>.</p>
 <h2 id="pgbadger">pgBadger<a class="headerlink" href="#pgbadger" title="Permanent link">&para;</a></h2>
 <p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>logging_collector = on
@@ -2699,10 +2685,10 @@ log_error_verbosity = default
 </code></pre></div>
 <p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> supplied with the extension.</p>
 <h2 id="pgbouncer">pgbouncer<a class="headerlink" href="#pgbouncer" title="Permanent link">&para;</a></h2>
-<p><code>pgbouncer</code> requires the <code>pgbouncer.ini</code> configuration file to start. The path is <code>axdb-pgbouncer/etc/pgbouncer.ini</code>.</p>
+<p><code>pgbouncer</code> requires the <code>pgbouncer.ini</code> configuration file to start. The path is <code>&lt;tarballsdir&gt;/axdb-pgbouncer/etc/pgbouncer.ini</code>.</p>
 <p>Find detailed information about configuration file options in the <a href="https://www.pgbouncer.org/config.html"><code>pgbouncer documentation</code></a>.</p>
 <h2 id="pgpool2">pgpool2<a class="headerlink" href="#pgpool2" title="Permanent link">&para;</a></h2>
-<p><code>pgpool-II</code> requires the configuration file to start. The configuration file path is <code>/etc/pgpool-II/pgpool.conf</code> on RHEL and derivatives.</p>
+<p><code>pgpool-II</code> requires the configuration file to start. </p>
 <p>You can use the sample configuration file <code>&lt;tarballsdir&gt;/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>&lt;tarballsdir&gt;/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample<span class="w"> </span>&lt;config-file-path&gt;/pgpool.conf
 </code></pre></div>
@@ -2712,10 +2698,10 @@ log_error_verbosity = default
 <h2 id="pg_stat_monitor">pg_stat_monitor<a class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h2>
 <p>Please refer to <a href="https://docs.percona.com/pg-stat-monitor/setup.html"><code>pg_stat_monitor</code></a> for setup steps.</p>
 <h2 id="wal2json">wal2json<a class="headerlink" href="#wal2json" title="Permanent link">&para;</a></h2>
-<p>After the installation, enable the following option in <code>postgresql.conf</code> configuration file before starting the service:</p>
-<div class="highlight"><pre><span></span><code>wal_level = logical
+<p>Enable the following option in <code>postgresql.conf</code> configuration file before creating a logical replication slot using the wal2json output plugin:</p>
+<p><div class="highlight"><pre><span></span><code>wal_level = logical
 </code></pre></div>
-<p>Start / restart the server to apply the changes.</p>
+Start or restart the server to apply the changes.</p>
 <h2 id="pgvector">pgvector<a class="headerlink" href="#pgvector" title="Permanent link">&para;</a></h2>
 <p>To get started, enable the extension for the database where you want to use it:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">vector</span><span class="p">;</span>
@@ -2744,7 +2730,7 @@ log_error_verbosity = default
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 3, 2026 07:28:16 UTC">July 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 7, 2026 07:08:14 UTC">July 7, 2026</span>
   </span>
 
     

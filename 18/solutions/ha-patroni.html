@@ -1441,10 +1441,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-axdb-and-patroni" class="md-nav__link">
+  <a href="#install-patroni" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install AXDB and Patroni
+        Install Patroni
       
     </span>
   </a>
@@ -2461,10 +2461,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-axdb-and-patroni" class="md-nav__link">
+  <a href="#install-patroni" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install AXDB and Patroni
+        Install Patroni
       
     </span>
   </a>
@@ -2596,29 +2596,9 @@
 
 
 <h1 id="patroni-setup">Patroni setup<a class="headerlink" href="#patroni-setup" title="Permanent link">&para;</a></h1>
-<h2 id="install-axdb-and-patroni">Install AXDB and Patroni<a class="headerlink" href="#install-axdb-and-patroni" title="Permanent link">&para;</a></h2>
-<p>Run the following commands as root or with <code>sudo</code> privileges on <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>
-<p><a href="../tarball.html">Install AXDB package</a></p>
-</li>
-<li>
-<p>Stop and disable all installed services:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span><span class="o">{</span>patroni,postgresql-18<span class="o">}</span>
-$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span><span class="o">{</span>patroni,postgresql-18<span class="o">}</span>
-</code></pre></div>
-</li>
-</ol>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<h2 id="install-patroni">Install Patroni<a class="headerlink" href="#install-patroni" title="Permanent link">&para;</a></h2>
+<p>Use etcd under /opt/axdb/axdb-etcd/ on all PostgreSQL nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
 <p><strong>Don&rsquo;t</strong> initialize the cluster and start the <code>postgresql</code>. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.</p>
-</div>
-</div>
-</div>
-</div>
 <h2 id="configure-patroni">Configure Patroni<a class="headerlink" href="#configure-patroni" title="Permanent link">&para;</a></h2>
 <p>Run the following commands on all nodes. You can do this in parallel:</p>
 <h3 id="create-environment-variables">Create environment variables<a class="headerlink" href="#create-environment-variables" title="Permanent link">&para;</a></h3>
@@ -2649,7 +2629,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </li>
 <li>
 <p>Create variables to store the <code>PATH</code>. Check the path to the <code>data</code> and <code>bin</code> folders on your operating system and change it for the variables accordingly:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/pgsql/data/&quot;</span>
@@ -2760,7 +2740,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <summary>Patroni configuration file</summary>
 <p>Let’s take a moment to understand the contents of the <code>patroni.yml</code> file. </p>
 <p>The first section provides the details of the node and its connection ports. After that, we have the <code>etcd</code> service and its port details.</p>
-<p>Following these, there is a <code>bootstrap</code> section that contains the PostgreSQL configurations and the steps to run once </p>
+<p>Following these, there is a <code>bootstrap</code> section that contains the PostgreSQL configurations and the steps to run once.</p>
+<p>Since these are plain-text passwords stored in a configuration file, ensure your patroni.yaml file is securely locked down so that only the postgres user can read it (e.g., chmod 600 patroni.yaml).</p>
 </details>
 <h3 id="systemd-configuration">Systemd configuration<a class="headerlink" href="#systemd-configuration" title="Permanent link">&para;</a></h3>
 <ol>
@@ -2893,7 +2874,7 @@ recovery_conf:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 30, 2026 23:51:45 UTC">June 30, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 7, 2026 07:08:14 UTC">July 7, 2026</span>
   </span>
 
     
