@@ -50,10 +50,10 @@ Environment variables simplify the config file creation:
 
         ```bash
         DATA_DIR="/var/lib/pgsql/data/"
-        PG_BIN_DIR="/usr/pgsql-{{pgversion}}/bin"
+        PG_BIN_DIR="/opt/axdb/axdb-postgresql{{pgversion}}/bin"
         ```
     
-4. Patroni information:
+5. Patroni information:
 
     ```bash
     NAMESPACE="axdb_lab"
