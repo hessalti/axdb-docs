@@ -2597,7 +2597,12 @@
 
 <h1 id="patroni-setup">Patroni setup<a class="headerlink" href="#patroni-setup" title="Permanent link">&para;</a></h1>
 <h2 id="install-patroni">Install Patroni<a class="headerlink" href="#install-patroni" title="Permanent link">&para;</a></h2>
-<p>Use etcd under /opt/axdb/axdb-etcd/ on all PostgreSQL nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
+<p>Use patroni under /opt/axdb/axdb-patroni/ (when <code>&lt;axdb-dir&gt;</code> is /opt/axdb/) on all PostgreSQL nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
+<p>Stop and disable all installed patroni and postgresql services:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span><span class="o">{</span>patroni,postgresql<span class="o">}</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span><span class="o">{</span>patroni,postgresql<span class="o">}</span>
+</code></pre></div>
+<p>Even though Patroni can use an existing Postgres installation, our recommendation for a <strong>new cluster that has no data</strong> is to have empty PostgreSQL data directory. This forces Patroni to initialize a new Postgres cluster instance.</p>
 <p><strong>Don&rsquo;t</strong> initialize the cluster and start the <code>postgresql</code>. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.</p>
 <h2 id="configure-patroni">Configure Patroni<a class="headerlink" href="#configure-patroni" title="Permanent link">&para;</a></h2>
 <p>Run the following commands on all nodes. You can do this in parallel:</p>
@@ -2620,11 +2625,11 @@
 </code></pre></div>
 <details class="example">
 <summary>Sample output <code>node1</code></summary>
-<div class="highlight"><pre><span></span><code>10.104.0.7
+<div class="highlight"><pre><span></span><code>192.168.3.201
 </code></pre></div>
 </details>
 <p>If you have multiple IP addresses defined on your server and the environment variable contains the wrong one, you can manually redefine it. For example, run the following command for <code>node1</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="m">10</span>.104.0.7
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="m">192</span>.168.3.201
 </code></pre></div>
 </li>
 <li>
@@ -2816,21 +2821,21 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class=
 <p>The output resembles the following:</p>
 <details class="example">
 <summary>Sample output node1</summary>
-<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) -----+----+-------+
-| Member | Host       | Role    | State     | TL | Lag in MB |
-+--------+------------+---------+-----------+----+-----------+
-| node1  | 10.0.100.1 | Leader  | running   |  1 |           |
+<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
+| Member | Host          | Role    | State     | TL | Lag in MB |
++--------+---------------+---------+-----------+----+-----------+
+| node1  | 192.168.3.201 | Leader  | running   |  1 |           |
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Sample output node3</summary>
-<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) -----+----+-------+
-| Member | Host       | Role    | State     | TL | Lag in MB |
-+--------+------------+---------+-----------+----+-----------+
-| node1  | 10.0.100.1 | Leader  | running   |  1 |           |
-| node2  | 10.0.100.2 | Replica | streaming |  1 |         0 |
-| node3  | 10.0.100.3 | Replica | streaming |  1 |         0 |
-+--------+------------+---------+-----------+----+-----------+
+<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
+| Member | Host          | Role    | State     | TL | Lag in MB |
++--------+---------------+---------+-----------+----+-----------+
+| node1  | 192.168.3.201 | Leader  | running   |  1 |           |
+| node2  | 192.168.3.202 | Replica | streaming |  1 |         0 |
+| node3  | 192.168.3.203 | Replica | streaming |  1 |         0 |
++--------+---------------+---------+-----------+----+-----------+
 </code></pre></div>
 </details>
 </li>
@@ -2841,8 +2846,8 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class=
 <div class="highlight"><pre><span></span><code>pg_hba: # Add following lines to pg_hba.conf after running &#39;initdb&#39;
 - host replication replicator 127.0.0.1/32 trust
 - host replication replicator 0.0.0.0/0 md5
-- host replication replicator 10.0.100.2/32 trust
-- host replication replicator 10.0.100.3/32 trust
+- host replication replicator 192.168.3.202/32 trust
+- host replication replicator 192.168.3.203/32 trust
 - host all all 0.0.0.0/0 md5
 - host all all ::0/0 md5
 recovery_conf:
@@ -2874,7 +2879,7 @@ recovery_conf:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 7, 2026 07:08:14 UTC">July 7, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 9, 2026 06:59:56 UTC">July 9, 2026</span>
   </span>
 
     

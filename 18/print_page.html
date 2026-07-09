@@ -3401,12 +3401,12 @@ log_error_verbosity = default
 </code></pre></div>
 <p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> supplied with the extension.</p>
 <h2 id="enable-extensions-pgbouncer">pgbouncer<a class="headerlink" href="#enable-extensions-pgbouncer" title="Permanent link">&para;</a></h2>
-<p><code>pgbouncer</code> requires the <code>pgbouncer.ini</code> configuration file to start. The path is <code>&lt;tarballsdir&gt;/axdb-pgbouncer/etc/pgbouncer.ini</code>.</p>
+<p><code>pgbouncer</code> requires the <code>pgbouncer.ini</code> configuration file to start. The path is <code>&lt;axdb-dir&gt;/axdb-pgbouncer/etc/pgbouncer.ini</code>.</p>
 <p>Find detailed information about configuration file options in the <a href="https://www.pgbouncer.org/config.html"><code>pgbouncer documentation</code></a>.</p>
 <h2 id="enable-extensions-pgpool2">pgpool2<a class="headerlink" href="#enable-extensions-pgpool2" title="Permanent link">&para;</a></h2>
 <p><code>pgpool-II</code> requires the configuration file to start. </p>
-<p>You can use the sample configuration file <code>&lt;tarballsdir&gt;/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>&lt;tarballsdir&gt;/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample<span class="w"> </span>&lt;config-file-path&gt;/pgpool.conf
+<p>You can use the sample configuration file <code>&lt;axdb-dir&gt;/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>&lt;axdb-dir&gt;/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample<span class="w"> </span>&lt;config-file-path&gt;/pgpool.conf
 </code></pre></div>
 <p>Specify the path to it when starting pgpool:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgpool<span class="w"> </span>-f<span class="w"> </span>&lt;config-gile-path&gt;/pgpool.conf
@@ -4170,7 +4170,7 @@ Start or restart the server to apply the changes.</p>
 <li>This setup only protects against a one node failure, either a database or a etcd node. Losing more than one node results in the read-only database.</li>
 <li>The application must be able to connect to multiple database nodes and fail over to the new primary in the case of outage.</li>
 <li>The application must act as the load-balancer. It must be able to determine read/write and read-only requests and distribute them across the cluster. </li>
-<li>The <code>pbBackRest</code> component is optional as it doesn&rsquo;t server the purpose of high-availability. But it is highly-recommended for disaster recovery and is a must fo production environments. <a href="https://www.percona.com/about/contact">Contact us</a> to discuss backup configurations and retention policies.</li>
+<li>The <code>pbBackRest</code> component is optional as it doesn&rsquo;t server the purpose of high-availability. But it is highly-recommended for disaster recovery and is a must fo production environments.</li>
 </ul>
 <h2 id="solutions-ha-architecture-additional-reading">Additional reading<a class="headerlink" href="#solutions-ha-architecture-additional-reading" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#solutions-ha-components">How components work together</a></p>
@@ -4186,16 +4186,16 @@ Start or restart the server to apply the changes.</p>
 <h2 id="solutions-etcd-info-how-etcd-works">How <code>etcd</code> works<a class="headerlink" href="#solutions-etcd-info-how-etcd-works" title="Permanent link">&para;</a></h2>
 <p>Each node in the cluster stores data in a structured format and keeps a copy of the same data to ensure redundancy and fault tolerance. When you write data to <code>etcd</code>, the change is sent to the leader node, which then replicates it to the other nodes in the cluster. This ensures that all nodes remain synchronized and maintain data consistency.</p>
 <p>When a client wants to change data, it sends the request to the leader. The leader accepts the writes and proposes this change to the followers. The followers vote on the proposal. If a majority of followers agree (including the leader), the change is committed, ensuring consistency. The leader then confirms the change to the client.</p>
-<p>This flow corresponds to the Raft consensus algorithm, based on which <code>etcd</code> works. Read morea bout it the <a href="#solutions-etcd-info-etcd-raft-consensus"><code>ectd</code> Raft consensus</a> section.</p>
+<p>This flow corresponds to the Raft consensus algorithm, based on which <code>etcd</code> works. Read more about it the <a href="#solutions-etcd-info-etcd-raft-consensus"><code>ectd</code> Raft consensus</a> section.</p>
 <h2 id="solutions-etcd-info-leader-election">Leader election<a class="headerlink" href="#solutions-etcd-info-leader-election" title="Permanent link">&para;</a></h2>
 <p>An <code>etcd</code> cluster can have only one leader node at a time. The leader is responsible for receiving client requests, proposing changes, and ensuring they are replicated to the followers. When an <code>etcd</code> cluster starts, or if the current leader fails, the nodes hold an election to choose a new leader. Each node waits for a random amount of time before sending a vote request to other nodes, and the first node to get a majority of votes becomes the new leader. The cluster remains available as long as a majority of nodes (quorum) are still running.</p>
 <h3 id="solutions-etcd-info-how-many-members-to-have-in-a-cluster">How many members to have in a cluster<a class="headerlink" href="#solutions-etcd-info-how-many-members-to-have-in-a-cluster" title="Permanent link">&para;</a></h3>
 <p>The recommended approach is to deploy an odd-sized cluster (e.g., 3, 5, or 7 nodes). The odd number of nodes ensures that there is always a majority of nodes available to make decisions and keep the cluster running smoothly. This majority is crucial for maintaining consistency and availability, even if one node fails. For a cluster with <code>n</code> members, the majority is <code>(n/2)+1</code>.</p>
-<p>To better illustrate this concept, take an example of clusters with 3 nodes and 4 nodes. In a 3-node cluster, if one node fails, the remaining 2 nodes still form a majority (2 out of 3), and the cluster can continue to operate. In a 4-node cluster, if one node fails, there are only 3 nodes left, which is not enough to form a majority (3 out of 4). The cluster stops functioning.</p>
+<p>To better illustrate this concept, take an example of clusters with 3 nodes and 2 nodes. In a 3-node cluster, if one node fails, the remaining 2 nodes still form a majority (2 out of 3), and the cluster can continue to operate. In a 2-node cluster, if one node fails, there are only 1 nodes left, which is not enough to form a majority (1 out of 2). The cluster stops functioning.</p>
 <h2 id="solutions-etcd-info-etcd-raft-consensus"><code>etcd</code> Raft consensus<a class="headerlink" href="#solutions-etcd-info-etcd-raft-consensus" title="Permanent link">&para;</a></h2>
 <p>The heart of <code>etcd</code>&rsquo;s reliability is the Raft consensus algorithm. Raft ensures that all nodes in the cluster agree on the same data. This ensures a consistent view of the data, even if some nodes are unavailable or experiencing network issues. </p>
 <p>An example of the Raft&rsquo;s role in <code>etcd</code> is the situation when there is no majority in the cluster. If a majority of nodes can&rsquo;t communicate (for example, due to network partitions), no new leader can be elected, and no new changes can be committed. This prevents the system from getting into an inconsistent state. The system waits for the network to heal and a majority to be re-established. This is crucial for data integrity.</p>
-<p>You can also check <a href="https://thesecretlivesofdata.com/raft/">this resource :octicons-link-external-17:</a> to learn more about Raft and understand it better.</p>
+<p>You can also check <a href="https://thesecretlivesofdata.com/raft/">this resource <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> to learn more about Raft and understand it better.</p>
 <h2 id="solutions-etcd-info-etcd-logs-and-performance-considerations"><code>etcd</code> logs and performance considerations<a class="headerlink" href="#solutions-etcd-info-etcd-logs-and-performance-considerations" title="Permanent link">&para;</a></h2>
 <p><code>etcd</code> keeps a detailed log of every change made to the data. These logs are essential for several reasons, including the ensurance of consistency, fault tolerance, leader elections, auditing, and others, maintaining a consistent state across nodes. For example, if a node fails, it can use the logs to catch up with the other nodes and restore its data. The logs also provide a history of all changes, which can be useful for debugging and security analysis if needed.</p>
 <h3 id="solutions-etcd-info-slow-disk-performance">Slow disk performance<a class="headerlink" href="#solutions-etcd-info-slow-disk-performance" title="Permanent link">&para;</a></h3>
@@ -4218,7 +4218,7 @@ Start or restart the server to apply the changes.</p>
 </li>
 </ul>
 <p>Note that separate deployment increases the complexity of the infrastructure and requires additional effort on maintenance. Also, pay close attention to network configuration to eliminate the latency that might occur due to the communication between <code>etcd</code> and Patroni nodes over the network.</p>
-<p>If a separate dedicated host for 1 is not a viable option, you can use the same host machines used for Patroni and PostgreSQL.</p>
+<p>If the deployment of separate dedicated host machines for etcd is not a viable option, you can use the same host machines used for Patroni and PostgreSQL.</p>
 <h2 id="solutions-etcd-info-next-steps">Next steps<a class="headerlink" href="#solutions-etcd-info-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#solutions-patroni-info">Patroni</a></p></section><section class="print-page" id="solutions-patroni-info" heading-number="6.2.4.2"><h1 id="solutions-patroni-info-patroni">Patroni<a class="headerlink" href="#solutions-patroni-info-patroni" title="Permanent link">&para;</a></h1>
 <p>Patroni is an open-source tool designed to manage and automate the high availability (HA) of PostgreSQL clusters. It ensures that your PostgreSQL database remains available even in the event of hardware failures, network issues or other disruptions. Patroni achieves this by using distributed consensus stores like ETCD, Consul, or ZooKeeper to manage cluster state and automate failover processes. We&rsquo;ll use <a href="#solutions-etcd-info"><code>etcd</code></a> in our architecture.</p>
@@ -4238,7 +4238,7 @@ Start or restart the server to apply the changes.</p>
 <ul>
 <li>After a user installs and configures Patroni, Patroni takes over the PostgreSQL service administration and configuration;</li>
 <li>Patroni maintains the cluster state data such as PostgreSQL configuration, information about which node is the primary and which are replicas, and their health status.</li>
-<li>Patroni manages PostgreSQL configuration files such as<code>postgresql.conf</code> and <code>pg_hba.conf</code> dynamically, ensuring consistency across the cluster.</li>
+<li>Patroni manages PostgreSQL configuration files such as <code>postgresql.conf</code> and <code>pg_hba.conf</code> dynamically, ensuring consistency across the cluster.</li>
 <li>A Patroni agent runs on each cluster node and communicates with <code>etcd</code> and other nodes.</li>
 </ul>
 </li>
@@ -4285,7 +4285,7 @@ Start or restart the server to apply the changes.</p>
 <p>There are 2 types of watchdogs:</p>
 <ul>
 <li>Hardware watchdog: A physical device that reboots the server if the operating system becomes unresponsive.</li>
-<li>Software watchdog (also called a softdog): A software-based watchdog timer tha emulates the functionality of a hardware watchdog but is implemented entirely in software. It is part of the Linux kernel&rsquo;s watchdog infrastructure and is useful in systems that lack dedicated hardware watchdog timers. The softdog monitors the system and takes corrective actions such as killing processes or rebooting the node.</li>
+<li>Software watchdog (also called a softdog): A software-based watchdog timer that emulates the functionality of a hardware watchdog but is implemented entirely in software. It is part of the Linux kernel&rsquo;s watchdog infrastructure and is useful in systems that lack dedicated hardware watchdog timers. The softdog monitors the system and takes corrective actions such as killing processes or rebooting the node.</li>
 </ul>
 <p>Most of the servers in the cloud nowadays use a softdog.</p>
 <h2 id="solutions-patroni-info-integration-with-other-tools">Integration with other tools<a class="headerlink" href="#solutions-patroni-info-integration-with-other-tools" title="Permanent link">&para;</a></h2>
@@ -4412,7 +4412,7 @@ the same CPU as long as possible.</p>
 <p>Note that the PostgreSQL high availability (HA) cluster and Patroni cluster are the same thing, and we will use these names interchangeably.</p>
 <p>When you start Patroni, it writes the cluster configuration information in <code>etcd</code>. During the initial cluster initialization, Patroni uses the <code>etcd</code> locking mechanism to ensure that only one instance becomes the primary. This mechanism ensures that only a single process can hold a resource at a time avoiding race conditions and inconsistencies. </p>
 <p>You start Patroni instances one by one so the first instance acquires the lock with a lease in <code>etcd</code> and becomes the primary PostgreSQL node. The other instances join the primary as replicas, waiting for the lock to be released.</p>
-<p>If the current primary node crashes, its lease on the lock in <code>etcd</code> expires. The lock is automatically released after its expiration time. <code>etcd</code> the starts a new election and a standby node attempts to acquire the lock to become the new primary.</p>
+<p>If the current primary node crashes, its lease on the lock in <code>etcd</code> expires. The lock is automatically released after its expiration time. <code>etcd</code> starts a new election and a standby node attempts to acquire the lock to become the new primary.</p>
 <p>Patroni uses not only <code>etcd</code> locking mechanism. It also uses <code>etcd</code> to store the current state of the cluster, ensuring that all nodes are aware of the latest topology and status. </p>
 <p>Another important component is the watchdog. It runs on each database node. The purpose of watchdog is to prevent split-brain scenarios, where multiple nodes might mistakenly think they are the primary node. The watchdog monitors the node&rsquo;s health by receiving periodic &ldquo;keepalive&rdquo; signals from Patroni. If these signals stop due to a crash, high system load or any other reason, the watchdog resets the node to ensure it does not cause inconsistencies.</p>
 <h2 id="solutions-ha-components-load-balancing-layer">Load balancing layer<a class="headerlink" href="#solutions-ha-components-load-balancing-layer" title="Permanent link">&para;</a></h2>
@@ -4444,49 +4444,41 @@ the same CPU as long as possible.</p>
 <thead>
 <tr>
 <th>Node name</th>
-<th>Public IP address</th>
 <th>Internal IP address</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>node1</td>
-<td>157.230.42.174</td>
-<td>10.104.0.7</td>
+<td>192.168.3.201</td>
 </tr>
 <tr>
 <td>node2</td>
-<td>68.183.177.183</td>
 <td>192.168.3.202</td>
 </tr>
 <tr>
 <td>node3</td>
-<td>165.22.62.167</td>
-<td>10.104.0.8</td>
-</tr>
-<tr>
-<td>HAProxy1</td>
-<td>112.209.126.159</td>
-<td>10.104.0.6</td>
-</tr>
-<tr>
-<td>HAProxy2</td>
-<td>134.209.111.138</td>
-<td>10.104.0.5</td>
-</tr>
-<tr>
-<td>HAProxy3</td>
-<td>134.60.204.27</td>
 <td>192.168.3.203</td>
 </tr>
 <tr>
+<td>HAProxy1</td>
+<td>192.168.3.204</td>
+</tr>
+<tr>
+<td>HAProxy2</td>
+<td>192.168.3.205</td>
+</tr>
+<tr>
+<td>HAProxy3</td>
+<td>192.168.3.206</td>
+</tr>
+<tr>
 <td>backup</td>
-<td>97.78.129.11</td>
-<td>10.104.0.9</td>
+<td>192.168.3.207</td>
 </tr>
 </tbody>
 </table>
-<p>We also need a virtual IP address for HAProxy: <code>203.0.113.1</code></p>
+<p>We also need a virtual IP address for HAProxy: <code>192.168.3.208</code></p>
 </li>
 </ol>
 <div class="admonition important">
@@ -4506,13 +4498,13 @@ the same CPU as long as possible.</p>
 <p>Modify the <code>/etc/hosts</code> file of each node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the <code>/etc/hosts</code> file on all nodes:   </p>
 <div class="highlight"><pre><span></span><code># Cluster IP and names
 
-10.104.0.7 node1    
+192.168.3.201 node1    
 192.168.3.202 node2    
-10.104.0.8 node3    
-10.104.0.6 HAProxy1 
-10.104.0.5 HAProxy2 
-192.168.3.203 HAProxy3
-10.104.0.9 backup   
+192.168.3.203 node3    
+192.168.3.204 HAProxy1 
+192.168.3.205 HAProxy2 
+192.168.3.206 HAProxy3
+192.168.3.207 backup   
 </code></pre></div>
 </li>
 </ol>
@@ -4520,7 +4512,7 @@ the same CPU as long as possible.</p>
 <p><a class="md-button" href="#solutions-ha-etcd-config">Set up etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="solutions-ha-etcd-config" heading-number="6.2.6.2"><h1 id="solutions-ha-etcd-config-etcd-setup">Etcd setup<a class="headerlink" href="#solutions-ha-etcd-config-etcd-setup" title="Permanent link">&para;</a></h1>
 <p>In our solutions, we use etcd distributed configuration store. <a href="#solutions-ha-components-database-and-dsc-layers">Refresh your knowledge about etcd</a>.</p>
 <h2 id="solutions-ha-etcd-config-install-etcd">Install etcd<a class="headerlink" href="#solutions-ha-etcd-config-install-etcd" title="Permanent link">&para;</a></h2>
-<p>Use etcd under /opt/axdb/axdb-etcd/ on all PostgreSQL nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
+<p>Use etcd under /opt/axdb/axdb-etcd/ (when <code>&lt;axdb-dir&gt;</code> is /opt/axdb/) on all etcd nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
 <p>Create a dedicated system user for the <code>etcd</code> background process on every node:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>getent<span class="w"> </span>group<span class="w"> </span>etcd<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>sudo<span class="w"> </span>groupadd<span class="w"> </span>--system<span class="w"> </span>etcd
 $<span class="w"> </span>id<span class="w"> </span>-u<span class="w"> </span>etcd<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>--system<span class="w"> </span>--gid<span class="w"> </span>etcd<span class="w"> </span>--home-dir<span class="w"> </span>/var/lib/etcd<span class="w"> </span>--shell<span class="w"> </span>/sbin/nologin<span class="w"> </span>etcd
@@ -4650,7 +4642,12 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 <h2 id="solutions-ha-etcd-config-next-steps">Next steps<a class="headerlink" href="#solutions-ha-etcd-config-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#solutions-ha-patroni">Patroni setup <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="solutions-ha-patroni" heading-number="6.2.6.3"><h1 id="solutions-ha-patroni-patroni-setup">Patroni setup<a class="headerlink" href="#solutions-ha-patroni-patroni-setup" title="Permanent link">&para;</a></h1>
 <h2 id="solutions-ha-patroni-install-patroni">Install Patroni<a class="headerlink" href="#solutions-ha-patroni-install-patroni" title="Permanent link">&para;</a></h2>
-<p>Use etcd under /opt/axdb/axdb-etcd/ on all PostgreSQL nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
+<p>Use patroni under /opt/axdb/axdb-patroni/ (when <code>&lt;axdb-dir&gt;</code> is /opt/axdb/) on all PostgreSQL nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
+<p>Stop and disable all installed patroni and postgresql services:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span><span class="o">{</span>patroni,postgresql<span class="o">}</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span><span class="o">{</span>patroni,postgresql<span class="o">}</span>
+</code></pre></div>
+<p>Even though Patroni can use an existing Postgres installation, our recommendation for a <strong>new cluster that has no data</strong> is to have empty PostgreSQL data directory. This forces Patroni to initialize a new Postgres cluster instance.</p>
 <p><strong>Don&rsquo;t</strong> initialize the cluster and start the <code>postgresql</code>. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.</p>
 <h2 id="solutions-ha-patroni-configure-patroni">Configure Patroni<a class="headerlink" href="#solutions-ha-patroni-configure-patroni" title="Permanent link">&para;</a></h2>
 <p>Run the following commands on all nodes. You can do this in parallel:</p>
@@ -4673,11 +4670,11 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 </code></pre></div>
 <details class="example">
 <summary>Sample output <code>node1</code></summary>
-<div class="highlight"><pre><span></span><code>10.104.0.7
+<div class="highlight"><pre><span></span><code>192.168.3.201
 </code></pre></div>
 </details>
 <p>If you have multiple IP addresses defined on your server and the environment variable contains the wrong one, you can manually redefine it. For example, run the following command for <code>node1</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="m">10</span>.104.0.7
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="m">192</span>.168.3.201
 </code></pre></div>
 </li>
 <li>
@@ -4869,21 +4866,21 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class=
 <p>The output resembles the following:</p>
 <details class="example">
 <summary>Sample output node1</summary>
-<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) -----+----+-------+
-| Member | Host       | Role    | State     | TL | Lag in MB |
-+--------+------------+---------+-----------+----+-----------+
-| node1  | 10.0.100.1 | Leader  | running   |  1 |           |
+<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
+| Member | Host          | Role    | State     | TL | Lag in MB |
++--------+---------------+---------+-----------+----+-----------+
+| node1  | 192.168.3.201 | Leader  | running   |  1 |           |
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Sample output node3</summary>
-<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) -----+----+-------+
-| Member | Host       | Role    | State     | TL | Lag in MB |
-+--------+------------+---------+-----------+----+-----------+
-| node1  | 10.0.100.1 | Leader  | running   |  1 |           |
-| node2  | 10.0.100.2 | Replica | streaming |  1 |         0 |
-| node3  | 10.0.100.3 | Replica | streaming |  1 |         0 |
-+--------+------------+---------+-----------+----+-----------+
+<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
+| Member | Host          | Role    | State     | TL | Lag in MB |
++--------+---------------+---------+-----------+----+-----------+
+| node1  | 192.168.3.201 | Leader  | running   |  1 |           |
+| node2  | 192.168.3.202 | Replica | streaming |  1 |         0 |
+| node3  | 192.168.3.203 | Replica | streaming |  1 |         0 |
++--------+---------------+---------+-----------+----+-----------+
 </code></pre></div>
 </details>
 </li>
@@ -4894,8 +4891,8 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class=
 <div class="highlight"><pre><span></span><code>pg_hba: # Add following lines to pg_hba.conf after running &#39;initdb&#39;
 - host replication replicator 127.0.0.1/32 trust
 - host replication replicator 0.0.0.0/0 md5
-- host replication replicator 10.0.100.2/32 trust
-- host replication replicator 10.0.100.3/32 trust
+- host replication replicator 192.168.3.202/32 trust
+- host replication replicator 192.168.3.203/32 trust
 - host all all 0.0.0.0/0 md5
 - host all all ::0/0 md5
 recovery_conf:
@@ -5356,7 +5353,7 @@ listen standbys
 </li>
 </ol>
 <h2 id="solutions-ha-haproxy-keepalived-setup">Keepalived setup<a class="headerlink" href="#solutions-ha-haproxy-keepalived-setup" title="Permanent link">&para;</a></h2>
-<p>The HAproxy instances will share a virtual IP address <code>203.0.113.1</code> as the single point of entry for client applications.</p>
+<p>The HAproxy instances will share a virtual IP address <code>192.168.3.208</code> as the single point of entry for client applications.</p>
 <p>In this setup we define the basic health check for HAProxy. You may want to use a more sophisticated check. You can do this by writing a script and referencing it in the <code>keeplaived</code> configuration. See the <a href="#solutions-ha-haproxy-example-of-haproxy-health-check">Example of HAProxy health check</a> section for details.</p>
 <ol>
 <li>
@@ -5394,7 +5391,7 @@ listen standbys
 <span class="w">        </span><span class="na">auth_pass myS3cr3tpass     # Authentication password</span>
 <span class="w">    </span><span class="na">}</span>
 <span class="w">    </span><span class="na">virtual_ipaddress {</span>
-<span class="w">        </span><span class="na">203.0.113.1/24            # The virtual IP address</span>
+<span class="w">        </span><span class="na">192.168.3.208/24            # The virtual IP address</span>
 <span class="w">    </span><span class="na">}</span>
 <span class="w">    </span><span class="na">track_script {</span>
 <span class="w">        </span><span class="na">chk_haproxy</span>
@@ -5422,7 +5419,7 @@ listen standbys
 <span class="w">        </span><span class="na">auth_pass myS3cr3tpass     # Same password as primary</span>
 <span class="w">    </span><span class="na">}</span>
 <span class="w">    </span><span class="na">virtual_ipaddress {</span>
-<span class="w">        </span><span class="na">203.0.113.1/24 </span>
+<span class="w">        </span><span class="na">192.168.3.208/24 </span>
 <span class="w">    </span><span class="na">}</span>
 <span class="w">    </span><span class="na">track_script {</span>
 <span class="w">        </span><span class="na">chk_haproxy</span>
@@ -5450,7 +5447,7 @@ listen standbys
 <span class="w">        </span><span class="na">auth_pass myS3cr3tpass     # Same password as primary</span>
 <span class="w">    </span><span class="na">}</span>
 <span class="w">    </span><span class="na">virtual_ipaddress {</span>
-<span class="w">        </span><span class="na">203.0.113.1/24 </span>
+<span class="w">        </span><span class="na">192.168.3.208/24 </span>
 <span class="w">    </span><span class="na">}</span>
 <span class="w">    </span><span class="na">track_script {</span>
 <span class="w">        </span><span class="na">chk_haproxy</span>
@@ -5535,8 +5532,8 @@ listen standbys
 <h3 id="solutions-ha-test-testing-replication">Testing replication<a class="headerlink" href="#solutions-ha-test-testing-replication" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Connect to the cluster and establish the <code>psql</code> session from a client machine that can connect to the HAProxy node. Use the HAProxy-demo node&rsquo;s public IP address:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">134</span>.209.111.138<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>
+<p>Connect to the cluster and establish the <code>psql</code> session from a client machine that can connect to the HAProxy node. Use the HAProxy&rsquo;s virtual IP address:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">192</span>.168.3.208<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>
 </code></pre></div>
 </li>
 <li>
@@ -5605,7 +5602,7 @@ Sep 23 14:18:31 node03 patroni[10042]: 2021-09-23 14:18:31,114 INFO: no action. 
 </li>
 <li>
 <p>Verify that you can still access the cluster through the HAProxy instance and read data:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">192</span>.168.3.203<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">192</span>.168.3.208<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
 
 <span class="w">  </span>name<span class="w">  </span><span class="p">|</span><span class="w"> </span>age
 --------+-----
@@ -5764,7 +5761,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <ul>
 <li><strong>PostgreSQL <a href="https://www.postgresql.org/docs/18/app-pgbasebackup.html">pg_basebackup <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></strong></li>
 </ul>
-<p>This backup tool is provided by PostgreSQL. It is used to back up data when the database instance is running. <code>pgasebackup</code> makes a binary copy of the database cluster files, while making sure the system is put in and out of backup mode automatically. </p>
+<p>This backup tool is provided by PostgreSQL. It is used to back up data when the database instance is running. <code>pg_basebackup</code> makes a binary copy of the database cluster files, while making sure the system is put in and out of backup mode automatically. </p>
 <table>
 <thead>
 <tr>
@@ -5830,15 +5827,15 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <tbody>
 <tr>
 <td>pg-primary</td>
-<td>192.168.3.203</td>
+<td>192.168.3.201</td>
 </tr>
 <tr>
 <td>pg-repo</td>
-<td>10.104.0.5</td>
+<td>192.168.3.207</td>
 </tr>
 <tr>
 <td>pg-secondary</td>
-<td>10.104.0.4</td>
+<td>192.168.3.202</td>
 </tr>
 </tbody>
 </table>
@@ -5865,23 +5862,23 @@ pg-secondary
 <div class="highlight"><pre><span></span><code>```
 127.0.1.1 pg-primary pg-primary
 127.0.0.1 localhost
-10.104.0.5 pg-repo
+192.168.3.207 pg-repo
 ```
 </code></pre></div>
 <p>The <code>/etc/hosts</code> file in the <code>pg-repo</code> node looks like this:</p>
 <div class="highlight"><pre><span></span><code>```
 127.0.1.1 pg-repo pg-repo
 127.0.0.1 localhost
-192.168.3.203 pg-primary
-10.104.0.4 pg-secondary
+192.168.3.201 pg-primary
+192.168.3.202 pg-secondary
 ```
 </code></pre></div>
 <p>The <code>/etc/hosts</code> file in the <code>pg-secondary</code> node is shown below:</p>
 <div class="highlight"><pre><span></span><code>```
 127.0.1.1 pg-secondary pg-secondary
 127.0.0.1 localhost
-192.168.3.203 pg-primary
-10.104.0.5 pg-repo
+192.168.3.201 pg-primary
+192.168.3.207 pg-repo
 ```
 </code></pre></div>
 <h3 id="solutions-dr-pgbackrest-setup-set-up-passwordless-ssh">Set up passwordless SSH<a class="headerlink" href="#solutions-dr-pgbackrest-setup-set-up-passwordless-ssh" title="Permanent link">&para;</a></h3>
