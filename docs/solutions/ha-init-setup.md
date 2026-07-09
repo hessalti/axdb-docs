@@ -11,17 +11,17 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 2. For this setup, we will use the nodes that have the following IP addresses:
 
 
-    | Node name     | Public IP address | Internal IP address
-    |---------------|-------------------|--------------------
-    | node1         | 157.230.42.174    | 10.104.0.7
-    | node2         | 68.183.177.183    | 192.168.3.202
-    | node3         | 165.22.62.167     | 10.104.0.8
-    | HAProxy1      | 112.209.126.159   | 10.104.0.6
-    | HAProxy2      | 134.209.111.138   | 10.104.0.5
-    | HAProxy3      | 134.60.204.27     | 192.168.3.203
-    | backup        | 97.78.129.11      | 10.104.0.9
+    | Node name     | Internal IP address
+    |---------------|---------------------
+    | node1         | 192.168.3.201
+    | node2         | 192.168.3.202
+    | node3         | 192.168.3.203
+    | HAProxy1      | 192.168.3.204
+    | HAProxy2      | 192.168.3.205
+    | HAProxy3      | 192.168.3.206
+    | backup        | 192.168.3.207
 
-    We also need a virtual IP address for HAProxy: `203.0.113.1`
+    We also need a virtual IP address for HAProxy: `192.168.3.208`
 
 
 !!! important
@@ -45,13 +45,13 @@ Run the following commands on each node.
     ```text 
     # Cluster IP and names
 
-    10.104.0.7 node1    
+    192.168.3.201 node1    
     192.168.3.202 node2    
-    10.104.0.8 node3    
-    10.104.0.6 HAProxy1 
-    10.104.0.5 HAProxy2 
-    192.168.3.203 HAProxy3
-    10.104.0.9 backup   
+    192.168.3.203 node3    
+    192.168.3.204 HAProxy1 
+    192.168.3.205 HAProxy2 
+    192.168.3.206 HAProxy3
+    192.168.3.207 backup   
     ```
 
 ## Next steps

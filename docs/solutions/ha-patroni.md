@@ -2,8 +2,17 @@
 
 ## Install Patroni
 
-Use etcd under /opt/axdb/axdb-etcd/ on all PostgreSQL nodes: `node1`, `node2` and `node3`.
+Use patroni under /opt/axdb/axdb-patroni/ (when `<axdb-dir>` is /opt/axdb/) on all PostgreSQL nodes: `node1`, `node2` and `node3`.
     
+Stop and disable all installed patroni and postgresql services:
+    
+```{.bash data-prompt="$"}
+$ sudo systemctl stop {patroni,postgresql}
+$ sudo systemctl disable {patroni,postgresql}
+```
+    
+Even though Patroni can use an existing Postgres installation, our recommendation for a **new cluster that has no data** is to have empty PostgreSQL data directory. This forces Patroni to initialize a new Postgres cluster instance.
+
 **Don't** initialize the cluster and start the `postgresql`. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
 
 ## Configure Patroni
@@ -35,13 +44,13 @@ Environment variables simplify the config file creation:
     ??? example "Sample output `node1`"
 
            ```{text .no-copy}
-           10.104.0.7
+           192.168.3.201
            ```
 
        If you have multiple IP addresses defined on your server and the environment variable contains the wrong one, you can manually redefine it. For example, run the following command for `node1`:
 
        ```{.bash data-prompt="$"}
-       $ NODE_IP=10.104.0.7
+       $ NODE_IP=192.168.3.201
        ```
 
 3. Create variables to store the `PATH`. Check the path to the `data` and `bin` folders on your operating system and change it for the variables accordingly:
@@ -254,22 +263,22 @@ Now it's time to start Patroni. You need the following commands on all nodes but
     ??? example "Sample output node1"
 
         ```{.text .no-copy}
-        + Cluster: cluster_1 (7440127629342136675) -----+----+-------+
-        | Member | Host       | Role    | State     | TL | Lag in MB |
-        +--------+------------+---------+-----------+----+-----------+
-        | node1  | 10.0.100.1 | Leader  | running   |  1 |           |
+        + Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
+        | Member | Host          | Role    | State     | TL | Lag in MB |
+        +--------+---------------+---------+-----------+----+-----------+
+        | node1  | 192.168.3.201 | Leader  | running   |  1 |           |
         ```
 
     ??? example "Sample output node3"
 
         ```{.text .no-copy}
-        + Cluster: cluster_1 (7440127629342136675) -----+----+-------+
-        | Member | Host       | Role    | State     | TL | Lag in MB |
-        +--------+------------+---------+-----------+----+-----------+
-        | node1  | 10.0.100.1 | Leader  | running   |  1 |           |
-        | node2  | 10.0.100.2 | Replica | streaming |  1 |         0 |
-        | node3  | 10.0.100.3 | Replica | streaming |  1 |         0 |
-        +--------+------------+---------+-----------+----+-----------+
+        + Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
+        | Member | Host          | Role    | State     | TL | Lag in MB |
+        +--------+---------------+---------+-----------+----+-----------+
+        | node1  | 192.168.3.201 | Leader  | running   |  1 |           |
+        | node2  | 192.168.3.202 | Replica | streaming |  1 |         0 |
+        | node3  | 192.168.3.203 | Replica | streaming |  1 |         0 |
+        +--------+---------------+---------+-----------+----+-----------+
         ```
 
 ### Troubleshooting Patroni startup
@@ -282,8 +291,8 @@ An example of such an error is `No pg_hba.conf entry for replication connection 
 pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
 - host replication replicator 127.0.0.1/32 trust
 - host replication replicator 0.0.0.0/0 md5
-- host replication replicator 10.0.100.2/32 trust
-- host replication replicator 10.0.100.3/32 trust
+- host replication replicator 192.168.3.202/32 trust
+- host replication replicator 192.168.3.203/32 trust
 - host all all 0.0.0.0/0 md5
 - host all all ::0/0 md5
 recovery_conf:

@@ -9,10 +9,10 @@ This document covers the following scenarios to test the PostgreSQL cluster:
 
 ### Testing replication 
 
-1. Connect to the cluster and establish the `psql` session from a client machine that can connect to the HAProxy node. Use the HAProxy-demo node's public IP address:
+1. Connect to the cluster and establish the `psql` session from a client machine that can connect to the HAProxy node. Use the HAProxy's virtual IP address:
 
     ```{.bash data-prompt="$"}
-    $ psql -U postgres -h 134.209.111.138 -p 5000
+    $ psql -U postgres -h 192.168.3.208 -p 5000
     ```
 
 2. Run the following commands to create a table and insert a few rows:
@@ -97,7 +97,7 @@ In a proper setup, client applications won't have issues connecting to the clust
 4. Verify that you can still access the cluster through the HAProxy instance and read data:
 
     ```{.bash data-prompt="$"}
-    $ psql -U postgres -h 192.168.3.203 -p 5000 -c "SELECT * FROM CUSTOMER;"
+    $ psql -U postgres -h 192.168.3.208 -p 5000 -c "SELECT * FROM CUSTOMER;"
 
       name  | age
     --------+-----

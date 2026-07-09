@@ -8,9 +8,9 @@ As the example configuration, we will use the nodes with the following IP addres
 
 | **Node name**   | **Internal IP address** |
 | --------------- | ----------------------- |
-| pg-primary      | 192.168.3.203              |
-| pg-repo         | 10.104.0.5              |
-| pg-secondary    | 10.104.0.4              |
+| pg-primary      | 192.168.3.201           |
+| pg-repo         | 192.168.3.207           |
+| pg-secondary    | 192.168.3.202           |
 
 ### Set up hostnames
 
@@ -40,7 +40,7 @@ In our architecture, the `pgBackRest` repository is located on a remote host. To
     ```
     127.0.1.1 pg-primary pg-primary
     127.0.0.1 localhost
-    10.104.0.5 pg-repo
+    192.168.3.207 pg-repo
     ```
 
    The `/etc/hosts` file in the `pg-repo` node looks like this:
@@ -48,8 +48,8 @@ In our architecture, the `pgBackRest` repository is located on a remote host. To
     ```
     127.0.1.1 pg-repo pg-repo
     127.0.0.1 localhost
-    192.168.3.203 pg-primary
-    10.104.0.4 pg-secondary
+    192.168.3.201 pg-primary
+    192.168.3.202 pg-secondary
     ```
 
    The `/etc/hosts` file in the `pg-secondary` node is shown below:
@@ -57,8 +57,8 @@ In our architecture, the `pgBackRest` repository is located on a remote host. To
     ```
     127.0.1.1 pg-secondary pg-secondary
     127.0.0.1 localhost
-    192.168.3.203 pg-primary
-    10.104.0.5 pg-repo
+    192.168.3.201 pg-primary
+    192.168.3.207 pg-repo
     ```
 
 ### Set up passwordless SSH

@@ -4,7 +4,7 @@ In our solutions, we use etcd distributed configuration store. [Refresh your kno
 
 ## Install etcd
 
-Use etcd under /opt/axdb/axdb-etcd/ on all PostgreSQL nodes: `node1`, `node2` and `node3`.
+Use etcd under /opt/axdb/axdb-etcd/ (when `<axdb-dir>` is /opt/axdb/) on all etcd nodes: `node1`, `node2` and `node3`.
 
 Create a dedicated system user for the `etcd` background process on every node:
 

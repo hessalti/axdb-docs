@@ -86,7 +86,7 @@ You can fine-tune user behavior with the [custom parameters :octicons-link-exter
 
 ## pgbouncer
 
-`pgbouncer` requires the `pgbouncer.ini` configuration file to start. The path is `<tarballsdir>/axdb-pgbouncer/etc/pgbouncer.ini`.
+`pgbouncer` requires the `pgbouncer.ini` configuration file to start. The path is `<axdb-dir>/axdb-pgbouncer/etc/pgbouncer.ini`.
 
 Find detailed information about configuration file options in the [`pgbouncer documentation`](https://www.pgbouncer.org/config.html).
 
@@ -94,10 +94,10 @@ Find detailed information about configuration file options in the [`pgbouncer do
 
 `pgpool-II` requires the configuration file to start. 
 
-You can use the sample configuration file `<tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample`:
+You can use the sample configuration file `<axdb-dir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample`:
 
 ```{.bash data-prompt="$"}
-$ cp <tarballsdir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample <config-file-path>/pgpool.conf
+$ cp <axdb-dir>/axdb-pgpool-II/etc/pgpool2/pgpool.conf.sample <config-file-path>/pgpool.conf
 ```
 
 Specify the path to it when starting pgpool:

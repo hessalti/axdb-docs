@@ -18,7 +18,7 @@ Patroni uses the `etcd` distributed consensus store to coordinate the state of a
 
     - After a user installs and configures Patroni, Patroni takes over the PostgreSQL service administration and configuration;
     - Patroni maintains the cluster state data such as PostgreSQL configuration, information about which node is the primary and which are replicas, and their health status.
-    - Patroni manages PostgreSQL configuration files such as` postgresql.conf` and `pg_hba.conf` dynamically, ensuring consistency across the cluster.
+    - Patroni manages PostgreSQL configuration files such as `postgresql.conf` and `pg_hba.conf` dynamically, ensuring consistency across the cluster.
     - A Patroni agent runs on each cluster node and communicates with `etcd` and other nodes.
 
 2. Primary node election:
@@ -65,8 +65,8 @@ Watchdog adds an extra layer of safety, because it helps protecting against scen
 
 There are 2 types of watchdogs:
 
- - Hardware watchdog: A physical device that reboots the server if the operating system becomes unresponsive.
-- Software watchdog (also called a softdog): A software-based watchdog timer tha emulates the functionality of a hardware watchdog but is implemented entirely in software. It is part of the Linux kernel's watchdog infrastructure and is useful in systems that lack dedicated hardware watchdog timers. The softdog monitors the system and takes corrective actions such as killing processes or rebooting the node.
+- Hardware watchdog: A physical device that reboots the server if the operating system becomes unresponsive.
+- Software watchdog (also called a softdog): A software-based watchdog timer that emulates the functionality of a hardware watchdog but is implemented entirely in software. It is part of the Linux kernel's watchdog infrastructure and is useful in systems that lack dedicated hardware watchdog timers. The softdog monitors the system and takes corrective actions such as killing processes or rebooting the node.
 
 Most of the servers in the cloud nowadays use a softdog.
 

@@ -49,7 +49,7 @@ Using such architecture has the following limitations:
 * This setup only protects against a one node failure, either a database or a etcd node. Losing more than one node results in the read-only database.
 * The application must be able to connect to multiple database nodes and fail over to the new primary in the case of outage.
 * The application must act as the load-balancer. It must be able to determine read/write and read-only requests and distribute them across the cluster. 
-- The `pbBackRest` component is optional as it doesn't server the purpose of high-availability. But it is highly-recommended for disaster recovery and is a must fo production environments. [Contact us](https://www.percona.com/about/contact) to discuss backup configurations and retention policies.
+- The `pbBackRest` component is optional as it doesn't server the purpose of high-availability. But it is highly-recommended for disaster recovery and is a must fo production environments.
 
 ## Additional reading
 

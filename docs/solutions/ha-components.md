@@ -22,7 +22,7 @@ When you start Patroni, it writes the cluster configuration information in `etcd
 
 You start Patroni instances one by one so the first instance acquires the lock with a lease in `etcd` and becomes the primary PostgreSQL node. The other instances join the primary as replicas, waiting for the lock to be released.
 
-If the current primary node crashes, its lease on the lock in `etcd` expires. The lock is automatically released after its expiration time. `etcd` the starts a new election and a standby node attempts to acquire the lock to become the new primary.
+If the current primary node crashes, its lease on the lock in `etcd` expires. The lock is automatically released after its expiration time. `etcd` starts a new election and a standby node attempts to acquire the lock to become the new primary.
 
 Patroni uses not only `etcd` locking mechanism. It also uses `etcd` to store the current state of the cluster, ensuring that all nodes are aware of the latest topology and status. 
 

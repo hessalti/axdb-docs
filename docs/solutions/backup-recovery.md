@@ -39,7 +39,7 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
 
     - **PostgreSQL [pg_basebackup :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/app-pgbasebackup.html)**
 
-    This backup tool is provided by PostgreSQL. It is used to back up data when the database instance is running. `pgasebackup` makes a binary copy of the database cluster files, while making sure the system is put in and out of backup mode automatically. 
+    This backup tool is provided by PostgreSQL. It is used to back up data when the database instance is running. `pg_basebackup` makes a binary copy of the database cluster files, while making sure the system is put in and out of backup mode automatically. 
 
     | Advantages   | Disadvantages   |
     | ------------ | --------------- |

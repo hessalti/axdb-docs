@@ -76,7 +76,7 @@ If you use a cloud infrastructure, it may be easier to use the load balancer pro
 
 ## Keepalived setup
 
-The HAproxy instances will share a virtual IP address `203.0.113.1` as the single point of entry for client applications.
+The HAproxy instances will share a virtual IP address `192.168.3.208` as the single point of entry for client applications.
 
 In this setup we define the basic health check for HAProxy. You may want to use a more sophisticated check. You can do this by writing a script and referencing it in the `keeplaived` configuration. See the [Example of HAProxy health check](#example-of-haproxy-health-check) section for details.
 
@@ -112,7 +112,7 @@ In this setup we define the basic health check for HAProxy. You may want to use 
                 auth_pass myS3cr3tpass     # Authentication password
             }
             virtual_ipaddress {
-                203.0.113.1/24            # The virtual IP address
+                192.168.3.208/24            # The virtual IP address
             }
             track_script {
                 chk_haproxy
@@ -142,7 +142,7 @@ In this setup we define the basic health check for HAProxy. You may want to use 
                 auth_pass myS3cr3tpass     # Same password as primary
             }
             virtual_ipaddress {
-                203.0.113.1/24 
+                192.168.3.208/24 
             }
             track_script {
                 chk_haproxy
@@ -172,7 +172,7 @@ In this setup we define the basic health check for HAProxy. You may want to use 
                 auth_pass myS3cr3tpass     # Same password as primary
             }
             virtual_ipaddress {
-                203.0.113.1/24 
+                192.168.3.208/24 
             }
             track_script {
                 chk_haproxy
