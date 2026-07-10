@@ -4469,10 +4469,6 @@ the same CPU as long as possible.</p>
 <td>192.168.3.205</td>
 </tr>
 <tr>
-<td>HAProxy3</td>
-<td>192.168.3.206</td>
-</tr>
-<tr>
 <td>backup</td>
 <td>192.168.3.207</td>
 </tr>
@@ -4503,7 +4499,6 @@ the same CPU as long as possible.</p>
 192.168.3.203 node3    
 192.168.3.204 HAProxy1 
 192.168.3.205 HAProxy2 
-192.168.3.206 HAProxy3
 192.168.3.207 backup   
 </code></pre></div>
 </li>
@@ -4514,8 +4509,8 @@ the same CPU as long as possible.</p>
 <h2 id="solutions-ha-etcd-config-install-etcd">Install etcd<a class="headerlink" href="#solutions-ha-etcd-config-install-etcd" title="Permanent link">&para;</a></h2>
 <p>Use etcd under /opt/axdb/axdb-etcd/ (when <code>&lt;axdb-dir&gt;</code> is /opt/axdb/) on all etcd nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
 <p>Create a dedicated system user for the <code>etcd</code> background process on every node:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>getent<span class="w"> </span>group<span class="w"> </span>etcd<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>sudo<span class="w"> </span>groupadd<span class="w"> </span>--system<span class="w"> </span>etcd
-$<span class="w"> </span>id<span class="w"> </span>-u<span class="w"> </span>etcd<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>--system<span class="w"> </span>--gid<span class="w"> </span>etcd<span class="w"> </span>--home-dir<span class="w"> </span>/var/lib/etcd<span class="w"> </span>--shell<span class="w"> </span>/sbin/nologin<span class="w"> </span>etcd
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>groupadd<span class="w"> </span>--system<span class="w"> </span>etcd
+$<span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>--system<span class="w"> </span>--gid<span class="w"> </span>etcd<span class="w"> </span>--home-dir<span class="w"> </span>/var/lib/etcd<span class="w"> </span>--shell<span class="w"> </span>/sbin/nologin<span class="w"> </span>etcd
 $<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/etcd<span class="w"> </span>/var/lib/etcd
 $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>etcd:etcd<span class="w"> </span>/etc/etcd<span class="w"> </span>/var/lib/etcd
 </code></pre></div>
@@ -5288,7 +5283,7 @@ tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      
 <h2 id="solutions-pgbackrest-next-steps">Next steps<a class="headerlink" href="#solutions-pgbackrest-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#solutions-ha-haproxy">Configure HAProxy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="solutions-ha-haproxy" heading-number="6.2.6.5"><h1 id="solutions-ha-haproxy-configure-haproxy">Configure HAProxy<a class="headerlink" href="#solutions-ha-haproxy-configure-haproxy" title="Permanent link">&para;</a></h1>
 <p>HAproxy is the connection router and acts as a single point of entry to your PostgreSQL cluster for client applications. Additionally, HAProxy provides load-balancing for read-only connections. </p>
-<p>A client application connects to HAProxy and sends its read/write requests there. You can provide different ports in the HAProxy configuration file so that the client application can explicitly choose between read-write (primary) connection or read-only (replica) connection using the right port number to connect. In this deployment, writes are routed to port 5000 and reads  - to port 5001.</p>
+<p>A client application connects to HAProxy and sends its read/write requests there. You can provide different ports in the HAProxy configuration file so that the client application can explicitly choose between read-write (primary) connection or read-only (replica) connection using the right port number to connect. In this deployment, writes are routed to port 5000 and reads to port 5001.</p>
 <p>The client application doesn&rsquo;t know what node in the underlying cluster is the current primary. But it must connect to the HAProxy read-write connection to send all write requests. This ensures that HAProxy correctly routes all write load to the current primary node. Read requests are routed to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded.</p>
 <p>When you deploy HAProxy outside the application layer, you must deploy multiple instances of it and have the automatic failover mechanism to eliminate a single point of failure for HAProxy.</p>
 <p>For this document we focus on deployment on premises and we use <code>keepalived</code>. It monitors HAProxy state and manages the virtual IP for HAProxy.</p>
@@ -5296,7 +5291,7 @@ tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      
 <h2 id="solutions-ha-haproxy-haproxy-setup">HAProxy setup<a class="headerlink" href="#solutions-ha-haproxy-haproxy-setup" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Install HAProxy on the HAProxy nodes: <code>HAProxy1</code>, <code>HAProxy2</code> and <code>HAProxy3</code>:</p>
+<p>Use HAProxy under /opt/axdb/axdb-haproxy/ (when <code>&lt;axdb-dir&gt;</code> is /opt/axdb/) on the HAProxy nodes: <code>HAProxy1</code> and <code>HAProxy2</code>:</p>
 </li>
 <li>
 <p>The HAProxy configuration file path is: <code>/etc/haproxy/haproxy.cfg</code>. Specify the following configuration in this file for every node.</p>
@@ -5317,7 +5312,7 @@ listen stats                # Statistics monitoring
     bind *:7000            # Port to listen to on all network interfaces
     stats enable           # Statistics reporting interface
     stats uri /stats       # URL path for the stats page
-    stats auth percona:myS3cr3tpass    # Username:password authentication ??? percona ???
+    stats auth someuser:change-pw    # Username:password authentication
 
 listen primary
     bind *:5000                        # Port for write connections
@@ -5342,8 +5337,46 @@ listen standbys
 <p>To monitor HAProxy stats, create the user who has the access to it. Read more about statistics dashboard in <a href="https://www.haproxy.com/documentation/haproxy-configuration-tutorials/alerts-and-monitoring/statistics/">HAProxy documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </li>
 <li>
-<p>Restart HAProxy:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>haproxy
+<p>Create a dedicated system user for the <code>haproxy</code> background process on every HAProxy node.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>groupadd<span class="w"> </span>--system<span class="w"> </span>haproxy
+$<span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>--system<span class="w"> </span>--gid<span class="w"> </span>haproxy<span class="w"> </span>--home-dir<span class="w"> </span>/var/lib/haproxy<span class="w"> </span>--shell<span class="w"> </span>/sbin/nologin<span class="w"> </span>haproxy
+$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/haproxy<span class="w"> </span>/var/lib/haproxy
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>haproxy:haproxy<span class="w"> </span>/etc/haproxy<span class="w"> </span>/var/lib/haproxy
+</code></pre></div>
+</li>
+<li>
+<p>Create the <code>systemd</code> unit file at <code>/etc/systemd/system/haproxy.service</code> with the following contents:</p>
+<div class="highlight"><span class="filename">/etc/systemd/system/haproxy.service</span><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">HAProxy Load Balancer for AXDB</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network-online.target</span>
+<span class="na">Wants</span><span class="o">=</span><span class="s">network-online.target</span>
+
+<span class="k">[Service]</span>
+<span class="na">User</span><span class="o">=</span><span class="s">haproxy</span>
+<span class="na">Group</span><span class="o">=</span><span class="s">haproxy</span>
+<span class="na">Environment</span><span class="o">=</span><span class="s">&quot;CONFIG=/etc/haproxy/haproxy.cfg&quot;</span>
+<span class="na">Environment</span><span class="o">=</span><span class="s">&quot;PIDFILE=/run/haproxy/haproxy.pid&quot;</span>
+<span class="na">RuntimeDirectory</span><span class="o">=</span><span class="s">haproxy</span>
+<span class="na">RuntimeDirectoryMode</span><span class="o">=</span><span class="s">0755</span>
+<span class="na">ExecStartPre</span><span class="o">=</span><span class="s">/opt/axdb/axdb-haproxy/sbin/haproxy -f $CONFIG -c -q</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/axdb/axdb-haproxy/sbin/haproxy -W -f $CONFIG -p $PIDFILE</span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/opt/axdb/axdb-haproxy/sbin/haproxy -f $CONFIG -c -q</span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -USR2 $MAINPID</span>
+<span class="na">KillMode</span><span class="o">=</span><span class="s">mixed</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">SuccessExitStatus</span><span class="o">=</span><span class="s">143</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">forking</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</code></pre></div>
+</li>
+<li>
+<p>Enable and start the <code>haproxy</code> service on all nodes:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>haproxy
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>haproxy
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>haproxy
 </code></pre></div>
 </li>
 <li>
@@ -5369,26 +5402,26 @@ listen standbys
 </li>
 <li>
 <p>Create the <code>keepalived</code> configuration file at <code>/etc/keepalived/keepalived.conf</code> with the following contents for each node:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="solutions-ha-haproxy-__tabbed_2_1" name="solutions-ha-haproxy-__tabbed_2" type="radio" /><input id="solutions-ha-haproxy-__tabbed_2_2" name="solutions-ha-haproxy-__tabbed_2" type="radio" /><input id="solutions-ha-haproxy-__tabbed_2_3" name="solutions-ha-haproxy-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="solutions-ha-haproxy-__tabbed_2_1">Primary HAProxy (HAProxy1)</label><label for="solutions-ha-haproxy-__tabbed_2_2">HAProxy2</label><label for="solutions-ha-haproxy-__tabbed_2_3">HAProxy3</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="solutions-ha-haproxy-__tabbed_2_1" name="solutions-ha-haproxy-__tabbed_2" type="radio" /><input id="solutions-ha-haproxy-__tabbed_2_2" name="solutions-ha-haproxy-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="solutions-ha-haproxy-__tabbed_2_1">Primary HAProxy (HAProxy1)</label><label for="solutions-ha-haproxy-__tabbed_2_2">HAProxy2</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
 <span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
-<span class="w">    </span><span class="na">interval 3                      # Check every 2 seconds</span>
-<span class="w">    </span><span class="na">fall 3                          # The number of failures to mark the node as down</span>
-<span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
-<span class="w">    </span><span class="na">weight -11                        # Reduce priority by 2 on failure</span>
+<span class="w">    </span><span class="na">interval 3                     # Check every 2 seconds</span>
+<span class="w">    </span><span class="na">fall 3                         # The number of failures to mark the node as down</span>
+<span class="w">    </span><span class="na">rise 2                         # The number of successes to mark the node as up</span>
+<span class="w">    </span><span class="na">weight -50                     # Reduce priority by 50 on failure</span>
 <span class="na">}</span>
 
 <span class="na">vrrp_instance CLUSTER_1 {           # The name of Patroni cluster</span>
 <span class="w">    </span><span class="na">state MASTER                    # Initial state for the primary node</span>
 <span class="w">    </span><span class="na">interface eth1                  # Network interface to bind to</span>
 <span class="w">    </span><span class="na">virtual_router_id 99            # Unique ID for this VRRP instance</span>
-<span class="w">    </span><span class="na">priority 110                   # The priority for the primary must be the highest</span>
-<span class="w">    </span><span class="na">advert_int 1                   # Advertisement interval</span>
+<span class="w">    </span><span class="na">priority 110                    # The priority for the primary must be the highest</span>
+<span class="w">    </span><span class="na">advert_int 1                    # Advertisement interval</span>
 <span class="w">    </span><span class="na">authentication {</span>
 <span class="w">        </span><span class="na">auth_type PASS</span>
-<span class="w">        </span><span class="na">auth_pass myS3cr3tpass     # Authentication password</span>
+<span class="w">        </span><span class="na">auth_pass mypass99          # Same password as primary</span>
 <span class="w">    </span><span class="na">}</span>
 <span class="w">    </span><span class="na">virtual_ipaddress {</span>
 <span class="w">        </span><span class="na">192.168.3.208/24            # The virtual IP address</span>
@@ -5402,49 +5435,21 @@ listen standbys
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
 <span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
-<span class="w">    </span><span class="na">interval 2                      # Check every 2 seconds</span>
-<span class="w">    </span><span class="na">fall 2                          # The number of failures to mark the node as down</span>
-<span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
-<span class="w">    </span><span class="na">weight 2                        # Reduce priority by 2 on failure</span>
+<span class="w">    </span><span class="na">interval 3                     # Check every 2 seconds</span>
+<span class="w">    </span><span class="na">fall 3                         # The number of failures to mark the node as down</span>
+<span class="w">    </span><span class="na">rise 2                         # The number of successes to mark the node as up</span>
+<span class="w">    </span><span class="na">weight -50                     # Reduce priority by 50 on failure</span>
 <span class="na">}</span>
 
 <span class="na">vrrp_instance CLUSTER_1 {</span>
-<span class="w">    </span><span class="na">state BACKUP                    # Initial state for backup node</span>
-<span class="w">    </span><span class="na">interface eth1                  # Network interface to bind to</span>
+<span class="w">    </span><span class="na">state BACKUP                   # Initial state for backup node</span>
+<span class="w">    </span><span class="na">interface eth1                 # Network interface to bind to</span>
 <span class="w">    </span><span class="na">virtual_router_id 99           # Same ID as primary</span>
 <span class="w">    </span><span class="na">priority 100                   # Lower priority than primary</span>
 <span class="w">    </span><span class="na">advert_int 1                   # Advertisement interval</span>
 <span class="w">    </span><span class="na">authentication {</span>
 <span class="w">        </span><span class="na">auth_type PASS</span>
-<span class="w">        </span><span class="na">auth_pass myS3cr3tpass     # Same password as primary</span>
-<span class="w">    </span><span class="na">}</span>
-<span class="w">    </span><span class="na">virtual_ipaddress {</span>
-<span class="w">        </span><span class="na">192.168.3.208/24 </span>
-<span class="w">    </span><span class="na">}</span>
-<span class="w">    </span><span class="na">track_script {</span>
-<span class="w">        </span><span class="na">chk_haproxy</span>
-<span class="w">    </span><span class="na">}</span>
-<span class="na">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
-<span class="w">    </span><span class="na">interval 2                      # Check every 2 seconds</span>
-<span class="w">    </span><span class="na">fall 3                          # The number of failures to mark the node as down</span>
-<span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
-<span class="w">    </span><span class="na">weight 6                        # Reduce priority by 2 on failure</span>
-<span class="na">}</span>
-
-<span class="na">vrrp_instance CLUSTER_1 {</span>
-<span class="w">    </span><span class="na">state BACKUP                    # Initial state for backup node</span>
-<span class="w">    </span><span class="na">interface eth1                  # Network interface to bind to</span>
-<span class="w">    </span><span class="na">virtual_router_id 99           # Same ID as primary</span>
-<span class="w">    </span><span class="na">priority 105                    # Lowest priority</span>
-<span class="w">    </span><span class="na">advert_int 1                   # Advertisement interval</span>
-<span class="w">    </span><span class="na">authentication {</span>
-<span class="w">        </span><span class="na">auth_type PASS</span>
-<span class="w">        </span><span class="na">auth_pass myS3cr3tpass     # Same password as primary</span>
+<span class="w">        </span><span class="na">auth_pass mypass99         # Same password as primary</span>
 <span class="w">    </span><span class="na">}</span>
 <span class="w">    </span><span class="na">virtual_ipaddress {</span>
 <span class="w">        </span><span class="na">192.168.3.208/24 </span>
