@@ -2,7 +2,7 @@
 
 HAproxy is the connection router and acts as a single point of entry to your PostgreSQL cluster for client applications. Additionally, HAProxy provides load-balancing for read-only connections. 
 
-A client application connects to HAProxy and sends its read/write requests there. You can provide different ports in the HAProxy configuration file so that the client application can explicitly choose between read-write (primary) connection or read-only (replica) connection using the right port number to connect. In this deployment, writes are routed to port 5000 and reads  - to port 5001.
+A client application connects to HAProxy and sends its read/write requests there. You can provide different ports in the HAProxy configuration file so that the client application can explicitly choose between read-write (primary) connection or read-only (replica) connection using the right port number to connect. In this deployment, writes are routed to port 5000 and reads to port 5001.
 
 The client application doesn't know what node in the underlying cluster is the current primary. But it must connect to the HAProxy read-write connection to send all write requests. This ensures that HAProxy correctly routes all write load to the current primary node. Read requests are routed to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded.
 
@@ -14,7 +14,7 @@ If you use a cloud infrastructure, it may be easier to use the load balancer pro
 
 ## HAProxy setup
 
-1. Install HAProxy on the HAProxy nodes: `HAProxy1`, `HAProxy2` and `HAProxy3`:
+1. Use HAProxy under /opt/axdb/axdb-haproxy/ (when `<axdb-dir>` is /opt/axdb/) on the HAProxy nodes: `HAProxy1` and `HAProxy2`:
 
 2. The HAProxy configuration file path is: `/etc/haproxy/haproxy.cfg`. Specify the following configuration in this file for every node.
 
@@ -36,7 +36,7 @@ If you use a cloud infrastructure, it may be easier to use the load balancer pro
         bind *:7000            # Port to listen to on all network interfaces
         stats enable           # Statistics reporting interface
         stats uri /stats       # URL path for the stats page
-        stats auth percona:myS3cr3tpass    # Username:password authentication ??? percona ???
+        stats auth someuser:change-pw    # Username:password authentication
 
     listen primary
         bind *:5000                        # Port for write connections
@@ -62,13 +62,53 @@ If you use a cloud infrastructure, it may be easier to use the load balancer pro
 
     To monitor HAProxy stats, create the user who has the access to it. Read more about statistics dashboard in [HAProxy documentation :octicons-link-external-16:](https://www.haproxy.com/documentation/haproxy-configuration-tutorials/alerts-and-monitoring/statistics/)
 
-3. Restart HAProxy:
-    
+3. Create a dedicated system user for the `haproxy` background process on every HAProxy node.
+
     ```{.bash data-prompt="$"}
-    $ sudo systemctl restart haproxy
+    $ sudo groupadd --system haproxy
+    $ sudo useradd --system --gid haproxy --home-dir /var/lib/haproxy --shell /sbin/nologin haproxy
+    $ sudo mkdir -p /etc/haproxy /var/lib/haproxy
+    $ sudo chown -R haproxy:haproxy /etc/haproxy /var/lib/haproxy
     ```
 
-4. Check the HAProxy logs to see if there are any errors:
+4. Create the `systemd` unit file at `/etc/systemd/system/haproxy.service` with the following contents:
+
+    ```ini title="/etc/systemd/system/haproxy.service"
+    [Unit]
+    Description=HAProxy Load Balancer for AXDB
+    After=network-online.target
+    Wants=network-online.target
+
+    [Service]
+    User=haproxy
+    Group=haproxy
+    Environment="CONFIG=/etc/haproxy/haproxy.cfg"
+    Environment="PIDFILE=/run/haproxy/haproxy.pid"
+    RuntimeDirectory=haproxy
+    RuntimeDirectoryMode=0755
+    ExecStartPre=/opt/axdb/axdb-haproxy/sbin/haproxy -f $CONFIG -c -q
+    ExecStart=/opt/axdb/axdb-haproxy/sbin/haproxy -W -f $CONFIG -p $PIDFILE
+    ExecReload=/opt/axdb/axdb-haproxy/sbin/haproxy -f $CONFIG -c -q
+    ExecReload=/bin/kill -USR2 $MAINPID
+    KillMode=mixed
+    Restart=always
+    SuccessExitStatus=143
+    Type=forking
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+5. Enable and start the `haproxy` service on all nodes:
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl daemon-reload
+    $ sudo systemctl enable haproxy
+    $ sudo systemctl start haproxy
+    $ sudo systemctl status haproxy
+    ```
+
+6. Check the HAProxy logs to see if there are any errors:
    
     ```{.bash data-prompt="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
@@ -95,21 +135,21 @@ In this setup we define the basic health check for HAProxy. You may want to use 
         ```ini
         vrrp_script chk_haproxy {
             script "killall -0 haproxy"    # Basic check if HAProxy process is running
-            interval 3                      # Check every 2 seconds
-            fall 3                          # The number of failures to mark the node as down
-            rise 2                          # The number of successes to mark the node as up
-            weight -11                        # Reduce priority by 2 on failure
+            interval 3                     # Check every 2 seconds
+            fall 3                         # The number of failures to mark the node as down
+            rise 2                         # The number of successes to mark the node as up
+            weight -50                     # Reduce priority by 50 on failure
         }
 
         vrrp_instance CLUSTER_1 {           # The name of Patroni cluster
             state MASTER                    # Initial state for the primary node
             interface eth1                  # Network interface to bind to
             virtual_router_id 99            # Unique ID for this VRRP instance
-            priority 110                   # The priority for the primary must be the highest
-            advert_int 1                   # Advertisement interval
+            priority 110                    # The priority for the primary must be the highest
+            advert_int 1                    # Advertisement interval
             authentication {
                 auth_type PASS
-                auth_pass myS3cr3tpass     # Authentication password
+                auth_pass mypass99          # Same password as primary
             }
             virtual_ipaddress {
                 192.168.3.208/24            # The virtual IP address
@@ -125,51 +165,21 @@ In this setup we define the basic health check for HAProxy. You may want to use 
         ```ini
         vrrp_script chk_haproxy {
             script "killall -0 haproxy"    # Basic check if HAProxy process is running
-            interval 2                      # Check every 2 seconds
-            fall 2                          # The number of failures to mark the node as down
-            rise 2                          # The number of successes to mark the node as up
-            weight 2                        # Reduce priority by 2 on failure
+            interval 3                     # Check every 2 seconds
+            fall 3                         # The number of failures to mark the node as down
+            rise 2                         # The number of successes to mark the node as up
+            weight -50                     # Reduce priority by 50 on failure
         }
 
         vrrp_instance CLUSTER_1 {
-            state BACKUP                    # Initial state for backup node
-            interface eth1                  # Network interface to bind to
+            state BACKUP                   # Initial state for backup node
+            interface eth1                 # Network interface to bind to
             virtual_router_id 99           # Same ID as primary
             priority 100                   # Lower priority than primary
             advert_int 1                   # Advertisement interval
             authentication {
                 auth_type PASS
-                auth_pass myS3cr3tpass     # Same password as primary
-            }
-            virtual_ipaddress {
-                192.168.3.208/24 
-            }
-            track_script {
-                chk_haproxy
-            }
-        }
-        ```
-
-    === "HAProxy3"
-
-        ```ini
-        vrrp_script chk_haproxy {
-            script "killall -0 haproxy"    # Basic check if HAProxy process is running
-            interval 2                      # Check every 2 seconds
-            fall 3                          # The number of failures to mark the node as down
-            rise 2                          # The number of successes to mark the node as up
-            weight 6                        # Reduce priority by 2 on failure
-        }
-
-        vrrp_instance CLUSTER_1 {
-            state BACKUP                    # Initial state for backup node
-            interface eth1                  # Network interface to bind to
-            virtual_router_id 99           # Same ID as primary
-            priority 105                    # Lowest priority
-            advert_int 1                   # Advertisement interval
-            authentication {
-                auth_type PASS
-                auth_pass myS3cr3tpass     # Same password as primary
+                auth_pass mypass99         # Same password as primary
             }
             virtual_ipaddress {
                 192.168.3.208/24 

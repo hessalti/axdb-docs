@@ -9,8 +9,8 @@ Use etcd under /opt/axdb/axdb-etcd/ (when `<axdb-dir>` is /opt/axdb/) on all etc
 Create a dedicated system user for the `etcd` background process on every node:
 
 ```{.bash data-prompt="$"}
-$ getent group etcd >/dev/null || sudo groupadd --system etcd
-$ id -u etcd >/dev/null 2>&1 || sudo useradd --system --gid etcd --home-dir /var/lib/etcd --shell /sbin/nologin etcd
+$ sudo groupadd --system etcd
+$ sudo useradd --system --gid etcd --home-dir /var/lib/etcd --shell /sbin/nologin etcd
 $ sudo mkdir -p /etc/etcd /var/lib/etcd
 $ sudo chown -R etcd:etcd /etc/etcd /var/lib/etcd
 ```

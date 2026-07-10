@@ -18,7 +18,6 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
     | node3         | 192.168.3.203
     | HAProxy1      | 192.168.3.204
     | HAProxy2      | 192.168.3.205
-    | HAProxy3      | 192.168.3.206
     | backup        | 192.168.3.207
 
     We also need a virtual IP address for HAProxy: `192.168.3.208`
@@ -50,7 +49,6 @@ Run the following commands on each node.
     192.168.3.203 node3    
     192.168.3.204 HAProxy1 
     192.168.3.205 HAProxy2 
-    192.168.3.206 HAProxy3
     192.168.3.207 backup   
     ```
 
