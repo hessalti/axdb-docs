@@ -3219,7 +3219,7 @@
 $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>postgres:postgres<span class="w"> </span>/opt/axdb-perl/
 $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>postgres:postgres<span class="w"> </span>/opt/axdb-python3/
 $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>postgres:postgres<span class="w"> </span>/opt/axdb-tcl/
-$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>postgres:postgres<span class="w"> </span>/usr/local/pgsql/data
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>postgres:postgres<span class="w"> </span>/usr/local/pgsql/
 </code></pre></div>
 </li>
 <li>
@@ -4506,6 +4506,7 @@ the same CPU as long as possible.</p>
 <h2 id="solutions-ha-init-setup-next-steps">Next steps<a class="headerlink" href="#solutions-ha-init-setup-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#solutions-ha-etcd-config">Set up etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="solutions-ha-etcd-config" heading-number="6.2.6.2"><h1 id="solutions-ha-etcd-config-etcd-setup">Etcd setup<a class="headerlink" href="#solutions-ha-etcd-config-etcd-setup" title="Permanent link">&para;</a></h1>
 <p>In our solutions, we use etcd distributed configuration store. <a href="#solutions-ha-components-database-and-dsc-layers">Refresh your knowledge about etcd</a>.</p>
+<p>etcd relies heavily on Raft consensus heartbeats. If the system clocks drift by more than a fraction of a second, it causes problems. Sync them using NTP.</p>
 <h2 id="solutions-ha-etcd-config-install-etcd">Install etcd<a class="headerlink" href="#solutions-ha-etcd-config-install-etcd" title="Permanent link">&para;</a></h2>
 <p>Use etcd under /opt/axdb/axdb-etcd/ (when <code>&lt;axdb-dir&gt;</code> is /opt/axdb/) on all etcd nodes: <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
 <p>Create a dedicated system user for the <code>etcd</code> background process on every node:</p>
@@ -4633,6 +4634,22 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 </code></pre></div>
 </details>
 </li>
+<li>
+<p>To check the health of the etcd nodes, use the following command</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/opt/axdb/axdb-etcd/bin/etcdctl<span class="w"> </span>--endpoints<span class="o">=</span><span class="nv">$ENDPOINTS</span><span class="w"> </span>-w<span class="w"> </span>table<span class="w"> </span>endpoint<span class="w"> </span>health
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>+--------------------+--------+------------+-------+
+|      ENDPOINT      | HEALTH |    TOOK    | ERROR |
++--------------------+--------+------------+-------+
+| 192.168.3.201:2379 |   true | 2.208412ms |       |
+| 192.168.3.202:2379 |   true | 2.783703ms |       |
+| 192.168.3.203:2379 |   true | 48.64194ms |       |
++--------------------+--------+------------+-------+
+</code></pre></div>
+</details>
+</li>
 </ol>
 <h2 id="solutions-ha-etcd-config-next-steps">Next steps<a class="headerlink" href="#solutions-ha-etcd-config-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#solutions-ha-patroni">Patroni setup <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="solutions-ha-patroni" heading-number="6.2.6.3"><h1 id="solutions-ha-patroni-patroni-setup">Patroni setup<a class="headerlink" href="#solutions-ha-patroni-patroni-setup" title="Permanent link">&para;</a></h1>
@@ -4642,52 +4659,40 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span><span class="o">{</span>patroni,postgresql<span class="o">}</span>
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span><span class="o">{</span>patroni,postgresql<span class="o">}</span>
 </code></pre></div>
-<p>Even though Patroni can use an existing Postgres installation, our recommendation for a <strong>new cluster that has no data</strong> is to have empty PostgreSQL data directory. This forces Patroni to initialize a new Postgres cluster instance.</p>
+<p>Even though Patroni can use an existing Postgres instance, our recommendation for a <strong>new cluster that has no data</strong> is to have empty PostgreSQL data directory. This forces Patroni to initialize a new Postgres cluster instance.</p>
 <p><strong>Don&rsquo;t</strong> initialize the cluster and start the <code>postgresql</code>. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.</p>
 <h2 id="solutions-ha-patroni-configure-patroni">Configure Patroni<a class="headerlink" href="#solutions-ha-patroni-configure-patroni" title="Permanent link">&para;</a></h2>
-<p>Run the following commands on all nodes. You can do this in parallel:</p>
+<p>Run the following commands on all nodes. Patroni will run on postgres user. You can do this in parallel:</p>
 <h3 id="solutions-ha-patroni-create-environment-variables">Create environment variables<a class="headerlink" href="#solutions-ha-patroni-create-environment-variables" title="Permanent link">&para;</a></h3>
 <p>Environment variables simplify the config file creation:</p>
 <ol>
 <li>
 <p>Node name:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_NAME</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-f<span class="sb">`</span>
+<p>For example, run the following command for <code>node1</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_NAME</span><span class="o">=</span><span class="s2">&quot;node1&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Node IP:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="sb">`</span>getent<span class="w"> </span>hosts<span class="w"> </span><span class="k">$(</span>hostname<span class="w"> </span>-f<span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $1 }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>grep<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;127.0.1.1&#39;</span><span class="sb">`</span>
-</code></pre></div>
-<ul>
-<li>Check that the correct IP address is defined:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$NODE_IP</span>
-</code></pre></div>
-<details class="example">
-<summary>Sample output <code>node1</code></summary>
-<div class="highlight"><pre><span></span><code>192.168.3.201
-</code></pre></div>
-</details>
-<p>If you have multiple IP addresses defined on your server and the environment variable contains the wrong one, you can manually redefine it. For example, run the following command for <code>node1</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="m">192</span>.168.3.201
+<p>For example, run the following command for <code>node1</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="s2">&quot;192.168.3.201&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Create variables to store the <code>PATH</code>. Check the path to the <code>data</code> and <code>bin</code> folders on your operating system and change it for the variables accordingly:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="solutions-ha-patroni-__tabbed_1_1" name="solutions-ha-patroni-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="solutions-ha-patroni-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> RHEL and derivatives</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/pgsql/data/&quot;</span>
-<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/pgsql-18/bin&quot;</span>
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/local/pgsql/data/&quot;</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/opt/axdb/axdb-postgresql18/bin&quot;</span>
 </code></pre></div>
-</div>
-</div>
-</div>
 </li>
 <li>
 <p>Patroni information:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">NAMESPACE</span><span class="o">=</span><span class="s2">&quot;axdb_lab&quot;</span>
-<span class="nv">SCOPE</span><span class="o">=</span><span class="s2">&quot;cluster_1&quot;</span><span class="w">       </span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NAMESPACE</span><span class="o">=</span><span class="s2">&quot;axdb_lab&quot;</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">SCOPE</span><span class="o">=</span><span class="s2">&quot;cluster_1&quot;</span><span class="w">       </span>
 </code></pre></div>
 </li>
 </ol>
@@ -4695,6 +4700,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 <p>Create the directory to store the configuration file and make it owned by the <code>postgres</code> user.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/patroni/
 $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w">  </span>postgres:postgres<span class="w"> </span>/etc/patroni/
+</code></pre></div>
+<p>Create the directory to archive files and make it owned by the <code>postgres</code> user.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/postgres/archived/
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w">  </span>postgres:postgres<span class="w"> </span>/home/postgres/archived/
+</code></pre></div>
+<p>While using a watchdog is optional, it is highly recommended. To enable it, verify that the watchdog device is functioning, uncomment the watchdog section in the configuration file, and ensure the <code>postgres</code> user has write permissions to it.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/dev/watchdog
 </code></pre></div>
 <h3 id="solutions-ha-patroni-patroni-configuration-file">Patroni configuration file<a class="headerlink" href="#solutions-ha-patroni-patroni-configuration-file" title="Permanent link">&para;</a></h3>
 <p>Use the following command to create the <code>/etc/patroni/patroni.yml</code> configuration file and add the following configuration for every node:</p>
@@ -4704,82 +4716,88 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <span class="s2">name: </span><span class="si">${</span><span class="nv">NODE_NAME</span><span class="si">}</span>
 
 <span class="s2">restapi:</span>
-<span class="s2">    listen: 0.0.0.0:8008</span>
-<span class="s2">    connect_address: </span><span class="si">${</span><span class="nv">NODE_IP</span><span class="si">}</span><span class="s2">:8008</span>
+<span class="s2">  listen: 0.0.0.0:8008</span>
+<span class="s2">  connect_address: </span><span class="si">${</span><span class="nv">NODE_IP</span><span class="si">}</span><span class="s2">:8008</span>
 
 <span class="s2">etcd3:</span>
-<span class="s2">    host: </span><span class="si">${</span><span class="nv">NODE_IP</span><span class="si">}</span><span class="s2">:2379</span>
+<span class="s2">  hosts: </span>
+<span class="s2">    - 192.168.3.201:2379</span>
+<span class="s2">    - 192.168.3.202:2379</span>
+<span class="s2">    - 192.168.3.203:2379</span>
 
 <span class="s2">bootstrap:</span>
 <span class="s2">  # this section will be written into Etcd:/&lt;namespace&gt;/&lt;scope&gt;/config after initializing new cluster</span>
 <span class="s2">  dcs:</span>
-<span class="s2">      ttl: 30</span>
-<span class="s2">      loop_wait: 10</span>
-<span class="s2">      retry_timeout: 10</span>
-<span class="s2">      maximum_lag_on_failover: 1048576</span>
+<span class="s2">    ttl: 30</span>
+<span class="s2">    loop_wait: 10</span>
+<span class="s2">    retry_timeout: 10</span>
+<span class="s2">    maximum_lag_on_failover: 1048576</span>
 
-<span class="s2">      postgresql:</span>
-<span class="s2">          use_pg_rewind: true</span>
-<span class="s2">          use_slots: true</span>
-<span class="s2">          parameters:</span>
-<span class="s2">              wal_level: replica</span>
-<span class="s2">              hot_standby: &quot;</span>on<span class="s2">&quot;</span>
-<span class="s2">              wal_keep_segments: 10</span>
-<span class="s2">              max_wal_senders: 5</span>
-<span class="s2">              max_replication_slots: 10</span>
-<span class="s2">              wal_log_hints: &quot;</span>on<span class="s2">&quot;</span>
-<span class="s2">              logging_collector: &#39;on&#39;</span>
-<span class="s2">              max_wal_size: &#39;10GB&#39;</span>
-<span class="s2">              archive_mode: &quot;</span>on<span class="s2">&quot;</span>
-<span class="s2">              archive_timeout: 600s</span>
-<span class="s2">              archive_command: &quot;</span>cp<span class="w"> </span>-f<span class="w"> </span>%p<span class="w"> </span>/home/postgres/archived/%f<span class="s2">&quot;</span>
-
-<span class="s2">      pg_hba: # Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
-<span class="s2">      - host replication replicator 127.0.0.1/32 trust</span>
-<span class="s2">      - host replication replicator 0.0.0.0/0 md5</span>
-<span class="s2">      - host all all 0.0.0.0/0 md5</span>
-<span class="s2">      - host all all ::0/0 md5</span>
+<span class="s2">    postgresql:</span>
+<span class="s2">      use_pg_rewind: true</span>
+<span class="s2">      use_slots: true</span>
+<span class="s2">      parameters:</span>
+<span class="s2">        wal_level: replica</span>
+<span class="s2">        hot_standby: on</span>
+<span class="s2">        max_wal_senders: 5</span>
+<span class="s2">        max_replication_slots: 10</span>
+<span class="s2">        max_slot_wal_keep_size: 10GB</span>
+<span class="s2">        wal_keep_size: 256MB</span>
+<span class="s2">        max_connections: 200</span>
+<span class="s2">        wal_log_hints: on</span>
+<span class="s2">        logging_collector: on</span>
+<span class="s2">        max_wal_size: 10GB</span>
+<span class="s2">        archive_mode: on</span>
+<span class="s2">        archive_timeout: 600</span>
+<span class="s2">        archive_command: &#39;cp -f %p /home/postgres/archived/%f&#39;</span>
 <span class="s2">      recovery_conf:</span>
-<span class="s2">            restore_command: cp /home/postgres/archived/%f %p</span>
+<span class="s2">        restore_command: &#39;cp /home/postgres/archived/%f %p&#39;</span>
+<span class="s2">        recovery_target_timeline: latest</span>
 
 <span class="s2">  # some desired options for &#39;initdb&#39;</span>
 <span class="s2">  initdb: # Note: It needs to be a list (some options need values, others are switches)</span>
-<span class="s2">      - encoding: UTF8</span>
-<span class="s2">      - data-checksums</span>
+<span class="s2">    - encoding: UTF8</span>
+<span class="s2">    - data-checksums</span>
 
+<span class="s2">  ####  - host replication replicator 192.168.3.0/24 trust</span>
+<span class="s2">  pg_hba: # Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
+<span class="s2">    - host replication replicator 127.0.0.1/32 trust</span>
+<span class="s2">    - host replication replicator 0.0.0.0/0 md5</span>
+<span class="s2">    - host all all 0.0.0.0/0 md5</span>
+<span class="s2">    - host all all ::0/0 md5</span>
 
 <span class="s2">postgresql:</span>
-<span class="s2">    cluster_name: cluster_1</span>
-<span class="s2">    listen: 0.0.0.0:5432</span>
-<span class="s2">    connect_address: </span><span class="si">${</span><span class="nv">NODE_IP</span><span class="si">}</span><span class="s2">:5432</span>
-<span class="s2">    data_dir: </span><span class="si">${</span><span class="nv">DATA_DIR</span><span class="si">}</span>
-<span class="s2">    bin_dir: </span><span class="si">${</span><span class="nv">PG_BIN_DIR</span><span class="si">}</span>
-<span class="s2">    pgpass: /tmp/pgpass0</span>
-<span class="s2">    authentication:</span>
-<span class="s2">        replication:</span>
-<span class="s2">            username: replicator</span>
-<span class="s2">            password: replPasswd</span>
-<span class="s2">        superuser:</span>
-<span class="s2">            username: postgres</span>
-<span class="s2">            password: qaz123</span>
-<span class="s2">    parameters:</span>
-<span class="s2">        unix_socket_directories: &quot;</span>/var/run/postgresql/<span class="s2">&quot;</span>
-<span class="s2">    create_replica_methods:</span>
-<span class="s2">        - basebackup</span>
-<span class="s2">    basebackup:</span>
-<span class="s2">        checkpoint: &#39;fast&#39;</span>
+<span class="s2">  cluster_name: cluster_1</span>
+<span class="s2">  listen: 0.0.0.0:5432</span>
+<span class="s2">  connect_address: </span><span class="si">${</span><span class="nv">NODE_IP</span><span class="si">}</span><span class="s2">:5432</span>
+<span class="s2">  data_dir: </span><span class="si">${</span><span class="nv">DATA_DIR</span><span class="si">}</span>
+<span class="s2">  bin_dir: </span><span class="si">${</span><span class="nv">PG_BIN_DIR</span><span class="si">}</span>
+<span class="s2">  pgpass: /tmp/pgpass</span>
+<span class="s2">  authentication:</span>
+<span class="s2">    replication:</span>
+<span class="s2">      username: replicator</span>
+<span class="s2">      password: replPasswd</span>
+<span class="s2">    superuser:</span>
+<span class="s2">      username: postgres</span>
+<span class="s2">      password: qaz123</span>
+<span class="s2">  parameters:</span>
+<span class="s2">    unix_socket_directories: &quot;</span>/tmp<span class="s2">&quot;</span>
+<span class="s2">  create_replica_methods:</span>
+<span class="s2">    - basebackup</span>
+<span class="s2">  basebackup:</span>
+<span class="s2">    checkpoint: &#39;fast&#39;</span>
 
-<span class="s2">    watchdog:</span>
-<span class="s2">      mode: required # Allowed values: off, automatic, required</span>
-<span class="s2">      device: /dev/watchdog</span>
-<span class="s2">      safety_margin: 5</span>
+<span class="s2">#watchdog:</span>
+<span class="s2">#  mode: required # Allowed values: off, automatic, required</span>
+<span class="s2">#  device: /dev/watchdog</span>
+<span class="s2">#  safety_margin: 5</span>
 
 <span class="s2">tags:</span>
-<span class="s2">    nofailover: false</span>
-<span class="s2">    noloadbalance: false</span>
-<span class="s2">    clonefrom: false</span>
-<span class="s2">    nosync: false</span>
-<span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/patroni/patroni.yml
+<span class="s2">  nofailover: false</span>
+<span class="s2">  noloadbalance: false</span>
+<span class="s2">  clonefrom: false</span>
+<span class="s2">  nosync: false</span>
+<span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>/etc/patroni/patroni.yml
 </code></pre></div>
 <details class="admonition">
 <summary>Patroni configuration file</summary>
@@ -4791,9 +4809,9 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <h3 id="solutions-ha-patroni-systemd-configuration">Systemd configuration<a class="headerlink" href="#solutions-ha-patroni-systemd-configuration" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Check that the systemd unit file <code>axdb-patroni.service</code> is created in <code>/etc/systemd/system</code>. If it is created, skip this step. </p>
+<p>Check that the systemd unit file <code>patroni.service</code> is created in <code>/etc/systemd/system</code>. If it is created, skip this step. </p>
 <p>If it&rsquo;s <strong>not created</strong>, create it manually and specify the following contents within:</p>
-<div class="highlight"><span class="filename">/etc/systemd/system/axdb-patroni.service</span><pre><span></span><code><span class="k">[Unit]</span>
+<div class="highlight"><span class="filename">/etc/systemd/system/patroni.service</span><pre><span></span><code><span class="k">[Unit]</span>
 <span class="na">Description</span><span class="o">=</span><span class="s">Runners to orchestrate a high-availability PostgreSQL</span>
 <span class="na">After</span><span class="o">=</span><span class="s">syslog.target network.target</span><span class="w"> </span>
 
@@ -4804,7 +4822,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <span class="na">Group</span><span class="o">=</span><span class="s">postgres</span><span class="w"> </span>
 
 <span class="c1"># Start the patroni process</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/bin/patroni /etc/patroni/patroni.yml</span><span class="w"> </span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/axdb/axdb-patroni/bin/patroni /etc/patroni/patroni.yml</span><span class="w"> </span>
 
 <span class="c1"># Send HUP to reload from patroni.yml</span>
 <span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -s HUP $MAINPID</span><span class="w"> </span>
@@ -4835,18 +4853,20 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <p>Now it&rsquo;s time to start Patroni. You need the following commands on all nodes but <strong>not in parallel</strong>. </p>
 <ol>
 <li>
-<p>Start Patroni on <code>node1</code> first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>axdb-patroni
+<p>Start Patroni on the primary node(in this example, <code>node1</code>) first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>patroni
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>patroni
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>patroni
 </code></pre></div>
 <p>When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. </p>
 </li>
 <li>
 <p>Check the service to see if there are errors:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-fu<span class="w"> </span>axdb-patroni
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-fu<span class="w"> </span>patroni
 </code></pre></div>
 <p>See <a href="#solutions-ha-patroni-troubleshooting-patroni-startup">Troubleshooting Patroni startup</a> for guidelines in case of errors. </p>
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 
 psql<span class="w"> </span><span class="o">(</span><span class="m">18</span>.4<span class="o">)</span>
 Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.
@@ -4856,26 +4876,18 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class=
 </li>
 <li>
 <p>When all nodes are up and running, you can check the cluster status using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>list
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>list
 </code></pre></div>
 <p>The output resembles the following:</p>
 <details class="example">
-<summary>Sample output node1</summary>
-<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
-| Member | Host          | Role    | State     | TL | Lag in MB |
-+--------+---------------+---------+-----------+----+-----------+
-| node1  | 192.168.3.201 | Leader  | running   |  1 |           |
-</code></pre></div>
-</details>
-<details class="example">
-<summary>Sample output node3</summary>
-<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
-| Member | Host          | Role    | State     | TL | Lag in MB |
-+--------+---------------+---------+-----------+----+-----------+
-| node1  | 192.168.3.201 | Leader  | running   |  1 |           |
-| node2  | 192.168.3.202 | Replica | streaming |  1 |         0 |
-| node3  | 192.168.3.203 | Replica | streaming |  1 |         0 |
-+--------+---------------+---------+-----------+----+-----------+
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7662233048390239093) ----+----+-------------+-----+------------+-----+
+| Member | Host          | Role    | State     | TL | Receive LSN | Lag | Replay LSN | Lag |
++--------+---------------+---------+-----------+----+-------------+-----+------------+-----+
+| node1  | 192.168.3.201 | Leader  | running   |  1 |             |     |            |     |
+| node2  | 192.168.3.202 | Replica | streaming |  1 |   0/6000000 |   0 |  0/6000000 |   0 |
+| node3  | 192.168.3.203 | Replica | streaming |  1 |   0/6000000 |   0 |  0/6000000 |   0 |
++--------+---------------+---------+-----------+----+-------------+-----+------------+-----+
 </code></pre></div>
 </details>
 </li>
@@ -4890,8 +4902,6 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class=
 - host replication replicator 192.168.3.203/32 trust
 - host all all 0.0.0.0/0 md5
 - host all all ::0/0 md5
-recovery_conf:
-      restore_command: cp /home/postgres/archived/%f %p
 </code></pre></div>
 <p>For production use, we recommend adding nodes individually as the more secure way. However, if your network is secure and you trust it, you can add the whole network these nodes belong to as the trusted one to bypass passwords use during authentication. Then all nodes from this network can connect to Patroni cluster. </p>
 <p>Changing the <code>patroni.yml</code> file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. </p>
@@ -4902,7 +4912,7 @@ recovery_conf:
 <h2 id="solutions-pgbackrest-preparation">Preparation<a class="headerlink" href="#solutions-pgbackrest-preparation" title="Permanent link">&para;</a></h2>
 <p>Make sure to complete the <a href="#solutions-ha-init-setup">initial setup</a> steps.</p>
 <h2 id="solutions-pgbackrest-install-pgbackrest">Install pgBackRest<a class="headerlink" href="#solutions-pgbackrest-install-pgbackrest" title="Permanent link">&para;</a></h2>
-<p>Install pgBackRest on all nodes: <code>node1</code>, <code>node2</code>, <code>node3</code>, and <code>backup</code>.</p>
+<p>Use pgBackRest under /opt/axdb/axdb-etcd/ (when <code>&lt;axdb-dir&gt;</code> is /opt/axdb/) on all nodes: <code>node1</code>, <code>node2</code>, <code>node3</code>, and <code>backup</code>.</p>
 <h2 id="solutions-pgbackrest-configure-a-backup-server">Configure a backup server<a class="headerlink" href="#solutions-pgbackrest-configure-a-backup-server" title="Permanent link">&para;</a></h2>
 <p>Do the following steps on the <code>backup</code> node.</p>
 <h3 id="solutions-pgbackrest-create-the-configuration-file">Create the configuration file<a class="headerlink" href="#solutions-pgbackrest-create-the-configuration-file" title="Permanent link">&para;</a></h3>
@@ -4919,7 +4929,6 @@ recovery_conf:
 <li>
 <p>Create the <code>pgBackRest</code> repository, <em>if necessary</em>.</p>
 <p>A repository is where <code>pgBackRest</code> stores backups. In this example, the backups will be saved to <code>/var/lib/pgbackrest</code>.</p>
-<p>This directory is usually created during pgBackRest&rsquo;s installation process. If it&rsquo;s not there already, create it as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/pgbackrest
 $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/var/lib/pgbackrest
 $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/pgbackrest
@@ -4990,7 +4999,7 @@ pg1-host-type=tls
 pg1-host-cert-file=${CA_PATH}/${NODE1_NAME}.crt
 pg1-host-key-file=${CA_PATH}/${NODE1_NAME}.key
 pg1-host-ca-file=${CA_PATH}/ca.crt
-pg1-socket-path=/var/run/postgresql 
+pg1-socket-path=/tmp
 
 pg2-host=${NODE2_NAME}
 pg2-host-port=8432
@@ -5000,7 +5009,7 @@ pg2-host-type=tls
 pg2-host-cert-file=${CA_PATH}/${NODE2_NAME}.crt
 pg2-host-key-file=${CA_PATH}/${NODE2_NAME}.key
 pg2-host-ca-file=${CA_PATH}/ca.crt
-pg2-socket-path=/var/run/postgresql 
+pg2-socket-path=/tmp
 
 pg3-host=${NODE3_NAME}
 pg3-host-port=8432
@@ -5010,9 +5019,9 @@ pg3-host-type=tls
 pg3-host-cert-file=${CA_PATH}/${NODE3_NAME}.crt
 pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
 pg3-host-ca-file=${CA_PATH}/ca.crt
-pg3-socket-path=/var/run/postgresql
+pg3-socket-path=/tmp
 
-&quot; | sudo tee /etc/pgbackrest.conf
+&quot; | tee /etc/pgbackrest.conf
 </code></pre></div>
 </div>
 </div>
@@ -5359,13 +5368,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <span class="na">RuntimeDirectory</span><span class="o">=</span><span class="s">haproxy</span>
 <span class="na">RuntimeDirectoryMode</span><span class="o">=</span><span class="s">0755</span>
 <span class="na">ExecStartPre</span><span class="o">=</span><span class="s">/opt/axdb/axdb-haproxy/sbin/haproxy -f $CONFIG -c -q</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/axdb/axdb-haproxy/sbin/haproxy -W -f $CONFIG -p $PIDFILE</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/axdb/axdb-haproxy/sbin/haproxy -W -f $CONFIG</span>
 <span class="na">ExecReload</span><span class="o">=</span><span class="s">/opt/axdb/axdb-haproxy/sbin/haproxy -f $CONFIG -c -q</span>
 <span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -USR2 $MAINPID</span>
 <span class="na">KillMode</span><span class="o">=</span><span class="s">mixed</span>
 <span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
 <span class="na">SuccessExitStatus</span><span class="o">=</span><span class="s">143</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">forking</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
 
 <span class="k">[Install]</span>
 <span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
@@ -5402,11 +5411,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </li>
 <li>
 <p>Create the <code>keepalived</code> configuration file at <code>/etc/keepalived/keepalived.conf</code> with the following contents for each node:</p>
+<p>Check the priority and network interface. </p>
+<p>Check network/firewall rules blocking the VRRP communication between the nodes. It can cause Split-Brain condition.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="solutions-ha-haproxy-__tabbed_2_1" name="solutions-ha-haproxy-__tabbed_2" type="radio" /><input id="solutions-ha-haproxy-__tabbed_2_2" name="solutions-ha-haproxy-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="solutions-ha-haproxy-__tabbed_2_1">Primary HAProxy (HAProxy1)</label><label for="solutions-ha-haproxy-__tabbed_2_2">HAProxy2</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
+<span class="w">    </span><span class="na">script &quot;/usr/bin/systemctl is-active haproxy&quot;    # Basic check if HAProxy process is running</span>
 <span class="w">    </span><span class="na">interval 3                     # Check every 2 seconds</span>
 <span class="w">    </span><span class="na">fall 3                         # The number of failures to mark the node as down</span>
 <span class="w">    </span><span class="na">rise 2                         # The number of successes to mark the node as up</span>
@@ -5434,7 +5445,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
+<span class="w">    </span><span class="na">script &quot;/usr/bin/systemctl is-active haproxy&quot;    # Basic check if HAProxy process is running</span>
 <span class="w">    </span><span class="na">interval 3                     # Check every 2 seconds</span>
 <span class="w">    </span><span class="na">fall 3                         # The number of failures to mark the node as down</span>
 <span class="w">    </span><span class="na">rise 2                         # The number of successes to mark the node as up</span>
@@ -5476,7 +5487,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The basic health check (<code>killall -0 haproxy</code>) only verifies that the HAProxy process is running. For production environments, consider implementing more comprehensive health checks that verify the node&rsquo;s overall responsiveness and HAProxy&rsquo;s ability to handle connections.</p>
+<p>The basic health check only verifies that the HAProxy process is running. For production environments, consider implementing more comprehensive health checks that verify the node&rsquo;s overall responsiveness and HAProxy&rsquo;s ability to handle connections.</p>
 </div>
 <h3 id="solutions-ha-haproxy-example-of-haproxy-health-check">Example of HAProxy health check<a class="headerlink" href="#solutions-ha-haproxy-example-of-haproxy-health-check" title="Permanent link">&para;</a></h3>
 <p>Sometimes checking only the running haproxy process is not enough. The process may be running while HAProxy is in a degraded state. A good practice is to make additional checks to ensure HAProxy is healthy.</p>
