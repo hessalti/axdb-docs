@@ -87,13 +87,13 @@ If you use a cloud infrastructure, it may be easier to use the load balancer pro
     RuntimeDirectory=haproxy
     RuntimeDirectoryMode=0755
     ExecStartPre=/opt/axdb/axdb-haproxy/sbin/haproxy -f $CONFIG -c -q
-    ExecStart=/opt/axdb/axdb-haproxy/sbin/haproxy -W -f $CONFIG -p $PIDFILE
+    ExecStart=/opt/axdb/axdb-haproxy/sbin/haproxy -W -f $CONFIG
     ExecReload=/opt/axdb/axdb-haproxy/sbin/haproxy -f $CONFIG -c -q
     ExecReload=/bin/kill -USR2 $MAINPID
     KillMode=mixed
     Restart=always
     SuccessExitStatus=143
-    Type=forking
+    Type=simple
 
     [Install]
     WantedBy=multi-user.target
@@ -130,11 +130,15 @@ In this setup we define the basic health check for HAProxy. You may want to use 
 
 2. Create the `keepalived` configuration file at `/etc/keepalived/keepalived.conf` with the following contents for each node:
 
+    Check the priority and network interface. 
+    
+    Check network/firewall rules blocking the VRRP communication between the nodes. It can cause Split-Brain condition.
+
     === "Primary HAProxy (HAProxy1)"
 
         ```ini
         vrrp_script chk_haproxy {
-            script "killall -0 haproxy"    # Basic check if HAProxy process is running
+            script "/usr/bin/systemctl is-active haproxy"    # Basic check if HAProxy process is running
             interval 3                     # Check every 2 seconds
             fall 3                         # The number of failures to mark the node as down
             rise 2                         # The number of successes to mark the node as up
@@ -164,7 +168,7 @@ In this setup we define the basic health check for HAProxy. You may want to use 
 
         ```ini
         vrrp_script chk_haproxy {
-            script "killall -0 haproxy"    # Basic check if HAProxy process is running
+            script "/usr/bin/systemctl is-active haproxy"    # Basic check if HAProxy process is running
             interval 3                     # Check every 2 seconds
             fall 3                         # The number of failures to mark the node as down
             rise 2                         # The number of successes to mark the node as up
@@ -204,7 +208,7 @@ In this setup we define the basic health check for HAProxy. You may want to use 
 
 !!! note
 
-    The basic health check (`killall -0 haproxy`) only verifies that the HAProxy process is running. For production environments, consider implementing more comprehensive health checks that verify the node's overall responsiveness and HAProxy's ability to handle connections.
+    The basic health check only verifies that the HAProxy process is running. For production environments, consider implementing more comprehensive health checks that verify the node's overall responsiveness and HAProxy's ability to handle connections.
 
 ### Example of HAProxy health check
 

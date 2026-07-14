@@ -11,13 +11,13 @@ $ sudo systemctl stop {patroni,postgresql}
 $ sudo systemctl disable {patroni,postgresql}
 ```
     
-Even though Patroni can use an existing Postgres installation, our recommendation for a **new cluster that has no data** is to have empty PostgreSQL data directory. This forces Patroni to initialize a new Postgres cluster instance.
+Even though Patroni can use an existing Postgres instance, our recommendation for a **new cluster that has no data** is to have empty PostgreSQL data directory. This forces Patroni to initialize a new Postgres cluster instance.
 
 **Don't** initialize the cluster and start the `postgresql`. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
 
 ## Configure Patroni
 
-Run the following commands on all nodes. You can do this in parallel:
+Run the following commands on all nodes. Patroni will run on postgres user. You can do this in parallel:
 
 ### Create environment variables 
 
@@ -25,48 +25,34 @@ Environment variables simplify the config file creation:
 
 1. Node name:
 
+    For example, run the following command for `node1`:
+
     ```{.bash data-prompt="$"}
-    $ export NODE_NAME=`hostname -f`
+    $ export NODE_NAME="node1"
     ```
 
 2. Node IP:
 
+    For example, run the following command for `node1`:
+
     ```{.bash data-prompt="$"}
-    $ export NODE_IP=`getent hosts $(hostname -f) | awk '{ print $1 }' | grep -v grep | grep -v '127.0.1.1'`
+    $ export NODE_IP="192.168.3.201"
     ```
-
-    * Check that the correct IP address is defined:
-
-       ```{.bash data-prompt="$"}
-       $ echo $NODE_IP
-       ```
-
-    ??? example "Sample output `node1`"
-
-           ```{text .no-copy}
-           192.168.3.201
-           ```
-
-       If you have multiple IP addresses defined on your server and the environment variable contains the wrong one, you can manually redefine it. For example, run the following command for `node1`:
-
-       ```{.bash data-prompt="$"}
-       $ NODE_IP=192.168.3.201
-       ```
 
 3. Create variables to store the `PATH`. Check the path to the `data` and `bin` folders on your operating system and change it for the variables accordingly:
 
     === ":material-redhat: RHEL and derivatives"
 
-        ```bash
-        DATA_DIR="/var/lib/pgsql/data/"
-        PG_BIN_DIR="/usr/pgsql-{{pgversion}}/bin"
-        ```
+    ```{.bash data-prompt="$"}
+    $ export DATA_DIR="/usr/local/pgsql/data/"
+    $ export PG_BIN_DIR="/opt/axdb/axdb-postgresql{{pgversion}}/bin"
+    ```
     
 4. Patroni information:
 
-    ```bash
-    NAMESPACE="axdb_lab"
-    SCOPE="cluster_1"       
+    ```{.bash data-prompt="$"}
+    $ export NAMESPACE="axdb_lab"
+    $ export SCOPE="cluster_1"       
     ```
 
 ### Create the directories required by Patroni
@@ -76,6 +62,19 @@ Create the directory to store the configuration file and make it owned by the `p
 ```{.bash data-prompt="$"}
 $ sudo mkdir -p /etc/patroni/
 $ sudo chown -R  postgres:postgres /etc/patroni/
+``` 
+
+Create the directory to archive files and make it owned by the `postgres` user.
+
+```{.bash data-prompt="$"}
+$ sudo mkdir -p /home/postgres/archived/
+$ sudo chown -R  postgres:postgres /home/postgres/archived/
+``` 
+
+While using a watchdog is optional, it is highly recommended. To enable it, verify that the watchdog device is functioning, uncomment the watchdog section in the configuration file, and ensure the `postgres` user has write permissions to it.
+
+```{.bash data-prompt="$"}
+$ sudo chown postgres:postgres /dev/watchdog
 ``` 
 
 ### Patroni configuration file
@@ -89,82 +88,88 @@ scope: ${SCOPE}
 name: ${NODE_NAME}
 
 restapi:
-    listen: 0.0.0.0:8008
-    connect_address: ${NODE_IP}:8008
+  listen: 0.0.0.0:8008
+  connect_address: ${NODE_IP}:8008
 
 etcd3:
-    host: ${NODE_IP}:2379
+  hosts: 
+    - 192.168.3.201:2379
+    - 192.168.3.202:2379
+    - 192.168.3.203:2379
 
 bootstrap:
   # this section will be written into Etcd:/<namespace>/<scope>/config after initializing new cluster
   dcs:
-      ttl: 30
-      loop_wait: 10
-      retry_timeout: 10
-      maximum_lag_on_failover: 1048576
+    ttl: 30
+    loop_wait: 10
+    retry_timeout: 10
+    maximum_lag_on_failover: 1048576
 
-      postgresql:
-          use_pg_rewind: true
-          use_slots: true
-          parameters:
-              wal_level: replica
-              hot_standby: "on"
-              wal_keep_segments: 10
-              max_wal_senders: 5
-              max_replication_slots: 10
-              wal_log_hints: "on"
-              logging_collector: 'on'
-              max_wal_size: '10GB'
-              archive_mode: "on"
-              archive_timeout: 600s
-              archive_command: "cp -f %p /home/postgres/archived/%f"
-    
-      pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
-      - host replication replicator 127.0.0.1/32 trust
-      - host replication replicator 0.0.0.0/0 md5
-      - host all all 0.0.0.0/0 md5
-      - host all all ::0/0 md5
+    postgresql:
+      use_pg_rewind: true
+      use_slots: true
+      parameters:
+        wal_level: replica
+        hot_standby: on
+        max_wal_senders: 5
+        max_replication_slots: 10
+        max_slot_wal_keep_size: 10GB
+        wal_keep_size: 256MB
+        max_connections: 200
+        wal_log_hints: on
+        logging_collector: on
+        max_wal_size: 10GB
+        archive_mode: on
+        archive_timeout: 600
+        archive_command: 'cp -f %p /home/postgres/archived/%f'
       recovery_conf:
-            restore_command: cp /home/postgres/archived/%f %p
-
+        restore_command: 'cp /home/postgres/archived/%f %p'
+        recovery_target_timeline: latest
+    
   # some desired options for 'initdb'
   initdb: # Note: It needs to be a list (some options need values, others are switches)
-      - encoding: UTF8
-      - data-checksums
+    - encoding: UTF8
+    - data-checksums
 
+  ####  - host replication replicator 192.168.3.0/24 trust
+  pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
+    - host replication replicator 127.0.0.1/32 trust
+    - host replication replicator 0.0.0.0/0 md5
+    - host all all 0.0.0.0/0 md5
+    - host all all ::0/0 md5
     
 postgresql:
-    cluster_name: cluster_1
-    listen: 0.0.0.0:5432
-    connect_address: ${NODE_IP}:5432
-    data_dir: ${DATA_DIR}
-    bin_dir: ${PG_BIN_DIR}
-    pgpass: /tmp/pgpass0
-    authentication:
-        replication:
-            username: replicator
-            password: replPasswd
-        superuser:
-            username: postgres
-            password: qaz123
-    parameters:
-        unix_socket_directories: "/var/run/postgresql/"
-    create_replica_methods:
-        - basebackup
-    basebackup:
-        checkpoint: 'fast'
+  cluster_name: cluster_1
+  listen: 0.0.0.0:5432
+  connect_address: ${NODE_IP}:5432
+  data_dir: ${DATA_DIR}
+  bin_dir: ${PG_BIN_DIR}
+  pgpass: /tmp/pgpass
+  authentication:
+    replication:
+      username: replicator
+      password: replPasswd
+    superuser:
+      username: postgres
+      password: qaz123
+  parameters:
+    unix_socket_directories: "/tmp"
+  create_replica_methods:
+    - basebackup
+  basebackup:
+    checkpoint: 'fast'
 
-    watchdog:
-      mode: required # Allowed values: off, automatic, required
-      device: /dev/watchdog
-      safety_margin: 5
+#watchdog:
+#  mode: required # Allowed values: off, automatic, required
+#  device: /dev/watchdog
+#  safety_margin: 5
 
 tags:
-    nofailover: false
-    noloadbalance: false
-    clonefrom: false
-    nosync: false
-" | sudo tee /etc/patroni/patroni.yml
+  nofailover: false
+  noloadbalance: false
+  clonefrom: false
+  nosync: false
+" | tee /etc/patroni/patroni.yml
 ```
 
 ??? admonition "Patroni configuration file"
@@ -179,11 +184,11 @@ tags:
 
 ### Systemd configuration
 
-1. Check that the systemd unit file `axdb-patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
+1. Check that the systemd unit file `patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
 
     If it's **not created**, create it manually and specify the following contents within:
 
-    ```ini title="/etc/systemd/system/axdb-patroni.service"
+    ```ini title="/etc/systemd/system/patroni.service"
     [Unit]
     Description=Runners to orchestrate a high-availability PostgreSQL
     After=syslog.target network.target 
@@ -195,7 +200,7 @@ tags:
     Group=postgres 
 
     # Start the patroni process
-    ExecStart=/bin/patroni /etc/patroni/patroni.yml 
+    ExecStart=/opt/axdb/axdb-patroni/bin/patroni /etc/patroni/patroni.yml 
 
     # Send HUP to reload from patroni.yml
     ExecReload=/bin/kill -s HUP $MAINPID 
@@ -225,10 +230,12 @@ tags:
 
 Now it's time to start Patroni. You need the following commands on all nodes but **not in parallel**. 
 
-1. Start Patroni on `node1` first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
+1. Start Patroni on the primary node(in this example, `node1`) first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now axdb-patroni
+    $ sudo systemctl enable patroni
+    $ sudo systemctl start patroni
+    $ sudo systemctl status patroni
     ```
 
     When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
@@ -236,7 +243,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 2. Check the service to see if there are errors:
 
     ```{.bash data-prompt="$"}
-    $ sudo journalctl -fu axdb-patroni
+    $ sudo journalctl -fu patroni
     ```
 
     See [Troubleshooting Patroni startup](#troubleshooting-patroni-startup) for guidelines in case of errors. 
@@ -244,7 +251,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
     If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
     ```{.bash data-prompt="$"}
-    $ sudo psql -U postgres
+    $ psql -U postgres
 
     psql ({{dockertag}})
     Type "help" for help.
@@ -255,30 +262,21 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 9. When all nodes are up and running, you can check the cluster status using the following command:
 
     ```{.bash data-prompt="$"}
-    $ sudo patronictl -c /etc/patroni/patroni.yml list
+    $ patronictl -c /etc/patroni/patroni.yml list
     ```
     
     The output resembles the following:
 
-    ??? example "Sample output node1"
+    ??? example "Sample output"
 
         ```{.text .no-copy}
-        + Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
-        | Member | Host          | Role    | State     | TL | Lag in MB |
-        +--------+---------------+---------+-----------+----+-----------+
-        | node1  | 192.168.3.201 | Leader  | running   |  1 |           |
-        ```
-
-    ??? example "Sample output node3"
-
-        ```{.text .no-copy}
-        + Cluster: cluster_1 (7440127629342136675) ----+----+-----------+
-        | Member | Host          | Role    | State     | TL | Lag in MB |
-        +--------+---------------+---------+-----------+----+-----------+
-        | node1  | 192.168.3.201 | Leader  | running   |  1 |           |
-        | node2  | 192.168.3.202 | Replica | streaming |  1 |         0 |
-        | node3  | 192.168.3.203 | Replica | streaming |  1 |         0 |
-        +--------+---------------+---------+-----------+----+-----------+
+        + Cluster: cluster_1 (7662233048390239093) ----+----+-------------+-----+------------+-----+
+        | Member | Host          | Role    | State     | TL | Receive LSN | Lag | Replay LSN | Lag |
+        +--------+---------------+---------+-----------+----+-------------+-----+------------+-----+
+        | node1  | 192.168.3.201 | Leader  | running   |  1 |             |     |            |     |
+        | node2  | 192.168.3.202 | Replica | streaming |  1 |   0/6000000 |   0 |  0/6000000 |   0 |
+        | node3  | 192.168.3.203 | Replica | streaming |  1 |   0/6000000 |   0 |  0/6000000 |   0 |
+        +--------+---------------+---------+-----------+----+-------------+-----+------------+-----+
         ```
 
 ### Troubleshooting Patroni startup
@@ -295,8 +293,6 @@ pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
 - host replication replicator 192.168.3.203/32 trust
 - host all all 0.0.0.0/0 md5
 - host all all ::0/0 md5
-recovery_conf:
-      restore_command: cp /home/postgres/archived/%f %p
 ```
 
 For production use, we recommend adding nodes individually as the more secure way. However, if your network is secure and you trust it, you can add the whole network these nodes belong to as the trusted one to bypass passwords use during authentication. Then all nodes from this network can connect to Patroni cluster. 

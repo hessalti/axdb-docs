@@ -2,6 +2,8 @@
 
 In our solutions, we use etcd distributed configuration store. [Refresh your knowledge about etcd](ha-components.md#database-and-dsc-layers).
 
+etcd relies heavily on Raft consensus heartbeats. If the system clocks drift by more than a fraction of a second, it causes problems. Sync them using NTP.
+
 ## Install etcd
 
 Use etcd under /opt/axdb/axdb-etcd/ (when `<axdb-dir>` is /opt/axdb/) on all etcd nodes: `node1`, `node2` and `node3`.

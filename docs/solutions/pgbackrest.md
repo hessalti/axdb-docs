@@ -10,7 +10,7 @@ Make sure to complete the [initial setup](ha-init-setup.md) steps.
 
 ## Install pgBackRest
 
-Install pgBackRest on all nodes: `node1`, `node2`, `node3`, and `backup`.
+Use pgBackRest under /opt/axdb/axdb-etcd/ (when `<axdb-dir>` is /opt/axdb/) on all nodes: `node1`, `node2`, `node3`, and `backup`.
 
 ## Configure a backup server
 
@@ -31,8 +31,6 @@ Do the following steps on the `backup` node.
 2. Create the `pgBackRest` repository, *if necessary*.
 
     A repository is where `pgBackRest` stores backups. In this example, the backups will be saved to `/var/lib/pgbackrest`.
-
-    This directory is usually created during pgBackRest's installation process. If it's not there already, create it as follows:
 
     ```{.bash data-prompt="$"}
     $ sudo mkdir -p /var/lib/pgbackrest
@@ -107,7 +105,7 @@ Do the following steps on the `backup` node.
         pg1-host-cert-file=${CA_PATH}/${NODE1_NAME}.crt
         pg1-host-key-file=${CA_PATH}/${NODE1_NAME}.key
         pg1-host-ca-file=${CA_PATH}/ca.crt
-        pg1-socket-path=/var/run/postgresql 
+        pg1-socket-path=/tmp
      
         pg2-host=${NODE2_NAME}
         pg2-host-port=8432
@@ -117,7 +115,7 @@ Do the following steps on the `backup` node.
         pg2-host-cert-file=${CA_PATH}/${NODE2_NAME}.crt
         pg2-host-key-file=${CA_PATH}/${NODE2_NAME}.key
         pg2-host-ca-file=${CA_PATH}/ca.crt
-        pg2-socket-path=/var/run/postgresql 
+        pg2-socket-path=/tmp
     
         pg3-host=${NODE3_NAME}
         pg3-host-port=8432
@@ -127,9 +125,9 @@ Do the following steps on the `backup` node.
         pg3-host-cert-file=${CA_PATH}/${NODE3_NAME}.crt
         pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
         pg3-host-ca-file=${CA_PATH}/ca.crt
-        pg3-socket-path=/var/run/postgresql
+        pg3-socket-path=/tmp
         
-        " | sudo tee /etc/pgbackrest.conf
+        " | tee /etc/pgbackrest.conf
         ```
 
     Where:

@@ -86,7 +86,7 @@ The steps below install the tarballs for OpenSSL 3.5.x on x86_64 architecture.
     $ sudo chown -R postgres:postgres /opt/axdb-perl/
     $ sudo chown -R postgres:postgres /opt/axdb-python3/
     $ sudo chown -R postgres:postgres /opt/axdb-tcl/
-    $ sudo chown -R postgres:postgres /usr/local/pgsql/data
+    $ sudo chown -R postgres:postgres /usr/local/pgsql/
     ```
 
 7. Switch to the user that owns the Postgres process. In our example, `postgres`:
